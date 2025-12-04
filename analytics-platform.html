@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Analytics Platform - KIMIA Mining Solutions</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="index,follow">
+  <meta name="generator" content="GrapesJS Studio">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  </head>
+  <body><!-- Navigation --><nav class="navbar"><div class="container"><div class="nav-container" id="iscjdyg"><div class="logo"><i class="fas fa-chart-line"></i><span id="i28hbsz">Analytics Platform</span></div><ul class="nav-menu"><li><a class="nav-link">Features</a></li><li><a class="nav-link">Analytics</a></li><li><a class="nav-link">Dashboard</a></li><li><a class="nav-link">Pricing</a></li><li><a class="nav-link" id="i0uyj1g">Contact</a></li></ul><button type="button" class="btn-primary">Start Free Trial</button></div></div></nav><!-- Hero Section --><section class="hero"><div class="container"><div class="hero-content"><div class="hero-text"><h1>
+                      Data-Driven Insights for
+                      <span class="gradient-text">Smart Mining Operations</span></h1><p>
+                      Advanced analytics platform providing real-time insights, predictive analytics, 
+                      and comprehensive reporting to optimize mining performance and profitability.
+                  </p><div class="hero-buttons"><button type="button" class="btn-primary"><i class="fas fa-rocket"></i> Get Started
+                      </button><button type="button" class="btn-secondary"><i class="fas fa-play"></i> Watch Demo
+                      </button></div><div class="hero-stats"><div class="stat-box"><div class="stat-number">50+</div><div class="stat-label">Data Sources</div></div><div class="stat-box"><div class="stat-number">1M+</div><div class="stat-label">Data Points/Day</div></div><div class="stat-box"><div class="stat-number">99.9%</div><div class="stat-label">Uptime</div></div><div class="stat-box"><div class="stat-number">24/7</div><div class="stat-label">Monitoring</div></div></div></div><div class="hero-dashboard"><div class="dashboard-header"><div class="dashboard-title">Production Overview</div><div class="dashboard-filters"><button type="button" class="filter-btn active">Day</button><button type="button" class="filter-btn">Week</button><button type="button" class="filter-btn">Month</button><button type="button" class="filter-btn">Year</button></div></div><div class="chart-container"><canvas id="heroChart"></canvas></div></div></div></div></section><!-- Features Section --><section id="features" class="features-section"><div class="container"><div class="section-header"><span class="section-badge">Platform Features</span><h2 class="section-title">Comprehensive Analytics Suite</h2><p class="section-description">
+                  Everything you need to transform data into actionable insights
+              </p></div><div class="features-grid"><div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-bar"></i></div><h3>Real-Time Dashboards</h3><p>Interactive dashboards with live data updates and customizable widgets</p><ul class="feature-list"><li><i class="fas fa-check"></i> Custom Dashboard Builder</li><li><i class="fas fa-check"></i> Live Data Streaming</li><li><i class="fas fa-check"></i> Multi-Screen Support</li><li><i class="fas fa-check"></i> Mobile Responsive</li><li><i class="fas fa-check"></i> Role-Based Access</li></ul></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-brain"></i></div><h3>Predictive Analytics</h3><p>AI-powered predictions for maintenance, production, and resource optimization</p><ul class="feature-list"><li><i class="fas fa-check"></i> Equipment Failure Prediction</li><li><i class="fas fa-check"></i> Production Forecasting</li><li><i class="fas fa-check"></i> Resource Optimization</li><li><i class="fas fa-check"></i> Anomaly Detection</li><li><i class="fas fa-check"></i> Trend Analysis</li></ul></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-file-alt"></i></div><h3>Advanced Reporting</h3><p>Automated report generation with customizable templates and scheduling</p><ul class="feature-list"><li><i class="fas fa-check"></i> Automated Reports</li><li><i class="fas fa-check"></i> Custom Templates</li><li><i class="fas fa-check"></i> Scheduled Delivery</li><li><i class="fas fa-check"></i> Multi-Format Export</li><li><i class="fas fa-check"></i> Compliance Reports</li></ul></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-database"></i></div><h3>Data Integration</h3><p>Seamless integration with all major mining systems and data sources</p><ul class="feature-list"><li><i class="fas fa-check"></i> 50+ Integrations</li><li><i class="fas fa-check"></i> API Access</li><li><i class="fas fa-check"></i> Real-Time Sync</li><li><i class="fas fa-check"></i> Data Warehousing</li><li><i class="fas fa-check"></i> ETL Pipelines</li></ul></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-bell"></i></div><h3>Smart Alerts</h3><p>Intelligent notification system for critical events and anomalies</p><ul class="feature-list"><li><i class="fas fa-check"></i> Custom Alert Rules</li><li><i class="fas fa-check"></i> Multi-Channel Notifications</li><li><i class="fas fa-check"></i> Priority Management</li><li><i class="fas fa-check"></i> Alert Analytics</li><li><i class="fas fa-check"></i> Escalation Workflows</li></ul></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Enterprise Security</h3><p>Bank-level security with encryption, compliance, and audit trails</p><ul class="feature-list"><li><i class="fas fa-check"></i> End-to-End Encryption</li><li><i class="fas fa-check"></i> SOC 2 Compliant</li><li><i class="fas fa-check"></i> GDPR Ready</li><li><i class="fas fa-check"></i> Audit Logs</li><li><i class="fas fa-check"></i> SSO Integration</li></ul></div></div></div></section><!-- Analytics Types --><section id="analytics" class="analytics-types-section"><div class="container"><div class="section-header"><span class="section-badge">Analytics Capabilities</span><h2 class="section-title">Multi-Dimensional Analysis</h2><p class="section-description">
+                  Comprehensive analytics across all mining operations
+              </p></div><div class="types-grid"><div class="type-card"><div class="type-icon"><i class="fas fa-industry"></i></div><h3>Production Analytics</h3><p id="intf9uj">
+                      Track and optimize production metrics in real-time
+                  </p><div class="type-metrics"><div class="metric-box"><div class="metric-value">18K</div><div class="metric-label">Tons/Day</div></div><div class="metric-box"><div class="metric-value">95%</div><div class="metric-label">Efficiency</div></div></div></div><div class="type-card"><div class="type-icon"><i class="fas fa-wrench"></i></div><h3>Equipment Analytics</h3><p id="iugsdk6">
+                      Monitor equipment performance and predict maintenance
+                  </p><div class="type-metrics"><div class="metric-box"><div class="metric-value">99.2%</div><div class="metric-label">Uptime</div></div><div class="metric-box"><div class="metric-value">-40%</div><div class="metric-label">Downtime</div></div></div></div><div class="type-card"><div class="type-icon"><i class="fas fa-dollar-sign"></i></div><h3>Financial Analytics</h3><p id="ihyjmhi">
+                      Comprehensive cost analysis and profitability tracking
+                  </p><div class="type-metrics"><div class="metric-box"><div class="metric-value">$42M</div><div class="metric-label">Revenue</div></div><div class="metric-box"><div class="metric-value">+15%</div><div class="metric-label">Margin</div></div></div></div><div class="type-card"><div class="type-icon"><i class="fas fa-hard-hat"></i></div><h3>Safety Analytics</h3><p id="iqigoee">
+                      Monitor safety metrics and identify risk patterns
+                  </p><div class="type-metrics"><div class="metric-box"><div class="metric-value">0.12</div><div class="metric-label">TRIFR</div></div><div class="metric-box"><div class="metric-value">850</div><div class="metric-label">Safe Days</div></div></div></div><div class="type-card"><div class="type-icon"><i class="fas fa-leaf"></i></div><h3>Environmental Analytics</h3><p id="iqyud4h">
+                      Track environmental impact and compliance metrics
+                  </p><div class="type-metrics"><div class="metric-box"><div class="metric-value">-25%</div><div class="metric-label">Emissions</div></div><div class="metric-box"><div class="metric-value">100%</div><div class="metric-label">Compliance</div></div></div></div><div class="type-card"><div class="type-icon"><i class="fas fa-users"></i></div><h3>Workforce Analytics</h3><p id="itxigsb">
+                      Optimize workforce productivity and scheduling
+                  </p><div class="type-metrics"><div class="metric-box"><div class="metric-value">450</div><div class="metric-label">Employees</div></div><div class="metric-box"><div class="metric-value">92%</div><div class="metric-label">Productivity</div></div></div></div></div></div></section><!-- Dashboard Preview --><section id="dashboard" class="dashboard-section"><div class="container"><div class="section-header"><span class="section-badge">Live Dashboards</span><h2 class="section-title">Real-Time Monitoring</h2><p class="section-description">
+                  Interactive dashboards for comprehensive operational visibility
+              </p></div><div class="dashboard-grid"><div class="dashboard-card"><div class="card-header"><div class="card-title">Daily Production</div><div class="card-icon"><i class="fas fa-chart-area"></i></div></div><div class="mini-chart"><canvas id="productionChart"></canvas></div></div><div class="dashboard-card"><div class="card-header"><div class="card-title">Equipment Status</div><div class="card-icon"><i class="fas fa-cogs"></i></div></div><div class="mini-chart"><canvas id="equipmentChart"></canvas></div></div><div class="dashboard-card"><div class="card-header"><div class="card-title">Cost Analysis</div><div class="card-icon"><i class="fas fa-dollar-sign"></i></div></div><div class="mini-chart"><canvas id="costChart"></canvas></div></div><div class="dashboard-card"><div class="card-header"><div class="card-title">Safety Metrics</div><div class="card-icon"><i class="fas fa-shield-alt"></i></div></div><div class="mini-chart"><canvas id="safetyChart"></canvas></div></div></div></div></section><!-- Data Sources --><section class="sources-section"><div class="container"><div class="section-header"><span class="section-badge">Integrations</span><h2 class="section-title">Connect All Your Data</h2><p class="section-description">
+                  Seamless integration with major mining systems and platforms
+              </p></div><div class="sources-grid"><div class="source-card"><div class="source-logo"><i class="fas fa-database"></i></div><h4>SAP</h4><p id="if24cek">ERP Integration</p></div><div class="source-card"><div class="source-logo"><i class="fas fa-server"></i></div><h4>Oracle</h4><p id="ijmcfcg">Database</p></div><div class="source-card"><div class="source-logo"><i class="fas fa-chart-line"></i></div><h4>Power BI</h4><p id="i82gs5g">Visualization</p></div><div class="source-card"><div class="source-logo"><i class="fas fa-table"></i></div><h4>Tableau</h4><p id="irbdlj6">Analytics</p></div><div class="source-card"><div class="source-logo"><i class="fas fa-industry"></i></div><h4>SCADA</h4><p id="iypou46">Process Control</p></div><div class="source-card"><div class="source-logo"><i class="fas fa-network-wired"></i></div><h4>IoT Sensors</h4><p id="i5g0bkp">Real-Time Data</p></div></div></div></section><!-- Integration Visual --><section class="integration-section"><div class="container"><div class="integration-grid"><div class="integration-visual"><div class="central-hub"><i class="fas fa-chart-line"></i></div><div class="integration-node node-1"><i class="fas fa-database"></i></div><div class="integration-node node-2"><i class="fas fa-industry"></i></div><div class="integration-node node-3"><i class="fas fa-network-wired"></i></div><div class="integration-node node-4"><i class="fas fa-cloud"></i></div><div class="integration-node node-5"><i class="fas fa-mobile-alt"></i></div><div class="integration-node node-6"><i class="fas fa-server"></i></div></div><div class="integration-content"><h2>Unified Data Platform</h2><p id="ixvnqgj">
+                      Centralize all your mining data in one powerful platform. Connect equipment, 
+                      systems, and sensors for complete operational visibility.
+                  </p><div class="integration-features"><div class="integration-feature"><div class="integration-feature-icon"><i class="fas fa-sync"></i></div><div><h4>Real-Time Synchronization</h4><p id="ikg0uwc">Instant data updates across all connected systems</p></div></div><div class="integration-feature"><div class="integration-feature-icon"><i class="fas fa-plug"></i></div><div><h4>API-First Architecture</h4><p id="i2df9bn">Easy integration with custom applications</p></div></div><div class="integration-feature"><div class="integration-feature-icon"><i class="fas fa-lock"></i></div><div><h4>Secure Data Transfer</h4><p id="itlag7q">Enterprise-grade security and encryption</p></div></div></div></div></div></div></section><!-- Use Cases --><section class="use-cases-section"><div class="container"><div class="section-header"><span class="section-badge">Use Cases</span><h2 class="section-title">Real-World Applications</h2><p class="section-description">
+                  How leading mining companies use our analytics platform
+              </p></div><div class="use-cases-grid"><div class="use-case-card"><div class="use-case-header"><div class="use-case-icon"><i class="fas fa-chart-line"></i></div><h3>Production Optimization</h3></div><div class="use-case-body"><p id="irdau0y">
+                          Increase throughput by 15-25% through real-time production monitoring and bottleneck identification.
+                      </p><ul class="use-case-benefits"><li><i class="fas fa-check"></i> Real-time production tracking</li><li><i class="fas fa-check"></i> Bottleneck analysis</li><li><i class="fas fa-check"></i> Yield optimization</li><li><i class="fas fa-check"></i> Quality control monitoring</li></ul></div></div><div class="use-case-card"><div class="use-case-header"><div class="use-case-icon"><i class="fas fa-tools"></i></div><h3>Predictive Maintenance</h3></div><div class="use-case-body"><p id="i19oetf">
+                          Reduce unplanned downtime by 40% with AI-powered equipment failure prediction.
+                      </p><ul class="use-case-benefits"><li><i class="fas fa-check"></i> Failure prediction models</li><li><i class="fas fa-check"></i> Maintenance scheduling</li><li><i class="fas fa-check"></i> Parts inventory optimization</li><li><i class="fas fa-check"></i> Cost reduction analysis</li></ul></div></div><div class="use-case-card"><div class="use-case-header"><div class="use-case-icon"><i class="fas fa-dollar-sign"></i></div><h3>Cost Management</h3></div><div class="use-case-body"><p id="i655u77">
+                          Identify cost-saving opportunities and reduce operational expenses by 20%.
+                      </p><ul class="use-case-benefits"><li><i class="fas fa-check"></i> Cost per ton analysis</li><li><i class="fas fa-check"></i> Energy consumption tracking</li><li><i class="fas fa-check"></i> Budget vs actual comparison</li><li><i class="fas fa-check"></i> ROI calculation</li></ul></div></div></div></div></section><!-- Pricing Section --><section id="pricing" class="pricing-section"><div class="container"><div class="section-header"><span class="section-badge">Pricing Plans</span><h2 class="section-title">Choose Your Plan</h2><p class="section-description">
+                  Flexible pricing options for operations of all sizes
+              </p></div><div class="pricing-grid"><div class="pricing-card"><div class="pricing-plan">Starter</div><div class="pricing-price">$2,999</div><div class="pricing-period">per month</div><ul class="pricing-features"><li><i class="fas fa-check"></i> Up to 10 Users</li><li><i class="fas fa-check"></i> 5 Dashboards</li><li><i class="fas fa-check"></i> Basic Analytics</li><li><i class="fas fa-check"></i> Email Support</li><li><i class="fas fa-check"></i> 10 Data Sources</li><li><i class="fas fa-check"></i> Monthly Reports</li></ul><button type="button" class="btn-primary" id="it90lrb">Get Started</button></div><div class="pricing-card featured"><div class="pricing-badge">Most Popular</div><div class="pricing-plan">Professional</div><div class="pricing-price">$7,999</div><div class="pricing-period">per month</div><ul class="pricing-features"><li><i class="fas fa-check"></i> Up to 50 Users</li><li><i class="fas fa-check"></i> Unlimited Dashboards</li><li><i class="fas fa-check"></i> Advanced Analytics</li><li><i class="fas fa-check"></i> Priority Support</li><li><i class="fas fa-check"></i> Unlimited Data Sources</li><li><i class="fas fa-check"></i> Custom Reports</li><li><i class="fas fa-check"></i> Predictive Analytics</li><li><i class="fas fa-check"></i> API Access</li></ul><button type="button" class="btn-primary" id="ifudh0z">Get Started</button></div><div class="pricing-card"><div class="pricing-plan">Enterprise</div><div class="pricing-price">Custom</div><div class="pricing-period">contact us</div><ul class="pricing-features"><li><i class="fas fa-check"></i> Unlimited Users</li><li><i class="fas fa-check"></i> Unlimited Everything</li><li><i class="fas fa-check"></i> AI/ML Models</li><li><i class="fas fa-check"></i> 24/7 Dedicated Support</li><li><i class="fas fa-check"></i> Custom Integrations</li><li><i class="fas fa-check"></i> White-Label Option</li><li><i class="fas fa-check"></i> On-Premise Deployment</li><li><i class="fas fa-check"></i> SLA Guarantee</li></ul><button type="button" class="btn-primary" id="iyyhp1d">Contact Sales</button></div></div></div></section><!-- CTA Section --><section class="cta-section"><div class="container"><div class="cta-content"><h2>Ready to Transform Your Data?</h2><p>Start your free 30-day trial today. No credit card required.</p><div class="cta-buttons"><button type="button" class="btn-primary"><i class="fas fa-rocket"></i> Start Free Trial
+                  </button><button type="button" class="btn-secondary"><i class="fas fa-calendar"></i> Schedule Demo
+                  </button></div></div></div></section><!-- Contact Section --><section id="contact-6" class="contact-section"><div class="container"><div class="section-header"><span class="section-badge">Get In Touch</span><h2 class="section-title">Contact Analytics Team</h2><p class="section-description">
+                  Let's discuss your analytics needs
+              </p></div><div class="contact-grid"><div class="contact-info"><div class="info-card"><div class="info-icon"><i class="fas fa-phone"></i></div><div><h4>Phone</h4><p>+1 (555) 456-7890<br/>Mon-Fri 8AM-6PM</p></div></div><div class="info-card"><div class="info-icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><p>analytics@kimia.com<br/>Response within 24 hours</p></div></div><div class="info-card"><div class="info-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Office</h4><p>321 Data Drive<br/>Analytics District, CA 94108</p></div></div></div><form method="get" class="contact-form"><div class="form-row"><div class="form-group"><label>Full Name *</label><input type="text" required placeholder="John Doe"/></div><div class="form-group"><label>Company *</label><input type="text" required placeholder="Your Company"/></div></div><div class="form-row"><div class="form-group"><label>Email *</label><input type="email" required placeholder="john@company.com"/></div><div class="form-group"><label>Phone</label><input type="tel" placeholder="+1 (555) 123-4567"/></div></div><div class="form-group"><label>Plan Interest *</label><select type="text" required><option value="">Select Plan</option><option value="starter">Starter - $2,999/month</option><option value="professional">Professional - $7,999/month</option><option value="enterprise">Enterprise - Custom</option><option value="trial">Free Trial</option></select></div><div class="form-group"><label>Message *</label><textarea required placeholder="Tell us about your analytics needs..."></textarea></div><button type="submit" class="btn-primary" id="i76gfnr"><i class="fas fa-paper-plane"></i> Send Message
+                  </button></form></div></div></section><!-- Footer --><div id="i8yisgb"><footer class="footer"><div class="container"><div class="footer-content"><div><div class="footer-logo"><i class="fas fa-chart-line"></i><span>Analytics Platform</span></div><p id="ip551eg">
+                          Advanced analytics and business intelligence for the mining industry since 2015.
+                      </p></div><div><h4 id="ija2elg">Features</h4><ul id="is4nbjp"><li id="iedriwo">Real-Time Dashboards</li><li id="iwe5aen">Predictive Analytics</li><li id="innqfdh">Advanced Reporting</li><li id="i050xgh">Data Integration</li></ul></div><div><h4 id="i93s764">Resources</h4><ul id="izl39bp"><li id="ipyw8pt">Documentation</li><li id="idutpyk">API Reference</li><li id="igj98rh">Case Studies</li><li id="i0n0ftj">Webinars</li></ul></div><div><h4 id="i13papl">Company</h4><ul id="ibda1iq"><li id="is4sv1l">About Us</li><li id="i7mb1dx">Careers</li><li id="isvleo4">Contact</li><li id="icc4lg1">Privacy Policy</li></ul></div></div><div class="footer-bottom"><p>© 2025 KIMIA Analytics Platform. All rights reserved.</p></div></div></footer></div><script>
+      // ===================================
+      // COMPLETE JAVASCRIPT CODE
+      // ===================================
+
+      // Utility Functions
+      function scrollTo(id) {
+          const element = document.getElementById(id);
+          if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+      }
+
+      function handleSubmit(event) {
+          event.preventDefault();
+          const form = event.target;
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const originalHTML = submitBtn.innerHTML;
+          
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          submitBtn.disabled = true;
+          
+          setTimeout(() => {
+              submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+              submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+              
+              setTimeout(() => {
+                  submitBtn.innerHTML = originalHTML;
+                  submitBtn.style.background = '';
+                  submitBtn.disabled = false;
+                  form.reset();
+                  alert('Thank you! Our analytics team will contact you within 24 hours to discuss your requirements.');
+              }, 2000);
+          }, 1500);
+      }
+
+      function openDemo() {
+          alert('Opening interactive demo... This would launch a live demo of the analytics platform.');
+      }
+
+      function selectPlan(plan) {
+          alert(`You selected the ${plan} plan. Redirecting to registration...`);
+          scrollTo('contact');
+      }
+
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+          const navbar = document.querySelector('.navbar');
+          if (window.scrollY > 100) {
+              navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
+          } else {
+              navbar.style.boxShadow = 'none';
+          }
+      });
+
+      // Progress bar
+      function updateProgressBar() {
+          const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrolled = (winScroll / height) * 100;
+          
+          let progressBar = document.getElementById('progressBar');
+          if (!progressBar) {
+              progressBar = document.createElement('div');
+              progressBar.id = 'progressBar';
+              progressBar.style.cssText = `
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: ${scrolled}%;
+                  height: 3px;
+                  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+                  z-index: 9999;
+                  transition: width 0.3s ease;
+              `;
+              document.body.appendChild(progressBar);
+          } else {
+              progressBar.style.width = scrolled + '%';
+          }
+      }
+
+      window.addEventListener('scroll', updateProgressBar);
+
+      // Animated counters
+      const counterObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  const target = entry.target;
+                  const value = target.textContent;
+                  const numericValue = parseFloat(value.replace(/[^\d.]/g, ''));
+                  
+                  if (!isNaN(numericValue) && !target.dataset.animated) {
+                      target.dataset.animated = 'true';
+                      animateCounter(target, numericValue, value);
+                  }
+                  counterObserver.unobserve(target);
+              }
+          });
+      }, { threshold: 0.5 });
+
+      function animateCounter(element, target, originalText) {
+          let start = 0;
+          const duration = 2000;
+          const increment = target / (duration / 16);
+          const prefix = originalText.match(/^\D+/) ? originalText.match(/^\D+/)[0] : '';
+          const suffix = originalText.match(/[^\d.]+$/) ? originalText.match(/[^\d.]+$/)[0] : '';
+          const isDecimal = originalText.includes('.');
+          
+          const timer = setInterval(() => {
+              start += increment;
+              if (start >= target) {
+                  element.textContent = prefix + (isDecimal ? target.toFixed(1) : target.toLocaleString()) + suffix;
+                  clearInterval(timer);
+              } else {
+                  element.textContent = prefix + (isDecimal ? start.toFixed(1) : Math.floor(start).toLocaleString()) + suffix;
+              }
+          }, 16);
+      }
+
+      // Observe stat numbers
+      document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('.stat-number, .metric-value').forEach(stat => {
+              counterObserver.observe(stat);
+          });
+      });
+
+      // Card animations
+      const cardObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.style.opacity = '1';
+                  entry.target.style.transform = 'translateY(0)';
+              }
+          });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.addEventListener('DOMContentLoaded', () => {
+          const cards = document.querySelectorAll('.feature-card, .type-card, .dashboard-card, .source-card, .use-case-card, .pricing-card');
+          cards.forEach((card, index) => {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(30px)';
+              card.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
+              cardObserver.observe(card);
+          });
+      });
+
+      // Feature card hover effects
+      document.querySelectorAll('.feature-card').forEach(card => {
+          card.addEventListener('mouseenter', function() {
+              this.style.transform = 'translateY(-15px) scale(1.02)';
+              const icon = this.querySelector('.feature-icon');
+              if (icon) {
+                  icon.style.transform = 'scale(1.1) rotate(5deg)';
+              }
+          });
+          
+          card.addEventListener('mouseleave', function() {
+              this.style.transform = 'translateY(0) scale(1)';
+              const icon = this.querySelector('.feature-icon');
+              if (icon) {
+                  icon.style.transform = 'scale(1) rotate(0deg)';
+              }
+          });
+      });
+
+      // Type card animations
+      document.querySelectorAll('.type-card').forEach(card => {
+          card.addEventListener('mouseenter', function() {
+              const icon = this.querySelector('.type-icon');
+              if (icon) {
+                  icon.style.transform = 'scale(1.1) rotate(-5deg)';
+              }
+          });
+          
+          card.addEventListener('mouseleave', function() {
+              const icon = this.querySelector('.type-icon');
+              if (icon) {
+                  icon.style.transform = 'scale(1) rotate(0deg)';
+              }
+          });
+      });
+
+      // Source card hover effects
+      document.querySelectorAll('.source-card').forEach(card => {
+          card.addEventListener('mouseenter', function() {
+              const logo = this.querySelector('.source-logo');
+              if (logo) {
+                  logo.style.transform = 'scale(1.15) rotate(5deg)';
+              }
+          });
+          
+          card.addEventListener('mouseleave', function() {
+              const logo = this.querySelector('.source-logo');
+              if (logo) {
+                  logo.style.transform = 'scale(1) rotate(0deg)';
+              }
+          });
+      });
+
+      // Pricing card hover effects
+      document.querySelectorAll('.pricing-card').forEach(card => {
+          card.addEventListener('mouseenter', function() {
+              if (!this.classList.contains('featured')) {
+                  this.style.transform = 'translateY(-15px) scale(1.02)';
+              }
+          });
+          
+          card.addEventListener('mouseleave', function() {
+              if (!this.classList.contains('featured')) {
+                  this.style.transform = 'translateY(0) scale(1)';
+              }
+          });
+      });
+
+      // Integration feature hover
+      document.querySelectorAll('.integration-feature').forEach(feature => {
+          feature.addEventListener('mouseenter', function() {
+              const icon = this.querySelector('.integration-feature-icon');
+              if (icon) {
+                  icon.style.transform = 'scale(1.1) rotate(5deg)';
+              }
+          });
+          
+          feature.addEventListener('mouseleave', function() {
+              const icon = this.querySelector('.integration-feature-icon');
+              if (icon) {
+                  icon.style.transform = 'scale(1) rotate(0deg)';
+              }
+          });
+      });
+
+      // Form field focus effects
+      document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(field => {
+          field.addEventListener('focus', function() {
+              this.style.borderColor = '#8b5cf6';
+              this.style.boxShadow = '0 0 0 3px rgba(139, 92, 246, 0.1)';
+              this.parentElement.querySelector('label').style.color = '#8b5cf6';
+          });
+          
+          field.addEventListener('blur', function() {
+              this.style.borderColor = 'var(--glass-border)';
+              this.style.boxShadow = 'none';
+              this.parentElement.querySelector('label').style.color = '';
+          });
+
+          // Real-time validation
+          field.addEventListener('input', function() {
+              if (this.value.trim() !== '') {
+                  this.style.borderColor = '#10b981';
+              } else if (this.required) {
+                  this.style.borderColor = 'var(--glass-border)';
+              }
+          });
+      });
+
+      // Info card hover effects
+      document.querySelectorAll('.info-card').forEach(card => {
+          card.addEventListener('mouseenter', function() {
+              this.style.transform = 'translateX(10px)';
+              this.style.borderColor = '#8b5cf6';
+              const icon = this.querySelector('.info-icon');
+              if (icon) {
+                  icon.style.transform = 'scale(1.1) rotate(5deg)';
+              }
+          });
+          
+          card.addEventListener('mouseleave', function() {
+              this.style.transform = 'translateX(0)';
+              this.style.borderColor = 'var(--glass-border)';
+              const icon = this.querySelector('.info-icon');
+              if (icon) {
+                  icon.style.transform = 'scale(1) rotate(0deg)';
+              }
+          });
+      });
+
+      // Button ripple effect
+      document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+          button.addEventListener('click', function(e) {
+              const ripple = document.createElement('span');
+              const rect = this.getBoundingClientRect();
+              const size = Math.max(rect.width, rect.height);
+              const x = e.clientX - rect.left - size / 2;
+              const y = e.clientY - rect.top - size / 2;
+              
+              ripple.style.width = ripple.style.height = size + 'px';
+              ripple.style.left = x + 'px';
+              ripple.style.top = y + 'px';
+              ripple.style.position = 'absolute';
+              ripple.style.borderRadius = '50%';
+              ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+              ripple.style.transform = 'scale(0)';
+              ripple.style.animation = 'ripple 0.6s ease-out';
+              ripple.style.pointerEvents = 'none';
+              
+              this.style.position = 'relative';
+              this.style.overflow = 'hidden';
+              this.appendChild(ripple);
+              
+              setTimeout(() => ripple.remove(), 600);
+          });
+      });
+
+      // Add ripple animation
+      const style = document.createElement('style');
+      style.textContent = `
+          @keyframes ripple {
+              to {
+                  transform: scale(4);
+                  opacity: 0;
+              }
+          }
+          
+          .feature-icon, .type-icon, .source-logo, .integration-feature-icon, .info-icon {
+              transition: transform 0.3s ease;
+          }
+      `;
+      document.head.appendChild(style);
+
+      // Filter buttons functionality
+      document.addEventListener('DOMContentLoaded', () => {
+          const filterButtons = document.querySelectorAll('.filter-btn');
+          filterButtons.forEach(btn => {
+              btn.addEventListener('click', function() {
+                  filterButtons.forEach(b => b.classList.remove('active'));
+                  this.classList.add('active');
+                  
+                  // Simulate data refresh
+                  const chartContainer = this.closest('.hero-dashboard');
+                  if (chartContainer) {
+                      chartContainer.style.opacity = '0.5';
+                      setTimeout(() => {
+                          chartContainer.style.opacity = '1';
+                      }, 300);
+                  }
+              });
+          });
+      });
+
+      // ===================================
+      // CHART.JS CONFIGURATIONS
+      // ===================================
+
+      // Chart defaults
+      Chart.defaults.color = '#94a3b8';
+      Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+      Chart.defaults.font.family = 'Inter';
+
+      // Hero Chart
+      document.addEventListener('DOMContentLoaded', () => {
+          const heroCtx = document.getElementById('heroChart');
+          if (heroCtx) {
+              new Chart(heroCtx, {
+                  type: 'line',
+                  data: {
+                      labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+                      datasets: [{
+                          label: 'Production (tons)',
+                          data: [1200, 1450, 1800, 2100, 1950, 1700, 1500],
+                          borderColor: '#8b5cf6',
+                          backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                          fill: true,
+                          tension: 0.4,
+                          borderWidth: 3
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: {
+                          legend: {
+                              display: false
+                          },
+                          tooltip: {
+                              backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                              padding: 12,
+                              borderColor: '#8b5cf6',
+                              borderWidth: 1
+                          }
+                      },
+                      scales: {
+                          y: {
+                              beginAtZero: true,
+                              grid: {
+                                  color: 'rgba(255, 255, 255, 0.05)'
+                              }
+                          },
+                          x: {
+                              grid: {
+                                  display: false
+                              }
+                          }
+                      }
+                  }
+              });
+          }
+
+          // Production Chart
+          const productionCtx = document.getElementById('productionChart');
+          if (productionCtx) {
+              new Chart(productionCtx, {
+                  type: 'bar',
+                  data: {
+                      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                      datasets: [{
+                          label: 'Daily Production',
+                          data: [18500, 19200, 18800, 20100, 19500, 17800, 16200],
+                          backgroundColor: 'rgba(139, 92, 246, 0.8)',
+                          borderColor: '#8b5cf6',
+                          borderWidth: 2,
+                          borderRadius: 8
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: {
+                          legend: {
+                              display: false
+                          }
+                      },
+                      scales: {
+                          y: {
+                              beginAtZero: true,
+                              grid: {
+                                  color: 'rgba(255, 255, 255, 0.05)'
+                              }
+                          },
+                          x: {
+                              grid: {
+                                  display: false
+                              }
+                          }
+                      }
+                  }
+              });
+          }
+
+          // Equipment Chart (Doughnut)
+          const equipmentCtx = document.getElementById('equipmentChart');
+          if (equipmentCtx) {
+              new Chart(equipmentCtx, {
+                  type: 'doughnut',
+                  data: {
+                      labels: ['Operating', 'Maintenance', 'Idle', 'Offline'],
+                      datasets: [{
+                          data: [75, 15, 7, 3],
+                          backgroundColor: [
+                              '#10b981',
+                              '#f59e0b',
+                              '#3b82f6',
+                              '#ef4444'
+                          ],
+                          borderWidth: 0
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: {
+                          legend: {
+                              position: 'bottom',
+                              labels: {
+                                  padding: 15,
+                                  usePointStyle: true
+                              }
+                          }
+                      }
+                  }
+              });
+          }
+
+          // Cost Chart
+          const costCtx = document.getElementById('costChart');
+          if (costCtx) {
+              new Chart(costCtx, {
+                  type: 'line',
+                  data: {
+                      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                      datasets: [{
+                          label: 'Operating Cost',
+                          data: [2.8, 2.6, 2.7, 2.5, 2.4, 2.3],
+                          borderColor: '#ec4899',
+                          backgroundColor: 'rgba(236, 72, 153, 0.1)',
+                          fill: true,
+                          tension: 0.4,
+                          borderWidth: 3
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: {
+                          legend: {
+                              display: false
+                          }
+                      },
+                      scales: {
+                          y: {
+                              beginAtZero: false,
+                              grid: {
+                                  color: 'rgba(255, 255, 255, 0.05)'
+                              },
+                              ticks: {
+                                  callback: function(value) {
+                                      return '$' + value;
+                                  }
+                              }
+                          },
+                          x: {
+                              grid: {
+                                  display: false
+                              }
+                          }
+                      }
+                  }
+              });
+          }
+
+          // Safety Chart
+          const safetyCtx = document.getElementById('safetyChart');
+          if (safetyCtx) {
+              new Chart(safetyCtx, {
+                  type: 'radar',
+                  data: {
+                      labels: ['PPE', 'Training', 'Incidents', 'Audits', 'Compliance'],
+                      datasets: [{
+                          label: 'Safety Score',
+                          data: [95, 92, 98, 90, 100],
+                          backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                          borderColor: '#8b5cf6',
+                          borderWidth: 2,
+                          pointBackgroundColor: '#8b5cf6',
+                          pointBorderColor: '#fff',
+                          pointHoverBackgroundColor: '#fff',
+                          pointHoverBorderColor: '#8b5cf6'
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: {
+                          legend: {
+                              display: false
+                          }
+                      },
+                      scales: {
+                          r: {
+                              beginAtZero: true,
+                              max: 100,
+                              grid: {
+                                  color: 'rgba(255, 255, 255, 0.1)'
+                              },
+                              angleLines: {
+                                  color: 'rgba(255, 255, 255, 0.1)'
+                              }
+                          }
+                      }
+                  }
+              });
+          }
+      });
+
+      // Parallax effect
+      window.addEventListener('scroll', () => {
+          const scrolled = window.pageYOffset;
+          const hero = document.querySelector('.hero');
+          
+          if (hero && scrolled < window.innerHeight) {
+              hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+          }
+      });
+
+      // Keyboard shortcuts
+      document.addEventListener('keydown', (e) => {
+          // Press 'D' to scroll to dashboard
+          if (e.key === 'd' || e.key === 'D') {
+              if (!e.target.matches('input, textarea')) {
+                  scrollTo('dashboard');
+              }
+          }
+          
+          // Press 'P' to scroll to pricing
+          if (e.key === 'p' || e.key === 'P') {
+              if (!e.target.matches('input, textarea')) {
+                  scrollTo('pricing');
+              }
+          }
+      });
+
+      // Section reveal animation
+      const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.style.opacity = '1';
+                  entry.target.style.transform = 'translateY(0)';
+              }
+          });
+      }, { threshold: 0.1 });
+
+      document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('section').forEach(section => {
+              section.style.opacity = '0';
+              section.style.transform = 'translateY(20px)';
+              section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+              sectionObserver.observe(section);
+          });
+      });
+
+      // Smooth scroll for anchor links
+      document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+              anchor.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  const target = document.querySelector(this.getAttribute('href'));
+                  if (target) {
+                      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+              });
+          });
+      });
+
+      // Analytics tracking
+      function trackEvent(category, action, label) {
+          console.log(`Analytics: ${category} - ${action} - ${label}`);
+          // Integrate with Google Analytics, Mixpanel, etc.
+      }
+
+      // Track button clicks
+      document.querySelectorAll('button').forEach(button => {
+          button.addEventListener('click', function() {
+              trackEvent('Button', 'Click', this.textContent.trim());
+          });
+      });
+
+      // Auto-save form data
+      const form = document.querySelector('.contact-form');
+      if (form) {
+          const formFields = form.querySelectorAll('input, select, textarea');
+          
+          // Load saved data
+          formFields.forEach(field => {
+              const savedValue = localStorage.getItem(`analytics_form_${field.name || field.type}`);
+              if (savedValue && field.type !== 'submit') {
+                  field.value = savedValue;
+              }
+          });
+          
+          // Save on input
+          formFields.forEach(field => {
+              field.addEventListener('input', function() {
+                  localStorage.setItem(`analytics_form_${this.name || this.type}`, this.value);
+              });
+          });
+          
+          // Clear on successful submit
+          form.addEventListener('submit', function() {
+              setTimeout(() => {
+                  formFields.forEach(field => {
+                      localStorage.removeItem(`analytics_form_${field.name || field.type}`);
+                  });
+              }, 3000);
+          });
+      }
+
+      // Accessibility improvements
+      document.addEventListener('DOMContentLoaded', () => {
+          // Add ARIA labels
+          document.querySelectorAll('button:not([aria-label])').forEach(button => {
+              if (!button.getAttribute('aria-label')) {
+                  button.setAttribute('aria-label', button.textContent.trim());
+              }
+          });
+
+          // Keyboard navigation indicator
+          document.addEventListener('keydown', (e) => {
+              if (e.key === 'Tab') {
+                  document.body.classList.add('keyboard-nav');
+              }
+          });
+
+          document.addEventListener('mousedown', () => {
+              document.body.classList.remove('keyboard-nav');
+          });
+      });
+
+      // Keyboard navigation styles
+      const keyboardStyle = document.createElement('style');
+      keyboardStyle.textContent = `
+          body.keyboard-nav *:focus {
+              outline: 3px solid #8b5cf6 !important;
+              outline-offset: 2px;
+          }
+      `;
+      document.head.appendChild(keyboardStyle);
+
+      // Performance monitoring
+      window.addEventListener('load', () => {
+          const loadTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+          console.log(`⚡ Analytics Platform loaded in ${loadTime}ms`);
+      });
+
+      // Error handling
+      window.addEventListener('error', (e) => {
+          console.error('An error occurred:', e.error);
+      });
+
+      // Console welcome message
+      console.log('%c📊 Analytics Platform', 'font-size: 24px; font-weight: bold; color: #8b5cf6;');
+      console.log('%cPowered by KIMIA Mining Solutions', 'font-size: 14px; color: #ec4899;');
+      console.log('%c© 2025 - All Rights Reserved', 'font-size: 12px; color: #64748b;');
+      console.log('%cKeyboard Shortcuts:', 'font-size: 14px; font-weight: bold; color: #8b5cf6; margin-top: 10px;');
+      console.log('%c  D - View Dashboard', 'font-size: 12px; color: #94a3b8;');
+      console.log('%c  P - View Pricing', 'font-size: 12px; color: #94a3b8;');
+
+      // Lazy loading for images
+      const imageObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  const img = entry.target;
+                  if (img.dataset.src) {
+                      img.src = img.dataset.src;
+                      img.removeAttribute('data-src');
+                  }
+                  imageObserver.unobserve(img);
+              }
+          });
+      });
+
+      document.querySelectorAll('img[data-src]').forEach(img => {
+          imageObserver.observe(img);
+      });
+
+      // Export functions
+      window.KimiaAnalytics = {
+          scrollTo,
+          handleSubmit,
+          openDemo,
+          selectPlan,
+          trackEvent,
+          animateCounter
+      };
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', () => {
+          console.log('✅ Analytics Platform initialized successfully');
+          updateProgressBar();
+      });
+
+      // Real-time data simulation (for demo purposes)
+      function simulateRealTimeData() {
+          setInterval(() => {
+              // Update stat numbers with slight variations
+              const statNumbers = document.querySelectorAll('.stat-number');
+              statNumbers.forEach(stat => {
+                  if (stat.textContent.includes('+')) {
+                      // Simulate data point updates
+                      const currentValue = parseFloat(stat.textContent.replace(/[^\d.]/g, ''));
+                      const variation = (Math.random() - 0.5) * 0.1;
+                      const newValue = (currentValue * (1 + variation)).toFixed(1);
+                      // stat.textContent = newValue + 'M+';
+                  }
+              });
+          }, 5000);
+      }
+
+      // Uncomment to enable real-time simulation
+      // simulateRealTimeData();
+
+      // End of JavaScript
+      console.log('🚀 All Analytics Platform features loaded successfully!');
+  </script><!-- Footer completion --><div id="ie9riee"><footer class="footer"><div class="container"><div class="footer-content"><div><div class="footer-logo"><i class="fas fa-chart-line"></i><span>Analytics Platform</span></div><p id="izcyj05">
+                          Advanced analytics and business intelligence for the mining industry since 2015.
+                      </p></div><div><h4 id="ixcgtuh">Features</h4><ul id="iiz902q"><li id="itp5f95">Real-Time Dashboards</li><li id="io4q41y">Predictive Analytics</li><li id="i94dt5j">Advanced Reporting</li><li id="iko2llo">Data Integration</li></ul></div><div><h4 id="icgvhn1">Resources</h4><ul id="ir16vxq"><li id="icdzhpr">Documentation</li><li id="ilzi5co">API Reference</li><li id="i59wkzk">Case Studies</li><li id="i60zsxz">Webinars</li></ul></div><div><h4 id="ihcnrw9">Company</h4><ul id="i37ng0i"><li id="im7t7fo">About Us</li><li id="iuxjrl4">Careers</li><li id="iq8xnph">Contact</li><li id="ikw0cg5">Privacy Policy</li></ul></div></div><div class="footer-bottom"><p>© 2025 KIMIA Analytics Platform. All rights reserved.</p></div></div></footer></div></body>
+</html>
