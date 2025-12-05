@@ -3,337 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SES_ Mining Solutions - Digital Transformation Platform</title>
-    <meta name="description" content="Complete digital mining platform with integrated solutions for innovation, procurement, analytics, consulting, and training.">
+    <title>SES_Mine | Smart Engineering Solutions for Mining Industry</title>
+    <meta name="description" content="Revolutionary digital ecosystem for mining operations. AI-powered solutions, real-time analytics, and comprehensive engineering services.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="bg-circle bg-circle-1"></div>
-        <div class="bg-circle bg-circle-2"></div>
-        <div class="bg-circle bg-circle-3"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-mountain"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-main">SES_</span>
-                        <span class="logo-sub">Mining Solutions</span>
-                    </div>
-                </a>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
+<body class="dark-theme">
+    <!-- Particle Background -->
+    <div id="particles-bg"></div>
+    
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-glow">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">SES_Mine</span>
+                    <span class="brand-tagline">Smart Engineering Solutions</span>
+                </div>
+            </a>
+            
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-item active">Home</a></li>
+                    <li><a href="#ecosystem" class="nav-item">Ecosystem</a></li>
+                    <li><a href="#solutions" class="nav-item">Solutions</a></li>
+                    <li><a href="#technology" class="nav-item">Technology</a></li>
                     <li class="nav-dropdown">
-                        <a href="#platforms" class="nav-link">
+                        <a href="#" class="nav-item">
                             Platforms <i class="fas fa-chevron-down"></i>
                         </a>
-                        <div class="dropdown-menu">
-                            <a href="innovation-technology-hub.html" class="dropdown-item">
-                                <i class="fas fa-lightbulb"></i>
-                                <div>
-                                    <strong>Innovation Hub</strong>
-                                    <span>R&D and technology solutions</span>
-                                </div>
-                            </a>
-                            <a href="procurement-hub.html" class="dropdown-item">
-                                <i class="fas fa-shopping-cart"></i>
-                                <div>
-                                    <strong>Procurement Hub</strong>
-                                    <span>Strategic sourcing & supply chain</span>
-                                </div>
-                            </a>
-                            <a href="analytics-platform.html" class="dropdown-item">
-                                <i class="fas fa-chart-line"></i>
-                                <div>
-                                    <strong>Analytics Platform</strong>
-                                    <span>Data-driven insights</span>
-                                </div>
-                            </a>
-                            <a href="consulting-hub.html" class="dropdown-item">
-                                <i class="fas fa-user-tie"></i>
-                                <div>
-                                    <strong>Consulting Hub</strong>
-                                    <span>Expert advisory services</span>
-                                </div>
-                            </a>
-                            <a href="training-education-hub.html" class="dropdown-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <div>
-                                    <strong>Training Hub</strong>
-                                    <span>Professional development</span>
-                                </div>
-                            </a>
-                            <a href="engineering-hub.html" class="dropdown-item">
-                                <i class="fas fa-hard-hat"></i>
-                                <div>
-                                    <strong>Engineering Hub</strong>
-                                    <span>EPCM services</span>
-                                </div>
-                            </a>
-                            <a href="economics-hub.html" class="dropdown-item">
-                                <i class="fas fa-chart-pie"></i>
-                                <div>
-                                    <strong>Economics Hub</strong>
-                                    <span>Financial modeling & analysis</span>
-                                </div>
-                            </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <a href="innovation-technology-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-rocket"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Innovation Lab</h4>
+                                        <p>AI & Future Tech</p>
+                                    </div>
+                                </a>
+                                <a href="procurement-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-network-wired"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Supply Chain</h4>
+                                        <p>Smart Procurement</p>
+                                    </div>
+                                </a>
+                                <a href="analytics-platform.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-brain"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Analytics Engine</h4>
+                                        <p>Real-time Intelligence</p>
+                                    </div>
+                                </a>
+                                <a href="consulting-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-lightbulb"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Expert Advisory</h4>
+                                        <p>Strategic Consulting</p>
+                                    </div>
+                                </a>
+                                <a href="training-education-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-graduation-cap"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Academy</h4>
+                                        <p>Learn & Certify</p>
+                                    </div>
+                                </a>
+                                <a href="engineering-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-drafting-compass"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Engineering</h4>
+                                        <p>EPCM Services</p>
+                                    </div>
+                                </a>
+                                <a href="economics-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-chart-line"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Economics</h4>
+                                        <p>Financial Modeling</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </li>
-                    <li><a href="#features" class="nav-link">Features</a></li>
-                    <li><a href="#benefits" class="nav-link">Benefits</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+                
                 <div class="nav-actions">
-                    <button type="button" class="search-btn">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="search-trigger">
                         <i class="fas fa-search"></i>
                     </button>
-                    <button type="button" class="cta-btn">Request Demo</button>
+                    <button class="cta-button glow-effect">
+                        <span>Get Started</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
-                <button type="button" class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
+            
+            <button class="mobile-menu-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Hero Section with 3D Elements -->
+    <section class="hero-section" id="home">
+        <div class="hero-3d-bg">
+            <canvas id="hero-canvas"></canvas>
+        </div>
+        
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-rocket"></i> Transforming Mining Operations Worldwide
+                <div class="hero-badge animate-float">
+                    <span class="badge-dot"></span>
+                    <span>Revolutionizing Mining Operations Since 2020</span>
                 </div>
-                <h1>
-                    The Complete
-                    <span class="gradient-text">Digital Mining Platform</span>
+                
+                <h1 class="hero-title">
+                    <span class="title-line">The Future of</span>
+                    <span class="title-highlight gradient-text">Smart Mining</span>
+                    <span class="title-line">Starts Here</span>
                 </h1>
-                <p class="hero-subtitle">
-                    Integrated solutions for innovation, procurement, analytics, consulting, and training. 
-                    Everything you need to modernize your mining operations in one powerful ecosystem.
+                
+                <p class="hero-description">
+                    An integrated digital ecosystem powered by AI, IoT, and advanced analytics. 
+                    Transform your mining operations with cutting-edge technology and expert solutions.
                 </p>
-                <div class="hero-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-compass"></i> Explore Platforms
+                
+                <div class="hero-cta-group">
+                    <button class="btn-primary-hero">
+                        <span>Explore Ecosystem</span>
+                        <div class="btn-glow"></div>
                     </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-play"></i> Watch Demo
+                    <button class="btn-secondary-hero">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Watch Demo</span>
                     </button>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-box">
-                        <div class="stat-number">7</div>
-                        <div class="stat-label">Integrated Platforms</div>
+                
+                <div class="hero-stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-globe-americas"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="45">0</div>
+                            <div class="stat-label">Countries</div>
+                        </div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Mining Companies</div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-industry"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="850">0</div>
+                            <div class="stat-label">Active Mines</div>
+                        </div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-number">$5B+</div>
-                        <div class="stat-label">Value Created</div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="12">0</div>
+                            <div class="stat-label">Billion Value</div>
+                        </div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Client Satisfaction</div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-award"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-target="99">0</div>
+                            <div class="stat-label">% Success Rate</div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Ecosystem Overview -->
+    <section class="ecosystem-section" id="ecosystem">
+        <div class="container">
+            <div class="section-header-creative">
+                <span class="section-number">01</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Integrated Digital Ecosystem</h2>
+                    <p class="section-subtitle">Seven powerful platforms working in perfect harmony</p>
+                </div>
+            </div>
+            
+            <div class="ecosystem-visualization">
+                <div class="ecosystem-center">
+                    <div class="center-circle">
+                        <i class="fas fa-network-wired"></i>
+                        <span>SES_Mine Core</span>
+                    </div>
+                </div>
+                
+                <div class="ecosystem-nodes">
+                    <a href="innovation-technology-hub.html" class="ecosystem-node" style="--angle: 0deg;">
+                        <div class="node-inner">
+                            <i class="fas fa-rocket"></i>
+                            <span>Innovation Lab</span>
+                        </div>
+                    </a>
+                    <a href="procurement-hub.html" class="ecosystem-node" style="--angle: 51.43deg;">
+                        <div class="node-inner">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Supply Chain</span>
+                        </div>
+                    </a>
+                    <a href="analytics-platform.html" class="ecosystem-node" style="--angle: 102.86deg;">
+                        <div class="node-inner">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </div>
+                    </a>
+                    <a href="consulting-hub.html" class="ecosystem-node" style="--angle: 154.29deg;">
+                        <div class="node-inner">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Consulting</span>
+                        </div>
+                    </a>
+                    <a href="training-education-hub.html" class="ecosystem-node" style="--angle: 205.71deg;">
+                        <div class="node-inner">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Academy</span>
+                        </div>
+                    </a>
+                    <a href="engineering-hub.html" class="ecosystem-node" style="--angle: 257.14deg;">
+                        <div class="node-inner">
+                            <i class="fas fa-hard-hat"></i>
+                            <span>Engineering</span>
+                        </div>
+                    </a>
+                    <a href="economics-hub.html" class="ecosystem-node" style="--angle: 308.57deg;">
+                        <div class="node-inner">
+                            <i class="fas fa-coins"></i>
+                            <span>Economics</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Platforms Section -->
-    <section id="platforms" class="platforms-section">
+    <!-- Platform Cards -->
+    <section class="platforms-showcase" id="solutions">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Our Ecosystem</span>
-                <h2 class="section-title">Seven Powerful Platforms</h2>
-                <p class="section-description">
-                    Comprehensive solutions covering every aspect of modern mining operations
-                </p>
+            <div class="section-header-creative">
+                <span class="section-number">02</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Explore Our Platforms</h2>
+                    <p class="section-subtitle">Cutting-edge solutions for every aspect of mining</p>
+                </div>
             </div>
-            <div class="platforms-grid">
-                <!-- Innovation Hub -->
-                <div class="platform-card">
-                    <div class="platform-header">
-                        <div class="platform-icon">
-                            <i class="fas fa-lightbulb"></i>
+            
+            <div class="platforms-grid-creative">
+                <!-- Innovation Lab -->
+                <div class="platform-card-creative" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <i class="fas fa-rocket"></i>
                         </div>
-                        <h3 class="platform-title">Innovation Hub</h3>
-                        <p class="platform-subtitle">Research & Development Platform</p>
+                        <div class="card-badge">Most Advanced</div>
                     </div>
-                    <div class="platform-body">
-                        <p class="platform-description">
-                            Drive innovation with cutting-edge R&D tools, project management, and collaboration features.
-                        </p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> AI/ML Integration</li>
-                            <li><i class="fas fa-check-circle"></i> IoT Solutions</li>
-                            <li><i class="fas fa-check-circle"></i> Digital Twin Technology</li>
-                            <li><i class="fas fa-check-circle"></i> Automation Systems</li>
-                        </ul>
-                        <a href="innovation-technology-hub.html" class="platform-btn">
-                            Explore Innovation Hub <i class="fas fa-arrow-right"></i>
+                    <div class="card-body">
+                        <h3>Innovation Lab</h3>
+                        <p>AI-powered R&D platform with machine learning, IoT integration, and autonomous systems.</p>
+                        <div class="card-features">
+                            <span class="feature-tag"><i class="fas fa-brain"></i> AI/ML</span>
+                            <span class="feature-tag"><i class="fas fa-robot"></i> Automation</span>
+                            <span class="feature-tag"><i class="fas fa-cube"></i> Digital Twin</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="innovation-technology-hub.html" class="card-link">
+                            Explore Platform <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Procurement Hub -->
-                <div class="platform-card">
-                    <div class="platform-header">
-                        <div class="platform-icon">
-                            <i class="fas fa-shopping-cart"></i>
+                <!-- Supply Chain -->
+                <div class="platform-card-creative" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <i class="fas fa-network-wired"></i>
                         </div>
-                        <h3 class="platform-title">Procurement Hub</h3>
-                        <p class="platform-subtitle">Strategic Sourcing Platform</p>
+                        <div class="card-badge">Smart Procurement</div>
                     </div>
-                    <div class="platform-body">
-                        <p class="platform-description">
-                            Streamline procurement with vendor management, RFQ automation, and supply chain optimization.
-                        </p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> Vendor Management</li>
-                            <li><i class="fas fa-check-circle"></i> E-Procurement</li>
-                            <li><i class="fas fa-check-circle"></i> Contract Management</li>
-                            <li><i class="fas fa-check-circle"></i> Cost Optimization</li>
-                        </ul>
-                        <a href="procurement-hub.html" class="platform-btn">
-                            Explore Procurement Hub <i class="fas fa-arrow-right"></i>
+                    <div class="card-body">
+                        <h3>Supply Chain Hub</h3>
+                        <p>Intelligent procurement system with vendor management, automated RFQ, and blockchain tracking.</p>
+                        <div class="card-features">
+                            <span class="feature-tag"><i class="fas fa-link"></i> Blockchain</span>
+                            <span class="feature-tag"><i class="fas fa-truck"></i> Logistics</span>
+                            <span class="feature-tag"><i class="fas fa-handshake"></i> Vendors</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="procurement-hub.html" class="card-link">
+                            Explore Platform <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Analytics Platform -->
-                <div class="platform-card">
-                    <div class="platform-header">
-                        <div class="platform-icon">
+                <!-- Analytics Engine -->
+                <div class="platform-card-creative" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3 class="platform-title">Analytics Platform</h3>
-                        <p class="platform-subtitle">Data Intelligence & Insights</p>
+                        <div class="card-badge">Real-time Data</div>
                     </div>
-                    <div class="platform-body">
-                        <p class="platform-description">
-                            Transform data into actionable insights with real-time dashboards and predictive analytics.
-                        </p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> Real-Time Dashboards</li>
-                            <li><i class="fas fa-check-circle"></i> Predictive Analytics</li>
-                            <li><i class="fas fa-check-circle"></i> Custom Reports</li>
-                            <li><i class="fas fa-check-circle"></i> KPI Tracking</li>
-                        </ul>
-                        <a href="analytics-platform.html" class="platform-btn">
-                            Explore Analytics Platform <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Consulting Hub -->
-                <div class="platform-card">
-                    <div class="platform-header">
-                        <div class="platform-icon">
-                            <i class="fas fa-user-tie"></i>
+                    <div class="card-body">
+                        <h3>Analytics Engine</h3>
+                        <p>Real-time dashboards, predictive analytics, and AI-driven insights for operational excellence.</p>
+                        <div class="card-features">
+                            <span class="feature-tag"><i class="fas fa-chart-bar"></i> Dashboards</span>
+                            <span class="feature-tag"><i class="fas fa-eye"></i> Predictive</span>
+                            <span class="feature-tag"><i class="fas fa-database"></i> Big Data</span>
                         </div>
-                        <h3 class="platform-title">Consulting Hub</h3>
-                        <p class="platform-subtitle">Expert Advisory Services</p>
                     </div>
-                    <div class="platform-body">
-                        <p class="platform-description">
-                            Strategic consulting for feasibility studies, operational optimization, and sustainability.
-                        </p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> Feasibility Studies</li>
-                            <li><i class="fas fa-check-circle"></i> Mine Planning</li>
-                            <li><i class="fas fa-check-circle"></i> Process Optimization</li>
-                            <li><i class="fas fa-check-circle"></i> ESG Consulting</li>
-                        </ul>
-                        <a href="consulting-hub.html" class="platform-btn">
-                            Explore Consulting Hub <i class="fas fa-arrow-right"></i>
+                    <div class="card-footer">
+                        <a href="analytics-platform.html" class="card-link">
+                            Explore Platform <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Training Hub -->
-                <div class="platform-card">
-                    <div class="platform-header">
-                        <div class="platform-icon">
+                <!-- Expert Advisory -->
+                <div class="platform-card-creative" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="card-badge">Expert Network</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Expert Advisory</h3>
+                        <p>Strategic consulting from industry veterans with proven track records in mining excellence.</p>
+                        <div class="card-features">
+                            <span class="feature-tag"><i class="fas fa-chart-pie"></i> Strategy</span>
+                            <span class="feature-tag"><i class="fas fa-leaf"></i> ESG</span>
+                            <span class="feature-tag"><i class="fas fa-balance-scale"></i> Due Diligence</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="consulting-hub.html" class="card-link">
+                            Explore Platform <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Academy -->
+                <div class="platform-card-creative" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <h3 class="platform-title">Training Hub</h3>
-                        <p class="platform-subtitle">Professional Development</p>
+                        <div class="card-badge">Learn & Grow</div>
                     </div>
-                    <div class="platform-body">
-                        <p class="platform-description">
-                            Comprehensive training programs and certifications for mining professionals.
-                        </p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> 150+ Courses</li>
-                            <li><i class="fas fa-check-circle"></i> Industry Certifications</li>
-                            <li><i class="fas fa-check-circle"></i> Expert Instructors</li>
-                            <li><i class="fas fa-check-circle"></i> Hands-On Training</li>
-                        </ul>
-                        <a href="training-education-hub.html" class="platform-btn">
-                            Explore Training Hub <i class="fas fa-arrow-right"></i>
+                    <div class="card-body">
+                        <h3>SES Academy</h3>
+                        <p>World-class training programs with VR simulations, certifications, and hands-on experience.</p>
+                        <div class="card-features">
+                            <span class="feature-tag"><i class="fas fa-vr-cardboard"></i> VR Training</span>
+                            <span class="feature-tag"><i class="fas fa-certificate"></i> Certified</span>
+                            <span class="feature-tag"><i class="fas fa-users"></i> Mentorship</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="training-education-hub.html" class="card-link">
+                            Explore Platform <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Engineering Hub -->
-                <div class="platform-card">
-                    <div class="platform-header">
-                        <div class="platform-icon">
-                            <i class="fas fa-hard-hat"></i>
+                <!-- Engineering -->
+                <div class="platform-card-creative" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <i class="fas fa-drafting-compass"></i>
                         </div>
-                        <h3 class="platform-title">Engineering Hub</h3>
-                        <p class="platform-subtitle">EPCM Services</p>
+                        <div class="card-badge">Full EPCM</div>
                     </div>
-                    <div class="platform-body">
-                        <p class="platform-description">
-                            Complete engineering solutions from feasibility to construction management.
-                        </p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> Mine Design</li>
-                            <li><i class="fas fa-check-circle"></i> Process Engineering</li>
-                            <li><i class="fas fa-check-circle"></i> Project Management</li>
-                            <li><i class="fas fa-check-circle"></i> Construction</li>
-                        </ul>
-                        <a href="engineering-hub.html" class="platform-btn">
-                            Explore Engineering Hub <i class="fas fa-arrow-right"></i>
+                    <div class="card-body">
+                        <h3>Engineering Services</h3>
+                        <p>Complete EPCM solutions with BIM integration, 3D modeling, and construction management.</p>
+                        <div class="card-features">
+                            <span class="feature-tag"><i class="fas fa-cube"></i> BIM</span>
+                            <span class="feature-tag"><i class="fas fa-project-diagram"></i> EPCM</span>
+                            <span class="feature-tag"><i class="fas fa-hard-hat"></i> Construction</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="engineering-hub.html" class="card-link">
+                            Explore Platform <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Economics Hub -->
-                <div class="platform-card">
-                    <div class="platform-header">
-                        <div class="platform-icon">
-                            <i class="fas fa-chart-pie"></i>
+                <!-- Economics -->
+                <div class="platform-card-creative" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <i class="fas fa-coins"></i>
                         </div>
-                        <h3 class="platform-title">Economics Hub</h3>
-                        <p class="platform-subtitle">Financial Modeling & Analysis</p>
+                        <div class="card-badge">Financial Intelligence</div>
                     </div>
-                    <div class="platform-body">
-                        <p class="platform-description">
-                            Advanced economic analysis and financial modeling for mining projects.
-                        </p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> NPV/IRR Analysis</li>
-                            <li><i class="fas fa-check-circle"></i> Cash Flow Modeling</li>
-                            <li><i class="fas fa-check-circle"></i> Risk Assessment</li>
-                            <li><i class="fas fa-check-circle"></i> Economic Reports</li>
-                        </ul>
-                        <a href="economics-hub.html" class="platform-btn">
-                            Explore Economics Hub <i class="fas fa-arrow-right"></i>
+                    <div class="card-body">
+                        <h3>Economics Hub</h3>
+                        <p>Advanced financial modeling with AI-powered forecasting and risk analysis tools.</p>
+                        <div class="card-features">
+                            <span class="feature-tag"><i class="fas fa-calculator"></i> NPV/IRR</span>
+                            <span class="feature-tag"><i class="fas fa-chart-area"></i> Forecasting</span>
+                            <span class="feature-tag"><i class="fas fa-shield-alt"></i> Risk</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="economics-hub.html" class="card-link">
+                            Explore Platform <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -341,61 +447,73 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features-section">
+    <!-- Technology Stack -->
+    <section class="tech-stack-section" id="technology">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Why Choose SES_</span>
-                <h2 class="section-title">Integrated Digital Ecosystem</h2>
-                <p class="section-description">
-                    Everything you need in one unified platform
-                </p>
+            <div class="section-header-creative">
+                <span class="section-number">03</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Powered by Advanced Technology</h2>
+                    <p class="section-subtitle">Enterprise-grade infrastructure built for scale</p>
+                </div>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-link"></i>
+            
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3><i class="fas fa-brain"></i> Artificial Intelligence</h3>
+                    <div class="tech-items">
+                        <span class="tech-badge">Machine Learning</span>
+                        <span class="tech-badge">Computer Vision</span>
+                        <span class="tech-badge">NLP</span>
+                        <span class="tech-badge">Predictive Analytics</span>
                     </div>
-                    <h3>Seamless Integration</h3>
-                    <p>All platforms work together seamlessly, sharing data and insights across your organization.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                <div class="tech-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+                    <div class="tech-items">
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">Azure</span>
+                        <span class="tech-badge">Kubernetes</span>
+                        <span class="tech-badge">Microservices</span>
                     </div>
-                    <h3>Enterprise Security</h3>
-                    <p>Bank-level security with encryption, compliance, and data protection built-in.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                <div class="tech-category">
+                    <h3><i class="fas fa-database"></i> Data & Analytics</h3>
+                    <div class="tech-items">
+                        <span class="tech-badge">Big Data</span>
+                        <span class="tech-badge">Real-time Processing</span>
+                        <span class="tech-badge">Data Lakes</span>
+                        <span class="tech-badge">BI Tools</span>
                     </div>
-                    <h3>Mobile Access</h3>
-                    <p>Access all platforms from any device, anywhere, anytime with responsive design.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
+                <div class="tech-category">
+                    <h3><i class="fas fa-shield-alt"></i> Security & Compliance</h3>
+                    <div class="tech-items">
+                        <span class="tech-badge">Blockchain</span>
+                        <span class="tech-badge">Encryption</span>
+                        <span class="tech-badge">ISO Certified</span>
+                        <span class="tech-badge">SOC 2</span>
                     </div>
-                    <h3>24/7 Support</h3>
-                    <p>Round-the-clock expert support to ensure your operations never stop.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section-creative">
+        <div class="cta-bg-pattern"></div>
         <div class="container">
-            <div class="cta-content">
+            <div class="cta-content-creative">
                 <h2>Ready to Transform Your Mining Operations?</h2>
-                <p>Join 500+ mining companies already using SES_ platforms</p>
-                <div class="cta-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-rocket"></i> Get Started Free
+                <p>Join 850+ mining operations worldwide already using SES_Mine</p>
+                <div class="cta-buttons-group">
+                    <button class="btn-cta-primary">
+                        <span>Start Free Trial</span>
+                        <i class="fas fa-rocket"></i>
                     </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-calendar"></i> Schedule Demo
+                    <button class="btn-cta-secondary">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule Demo</span>
                     </button>
                 </div>
             </div>
@@ -403,38 +521,60 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-creative">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>SES_ Mining Solutions</h4>
-                    <p>Transforming mining through digital innovation</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-cube"></i>
+                        <span>SES_Mine</span>
+                    </div>
+                    <p>Smart Engineering Solutions for the future of mining. Powered by innovation, driven by results.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
+                
+                <div class="footer-links">
                     <h4>Platforms</h4>
                     <ul>
-                        <li><a href="innovation-technology-hub.html">Innovation Hub</a></li>
-                        <li><a href="procurement-hub.html">Procurement Hub</a></li>
-                        <li><a href="analytics-platform.html">Analytics Platform</a></li>
-                        <li><a href="consulting-hub.html">Consulting Hub</a></li>
+                        <li><a href="innovation-technology-hub.html">Innovation Lab</a></li>
+                        <li><a href="procurement-hub.html">Supply Chain</a></li>
+                        <li><a href="analytics-platform.html">Analytics</a></li>
+                        <li><a href="consulting-hub.html">Consulting</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                
+                <div class="footer-links">
                     <h4>More Platforms</h4>
                     <ul>
-                        <li><a href="training-education-hub.html">Training Hub</a></li>
-                        <li><a href="engineering-hub.html">Engineering Hub</a></li>
-                        <li><a href="economics-hub.html">Economics Hub</a></li>
+                        <li><a href="training-education-hub.html">Academy</a></li>
+                        <li><a href="engineering-hub.html">Engineering</a></li>
+                        <li><a href="economics-hub.html">Economics</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: info@SES_-mining.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 SES_ Mining Solutions. All rights reserved.</p>
+                <p>&copy; 2025 SES_Mine. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
             </div>
         </div>
     </footer>
