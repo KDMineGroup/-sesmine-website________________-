@@ -1,522 +1,585 @@
-// SES_ Mining Solutions - Main JavaScript File
+// ============================================
+// SES_Mine - Complete JavaScript
+// Smart Engineering Solutions for Mining
+// ============================================
 
-// Wait for DOM to load
+// Initialize on DOM load
 document.addEventListener('DOMContentLoaded', function() {
-    initializeNavigation();
-    initializeAnimations();
-    initializeSmoothScroll();
-    initializeFormHandlers();
-    initializeCourseFilters();
+    initNavigation();
+    initScrollEffects();
+    initAnimations();
+    initThemeToggle();
+    initMobileMenu();
+    initCounters();
+    initCharts();
+    initCalculators();
+    initTabs();
 });
 
+// ============================================
 // Navigation Functions
-function initializeNavigation() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navDropdowns = document.querySelectorAll('.nav-dropdown');
-
-    // Mobile menu toggle
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-    }
-
-    // Dropdown menus
-    navDropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('.nav-link');
-        const menu = dropdown.querySelector('.dropdown-menu');
-
-        link.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-            }
-        });
-
-        // Desktop hover
-        if (window.innerWidth > 768) {
-            dropdown.addEventListener('mouseenter', function() {
-                menu.style.display = 'block';
-                setTimeout(() => menu.classList.add('show'), 10);
-            });
-
-            dropdown.addEventListener('mouseleave', function() {
-                menu.classList.remove('show');
-                setTimeout(() => menu.style.display = 'none', 300);
-            });
+// ============================================
+function initNavigation() {
+    const nav = document.querySelector('.floating-nav');
+    const navLinks = document.querySelectorAll('.nav-item');
+    
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
         }
     });
 
-    // Sticky navbar
-    let lastScroll = 0;
-    const navbar = document.querySelector('.navbar');
+    // Active link highlighting
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                
+                if (target) {
+                    const offset = 100;
+                    const targetPosition = target.offsetTop - offset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
 
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        lastScroll = currentScroll;
+    // Highlight active section
+    const sections = document.querySelectorAll('section[id]');
+    
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY + 150;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
     });
 }
 
-// Animation Functions
-function initializeAnimations() {
-    // Intersection Observer for fade-in animations
+// ============================================
+// Mobile Menu
+// ============================================
+function initMobileMenu() {
+    const toggle = document.getElementById('mobileToggle');
+    const menu = document.querySelector('.nav-menu-wrapper');
+    
+    if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            menu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+                toggle.classList.remove('active');
+                menu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+
+        // Close menu on link click
+        const navLinks = menu.querySelectorAll('.nav-item');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.classList.remove('active');
+                menu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    }
+}
+
+// ============================================
+// Theme Toggle
+// ============================================
+function initThemeToggle() {
+    const toggleBtn = document.getElementById('themeToggle');
+    
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            document.body.classList.toggle('light-theme');
+            
+            const icon = toggleBtn.querySelector('i');
+            if (document.body.classList.contains('dark-theme')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        });
+    }
+}
+
+// ============================================
+// Scroll Effects & Animations
+// ============================================
+function initScrollEffects() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
-                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe elements
-    const animateElements = document.querySelectorAll(
-        '.platform-card, .service-card, .feature-card, .course-card, .team-card, .project-card'
-    );
+    // Observe all cards and sections
+    const elements = document.querySelectorAll('.platform-card-creative, .service-card, .feature-card, .kpi-card-modern');
+    elements.forEach(el => observer.observe(el));
+}
 
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-
-    // Add animate-in class styling
+function initAnimations() {
+    // Add animation classes
     const style = document.createElement('style');
     style.textContent = `
         .animate-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     `;
     document.head.appendChild(style);
-
-    // Counter animation for stats
-    animateCounters();
 }
 
+// ============================================
 // Counter Animation
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
+// ============================================
+function initCounters() {
+    const counters = document.querySelectorAll('[data-target]');
     
-    const observerOptions = {
-        threshold: 0.5
+    const animateCounter = (counter) => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        updateCounter();
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                entry.target.classList.add('counted');
+            if (entry.isIntersecting) {
                 animateCounter(entry.target);
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.5 });
 
     counters.forEach(counter => observer.observe(counter));
 }
 
-function animateCounter(element) {
-    const text = element.textContent;
-    const number = parseFloat(text.replace(/[^0-9.]/g, ''));
-    const suffix = text.replace(/[0-9.]/g, '');
-    const duration = 2000;
-    const steps = 60;
-    const increment = number / steps;
-    let current = 0;
-    let step = 0;
+// ============================================
+// Charts Initialization
+// ============================================
+function initCharts() {
+    // Check if Chart.js is loaded
+    if (typeof Chart === 'undefined') return;
 
-    const timer = setInterval(() => {
-        current += increment;
-        step++;
-        
-        if (step >= steps) {
-            element.textContent = number + suffix;
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current) + suffix;
-        }
-    }, duration / steps);
+    // Mini Charts
+    initMiniCharts();
+    
+    // Sparklines
+    initSparklines();
 }
 
-// Smooth Scroll
-function initializeSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#' || href === '') return;
+function initMiniCharts() {
+    const chartIds = ['miniChart1', 'miniChart2', 'miniChart3', 'miniChart4'];
+    
+    chartIds.forEach((id, index) => {
+        const ctx = document.getElementById(id);
+        if (!ctx) return;
+        
+        const types = ['line', 'bar', 'doughnut', 'line'];
+        const data = {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                data: generateRandomData(7),
+                backgroundColor: 'rgba(0, 242, 255, 0.2)',
+                borderColor: '#00f2ff',
+                borderWidth: 2,
+                tension: 0.4
+            }]
+        };
+        
+        new Chart(ctx, {
+            type: types[index],
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: types[index] !== 'doughnut' ? {
+                    y: { display: false },
+                    x: { display: false }
+                } : {}
+            }
+        });
+    });
+}
 
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = target.offsetTop - navHeight - 20;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-
-                // Close mobile menu if open
-                const hamburger = document.querySelector('.hamburger');
-                const navMenu = document.querySelector('.nav-menu');
-                if (hamburger && hamburger.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    document.body.classList.remove('menu-open');
+function initSparklines() {
+    const sparklineIds = ['sparkline1', 'sparkline2', 'sparkline3', 'sparkline4'];
+    
+    sparklineIds.forEach(id => {
+        const ctx = document.getElementById(id);
+        if (!ctx) return;
+        
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Array(20).fill(''),
+                datasets: [{
+                    data: generateRandomData(20),
+                    borderColor: '#00f2ff',
+                    borderWidth: 2,
+                    fill: true,
+                    backgroundColor: 'rgba(0, 242, 255, 0.1)',
+                    tension: 0.4,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { display: false },
+                    x: { display: false }
                 }
             }
         });
     });
 }
 
-// Form Handlers
-function initializeFormHandlers() {
-    // Button click handlers
-    document.querySelectorAll('.btn-primary, .btn-secondary, .cta-btn').forEach(button => {
-        button.addEventListener('click', function(e) {
-            const text = this.textContent.trim().toLowerCase();
+function generateRandomData(count) {
+    return Array.from({ length: count }, () => Math.floor(Math.random() * 100) + 50);
+}
+
+// ============================================
+// Calculator Functions
+// ============================================
+function initCalculators() {
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.calc-tab-btn');
+    const panels = document.querySelectorAll('.calculator-panel');
+    
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const calcType = btn.getAttribute('data-calc');
             
-            if (text.includes('demo') || text.includes('consultation')) {
-                showModal('Schedule a Demo', 'demo-form');
-            } else if (text.includes('quote') || text.includes('rfq')) {
-                showModal('Request a Quote', 'quote-form');
-            } else if (text.includes('enroll') || text.includes('course')) {
-                showModal('Enroll in Course', 'enroll-form');
-            }
+            tabBtns.forEach(b => b.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
+            
+            btn.classList.add('active');
+            const panel = document.getElementById(`${calcType}-calculator`);
+            if (panel) panel.classList.add('active');
         });
     });
 }
 
-// Modal System
-function showModal(title, formType) {
-    // Create modal if it doesn't exist
-    let modal = document.getElementById('SES_-modal');
-    if (!modal) {
-        modal = createModal();
+// NPV Calculator
+function calculateNPV() {
+    const investment = parseFloat(document.getElementById('npv-investment').value);
+    const cashflow = parseFloat(document.getElementById('npv-cashflow').value);
+    const life = parseFloat(document.getElementById('npv-life').value);
+    const rate = parseFloat(document.getElementById('npv-rate').value) / 100;
+    
+    let pv = 0;
+    for (let i = 1; i <= life; i++) {
+        pv += cashflow / Math.pow(1 + rate, i);
     }
+    const npv = pv - investment;
+    
+    const resultEl = document.getElementById('npv-result');
+    const statusEl = document.getElementById('npv-status');
+    const explanationEl = document.getElementById('npv-explanation');
+    
+    if (resultEl) {
+        resultEl.textContent = '$' + npv.toFixed(1) + 'M';
+    }
+    
+    if (statusEl) {
+        if (npv > 0) {
+            statusEl.innerHTML = '<i class="fas fa-check-circle"></i> Economically Viable';
+            statusEl.className = 'result-status positive';
+        } else {
+            statusEl.innerHTML = '<i class="fas fa-times-circle"></i> Not Viable';
+            statusEl.className = 'result-status negative';
+        }
+    }
+    
+    if (explanationEl) {
+        explanationEl.textContent = `The project generates a ${npv > 0 ? 'positive' : 'negative'} NPV of $${Math.abs(npv).toFixed(1)}M at a ${(rate * 100).toFixed(1)}% discount rate, indicating it ${npv > 0 ? 'will create value for investors and should be considered for investment' : 'will destroy value and should not be pursued'}.`;
+    }
+}
 
-    const modalTitle = modal.querySelector('.modal-title');
-    const modalBody = modal.querySelector('.modal-body');
+// IRR Calculator
+function calculateIRR() {
+    const investment = parseFloat(document.getElementById('irr-investment').value);
+    const cashflow = parseFloat(document.getElementById('irr-cashflow').value);
+    const life = parseFloat(document.getElementById('irr-life').value);
+    const required = parseFloat(document.getElementById('irr-required').value);
+    
+    // Simplified IRR calculation
+    const totalCashflow = cashflow * life;
+    const irr = ((totalCashflow / investment - 1) / life) * 100;
+    
+    const resultEl = document.getElementById('irr-result');
+    const statusEl = document.getElementById('irr-status');
+    const explanationEl = document.getElementById('irr-explanation');
+    
+    if (resultEl) {
+        resultEl.textContent = irr.toFixed(1) + '%';
+    }
+    
+    if (statusEl) {
+        if (irr > required) {
+            statusEl.innerHTML = '<i class="fas fa-arrow-up"></i> Exceeds Required Return';
+            statusEl.className = 'result-status positive';
+        } else {
+            statusEl.innerHTML = '<i class="fas fa-arrow-down"></i> Below Required Return';
+            statusEl.className = 'result-status negative';
+        }
+    }
+    
+    if (explanationEl) {
+        explanationEl.textContent = `The project IRR of ${irr.toFixed(1)}% ${irr > required ? 'significantly exceeds' : 'falls below'} the required return of ${required}%, indicating ${irr > required ? 'strong investment potential with substantial margin above the hurdle rate' : 'insufficient returns for the risk profile'}.`;
+    }
+}
 
-    modalTitle.textContent = title;
-    modalBody.innerHTML = getFormHTML(formType);
+// Payback Calculator
+function calculatePayback() {
+    const investment = parseFloat(document.getElementById('pb-investment').value);
+    const cashflow = parseFloat(document.getElementById('pb-cashflow').value);
+    const payback = investment / cashflow;
+    
+    const resultEl = document.getElementById('pb-result');
+    const explanationEl = document.getElementById('pb-explanation');
+    
+    if (resultEl) {
+        resultEl.textContent = payback.toFixed(1) + ' years';
+    }
+    
+    if (explanationEl) {
+        explanationEl.textContent = `The initial investment will be fully recovered in ${payback.toFixed(1)} years through the project's annual cash flows. This represents a ${payback < 5 ? 'relatively short' : 'longer'} payback period.`;
+    }
+}
 
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+// Breakeven Calculator
+function calculateBreakeven() {
+    const fixed = parseFloat(document.getElementById('be-fixed').value);
+    const variable = parseFloat(document.getElementById('be-variable').value);
+    const price = parseFloat(document.getElementById('be-price').value);
+    const margin = price - variable;
+    const breakeven = (fixed * 1000000) / margin;
+    
+    const resultEl = document.getElementById('be-result');
+    const marginEl = document.getElementById('be-margin');
+    const explanationEl = document.getElementById('be-explanation');
+    
+    if (resultEl) {
+        resultEl.textContent = (breakeven / 1000000).toFixed(1) + 'M tons/year';
+    }
+    
+    if (marginEl) {
+        marginEl.textContent = '$' + margin.toFixed(0) + '/ton';
+    }
+    
+    if (explanationEl) {
+        explanationEl.textContent = `The operation needs to produce and sell ${(breakeven / 1000000).toFixed(1)}M tons per year to cover all fixed and variable costs and break even. Production above this level generates profit at a contribution margin of $${margin.toFixed(0)} per ton.`;
+    }
+}
 
-    // Form submission
-    const form = modal.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            handleFormSubmit(formType, new FormData(form));
+// ============================================
+// Tab System
+// ============================================
+function initTabs() {
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabName = button.getAttribute('data-tab');
+            const tabContent = document.getElementById(tabName);
+            
+            if (!tabContent) return;
+            
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active from all buttons
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            tabContent.classList.add('active');
+            button.classList.add('active');
         });
-    }
-}
-
-function createModal() {
-    const modal = document.createElement('div');
-    modal.id = 'SES_-modal';
-    modal.className = 'modal';
-    modal.innerHTML = `
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title"></h3>
-                <button type="button" class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body"></div>
-        </div>
-    `;
-
-    document.body.appendChild(modal);
-
-    // Close handlers
-    modal.querySelector('.modal-close').addEventListener('click', closeModal);
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeModal();
     });
-
-    // Add modal styles
-    const style = document.createElement('style');
-    style.textContent = `
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 10000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .modal-content {
-            background: white;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-        .modal-header {
-            padding: 24px;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .modal-title {
-            margin: 0;
-            font-size: 1.5rem;
-            color: #1f2937;
-        }
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #6b7280;
-            line-height: 1;
-            padding: 0;
-            width: 32px;
-            height: 32px;
-        }
-        .modal-close:hover {
-            color: #1f2937;
-        }
-        .modal-body {
-            padding: 24px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #374151;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        .form-submit {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .form-submit:hover {
-            transform: translateY(-2px);
-        }
-    `;
-    document.head.appendChild(style);
-
-    return modal;
 }
 
-function closeModal() {
-    const modal = document.getElementById('SES_-modal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
+// ============================================
+// Particle Background Animation
+// ============================================
+function initParticles() {
+    const canvas = document.getElementById('particles-bg');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const particles = [];
+    const particleCount = 100;
+    
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.radius = Math.random() * 2;
+        }
+        
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0, 242, 255, 0.5)';
+            ctx.fill();
+        }
     }
-}
-
-function getFormHTML(formType) {
-    const forms = {
-        'demo-form': `
-            <form>
-                <div class="form-group">
-                    <label>Full Name *</label>
-                    <input type="text" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email *</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Company</label>
-                    <input type="text" name="company">
-                </div>
-                <div class="form-group">
-                    <label>Phone</label>
-                    <input type="tel" name="phone">
-                </div>
-                <div class="form-group">
-                    <label>Preferred Date</label>
-                    <input type="date" name="date">
-                </div>
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea name="message"></textarea>
-                </div>
-                <button type="submit" class="form-submit">Schedule Demo</button>
-            </form>
-        `,
-        'quote-form': `
-            <form>
-                <div class="form-group">
-                    <label>Full Name *</label>
-                    <input type="text" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email *</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Company *</label>
-                    <input type="text" name="company" required>
-                </div>
-                <div class="form-group">
-                    <label>Service Required *</label>
-                    <select name="service" required>
-                        <option value="">Select Service</option>
-                        <option>Innovation & Technology</option>
-                        <option>Procurement</option>
-                        <option>Analytics</option>
-                        <option>Consulting</option>
-                        <option>Training</option>
-                        <option>Engineering</option>
-                        <option>Economics</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Project Details</label>
-                    <textarea name="details" required></textarea>
-                </div>
-                <button type="submit" class="form-submit">Request Quote</button>
-            </form>
-        `,
-        'enroll-form': `
-            <form>
-                <div class="form-group">
-                    <label>Full Name *</label>
-                    <input type="text" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email *</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone</label>
-                    <input type="tel" name="phone">
-                </div>
-                <div class="form-group">
-                    <label>Course Interest</label>
-                    <select name="course">
-                        <option>Open Pit Mine Design</option>
-                        <option>Process Plant Optimization</option>
-                        <option>Mining Safety Management</option>
-                        <option>Mining Automation & AI</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-                <button type="submit" class="form-submit">Enroll Now</button>
-            </form>
-        `
-    };
-
-    return forms[formType] || forms['demo-form'];
-}
-
-function handleFormSubmit(formType, formData) {
-    // Show success message
-    const modal = document.getElementById('SES_-modal');
-    const modalBody = modal.querySelector('.modal-body');
-
-    modalBody.innerHTML = `
-        <div style="text-align: center; padding: 40px 20px;">
-            <div style="font-size: 4rem; color: #10b981; margin-bottom: 20px;">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h3 style="margin-bottom: 12px; color: #1f2937;">Thank You!</h3>
-            <p style="color: #6b7280; margin-bottom: 24px;">
-                We've received your request and will get back to you within 24 hours.
-            </p>
-            <button type="button" onclick="closeModal()" class="form-submit">Close</button>
-        </div>
-    `;
-
-    // In production, send data to server
-    console.log('Form submitted:', formType, Object.fromEntries(formData));
-}
-
-// Course Filter System
-function initializeCourseFilters() {
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const courseCards = document.querySelectorAll('.course-card');
-
-    if (categoryButtons.length === 0) return;
-
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-
-            // Update active button
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-
-            // Filter courses
-            courseCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
+    
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+    
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+        
+        // Draw connections
+        particles.forEach((p1, i) => {
+            particles.slice(i + 1).forEach(p2 => {
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (category === 'all' || cardCategory === category) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 10);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
+                if (distance < 100) {
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.strokeStyle = `rgba(0, 242, 255, ${0.2 * (1 - distance / 100)})`;
+                    ctx.stroke();
                 }
             });
         });
+        
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     });
 }
 
-// Expose closeModal globally for inline onclick
-window.closeModal = closeModal;
+// Initialize particles if canvas exists
+if (document.getElementById('particles-bg')) {
+    initParticles();
+}
 
-// Loading animation
-window.addEventListener('load', function() {
-    document.body.classList.add('loaded');
-});
+// ============================================
+// Utility Functions
+// ============================================
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Smooth scroll to top
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Export functions to global scope
+window.calculateNPV = calculateNPV;
+window.calculateIRR = calculateIRR;
+window.calculatePayback = calculatePayback;
+window.calculateBreakeven = calculateBreakeven;
+window.scrollToTop = scrollToTop;
+
+console.log('SES_Mine Platform Initialized Successfully! 🚀');
