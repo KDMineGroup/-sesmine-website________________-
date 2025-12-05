@@ -3,235 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Hub - SES_ Mining Solutions</title>
+    <title>Engineering Services | SES_Mine - Complete EPCM Solutions</title>
+    <meta name="description" content="Full-service EPCM capabilities with BIM integration, 3D modeling, and comprehensive project delivery.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body class="dark-theme engineering-page">
+    <!-- Engineering Background -->
+    <div class="engineering-background">
+        <div class="blueprint-grid"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-hard-hat"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-main">Engineering Hub</span>
-                        <span class="logo-sub">SES_ Mining Solutions</span>
-                    </div>
-                </a>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
+    <nav class="floating-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-glow">
+                    <i class="fas fa-drafting-compass"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Engineering</span>
+                    <span class="brand-tagline">SES_Mine</span>
+                </div>
+            </a>
+            
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-item">Home</a></li>
+                    <li><a href="#services" class="nav-item">EPCM Services</a></li>
+                    <li><a href="#capabilities" class="nav-item">Capabilities</a></li>
+                    <li><a href="#projects" class="nav-item">Projects</a></li>
                     <li class="nav-dropdown">
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-item">
                             Other Hubs <i class="fas fa-chevron-down"></i>
                         </a>
-                        <div class="dropdown-menu">
-                            <a href="innovation-technology-hub.html" class="dropdown-item">
-                                <i class="fas fa-lightbulb"></i>
-                                <div><strong>Innovation Hub</strong></div>
-                            </a>
-                            <a href="procurement-hub.html" class="dropdown-item">
-                                <i class="fas fa-shopping-cart"></i>
-                                <div><strong>Procurement Hub</strong></div>
-                            </a>
-                            <a href="analytics-platform.html" class="dropdown-item">
-                                <i class="fas fa-chart-line"></i>
-                                <div><strong>Analytics Platform</strong></div>
-                            </a>
-                            <a href="consulting-hub.html" class="dropdown-item">
-                                <i class="fas fa-user-tie"></i>
-                                <div><strong>Consulting Hub</strong></div>
-                            </a>
-                            <a href="training-education-hub.html" class="dropdown-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <div><strong>Training Hub</strong></div>
-                            </a>
-                            <a href="economics-hub.html" class="dropdown-item">
-                                <i class="fas fa-chart-pie"></i>
-                                <div><strong>Economics Hub</strong></div>
-                            </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <a href="innovation-technology-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-rocket"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Innovation Lab</h4>
+                                        <p>AI & Future Tech</p>
+                                    </div>
+                                </a>
+                                <a href="procurement-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-network-wired"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Supply Chain</h4>
+                                        <p>Smart Procurement</p>
+                                    </div>
+                                </a>
+                                <a href="analytics-platform.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-brain"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Analytics Engine</h4>
+                                        <p>Real-time Intelligence</p>
+                                    </div>
+                                </a>
+                                <a href="consulting-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-lightbulb"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Expert Advisory</h4>
+                                        <p>Strategic Consulting</p>
+                                    </div>
+                                </a>
+                                <a href="training-education-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-graduation-cap"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Academy</h4>
+                                        <p>Learn & Certify</p>
+                                    </div>
+                                </a>
+                                <a href="economics-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-chart-line"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Economics</h4>
+                                        <p>Financial Modeling</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+                
                 <div class="nav-actions">
-                    <button type="button" class="cta-btn">Request Quote</button>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="cta-button glow-effect">
+                        <span>Request Quote</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
-                <button type="button" class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
+            
+            <button class="mobile-menu-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero-engineering">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-drafting-compass"></i> EPCM Excellence
+            <div class="hero-content-split">
+                <div class="hero-left">
+                    <div class="hero-badge animate-float">
+                        <span class="badge-dot pulsing"></span>
+                        <span>Full EPCM Capabilities</span>
+                    </div>
+                    
+                    <h1 class="hero-title-large">
+                        <span class="title-line">Engineering Excellence</span>
+                        <span class="title-highlight gradient-text">From Concept to Commissioning</span>
+                    </h1>
+                    
+                    <p class="hero-description-large">
+                        Complete EPCM solutions with BIM integration, advanced 3D modeling, and digital project delivery. 
+                        250+ projects delivered on time and on budget with $18B+ total value.
+                    </p>
+                    
+                    <div class="engineering-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-cube"></i>
+                            <span>BIM Level 3</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>ISO 9001 Certified</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-award"></i>
+                            <span>98% On-Time Delivery</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-users"></i>
+                            <span>200+ Engineers</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-cta-group">
+                        <button class="btn-primary-hero">
+                            <span>View Portfolio</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                        <button class="btn-secondary-hero">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Request Proposal</span>
+                        </button>
+                    </div>
                 </div>
-                <h1>
-                    Complete Engineering Solutions for
-                    <span class="gradient-text">Mining Projects</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Full-service EPCM capabilities from feasibility to commissioning. 
-                    Expert engineering, procurement, construction management, and project delivery.
-                </p>
-                <div class="hero-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-project-diagram"></i> View Services
-                    </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-folder-open"></i> Project Portfolio
-                    </button>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-box">
-                        <div class="stat-number">200+</div>
-                        <div class="stat-label">Projects Delivered</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">$10B+</div>
-                        <div class="stat-label">Project Value</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">On-Time Delivery</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-label">Engineers</div>
+                
+                <div class="hero-right">
+                    <div class="engineering-visual">
+                        <div class="blueprint-viewer">
+                            <div class="blueprint-layer layer-1"></div>
+                            <div class="blueprint-layer layer-2"></div>
+                            <div class="blueprint-layer layer-3"></div>
+                            <div class="blueprint-center">
+                                <i class="fas fa-cube"></i>
+                                <span>3D BIM Model</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section">
+    <!-- EPCM Services Section -->
+    <section class="services-section" id="services">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">EPCM Services</span>
-                <h2 class="section-title">Comprehensive Engineering Solutions</h2>
+            <div class="section-header-creative">
+                <span class="section-number">01</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Complete EPCM Services</h2>
+                    <p class="section-subtitle">Engineering, Procurement, Construction Management</p>
+                </div>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-pencil-ruler"></i>
+            
+            <div class="epcm-timeline">
+                <div class="timeline-track"></div>
+                
+                <div class="timeline-phase">
+                    <div class="phase-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <div class="marker-line"></div>
                     </div>
-                    <h3>Engineering Design</h3>
-                    <p>Complete engineering design services for mining and processing facilities.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Conceptual Design</li>
-                        <li><i class="fas fa-check"></i> Detailed Engineering</li>
-                        <li><i class="fas fa-check"></i> 3D Modeling</li>
-                        <li><i class="fas fa-check"></i> Technical Specifications</li>
-                    </ul>
+                    <div class="phase-content">
+                        <h3>Engineering Design</h3>
+                        <p>Complete engineering design from concept to detailed construction documents.</p>
+                        <div class="phase-deliverables">
+                            <h4>Deliverables:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Conceptual Design</li>
+                                <li><i class="fas fa-check"></i> 3D BIM Models</li>
+                                <li><i class="fas fa-check"></i> Detailed Engineering</li>
+                                <li><i class="fas fa-check"></i> Technical Specifications</li>
+                                <li><i class="fas fa-check"></i> Construction Drawings</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shopping-bag"></i>
+                <div class="timeline-phase">
+                    <div class="phase-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="marker-line"></div>
                     </div>
-                    <h3>Procurement Management</h3>
-                    <p>Strategic procurement and supply chain management for major projects.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Vendor Selection</li>
-                        <li><i class="fas fa-check"></i> Contract Negotiation</li>
-                        <li><i class="fas fa-check"></i> Quality Assurance</li>
-                        <li><i class="fas fa-check"></i> Logistics Coordination</li>
-                    </ul>
+                    <div class="phase-content">
+                        <h3>Procurement Management</h3>
+                        <p>Strategic procurement and supply chain management for major equipment and materials.</p>
+                        <div class="phase-deliverables">
+                            <h4>Deliverables:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Vendor Qualification</li>
+                                <li><i class="fas fa-check"></i> Bid Evaluation</li>
+                                <li><i class="fas fa-check"></i> Contract Negotiation</li>
+                                <li><i class="fas fa-check"></i> Quality Assurance</li>
+                                <li><i class="fas fa-check"></i> Logistics Coordination</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hammer"></i>
+                <div class="timeline-phase">
+                    <div class="phase-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <div class="marker-line"></div>
                     </div>
-                    <h3>Construction Management</h3>
-                    <p>Expert construction supervision and project management services.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Site Management</li>
-                        <li><i class="fas fa-check"></i> Schedule Control</li>
-                        <li><i class="fas fa-check"></i> Cost Management</li>
-                        <li><i class="fas fa-check"></i> Safety Oversight</li>
-                    </ul>
+                    <div class="phase-content">
+                        <h3>Construction Management</h3>
+                        <p>Expert construction supervision ensuring quality, schedule, and budget compliance.</p>
+                        <div class="phase-deliverables">
+                            <h4>Deliverables:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Site Management</li>
+                                <li><i class="fas fa-check"></i> Schedule Control</li>
+                                <li><i class="fas fa-check"></i> Cost Management</li>
+                                <li><i class="fas fa-check"></i> Quality Control</li>
+                                <li><i class="fas fa-check"></i> Safety Oversight</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mountain"></i>
+                <div class="timeline-phase">
+                    <div class="phase-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
                     </div>
-                    <h3>Mine Engineering</h3>
-                    <p>Specialized mine design and planning services for all mining methods.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Pit Design</li>
-                        <li><i class="fas fa-check"></i> Underground Layout</li>
-                        <li><i class="fas fa-check"></i> Production Scheduling</li>
-                        <li><i class="fas fa-check"></i> Geotechnical Analysis</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-industry"></i>
+                    <div class="phase-content">
+                        <h3>Commissioning & Handover</h3>
+                        <p>Systematic commissioning and successful project handover to operations.</p>
+                        <div class="phase-deliverables">
+                            <h4>Deliverables:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Pre-Commissioning</li>
+                                <li><i class="fas fa-check"></i> Performance Testing</li>
+                                <li><i class="fas fa-check"></i> Training Programs</li>
+                                <li><i class="fas fa-check"></i> As-Built Documentation</li>
+                                <li><i class="fas fa-check"></i> Operations Support</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3>Process Engineering</h3>
-                    <p>Complete process plant design from crushing to final product.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Flowsheet Development</li>
-                        <li><i class="fas fa-check"></i> Equipment Sizing</li>
-                        <li><i class="fas fa-check"></i> P&ID Development</li>
-                        <li><i class="fas fa-check"></i> Mass Balance</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Infrastructure Design</h3>
-                    <p>Complete infrastructure and civil engineering services.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Site Layout</li>
-                        <li><i class="fas fa-check"></i> Roads & Bridges</li>
-                        <li><i class="fas fa-check"></i> Water Management</li>
-                        <li><i class="fas fa-check"></i> Power Distribution</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Capabilities Section -->
-    <section id="capabilities" class="section section-alt">
+    <!-- Engineering Capabilities -->
+    <section class="capabilities-section" id="capabilities">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Engineering Disciplines</span>
-                <h2 class="section-title">Multi-Disciplinary Expertise</h2>
+            <div class="section-header-creative">
+                <span class="section-number">02</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Multi-Disciplinary Expertise</h2>
+                    <p class="section-subtitle">Comprehensive engineering disciplines</p>
+                </div>
             </div>
+            
             <div class="capabilities-grid">
                 <div class="capability-card">
                     <div class="capability-icon">
                         <i class="fas fa-mountain"></i>
                     </div>
                     <h3>Mining Engineering</h3>
-                    <ul>
-                        <li>Open Pit Design</li>
-                        <li>Underground Mining</li>
-                        <li>Mine Planning</li>
+                    <ul class="capability-list">
+                        <li>Open Pit Design & Optimization</li>
+                        <li>Underground Mine Planning</li>
+                        <li>Production Scheduling</li>
                         <li>Geotechnical Engineering</li>
                         <li>Blasting Design</li>
+                        <li>Mine Closure Planning</li>
                     </ul>
+                    <div class="capability-stats">
+                        <span><strong>80+</strong> Mine Designs</span>
+                    </div>
                 </div>
 
                 <div class="capability-card">
@@ -239,13 +317,17 @@
                         <i class="fas fa-flask"></i>
                     </div>
                     <h3>Process Engineering</h3>
-                    <ul>
+                    <ul class="capability-list">
+                        <li>Flowsheet Development</li>
                         <li>Crushing & Grinding</li>
                         <li>Flotation Systems</li>
                         <li>Hydrometallurgy</li>
-                        <li>Pyrometallurgy</li>
                         <li>Tailings Management</li>
+                        <li>Water Treatment</li>
                     </ul>
+                    <div class="capability-stats">
+                        <span><strong>120+</strong> Process Plants</span>
+                    </div>
                 </div>
 
                 <div class="capability-card">
@@ -253,13 +335,17 @@
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h3>Mechanical Engineering</h3>
-                    <ul>
+                    <ul class="capability-list">
                         <li>Equipment Selection</li>
-                        <li>Piping Design</li>
+                        <li>Piping Design (P&ID)</li>
                         <li>Material Handling</li>
                         <li>HVAC Systems</li>
+                        <li>Pressure Vessels</li>
                         <li>Maintenance Planning</li>
                     </ul>
+                    <div class="capability-stats">
+                        <span><strong>150+</strong> Systems Designed</span>
+                    </div>
                 </div>
 
                 <div class="capability-card">
@@ -267,27 +353,35 @@
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Electrical Engineering</h3>
-                    <ul>
+                    <ul class="capability-list">
                         <li>Power Distribution</li>
                         <li>Substation Design</li>
-                        <li>Motor Control</li>
-                        <li>Instrumentation</li>
+                        <li>Motor Control Centers</li>
+                        <li>Instrumentation & Control</li>
                         <li>Lighting Design</li>
+                        <li>Emergency Systems</li>
                     </ul>
+                    <div class="capability-stats">
+                        <span><strong>200+</strong> Electrical Systems</span>
+                    </div>
                 </div>
 
                 <div class="capability-card">
                     <div class="capability-icon">
                         <i class="fas fa-building"></i>
                     </div>
-                    <h3>Civil Engineering</h3>
-                    <ul>
+                    <h3>Civil & Structural</h3>
+                    <ul class="capability-list">
                         <li>Site Development</li>
                         <li>Structural Design</li>
                         <li>Foundation Engineering</li>
                         <li>Roads & Earthworks</li>
-                        <li>Water Management</li>
+                        <li>Drainage Systems</li>
+                        <li>Building Design</li>
                     </ul>
+                    <div class="capability-stats">
+                        <span><strong>180+</strong> Structures</span>
+                    </div>
                 </div>
 
                 <div class="capability-card">
@@ -295,128 +389,197 @@
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h3>Environmental Engineering</h3>
-                    <ul>
-                        <li>Water Treatment</li>
+                    <ul class="capability-list">
+                        <li>Environmental Impact Assessment</li>
+                        <li>Water Treatment Design</li>
                         <li>Air Quality Control</li>
                         <li>Waste Management</li>
-                        <li>Closure Planning</li>
                         <li>Remediation Design</li>
+                        <li>Monitoring Systems</li>
                     </ul>
+                    <div class="capability-stats">
+                        <span><strong>100+</strong> Environmental Projects</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
+    <!-- Featured Projects -->
+    <section class="projects-section" id="projects">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Project Portfolio</span>
-                <h2 class="section-title">Featured Projects</h2>
+            <div class="section-header-creative">
+                <span class="section-number">03</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">Delivering excellence worldwide</p>
+                </div>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
+            
+            <div class="projects-showcase">
+                <div class="project-featured-card">
+                    <div class="project-image-placeholder">
                         <i class="fas fa-mountain"></i>
                     </div>
                     <div class="project-content">
-                        <div class="project-category">Copper Mine</div>
-                        <h3>Andean Copper Project</h3>
-                        <p class="project-location"><i class="fas fa-map-marker-alt"></i> Chile</p>
-                        <p class="project-description">
-                            Complete EPCM services for 100,000 tpd copper concentrator including crushing, 
-                            grinding, flotation, and tailings facilities.
+                        <div class="project-tags">
+                            <span class="project-tag">Copper</span>
+                            <span class="project-tag">EPCM</span>
+                            <span class="project-tag">Completed</span>
+                        </div>
+                        <h3>Andean Copper Complex</h3>
+                        <p class="project-location">
+                            <i class="fas fa-map-marker-alt"></i> Chile
                         </p>
-                        <div class="project-stats">
-                            <div class="project-stat">
-                                <strong>$850M</strong>
-                                <span>Project Value</span>
+                        <p class="project-description">
+                            Complete EPCM services for 120,000 tpd copper concentrator including crushing, 
+                            grinding, flotation, and tailings facilities. Delivered 3 months ahead of schedule.
+                        </p>
+                        <div class="project-metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-label">Project Value</div>
+                                <div class="metric-value">$1.2B</div>
                             </div>
-                            <div class="project-stat">
-                                <strong>36 months</strong>
-                                <span>Duration</span>
+                            <div class="metric-item">
+                                <div class="metric-label">Duration</div>
+                                <div class="metric-value">42 Months</div>
                             </div>
-                            <div class="project-stat">
-                                <strong>100K tpd</strong>
-                                <span>Capacity</span>
+                            <div class="metric-item">
+                                <div class="metric-label">Capacity</div>
+                                <div class="metric-value">120K tpd</div>
                             </div>
+                            <div class="metric-item">
+                                <div class="metric-label">Status</div>
+                                <div class="metric-value">Operational</div>
+                            </div>
+                        </div>
+                        <div class="project-highlights">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> 3 months ahead of schedule</li>
+                                <li><i class="fas fa-check-circle"></i> 5% under budget</li>
+                                <li><i class="fas fa-check-circle"></i> Zero LTI incidents</li>
+                                <li><i class="fas fa-check-circle"></i> BIM Level 3 implementation</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-category">Gold Mine</div>
-                        <h3>Outback Gold Expansion</h3>
+                <div class="projects-grid-small">
+                    <div class="project-small-card">
+                        <div class="project-icon-large">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h4>Gold Processing Plant</h4>
                         <p class="project-location"><i class="fas fa-map-marker-alt"></i> Australia</p>
-                        <p class="project-description">
-                            Engineering and construction management for underground mine expansion 
-                            and processing plant upgrade.
-                        </p>
-                        <div class="project-stats">
-                            <div class="project-stat">
-                                <strong>$420M</strong>
-                                <span>Project Value</span>
-                            </div>
-                            <div class="project-stat">
-                                <strong>24 months</strong>
-                                <span>Duration</span>
-                            </div>
-                            <div class="project-stat">
-                                <strong>2.5M oz</strong>
-                                <span>Annual Production</span>
-                            </div>
+                        <div class="project-stats-inline">
+                            <span><strong>$850M</strong> Value</span>
+                            <span><strong>80K tpd</strong> Capacity</span>
+                        </div>
+                    </div>
+
+                    <div class="project-small-card">
+                        <div class="project-icon-large">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h4>Iron Ore Expansion</h4>
+                        <p class="project-location"><i class="fas fa-map-marker-alt"></i> Brazil</p>
+                        <div class="project-stats-inline">
+                            <span><strong>$650M</strong> Value</span>
+                            <span><strong>35M tpa</strong> Capacity</span>
+                        </div>
+                    </div>
+
+                    <div class="project-small-card">
+                        <div class="project-icon-large">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                        <h4>Lithium Processing</h4>
+                        <p class="project-location"><i class="fas fa-map-marker-alt"></i> Argentina</p>
+                        <div class="project-stats-inline">
+                            <span><strong>$420M</strong> Value</span>
+                            <span><strong>25K tpa</strong> LCE</span>
+                        </div>
+                    </div>
+
+                    <div class="project-small-card">
+                        <div class="project-icon-large">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <h4>Zinc Concentrator</h4>
+                        <p class="project-location"><i class="fas fa-map-marker-alt"></i> Peru</p>
+                        <div class="project-stats-inline">
+                            <span><strong>$380M</strong> Value</span>
+                            <span><strong>45K tpd</strong> Capacity</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-industry"></i>
+    <!-- Technology & Innovation -->
+    <section class="tech-innovation-section">
+        <div class="container">
+            <div class="section-header-creative">
+                <span class="section-number">04</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Technology & Innovation</h2>
+                    <p class="section-subtitle">Digital engineering solutions</p>
+                </div>
+            </div>
+            
+            <div class="tech-features-grid">
+                <div class="tech-feature-card">
+                    <div class="tech-feature-icon">
+                        <i class="fas fa-cube"></i>
                     </div>
-                    <div class="project-content">
-                        <div class="project-category">Iron Ore</div>
-                        <h3>Amazon Iron Ore Mine</h3>
-                        <p class="project-location"><i class="fas fa-map-marker-alt"></i> Brazil</p>
-                        <p class="project-description">
-                            Complete mine development including pit design, crushing plant, 
-                            and rail infrastructure.
-                        </p>
-                        <div class="project-stats">
-                            <div class="project-stat">
-                                <strong>$1.2B</strong>
-                                <span>Project Value</span>
-                            </div>
-                            <div class="project-stat">
-                                <strong>48 months</strong>
-                                <span>Duration</span>
-                            </div>
-                            <div class="project-stat">
-                                <strong>25M tpa</strong>
-                                <span>Capacity</span>
-                            </div>
-                        </div>
+                    <h3>BIM Level 3</h3>
+                    <p>Full Building Information Modeling integration with clash detection and 4D/5D capabilities.</p>
+                </div>
+
+                <div class="tech-feature-card">
+                    <div class="tech-feature-icon">
+                        <i class="fas fa-vr-cardboard"></i>
                     </div>
+                    <h3>VR/AR Design Review</h3>
+                    <p>Immersive virtual reality walkthroughs and augmented reality on-site visualization.</p>
+                </div>
+
+                <div class="tech-feature-card">
+                    <div class="tech-feature-icon">
+                        <i class="fas fa-drone"></i>
+                    </div>
+                    <h3>Drone Surveys</h3>
+                    <p>Advanced drone surveying for site mapping, progress monitoring, and as-built verification.</p>
+                </div>
+
+                <div class="tech-feature-card">
+                    <div class="tech-feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Collaboration</h3>
+                    <p>Real-time cloud-based collaboration platform for global project teams.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section-creative">
+        <div class="cta-bg-pattern"></div>
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Start Your Mining Project?</h2>
-                <p>Let's discuss how we can deliver your project on time and on budget</p>
-                <div class="cta-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-file-alt"></i> Request Proposal
+            <div class="cta-content-creative">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Partner with engineering experts who deliver excellence</p>
+                <div class="cta-buttons-group">
+                    <button class="btn-cta-primary">
+                        <span>Request Proposal</span>
+                        <i class="fas fa-file-alt"></i>
                     </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-phone"></i> Contact Engineering Team
+                    <button class="btn-cta-secondary">
+                        <i class="fas fa-phone"></i>
+                        <span>Contact Engineering Team</span>
                     </button>
                 </div>
             </div>
@@ -424,39 +587,59 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-creative">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Engineering Hub</h4>
-                    <p>EPCM excellence for mining projects</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-drafting-compass"></i>
+                        <span>Engineering Services</span>
+                    </div>
+                    <p>Complete EPCM solutions for mining excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#capabilities">Capabilities</a></li>
-                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#services">Engineering Design</a></li>
+                        <li><a href="#services">Procurement</a></li>
+                        <li><a href="#services">Construction Management</a></li>
+                        <li><a href="#services">Commissioning</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                
+                <div class="footer-links">
                     <h4>Other Platforms</h4>
                     <ul>
-                        <li><a href="innovation-technology-hub.html">Innovation Hub</a></li>
-                        <li><a href="procurement-hub.html">Procurement Hub</a></li>
-                        <li><a href="analytics-platform.html">Analytics Platform</a></li>
-                        <li><a href="consulting-hub.html">Consulting Hub</a></li>
+                        <li><a href="innovation-technology-hub.html">Innovation Lab</a></li>
+                        <li><a href="procurement-hub.html">Supply Chain</a></li>
+                        <li><a href="analytics-platform.html">Analytics</a></li>
+                        <li><a href="consulting-hub.html">Consulting</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: engineering@SES_-mining.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Project Portfolio</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Technical Papers</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 SES_ Mining Solutions. All rights reserved.</p>
+                <p>&copy; 2025 SES_Mine Engineering Services. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
