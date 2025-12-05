@@ -1,4 +1,4 @@
-// KIMIA Mining Solutions - Main JavaScript File
+// SES_ Mining Solutions - Main JavaScript File
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
@@ -205,7 +205,7 @@ function initializeFormHandlers() {
 // Modal System
 function showModal(title, formType) {
     // Create modal if it doesn't exist
-    let modal = document.getElementById('kimia-modal');
+    let modal = document.getElementById('SES_-modal');
     if (!modal) {
         modal = createModal();
     }
@@ -231,7 +231,7 @@ function showModal(title, formType) {
 
 function createModal() {
     const modal = document.createElement('div');
-    modal.id = 'kimia-modal';
+    modal.id = 'SES_-modal';
     modal.className = 'modal';
     modal.innerHTML = `
         <div class="modal-content">
@@ -350,7 +350,7 @@ function createModal() {
 }
 
 function closeModal() {
-    const modal = document.getElementById('kimia-modal');
+    const modal = document.getElementById('SES_-modal');
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = '';
@@ -456,7 +456,7 @@ function getFormHTML(formType) {
 
 function handleFormSubmit(formType, formData) {
     // Show success message
-    const modal = document.getElementById('kimia-modal');
+    const modal = document.getElementById('SES_-modal');
     const modalBody = modal.querySelector('.modal-body');
 
     modalBody.innerHTML = `
