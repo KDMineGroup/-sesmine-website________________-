@@ -1,743 +1,1238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics Engine | SES_Mine - Real-Time Intelligence</title>
-    <meta name="description" content="AI-powered analytics platform with real-time dashboards, predictive insights, and comprehensive data intelligence.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procurement Hub - SES_Mine | Strategic Supply Chain Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+      :root {
+          --primary-dark: #0a2540;
+          --primary: #1a4d8c;
+          --primary-light: #2d6fc2;
+          --secondary: #00c6b6;
+          --secondary-light: #34dac7;
+          --accent: #9d4edd;
+          --dark: #0f1419;
+          --dark-alt: #1a1f26;
+          --gray: #4a5568;
+          --gray-light: #a0aec0;
+          --white: #ffffff;
+          --gradient-primary: linear-gradient(135deg, #1a4d8c 0%, #2d6fc2 100%);
+          --gradient-secondary: linear-gradient(135deg, #00c6b6 0%, #34dac7 100%);
+          --gradient-accent: linear-gradient(135deg, #9d4edd 0%, #c77dff 100%);
+      }
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: var(--dark);
+          color: var(--white);
+          line-height: 1.6;
+      }
+
+      .page-background {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background: linear-gradient(135deg, #0a2540 0%, #1a1f26 100%);
+      }
+
+      .page-background::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+              radial-gradient(circle at 20% 50%, rgba(0, 198, 182, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(157, 78, 221, 0.08) 0%, transparent 50%);
+      }
+
+      /* Navigation */
+      .navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background: rgba(10, 37, 64, 0.95);
+          backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(45, 111, 194, 0.2);
+          z-index: 1000;
+          padding: 1rem 0;
+      }
+
+      .nav-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 2rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .logo-container {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          text-decoration: none;
+          color: var(--white);
+      }
+
+      .logo-icon {
+          width: 50px;
+          height: 50px;
+          background: var(--gradient-primary);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          box-shadow: 0 4px 15px rgba(45, 111, 194, 0.4);
+      }
+
+      .logo-text h1 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+      .logo-text p {
+          font-size: 0.75rem;
+          color: var(--gray-light);
+      }
+
+      .nav-menu {
+          display: flex;
+          list-style: none;
+          gap: 2rem;
+      }
+
+      .nav-menu a {
+          color: var(--gray-light);
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s;
+      }
+
+      .nav-menu a:hover {
+          color: var(--primary-light);
+      }
+
+      .nav-cta {
+          padding: 0.75rem 1.5rem;
+          background: var(--gradient-primary);
+          border: none;
+          border-radius: 8px;
+          color: var(--white);
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s;
+      }
+
+      .nav-cta:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(45, 111, 194, 0.5);
+      }
+
+      /* Hero Section */
+      .hero {
+          padding: 10rem 2rem 6rem;
+          position: relative;
+      }
+
+      .hero-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 4rem;
+          align-items: center;
+      }
+
+      .hero-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem 1rem;
+          background: rgba(0, 198, 182, 0.1);
+          border: 1px solid rgba(0, 198, 182, 0.3);
+          border-radius: 50px;
+          color: var(--secondary);
+          font-size: 0.9rem;
+          font-weight: 600;
+          margin-bottom: 1.5rem;
+      }
+
+      .hero h1 {
+          font-size: 3.5rem;
+          font-weight: 800;
+          line-height: 1.1;
+          margin-bottom: 1.5rem;
+      }
+
+      .hero h1 .gradient-text {
+          background: var(--gradient-secondary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+      .hero-subtitle {
+          font-size: 1.2rem;
+          color: var(--gray-light);
+          line-height: 1.8;
+          margin-bottom: 2.5rem;
+      }
+
+      .hero-buttons {
+          display: flex;
+          gap: 1rem;
+          margin-bottom: 3rem;
+      }
+
+      .btn-primary {
+          padding: 1rem 2rem;
+          background: var(--gradient-secondary);
+          border: none;
+          border-radius: 8px;
+          color: var(--white);
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 25px rgba(0, 198, 182, 0.5);
+      }
+
+      .btn-secondary {
+          padding: 1rem 2rem;
+          background: transparent;
+          border: 2px solid var(--secondary);
+          border-radius: 8px;
+          color: var(--secondary);
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s;
+      }
+
+      .btn-secondary:hover {
+          background: rgba(0, 198, 182, 0.1);
+      }
+
+      .hero-image {
+          position: relative;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-image::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(0, 198, 182, 0.3), rgba(157, 78, 221, 0.2));
+          z-index: 1;
+      }
+
+      .hero-image img {
+          width: 100%;
+          height: auto;
+          display: block;
+      }
+
+      /* Services Section */
+      .services {
+          padding: 6rem 2rem;
+          background: rgba(26, 31, 38, 0.5);
+      }
+
+      .section-header {
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto 4rem;
+      }
+
+      .section-badge {
+          display: inline-block;
+          padding: 0.5rem 1rem;
+          background: rgba(0, 198, 182, 0.1);
+          border: 1px solid rgba(0, 198, 182, 0.3);
+          border-radius: 50px;
+          color: var(--secondary);
+          font-size: 0.9rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+      }
+
+      .section-header h2 {
+          font-size: 3rem;
+          font-weight: 800;
+          margin-bottom: 1rem;
+          background: var(--gradient-secondary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+      .section-header p {
+          font-size: 1.1rem;
+          color: var(--gray-light);
+      }
+
+      .services-grid {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          gap: 2rem;
+      }
+
+      .service-card {
+          background: rgba(10, 37, 64, 0.6);
+          border: 1px solid rgba(0, 198, 182, 0.2);
+          border-radius: 20px;
+          padding: 2.5rem;
+          transition: all 0.4s;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .service-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: var(--gradient-secondary);
+          transform: scaleX(0);
+          transition: transform 0.4s;
+      }
+
+      .service-card:hover::before {
+          transform: scaleX(1);
+      }
+
+      .service-card:hover {
+          transform: translateY(-10px);
+          border-color: var(--secondary);
+          box-shadow: 0 20px 60px rgba(0, 198, 182, 0.3);
+      }
+
+      .service-icon {
+          width: 70px;
+          height: 70px;
+          background: var(--gradient-secondary);
+          border-radius: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          margin-bottom: 1.5rem;
+          box-shadow: 0 10px 30px rgba(0, 198, 182, 0.4);
+      }
+
+      .service-card h3 {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+      }
+
+      .service-card p {
+          color: var(--gray-light);
+          line-height: 1.7;
+          margin-bottom: 1.5rem;
+      }
+
+      .service-features {
+          list-style: none;
+      }
+
+      .service-features li {
+          padding: 0.5rem 0;
+          color: var(--gray-light);
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+      }
+
+      .service-features li i {
+          color: var(--secondary);
+      }
+
+      /* Categories Section */
+      .categories {
+          padding: 6rem 2rem;
+      }
+
+      .categories-grid {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 2rem;
+      }
+
+      .category-card {
+          background: rgba(10, 37, 64, 0.6);
+          border: 1px solid rgba(0, 198, 182, 0.2);
+          border-radius: 15px;
+          padding: 2rem;
+          text-align: center;
+          transition: all 0.3s;
+          cursor: pointer;
+      }
+
+      .category-card:hover {
+          background: rgba(10, 37, 64, 0.8);
+          border-color: var(--secondary);
+          transform: translateY(-5px);
+          box-shadow: 0 15px 40px rgba(0, 198, 182, 0.2);
+      }
+
+      .category-icon {
+          width: 80px;
+          height: 80px;
+          background: var(--gradient-secondary);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          margin: 0 auto 1.5rem;
+          box-shadow: 0 8px 25px rgba(0, 198, 182, 0.4);
+      }
+
+      .category-card h3 {
+          font-size: 1.3rem;
+          margin-bottom: 0.5rem;
+      }
+
+      .category-count {
+          color: var(--secondary);
+          font-weight: 600;
+          font-size: 0.95rem;
+      }
+
+      /* Suppliers Section */
+      .suppliers {
+          padding: 6rem 2rem;
+          background: rgba(26, 31, 38, 0.5);
+      }
+
+      .suppliers-grid {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+      }
+
+      .supplier-card {
+          background: rgba(10, 37, 64, 0.6);
+          border: 1px solid rgba(0, 198, 182, 0.2);
+          border-radius: 15px;
+          padding: 2rem;
+          text-align: center;
+          transition: all 0.3s;
+      }
+
+      .supplier-card:hover {
+          border-color: var(--secondary);
+          transform: translateY(-5px);
+          box-shadow: 0 15px 40px rgba(0, 198, 182, 0.2);
+      }
+
+      .supplier-logo {
+          width: 100px;
+          height: 100px;
+          background: rgba(0, 198, 182, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 1rem;
+          font-size: 2.5rem;
+          color: var(--secondary);
+      }
+
+      .supplier-card h4 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+      }
+
+      .supplier-rating {
+          color: #ffd60a;
+          margin-bottom: 0.5rem;
+      }
+
+      .supplier-location {
+          color: var(--gray-light);
+          font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.3rem;
+      }
+
+      /* Process Section */
+      .process {
+          padding: 6rem 2rem;
+      }
+
+      .process-steps {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+      }
+
+      .process-step {
+          background: rgba(10, 37, 64, 0.6);
+          border: 1px solid rgba(0, 198, 182, 0.2);
+          border-radius: 15px;
+          padding: 2rem;
+          text-align: center;
+          position: relative;
+          transition: all 0.3s;
+      }
+
+      .process-step:hover {
+          border-color: var(--secondary);
+          transform: translateY(-5px);
+      }
+
+      .process-step::after {
+          content: '→';
+          position: absolute;
+          right: -1.5rem;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 2rem;
+          color: var(--secondary);
+      }
+
+      .process-step:last-child::after {
+          display: none;
+      }
+
+      .step-number {
+          width: 60px;
+          height: 60px;
+          background: var(--gradient-secondary);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.8rem;
+          font-weight: 800;
+          margin: 0 auto 1rem;
+      }
+
+      .process-step h3 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+      }
+
+      .process-step p {
+          color: var(--gray-light);
+          font-size: 0.95rem;
+      }
+
+      /* Benefits Section */
+      .benefits {
+          padding: 6rem 2rem;
+          background: rgba(26, 31, 38, 0.5);
+      }
+
+      .benefits-grid {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+      }
+
+      .benefit-card {
+          background: rgba(10, 37, 64, 0.6);
+          border: 1px solid rgba(0, 198, 182, 0.2);
+          border-radius: 15px;
+          padding: 2rem;
+          display: flex;
+          gap: 1.5rem;
+          transition: all 0.3s;
+      }
+
+      .benefit-card:hover {
+          border-color: var(--secondary);
+          transform: translateX(10px);
+      }
+
+      .benefit-icon {
+          width: 60px;
+          height: 60px;
+          background: var(--gradient-secondary);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          flex-shrink: 0;
+      }
+
+      .benefit-content h3 {
+          font-size: 1.3rem;
+          margin-bottom: 0.5rem;
+      }
+
+      .benefit-content p {
+          color: var(--gray-light);
+      }
+
+      /* Stats Banner */
+      .stats-banner {
+          background: var(--gradient-secondary);
+          padding: 4rem 2rem;
+      }
+
+      .stats-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 3rem;
+      }
+
+      .stat-box {
+          text-align: center;
+      }
+
+      .stat-number {
+          font-size: 3rem;
+          font-weight: 800;
+          margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+          font-size: 1rem;
+          opacity: 0.9;
+      }
+
+      /* Footer */
+      .footer {
+          padding: 4rem 2rem 2rem;
+          background: rgba(10, 37, 64, 0.8);
+          border-top: 1px solid rgba(45, 111, 194, 0.2);
+      }
+
+      .footer-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr 1fr;
+          gap: 3rem;
+          margin-bottom: 3rem;
+      }
+
+      .footer-brand {
+          font-size: 1.8rem;
+          font-weight: 800;
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin-bottom: 1rem;
+      }
+
+      .footer-desc {
+          color: var(--gray-light);
+          line-height: 1.7;
+      }
+
+      .footer h4 {
+          margin-bottom: 1.5rem;
+          color: var(--primary-light);
+      }
+
+      .footer-links {
+          list-style: none;
+      }
+
+      .footer-links li {
+          margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+          color: var(--gray-light);
+          text-decoration: none;
+          transition: all 0.3s;
+      }
+
+      .footer-links a:hover {
+          color: var(--primary-light);
+          padding-left: 5px;
+      }
+
+      .footer-bottom {
+          text-align: center;
+          padding-top: 2rem;
+          border-top: 1px solid rgba(45, 111, 194, 0.2);
+          color: var(--gray-light);
+      }
+
+      @media (max-width: 1024px) {
+          .hero-container {
+              grid-template-columns: 1fr;
+          }
+
+          .nav-menu {
+              display: none;
+          }
+
+          .process-step::after {
+              display: none;
+          }
+
+          .footer-container {
+              grid-template-columns: 1fr 1fr;
+          }
+      }
+
+      @media (max-width: 768px) {
+          .hero h1 {
+              font-size: 2.5rem;
+          }
+
+          .services-grid,
+          .categories-grid,
+          .suppliers-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .footer-container {
+              grid-template-columns: 1fr;
+          }
+      }
+  </style>
 </head>
-<body class="dark-theme analytics-page">
-    <!-- Data Flow Background -->
-    <div class="data-flow-background">
-        <canvas id="data-particles"></canvas>
-    </div>
+<body>
+  <div class="page-background"></div>
 
-    <!-- Navigation -->
-    <nav class="floating-nav">
-        <div class="nav-container">
-            <a href="index.html" class="brand-logo">
-                <div class="logo-glow">
-                    <i class="fas fa-brain"></i>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-name">Analytics Engine</span>
-                    <span class="brand-tagline">SES_Mine</span>
-                </div>
-            </a>
-            
-            <div class="nav-menu-wrapper">
-                <ul class="nav-links">
-                    <li><a href="index.html" class="nav-item">Home</a></li>
-                    <li><a href="#dashboards" class="nav-item">Dashboards</a></li>
-                    <li><a href="#insights" class="nav-item">Insights</a></li>
-                    <li><a href="#reports" class="nav-item">Reports</a></li>
-                    <li class="nav-dropdown">
-                        <a href="#" class="nav-item">
-                            Other Hubs <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-grid">
-                                <a href="innovation-technology-hub.html" class="mega-item">
-                                    <div class="mega-icon"><i class="fas fa-rocket"></i></div>
-                                    <div class="mega-content">
-                                        <h4>Innovation Lab</h4>
-                                        <p>AI & Future Tech</p>
-                                    </div>
-                                </a>
-                                <a href="procurement-hub.html" class="mega-item">
-                                    <div class="mega-icon"><i class="fas fa-network-wired"></i></div>
-                                    <div class="mega-content">
-                                        <h4>Supply Chain</h4>
-                                        <p>Smart Procurement</p>
-                                    </div>
-                                </a>
-                                <a href="consulting-hub.html" class="mega-item">
-                                    <div class="mega-icon"><i class="fas fa-lightbulb"></i></div>
-                                    <div class="mega-content">
-                                        <h4>Expert Advisory</h4>
-                                        <p>Strategic Consulting</p>
-                                    </div>
-                                </a>
-                                <a href="training-education-hub.html" class="mega-item">
-                                    <div class="mega-icon"><i class="fas fa-graduation-cap"></i></div>
-                                    <div class="mega-content">
-                                        <h4>Academy</h4>
-                                        <p>Learn & Certify</p>
-                                    </div>
-                                </a>
-                                <a href="engineering-hub.html" class="mega-item">
-                                    <div class="mega-icon"><i class="fas fa-drafting-compass"></i></div>
-                                    <div class="mega-content">
-                                        <h4>Engineering</h4>
-                                        <p>EPCM Services</p>
-                                    </div>
-                                </a>
-                                <a href="economics-hub.html" class="mega-item">
-                                    <div class="mega-icon"><i class="fas fa-chart-line"></i></div>
-                                    <div class="mega-content">
-                                        <h4>Economics</h4>
-                                        <p>Financial Modeling</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                
-                <div class="nav-actions">
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-sun"></i>
-                    </button>
-                    <button class="cta-button glow-effect">
-                        <span>Live Demo</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <button class="mobile-menu-toggle" id="mobileToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav class="navbar">
+      <div class="nav-container">
+          <a href="index.html" class="logo-container">
+              <div class="logo-icon">
+                  <i class="fas fa-mountain"></i>
+              </div>
+              <div class="logo-text">
+                  <h1>SES_Mine</h1>
+                  <p>Scientific & Engineering Supplies LLC</p>
+              </div>
+          </a>
+          <ul class="nav-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="home.html">Platforms</a></li>
+              <li><a href="engineering-hub.html">Engineering</a></li>
+              <li><a href="economics-hub.html">Economics</a></li>
+              <li><a href="consulting-hub.html">Consulting</a></li>
+          </ul>
+          <button class="nav-cta" onclick="window.location.href='index.html'">Contact Us</button>
+      </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-analytics">
-        <div class="container">
-            <div class="hero-content-center">
-                <div class="hero-badge animate-float">
-                    <span class="badge-dot pulsing"></span>
-                    <span>Real-Time Data Intelligence</span>
-                </div>
-                
-                <h1 class="hero-title-xl">
-                    <span class="title-line">Turn Data Into</span>
-                    <span class="title-highlight gradient-text">Actionable Insights</span>
-                </h1>
-                
-                <p class="hero-description-center">
-                    AI-powered analytics platform delivering real-time dashboards, predictive insights, 
-                    and comprehensive reporting. Make data-driven decisions with confidence.
-                </p>
-                
-                <div class="hero-cta-group">
-                    <button class="btn-primary-hero">
-                        <span>Explore Dashboards</span>
-                        <div class="btn-glow"></div>
-                    </button>
-                    <button class="btn-secondary-hero">
-                        <i class="fas fa-play-circle"></i>
-                        <span>Watch Demo</span>
-                    </button>
-                </div>
+  <!-- Hero Section -->
+  <section class="hero">
+      <div class="hero-container">
+          <div class="hero-content">
+              <div class="hero-badge">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span>Strategic Procurement</span>
+              </div>
+              <h1>
+                  Smart <span class="gradient-text">Procurement Solutions</span> for Mining
+              </h1>
+              <p class="hero-subtitle">
+                  Optimize your supply chain with comprehensive procurement services. Access 1000+ 
+                  verified suppliers, competitive pricing, and streamlined processes for all your 
+                  mining equipment and supplies worldwide.
+              </p>
+              <div class="hero-buttons">
+                  <button class="btn-primary">
+                      <i class="fas fa-search"></i>
+                      Browse Catalog
+                  </button>
+                  <button class="btn-secondary">
+                      <i class="fas fa-file-alt"></i>
+                      Request Quote
+                  </button>
+              </div>
+          </div>
+          <div class="hero-image">
+              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop&q=80" alt="Procurement Solutions">
+          </div>
+      </div>
+  </section>
 
-                <div class="analytics-preview">
-                    <div class="preview-window">
-                        <div class="window-header">
-                            <div class="window-dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <div class="window-title">Production Analytics Dashboard</div>
-                        </div>
-                        <div class="window-content">
-                            <div class="mini-chart-grid">
-                                <div class="mini-chart">
-                                    <canvas id="miniChart1"></canvas>
-                                </div>
-                                <div class="mini-chart">
-                                    <canvas id="miniChart2"></canvas>
-                                </div>
-                                <div class="mini-chart">
-                                    <canvas id="miniChart3"></canvas>
-                                </div>
-                                <div class="mini-chart">
-                                    <canvas id="miniChart4"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Services Section -->
+  <section class="services">
+      <div class="section-header">
+          <span class="section-badge">OUR SERVICES</span>
+          <h2>Comprehensive Procurement Services</h2>
+          <p>End-to-end supply chain management for mining operations</p>
+      </div>
 
-    <!-- Live Dashboard Section -->
-    <section class="dashboard-section" id="dashboards">
-        <div class="container-fluid">
-            <div class="section-header-creative">
-                <span class="section-number">01</span>
-                <div class="section-title-group">
-                    <h2 class="section-title">Live Operations Dashboard</h2>
-                    <p class="section-subtitle">Real-time monitoring and control</p>
-                </div>
-            </div>
-            
-            <div class="dashboard-interface">
-                <div class="dashboard-sidebar">
-                    <div class="dashboard-nav">
-                        <button class="dash-nav-item active">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <span>Overview</span>
-                        </button>
-                        <button class="dash-nav-item">
-                            <i class="fas fa-industry"></i>
-                            <span>Production</span>
-                        </button>
-                        <button class="dash-nav-item">
-                            <i class="fas fa-cogs"></i>
-                            <span>Equipment</span>
-                        </button>
-                        <button class="dash-nav-item">
-                            <i class="fas fa-dollar-sign"></i>
-                            <span>Costs</span>
-                        </button>
-                        <button class="dash-nav-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Safety</span>
-                        </button>
-                        <button class="dash-nav-item">
-                            <i class="fas fa-leaf"></i>
-                            <span>Environment</span>
-                        </button>
-                    </div>
-                </div>
+      <div class="services-grid">
+          <div class="service-card">
+              <div class="service-icon">
+                  <i class="fas fa-truck"></i>
+              </div>
+              <h3>Equipment Sourcing</h3>
+              <p>Access to global suppliers for all mining equipment from excavators to processing plants.</p>
+              <ul class="service-features">
+                  <li><i class="fas fa-check-circle"></i> Heavy Equipment</li>
+                  <li><i class="fas fa-check-circle"></i> Processing Equipment</li>
+                  <li><i class="fas fa-check-circle"></i> Support Equipment</li>
+                  <li><i class="fas fa-check-circle"></i> Spare Parts Inventory</li>
+              </ul>
+          </div>
 
-                <div class="dashboard-main">
-                    <div class="dashboard-header">
-                        <div class="dash-title">
-                            <h3>Operations Overview</h3>
-                            <span class="live-indicator">
-                                <span class="pulse-dot"></span>
-                                Live
-                            </span>
-                        </div>
-                        <div class="dash-controls">
-                            <select class="dash-select">
-                                <option>Last 24 Hours</option>
-                                <option>Last 7 Days</option>
-                                <option>Last 30 Days</option>
-                                <option>Custom Range</option>
-                            </select>
-                            <button class="dash-btn"><i class="fas fa-sync-alt"></i></button>
-                            <button class="dash-btn"><i class="fas fa-download"></i></button>
-                            <button class="dash-btn"><i class="fas fa-expand"></i></button>
-                        </div>
-                    </div>
+          <div class="service-card">
+              <div class="service-icon">
+                  <i class="fas fa-handshake"></i>
+              </div>
+              <h3>Vendor Management</h3>
+              <p>Comprehensive vendor qualification, evaluation, and performance management systems.</p>
+              <ul class="service-features">
+                  <li><i class="fas fa-check-circle"></i> Vendor Qualification</li>
+                  <li><i class="fas fa-check-circle"></i> Performance Tracking</li>
+                  <li><i class="fas fa-check-circle"></i> Contract Management</li>
+                  <li><i class="fas fa-check-circle"></i> Relationship Management</li>
+              </ul>
+          </div>
 
-                    <div class="kpi-grid-modern">
-                        <div class="kpi-card-modern">
-                            <div class="kpi-header">
-                                <div class="kpi-icon production">
-                                    <i class="fas fa-cube"></i>
-                                </div>
-                                <div class="kpi-trend positive">
-                                    <i class="fas fa-arrow-up"></i>
-                                    <span>8.5%</span>
-                                </div>
-                            </div>
-                            <div class="kpi-body">
-                                <div class="kpi-value">14,250</div>
-                                <div class="kpi-label">Tons Produced Today</div>
-                            </div>
-                            <div class="kpi-footer">
-                                <div class="mini-sparkline">
-                                    <canvas id="sparkline1"></canvas>
-                                </div>
-                            </div>
-                        </div>
+          <div class="service-card">
+              <div class="service-icon">
+                  <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Supply Chain Optimization</h3>
+              <p>Strategic supply chain design and optimization for cost reduction and efficiency.</p>
+              <ul class="service-features">
+                  <li><i class="fas fa-check-circle"></i> Logistics Planning</li>
+                  <li><i class="fas fa-check-circle"></i> Inventory Management</li>
+                  <li><i class="fas fa-check-circle"></i> Demand Forecasting</li>
+                  <li><i class="fas fa-check-circle"></i> Cost Optimization</li>
+              </ul>
+          </div>
 
-                        <div class="kpi-card-modern">
-                            <div class="kpi-header">
-                                <div class="kpi-icon equipment">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <div class="kpi-trend positive">
-                                    <i class="fas fa-arrow-up"></i>
-                                    <span>2.1%</span>
-                                </div>
-                            </div>
-                            <div class="kpi-body">
-                                <div class="kpi-value">96.8%</div>
-                                <div class="kpi-label">Equipment Availability</div>
-                            </div>
-                            <div class="kpi-footer">
-                                <div class="mini-sparkline">
-                                    <canvas id="sparkline2"></canvas>
-                                </div>
-                            </div>
-                        </div>
+          <div class="service-card">
+              <div class="service-icon">
+                  <i class="fas fa-gavel"></i>
+              </div>
+              <h3>Tender Management</h3>
+              <p>Complete tender process management from RFQ preparation to contract award.</p>
+              <ul class="service-features">
+                  <li><i class="fas fa-check-circle"></i> RFQ/RFP Preparation</li>
+                  <li><i class="fas fa-check-circle"></i> Bid Evaluation</li>
+                  <li><i class="fas fa-check-circle"></i> Negotiation Support</li>
+                  <li><i class="fas fa-check-circle"></i> Contract Award</li>
+              </ul>
+          </div>
 
-                        <div class="kpi-card-modern">
-                            <div class="kpi-header">
-                                <div class="kpi-icon cost">
-                                    <i class="fas fa-dollar-sign"></i>
-                                </div>
-                                <div class="kpi-trend negative">
-                                    <i class="fas fa-arrow-down"></i>
-                                    <span>3.2%</span>
-                                </div>
-                            </div>
-                            <div class="kpi-body">
-                                <div class="kpi-value">$22.40</div>
-                                <div class="kpi-label">Cost per Ton</div>
-                            </div>
-                            <div class="kpi-footer">
-                                <div class="mini-sparkline">
-                                    <canvas id="sparkline3"></canvas>
-                                </div>
-                            </div>
-                        </div>
+          <div class="service-card">
+              <div class="service-icon">
+                  <i class="fas fa-dollar-sign"></i>
+              </div>
+              <h3>Cost Management</h3>
+              <p>Strategic cost reduction initiatives and procurement spend optimization.</p>
+              <ul class="service-features">
+                  <li><i class="fas fa-check-circle"></i> Spend Analysis</li>
+                  <li><i class="fas fa-check-circle"></i> Cost Benchmarking</li>
+                  <li><i class="fas fa-check-circle"></i> Value Engineering</li>
+                  <li><i class="fas fa-check-circle"></i> Savings Tracking</li>
+              </ul>
+          </div>
 
-                        <div class="kpi-card-modern">
-                            <div class="kpi-header">
-                                <div class="kpi-icon safety">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div class="kpi-trend positive">
-                                    <i class="fas fa-arrow-up"></i>
-                                    <span>0.5%</span>
-                                </div>
-                            </div>
-                            <div class="kpi-body">
-                                <div class="kpi-value">99.2%</div>
-                                <div class="kpi-label">Safety Score</div>
-                            </div>
-                            <div class="kpi-footer">
-                                <div class="mini-sparkline">
-                                    <canvas id="sparkline4"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <div class="service-card">
+              <div class="service-icon">
+                  <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Risk Management</h3>
+              <p>Comprehensive supply chain risk assessment and mitigation strategies.</p>
+              <ul class="service-features">
+                  <li><i class="fas fa-check-circle"></i> Risk Assessment</li>
+                  <li><i class="fas fa-check-circle"></i> Supplier Diversification</li>
+                  <li><i class="fas fa-check-circle"></i> Contingency Planning</li>
+                  <li><i class="fas fa-check-circle"></i> Quality Assurance</li>
+              </ul>
+          </div>
+      </div>
+  </section>
 
-                    <div class="charts-grid">
-                        <div class="chart-card-modern large">
-                            <div class="chart-header">
-                                <h4>Production Trend (7 Days)</h4>
-                                <div class="chart-legend">
-                                    <span class="legend-item">
-                                        <span class="legend-color" style="background: #00f2ff;"></span>
-                                        Actual
-                                    </span>
-                                    <span class="legend-item">
-                                        <span class="legend-color" style="background: #7b2ff7;"></span>
-                                        Target
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="chart-body">
-                                <canvas id="productionChart"></canvas>
-                            </div>
-                        </div>
+  <!-- Categories Section -->
+  <section class="categories">
+      <div class="section-header">
+          <span class="section-badge">PRODUCT CATEGORIES</span>
+          <h2>Equipment Catalog</h2>
+          <p>Comprehensive range of mining equipment and supplies</p>
+      </div>
 
-                        <div class="chart-card-modern">
-                            <div class="chart-header">
-                                <h4>Equipment Status</h4>
-                            </div>
-                            <div class="chart-body">
-                                <canvas id="equipmentChart"></canvas>
-                            </div>
-                            <div class="chart-footer">
-                                <div class="status-legend">
-                                    <span><i class="fas fa-circle" style="color: #00f2ff;"></i> Operating (75%)</span>
-                                    <span><i class="fas fa-circle" style="color: #ffd700;"></i> Maintenance (15%)</span>
-                                    <span><i class="fas fa-circle" style="color: #ff6b6b;"></i> Down (10%)</span>
-                                </div>
-                            </div>
-                        </div>
+      <div class="categories-grid">
+          <div class="category-card">
+              <div class="category-icon">
+                  <i class="fas fa-truck-monster"></i>
+              </div>
+              <h3>Heavy Equipment</h3>
+              <p class="category-count">500+ Products</p>
+          </div>
 
-                        <div class="chart-card-modern">
-                            <div class="chart-header">
-                                <h4>Cost Breakdown</h4>
-                            </div>
-                            <div class="chart-body">
-                                <canvas id="costChart"></canvas>
-                            </div>
-                        </div>
+          <div class="category-card">
+              <div class="category-icon">
+                  <i class="fas fa-industry"></i>
+              </div>
+              <h3>Processing Equipment</h3>
+              <p class="category-count">350+ Products</p>
+          </div>
 
-                        <div class="chart-card-modern alerts">
-                            <div class="chart-header">
-                                <h4>Live Alerts</h4>
-                                <span class="alert-count">3 Active</span>
-                            </div>
-                            <div class="alerts-list">
-                                <div class="alert-item warning">
-                                    <div class="alert-icon">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </div>
-                                    <div class="alert-content">
-                                        <div class="alert-title">Equipment Maintenance Due</div>
-                                        <div class="alert-desc">Haul Truck #12 - Service in 2 hours</div>
-                                        <div class="alert-time">5 minutes ago</div>
-                                    </div>
-                                </div>
-                                <div class="alert-item info">
-                                    <div class="alert-icon">
-                                        <i class="fas fa-info-circle"></i>
-                                    </div>
-                                    <div class="alert-content">
-                                        <div class="alert-title">Production Update</div>
-                                        <div class="alert-desc">Crusher #2 throughput +12%</div>
-                                        <div class="alert-time">15 minutes ago</div>
-                                    </div>
-                                </div>
-                                <div class="alert-item success">
-                                    <div class="alert-icon">
-                                        <i class="fas fa-check-circle"></i>
-                                    </div>
-                                    <div class="alert-content">
-                                        <div class="alert-title">Target Achieved</div>
-                                        <div class="alert-desc">Daily production goal reached</div>
-                                        <div class="alert-time">1 hour ago</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+          <div class="category-card">
+              <div class="category-icon">
+                  <i class="fas fa-tools"></i>
+              </div>
+              <h3>Tools & Accessories</h3>
+              <p class="category-count">1000+ Products</p>
+          </div>
 
-    <!-- AI Insights Section -->
-    <section class="insights-section" id="insights">
-        <div class="container">
-            <div class="section-header-creative">
-                <span class="section-number">02</span>
-                <div class="section-title-group">
-                    <h2 class="section-title">AI-Powered Insights</h2>
-                    <p class="section-subtitle">Predictive analytics and recommendations</p>
-                </div>
-            </div>
-            
-            <div class="insights-grid">
-                <div class="insight-card">
-                    <div class="insight-header">
-                        <div class="insight-icon predictive">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>Predictive Maintenance</h3>
-                    </div>
-                    <div class="insight-body">
-                        <p>Machine learning models predict equipment failures 7-14 days in advance with 95% accuracy.</p>
-                        <div class="insight-stats">
-                            <div class="stat">
-                                <span class="stat-value">95%</span>
-                                <span class="stat-label">Accuracy</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">45%</span>
-                                <span class="stat-label">Downtime Reduction</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="category-card">
+              <div class="category-icon">
+                  <i class="fas fa-cog"></i>
+              </div>
+              <h3>Spare Parts</h3>
+              <p class="category-count">2000+ Products</p>
+          </div>
 
-                <div class="insight-card">
-                    <div class="insight-header">
-                        <div class="insight-icon optimization">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Process Optimization</h3>
-                    </div>
-                    <div class="insight-body">
-                        <p>AI analyzes operations 24/7 to identify optimization opportunities and efficiency improvements.</p>
-                        <div class="insight-stats">
-                            <div class="stat">
-                                <span class="stat-value">20%</span>
-                                <span class="stat-label">Efficiency Gain</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">$5M</span>
-                                <span class="stat-label">Annual Savings</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="category-card">
+              <div class="category-icon">
+                  <i class="fas fa-hard-hat"></i>
+              </div>
+              <h3>Safety Equipment</h3>
+              <p class="category-count">400+ Products</p>
+          </div>
 
-                <div class="insight-card">
-                    <div class="insight-header">
-                        <div class="insight-icon anomaly">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </div>
-                        <h3>Anomaly Detection</h3>
-                    </div>
-                    <div class="insight-body">
-                        <p>Real-time detection of unusual patterns and potential issues before they become problems.</p>
-                        <div class="insight-stats">
-                            <div class="stat">
-                                <span class="stat-value">&lt;1s</span>
-                                <span class="stat-label">Detection Time</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">99%</span>
-                                <span class="stat-label">Detection Rate</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="category-card">
+              <div class="category-icon">
+                  <i class="fas fa-flask"></i>
+              </div>
+              <h3>Chemicals & Reagents</h3>
+              <p class="category-count">250+ Products</p>
+          </div>
+      </div>
+  </section>
 
-                <div class="insight-card">
-                    <div class="insight-header">
-                        <div class="insight-icon forecasting">
-                            <i class="fas fa-crystal-ball"></i>
-                        </div>
-                        <h3>Production Forecasting</h3>
-                    </div>
-                    <div class="insight-body">
-                        <p>Advanced forecasting models predict production output with high accuracy for better planning.</p>
-                        <div class="insight-stats">
-                            <div class="stat">
-                                <span class="stat-value">92%</span>
-                                <span class="stat-label">Forecast Accuracy</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">30d</span>
-                                <span class="stat-label">Forecast Horizon</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Suppliers Section -->
+  <section class="suppliers">
+      <div class="section-header">
+          <span class="section-badge">TRUSTED PARTNERS</span>
+          <h2>Verified Suppliers</h2>
+          <p>Global network of qualified and certified suppliers</p>
+      </div>
 
-    <!-- Reports Section -->
-    <section class="reports-section" id="reports">
-        <div class="container">
-            <div class="section-header-creative">
-                <span class="section-number">03</span>
-                <div class="section-title-group">
-                    <h2 class="section-title">Automated Reporting</h2>
-                    <p class="section-subtitle">Custom reports delivered on schedule</p>
-                </div>
-            </div>
-            
-            <div class="reports-showcase">
-                <div class="report-type-card">
-                    <div class="report-icon">
-                        <i class="fas fa-file-chart-line"></i>
-                    </div>
-                    <h3>Daily Operations Report</h3>
-                    <p>Comprehensive daily summary of production, equipment, costs, and safety metrics.</p>
-                    <div class="report-features">
-                        <span class="feature-badge"><i class="fas fa-clock"></i> Daily at 6 AM</span>
-                        <span class="feature-badge"><i class="fas fa-file-pdf"></i> PDF & Excel</span>
-                    </div>
-                    <button class="report-btn">Configure Report</button>
-                </div>
+      <div class="suppliers-grid">
+          <div class="supplier-card">
+              <div class="supplier-logo">
+                  <i class="fas fa-building"></i>
+              </div>
+              <h4>Caterpillar Inc.</h4>
+              <div class="supplier-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+              <p class="supplier-location">
+                  <i class="fas fa-map-marker-alt"></i> USA
+              </p>
+          </div>
 
-                <div class="report-type-card">
-                    <div class="report-icon">
-                        <i class="fas fa-file-chart-pie"></i>
-                    </div>
-                    <h3>Weekly Performance</h3>
-                    <p>Detailed analysis of weekly trends, KPIs, and performance against targets.</p>
-                    <div class="report-features">
-                        <span class="feature-badge"><i class="fas fa-calendar-week"></i> Every Monday</span>
-                        <span class="feature-badge"><i class="fas fa-file-powerpoint"></i> PPT & PDF</span>
-                    </div>
-                    <button class="report-btn">Configure Report</button>
-                </div>
+          <div class="supplier-card">
+              <div class="supplier-logo">
+                  <i class="fas fa-building"></i>
+              </div>
+              <h4>Komatsu Ltd.</h4>
+              <div class="supplier-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+              <p class="supplier-location">
+                  <i class="fas fa-map-marker-alt"></i> Japan
+              </p>
+          </div>
 
-                <div class="report-type-card">
-                    <div class="report-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                    </div>
-                    <h3>Monthly Financial</h3>
-                    <p>Complete financial analysis including costs, revenue, margins, and budget variance.</p>
-                    <div class="report-features">
-                        <span class="feature-badge"><i class="fas fa-calendar-alt"></i> Monthly</span>
-                        <span class="feature-badge"><i class="fas fa-file-excel"></i> Excel & PDF</span>
-                    </div>
-                    <button class="report-btn">Configure Report</button>
-                </div>
+          <div class="supplier-card">
+              <div class="supplier-logo">
+                  <i class="fas fa-building"></i>
+              </div>
+              <h4>Sandvik AB</h4>
+              <div class="supplier-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+              <p class="supplier-location">
+                  <i class="fas fa-map-marker-alt"></i> Sweden
+              </p>
+          </div>
 
-                <div class="report-type-card">
-                    <div class="report-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h3>Custom Reports</h3>
-                    <p>Build custom reports with drag-and-drop interface and flexible scheduling.</p>
-                    <div class="report-features">
-                        <span class="feature-badge"><i class="fas fa-sliders-h"></i> Customizable</span>
-                        <span class="feature-badge"><i class="fas fa-file"></i> All Formats</span>
-                    </div>
-                    <button class="report-btn">Create Custom</button>
-                </div>
-            </div>
-        </div>
-    </section>
+          <div class="supplier-card">
+              <div class="supplier-logo">
+                  <i class="fas fa-building"></i>
+              </div>
+              <h4>Metso Outotec</h4>
+              <div class="supplier-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+              <p class="supplier-location">
+                  <i class="fas fa-map-marker-alt"></i> Finland
+              </p>
+          </div>
 
-    <!-- CTA Section -->
-    <section class="cta-section-creative">
-        <div class="cta-bg-pattern"></div>
-        <div class="container">
-            <div class="cta-content-creative">
-                <h2>Transform Data Into Decisions</h2>
-                <p>Start making data-driven decisions with SES_Mine Analytics Engine</p>
-                <div class="cta-buttons-group">
-                    <button class="btn-cta-primary">
-                        <span>Start Free Trial</span>
-                        <i class="fas fa-rocket"></i>
-                    </button>
-                    <button class="btn-cta-secondary">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Schedule Demo</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+          <div class="supplier-card">
+              <div class="supplier-logo">
+                  <i class="fas fa-building"></i>
+              </div>
+              <h4>Epiroc AB</h4>
+              <div class="supplier-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+              <p class="supplier-location">
+                  <i class="fas fa-map-marker-alt"></i> Sweden
+              </p>
+          </div>
 
-    <!-- Footer -->
-    <footer class="footer-creative">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <i class="fas fa-brain"></i>
-                        <span>Analytics Engine</span>
-                    </div>
-                    <p>Real-time intelligence for smarter mining operations.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Features</h4>
-                    <ul>
-                        <li><a href="#dashboards">Live Dashboards</a></li>
-                        <li><a href="#insights">AI Insights</a></li>
-                        <li><a href="#reports">Reports</a></li>
-                        <li><a href="#">API Access</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Other Platforms</h4>
-                    <ul>
-                        <li><a href="innovation-technology-hub.html">Innovation Lab</a></li>
-                        <li><a href="procurement-hub.html">Supply Chain</a></li>
-                        <li><a href="consulting-hub.html">Consulting</a></li>
-                        <li><a href="training-education-hub.html">Academy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Support</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 SES_Mine Analytics Engine. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+          <div class="supplier-card">
+              <div class="supplier-logo">
+                  <i class="fas fa-building"></i>
+              </div>
+              <h4>Liebherr Group</h4>
+              <div class="supplier-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+              <p class="supplier-location">
+                  <i class="fas fa-map-marker-alt"></i> Germany
+              </p>
+          </div>
+      </div>
+  </section>
 
-    <script src="./script.js"></script>
-    <script>
-        // Initialize Charts
-        document.addEventListener('DOMContentLoaded', function() {
-            // Production Chart
-            const productionCtx = document.getElementById('productionChart');
-            if (productionCtx) {
-                new Chart(productionCtx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                        datasets: [{
-                            label: 'Actual',
-                            data: [12200, 13100, 12800, 13500, 14250, 13900, 14100],
-                            borderColor: '#00f2ff',
-                            backgroundColor: 'rgba(0, 242, 255, 0.1)',
-                            tension: 0.4,
-                            fill: true
-                        }, {
-                            label: 'Target',
-                            data: [13000, 13000, 13000, 13000, 13000, 13000, 13000],
-                            borderColor: '#7b2ff7',
-                            borderDash: [5, 5],
-                            tension: 0
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
-                        scales: {
-                            y: { grid: { color: 'rgba(255, 255, 255, 0.1)' } },
-                            x: { grid: { color: 'rgba(255, 255, 255, 0.1)' } }
-                        }
-                    }
-                });
-            }
+  <!-- Process Section -->
+  <section class="process">
+      <div class="section-header">
+          <span class="section-badge">HOW IT WORKS</span>
+          <h2>Simple Procurement Process</h2>
+          <p>Streamlined workflow from request to delivery</p>
+      </div>
 
-            // Equipment Chart
-            const equipmentCtx = document.getElementById('equipmentChart');
-            if (equipmentCtx) {
-                new Chart(equipmentCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Operating', 'Maintenance', 'Down'],
-                        datasets: [{
-                            data: [75, 15, 10],
-                            backgroundColor: ['#00f2ff', '#ffd700', '#ff6b6b']
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } }
-                    }
-                });
-            }
+      <div class="process-steps">
+          <div class="process-step">
+              <div class="step-number">1</div>
+              <h3>Submit Request</h3>
+              <p>Submit your equipment or supply requirements through our platform</p>
+          </div>
 
-            // Cost Chart
-            const costCtx = document.getElementById('costChart');
-            if (costCtx) {
-                new Chart(costCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Labor', 'Energy', 'Materials', 'Maintenance', 'Other'],
-                        datasets: [{
-                            data: [9500, 6800, 6200, 3500, 2000],
-                            backgroundColor: '#00f2ff'
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
-                        scales: {
-                            y: { grid: { color: 'rgba(255, 255, 255, 0.1)' } },
-                            x: { grid: { display: false } }
-                        }
-                    }
-                });
-            }
-        });
-    </script>
+          <div class="process-step">
+              <div class="step-number">2</div>
+              <h3>Get Quotes</h3>
+              <p>Receive competitive quotes from multiple verified suppliers</p>
+          </div>
+
+          <div class="process-step">
+              <div class="step-number">3</div>
+              <h3>Compare & Select</h3>
+              <p>Compare offers and select the best supplier for your needs</p>
+          </div>
+
+          <div class="process-step">
+              <div class="step-number">4</div>
+              <h3>Place Order</h3>
+              <p>Finalize contract terms and place your order securely</p>
+          </div>
+
+          <div class="process-step">
+              <div class="step-number">5</div>
+              <h3>Track & Receive</h3>
+              <p>Track shipment and receive your equipment on time</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits">
+      <div class="section-header">
+          <span class="section-badge">KEY BENEFITS</span>
+          <h2>Why Choose SES_Mine Procurement</h2>
+          <p>Unmatched advantages for your supply chain</p>
+      </div>
+
+      <div class="benefits-grid">
+          <div class="benefit-card">
+              <div class="benefit-icon">
+                  <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div class="benefit-content">
+                  <h3>Cost Savings</h3>
+                  <p>Average 15-25% cost reduction through competitive bidding and volume discounts</p>
+              </div>
+          </div>
+
+          <div class="benefit-card">
+              <div class="benefit-icon">
+                  <i class="fas fa-clock"></i>
+              </div>
+              <div class="benefit-content">
+                  <h3>Time Efficiency</h3>
+                  <p>Reduce procurement cycle time by 40% with streamlined processes</p>
+              </div>
+          </div>
+
+          <div class="benefit-card">
+              <div class="benefit-icon">
+                  <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="benefit-content">
+                  <h3>Quality Assurance</h3>
+                  <p>All suppliers pre-qualified and certified to international standards</p>
+              </div>
+          </div>
+
+          <div class="benefit-card">
+              <div class="benefit-icon">
+                  <i class="fas fa-globe"></i>
+              </div>
+              <div class="benefit-content">
+                  <h3>Global Reach</h3>
+                  <p>Access to 1000+ suppliers across 50+ countries worldwide</p>
+              </div>
+          </div>
+
+          <div class="benefit-card">
+              <div class="benefit-icon">
+                  <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="benefit-content">
+                  <h3>Analytics & Insights</h3>
+                  <p>Real-time spend analytics and performance dashboards</p>
+              </div>
+          </div>
+
+          <div class="benefit-card">
+              <div class="benefit-icon">
+                  <i class="fas fa-headset"></i>
+              </div>
+              <div class="benefit-content">
+                  <h3>24/7 Support</h3>
+                  <p>Round-the-clock customer support and procurement assistance</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="stats-banner">
+      <div class="stats-container">
+          <div class="stat-box">
+              <div class="stat-number">1000+</div>
+              <div class="stat-label">Verified Suppliers</div>
+          </div>
+          <div class="stat-box">
+              <div class="stat-number">$500M+</div>
+              <div class="stat-label">Annual Procurement</div>
+          </div>
+          <div class="stat-box">
+              <div class="stat-number">5000+</div>
+              <div class="stat-label">Products Available</div>
+          </div>
+          <div class="stat-box">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Countries Covered</div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="footer-container">
+          <div>
+              <div class="footer-brand">SES_Mine</div>
+              <p class="footer-desc">
+                  Scientific and Engineering Supplies LLC - Leading provider of comprehensive 
+                  mining solutions and digital transformation platforms for the global mining industry.
+              </p>
+          </div>
+          <div>
+              <h4>Platforms</h4>
+              <ul class="footer-links">
+                  <li><a href="engineering-hub.html">Engineering Hub</a></li>
+                  <li><a href="economics-hub.html">Economics Hub</a></li>
+                  <li><a href="procurement-hub.html">Procurement Hub</a></li>
+                  <li><a href="consulting-hub.html">Consulting Hub</a></li>
+              </ul>
+          </div>
+          <div>
+              <h4>Services</h4>
+              <ul class="footer-links">
+                  <li><a href="innovation-technology-hub.html">Innovation & Tech</a></li>
+                  <li><a href="analytics-platform.html">Analytics Platform</a></li>
+                  <li><a href="training-education-hub.html">Training & Education</a></li>
+                  <li><a href="home.html">All Services</a></li>
+              </ul>
+          </div>
+          <div>
+              <h4>Company</h4>
+              <ul class="footer-links">
+                  <li><a href="#about">About Us</a></li>
+                  <li><a href="#careers">Careers</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                  <li><a href="#support">Support</a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2025 SES_Mine - Scientific and Engineering Supplies LLC. All rights reserved.</p>
+      </div>
+  </footer>
 </body>
 </html>
