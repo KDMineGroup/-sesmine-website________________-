@@ -3,114 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulting Hub - SES_ Mining Solutions</title>
+    <title>Expert Advisory | SES_Mine - Strategic Consulting</title>
+    <meta name="description" content="World-class mining consultants providing strategic advisory, feasibility studies, and operational excellence services.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body class="dark-theme consulting-page">
+    <!-- Consulting Background -->
+    <div class="consulting-background">
+        <div class="hexagon-pattern"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-main">Consulting Hub</span>
-                        <span class="logo-sub">SES_ Mining Solutions</span>
-                    </div>
-                </a>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#expertise" class="nav-link">Expertise</a></li>
-                    <li><a href="#team" class="nav-link">Team</a></li>
+    <nav class="floating-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-glow">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Expert Advisory</span>
+                    <span class="brand-tagline">SES_Mine</span>
+                </div>
+            </a>
+            
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-item">Home</a></li>
+                    <li><a href="#services" class="nav-item">Services</a></li>
+                    <li><a href="#experts" class="nav-item">Experts</a></li>
+                    <li><a href="#success" class="nav-item">Success Stories</a></li>
                     <li class="nav-dropdown">
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-item">
                             Other Hubs <i class="fas fa-chevron-down"></i>
                         </a>
-                        <div class="dropdown-menu">
-                            <a href="innovation-technology-hub.html" class="dropdown-item">
-                                <i class="fas fa-lightbulb"></i>
-                                <div><strong>Innovation Hub</strong></div>
-                            </a>
-                            <a href="procurement-hub.html" class="dropdown-item">
-                                <i class="fas fa-shopping-cart"></i>
-                                <div><strong>Procurement Hub</strong></div>
-                            </a>
-                            <a href="analytics-platform.html" class="dropdown-item">
-                                <i class="fas fa-chart-line"></i>
-                                <div><strong>Analytics Platform</strong></div>
-                            </a>
-                            <a href="training-education-hub.html" class="dropdown-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <div><strong>Training Hub</strong></div>
-                            </a>
-                            <a href="engineering-hub.html" class="dropdown-item">
-                                <i class="fas fa-hard-hat"></i>
-                                <div><strong>Engineering Hub</strong></div>
-                            </a>
-                            <a href="economics-hub.html" class="dropdown-item">
-                                <i class="fas fa-chart-pie"></i>
-                                <div><strong>Economics Hub</strong></div>
-                            </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <a href="innovation-technology-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-rocket"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Innovation Lab</h4>
+                                        <p>AI & Future Tech</p>
+                                    </div>
+                                </a>
+                                <a href="procurement-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-network-wired"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Supply Chain</h4>
+                                        <p>Smart Procurement</p>
+                                    </div>
+                                </a>
+                                <a href="analytics-platform.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-brain"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Analytics Engine</h4>
+                                        <p>Real-time Intelligence</p>
+                                    </div>
+                                </a>
+                                <a href="training-education-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-graduation-cap"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Academy</h4>
+                                        <p>Learn & Certify</p>
+                                    </div>
+                                </a>
+                                <a href="engineering-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-drafting-compass"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Engineering</h4>
+                                        <p>EPCM Services</p>
+                                    </div>
+                                </a>
+                                <a href="economics-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-chart-line"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Economics</h4>
+                                        <p>Financial Modeling</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+                
                 <div class="nav-actions">
-                    <button type="button" class="cta-btn">Book Consultation</button>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="cta-button glow-effect">
+                        <span>Book Consultation</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
-                <button type="button" class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
+            
+            <button class="mobile-menu-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero-consulting">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-award"></i> Expert Advisory Services
+            <div class="hero-content-split">
+                <div class="hero-left">
+                    <div class="hero-badge animate-float">
+                        <span class="badge-dot pulsing"></span>
+                        <span>World-Class Expertise</span>
+                    </div>
+                    
+                    <h1 class="hero-title-large">
+                        <span class="title-line">Strategic Consulting</span>
+                        <span class="title-highlight gradient-text">For Mining Excellence</span>
+                    </h1>
+                    
+                    <p class="hero-description-large">
+                        Partner with industry veterans who have delivered $15B+ in project value. 
+                        From feasibility studies to operational optimization, our experts guide you to success.
+                    </p>
+                    
+                    <div class="consulting-metrics">
+                        <div class="metric-box">
+                            <div class="metric-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="metric-data">
+                                <div class="metric-number">450+</div>
+                                <div class="metric-label">Projects Delivered</div>
+                            </div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-icon"><i class="fas fa-users"></i></div>
+                            <div class="metric-data">
+                                <div class="metric-number">85+</div>
+                                <div class="metric-label">Expert Consultants</div>
+                            </div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-icon"><i class="fas fa-globe"></i></div>
+                            <div class="metric-data">
+                                <div class="metric-number">60+</div>
+                                <div class="metric-label">Countries</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-cta-group">
+                        <button class="btn-primary-hero">
+                            <span>Schedule Consultation</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                        <button class="btn-secondary-hero">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Request Proposal</span>
+                        </button>
+                    </div>
                 </div>
-                <h1>
-                    Strategic Consulting for
-                    <span class="gradient-text">Mining Excellence</span>
-                </h1>
-                <p class="hero-subtitle">
-                    World-class consulting services from feasibility studies to operational optimization. 
-                    Our experts deliver actionable insights backed by decades of mining experience.
-                </p>
-                <div class="hero-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-handshake"></i> Start Project
-                    </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-phone"></i> Talk to Expert
-                    </button>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-box">
-                        <div class="stat-number">300+</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Expert Consultants</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">$2B+</div>
-                        <div class="stat-label">Value Created</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">40+</div>
-                        <div class="stat-label">Countries Served</div>
+                
+                <div class="hero-right">
+                    <div class="expertise-visual">
+                        <div class="expertise-circle">
+                            <div class="circle-segment" style="--rotation: 0deg;">
+                                <div class="segment-content">
+                                    <i class="fas fa-search"></i>
+                                    <span>Feasibility</span>
+                                </div>
+                            </div>
+                            <div class="circle-segment" style="--rotation: 72deg;">
+                                <div class="segment-content">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Optimization</span>
+                                </div>
+                            </div>
+                            <div class="circle-segment" style="--rotation: 144deg;">
+                                <div class="segment-content">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>ESG</span>
+                                </div>
+                            </div>
+                            <div class="circle-segment" style="--rotation: 216deg;">
+                                <div class="segment-content">
+                                    <i class="fas fa-balance-scale"></i>
+                                    <span>Due Diligence</span>
+                                </div>
+                            </div>
+                            <div class="circle-segment" style="--rotation: 288deg;">
+                                <div class="segment-content">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Operations</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,248 +203,406 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section">
+    <section class="services-section" id="services">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Our Services</span>
-                <h2 class="section-title">Comprehensive Consulting Solutions</h2>
+            <div class="section-header-creative">
+                <span class="section-number">01</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Comprehensive Consulting Services</h2>
+                    <p class="section-subtitle">End-to-end advisory for every stage</p>
+                </div>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
+            
+            <div class="services-advanced-grid">
+                <div class="service-advanced-card">
+                    <div class="service-number">01</div>
+                    <div class="service-icon-large">
+                        <i class="fas fa-search-dollar"></i>
                     </div>
                     <h3>Feasibility Studies</h3>
-                    <p>Comprehensive technical and economic feasibility analysis for mining projects.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Resource Estimation</li>
-                        <li><i class="fas fa-check"></i> Mine Planning</li>
-                        <li><i class="fas fa-check"></i> Economic Modeling</li>
-                        <li><i class="fas fa-check"></i> Risk Assessment</li>
-                    </ul>
-                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-map"></i>
+                    <p>Comprehensive technical and economic feasibility analysis with bankable documentation for financing.</p>
+                    <div class="service-scope">
+                        <h4>Scope Includes:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Resource Estimation</li>
+                            <li><i class="fas fa-check"></i> Mine Planning & Design</li>
+                            <li><i class="fas fa-check"></i> Economic Modeling</li>
+                            <li><i class="fas fa-check"></i> Risk Assessment</li>
+                            <li><i class="fas fa-check"></i> Environmental Impact</li>
+                        </ul>
                     </div>
-                    <h3>Mine Planning & Design</h3>
-                    <p>Optimized mine plans and designs for maximum efficiency and profitability.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Pit Optimization</li>
-                        <li><i class="fas fa-check"></i> Production Scheduling</li>
-                        <li><i class="fas fa-check"></i> Equipment Selection</li>
-                        <li><i class="fas fa-check"></i> Infrastructure Design</li>
-                    </ul>
-                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="service-stats">
+                        <span><strong>150+</strong> Studies Completed</span>
+                        <span><strong>$8B+</strong> Projects Financed</span>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="service-advanced-card">
+                    <div class="service-number">02</div>
+                    <div class="service-icon-large">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Operational Optimization</h3>
-                    <p>Improve efficiency, reduce costs, and maximize productivity of existing operations.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Process Improvement</li>
-                        <li><i class="fas fa-check"></i> Cost Reduction</li>
-                        <li><i class="fas fa-check"></i> Productivity Enhancement</li>
-                        <li><i class="fas fa-check"></i> Benchmarking</li>
-                    </ul>
-                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <h3>Operational Excellence</h3>
+                    <p>Transform operations through process optimization, cost reduction, and productivity enhancement programs.</p>
+                    <div class="service-scope">
+                        <h4>Scope Includes:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Process Improvement</li>
+                            <li><i class="fas fa-check"></i> Cost Optimization</li>
+                            <li><i class="fas fa-check"></i> Productivity Enhancement</li>
+                            <li><i class="fas fa-check"></i> Benchmarking</li>
+                            <li><i class="fas fa-check"></i> Change Management</li>
+                        </ul>
+                    </div>
+                    <div class="service-stats">
+                        <span><strong>200+</strong> Operations Optimized</span>
+                        <span><strong>30%</strong> Avg Cost Reduction</span>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="service-advanced-card">
+                    <div class="service-number">03</div>
+                    <div class="service-icon-large">
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h3>ESG & Sustainability</h3>
-                    <p>Environmental, social, and governance consulting for responsible mining.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Environmental Impact</li>
-                        <li><i class="fas fa-check"></i> Social License</li>
-                        <li><i class="fas fa-check"></i> Carbon Footprint</li>
-                        <li><i class="fas fa-check"></i> Reporting & Compliance</li>
-                    </ul>
-                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <p>Comprehensive environmental, social, and governance consulting for responsible mining practices.</p>
+                    <div class="service-scope">
+                        <h4>Scope Includes:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> ESG Strategy</li>
+                            <li><i class="fas fa-check"></i> Carbon Footprint</li>
+                            <li><i class="fas fa-check"></i> Social License</li>
+                            <li><i class="fas fa-check"></i> Compliance</li>
+                            <li><i class="fas fa-check"></i> Reporting</li>
+                        </ul>
+                    </div>
+                    <div class="service-stats">
+                        <span><strong>100+</strong> ESG Programs</span>
+                        <span><strong>50%</strong> Emissions Reduction</span>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="service-advanced-card">
+                    <div class="service-number">04</div>
+                    <div class="service-icon-large">
                         <i class="fas fa-balance-scale"></i>
                     </div>
                     <h3>Due Diligence</h3>
-                    <p>Technical and financial due diligence for mining investments and acquisitions.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Technical Review</li>
-                        <li><i class="fas fa-check"></i> Resource Verification</li>
-                        <li><i class="fas fa-check"></i> Risk Analysis</li>
-                        <li><i class="fas fa-check"></i> Valuation Support</li>
-                    </ul>
-                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <p>Technical and financial due diligence for mining investments, M&A, and asset acquisitions.</p>
+                    <div class="service-scope">
+                        <h4>Scope Includes:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Technical Review</li>
+                            <li><i class="fas fa-check"></i> Resource Verification</li>
+                            <li><i class="fas fa-check"></i> Risk Analysis</li>
+                            <li><i class="fas fa-check"></i> Valuation Support</li>
+                            <li><i class="fas fa-check"></i> Transaction Advisory</li>
+                        </ul>
+                    </div>
+                    <div class="service-stats">
+                        <span><strong>$12B+</strong> Transactions</span>
+                        <span><strong>95%</strong> Success Rate</span>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="service-advanced-card">
+                    <div class="service-number">05</div>
+                    <div class="service-icon-large">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <h3>Mine Planning</h3>
+                    <p>Strategic mine planning and design optimization for maximum value extraction and efficiency.</p>
+                    <div class="service-scope">
+                        <h4>Scope Includes:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Pit Optimization</li>
+                            <li><i class="fas fa-check"></i> Production Scheduling</li>
+                            <li><i class="fas fa-check"></i> Equipment Selection</li>
+                            <li><i class="fas fa-check"></i> Life of Mine Planning</li>
+                            <li><i class="fas fa-check"></i> Closure Planning</li>
+                        </ul>
+                    </div>
+                    <div class="service-stats">
+                        <span><strong>180+</strong> Mine Plans</span>
+                        <span><strong>$3B+</strong> Value Added</span>
+                    </div>
+                </div>
+
+                <div class="service-advanced-card">
+                    <div class="service-number">06</div>
+                    <div class="service-icon-large">
                         <i class="fas fa-project-diagram"></i>
                     </div>
                     <h3>Project Management</h3>
-                    <p>Expert project management services from concept to commissioning.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Project Planning</li>
-                        <li><i class="fas fa-check"></i> Schedule Management</li>
-                        <li><i class="fas fa-check"></i> Cost Control</li>
-                        <li><i class="fas fa-check"></i> Quality Assurance</li>
-                    </ul>
-                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Expertise Section -->
-    <section id="expertise" class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Our Expertise</span>
-                <h2 class="section-title">Industry-Leading Knowledge</h2>
-            </div>
-            <div class="expertise-grid">
-                <div class="expertise-card">
-                    <i class="fas fa-gem"></i>
-                    <h3>Commodity Expertise</h3>
-                    <div class="expertise-tags">
-                        <span>Gold</span>
-                        <span>Copper</span>
-                        <span>Iron Ore</span>
-                        <span>Coal</span>
-                        <span>Lithium</span>
-                        <span>Nickel</span>
-                        <span>Zinc</span>
-                        <span>Silver</span>
+                    <p>Expert PMO services ensuring projects are delivered on time, on budget, and to specification.</p>
+                    <div class="service-scope">
+                        <h4>Scope Includes:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Project Planning</li>
+                            <li><i class="fas fa-check"></i> Schedule Management</li>
+                            <li><i class="fas fa-check"></i> Cost Control</li>
+                            <li><i class="fas fa-check"></i> Quality Assurance</li>
+                            <li><i class="fas fa-check"></i> Risk Management</li>
+                        </ul>
                     </div>
-                </div>
-
-                <div class="expertise-card">
-                    <i class="fas fa-mountain"></i>
-                    <h3>Mining Methods</h3>
-                    <div class="expertise-tags">
-                        <span>Open Pit</span>
-                        <span>Underground</span>
-                        <span>Surface Mining</span>
-                        <span>Heap Leaching</span>
-                        <span>In-Situ Recovery</span>
-                    </div>
-                </div>
-
-                <div class="expertise-card">
-                    <i class="fas fa-flask"></i>
-                    <h3>Processing Technologies</h3>
-                    <div class="expertise-tags">
-                        <span>Crushing & Grinding</span>
-                        <span>Flotation</span>
-                        <span>Hydrometallurgy</span>
-                        <span>Pyrometallurgy</span>
-                        <span>Tailings Management</span>
-                    </div>
-                </div>
-
-                <div class="expertise-card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Global Experience</h3>
-                    <div class="expertise-tags">
-                        <span>Americas</span>
-                        <span>Africa</span>
-                        <span>Asia-Pacific</span>
-                        <span>Europe</span>
-                        <span>Middle East</span>
+                    <div class="service-stats">
+                        <span><strong>98%</strong> On-Time Delivery</span>
+                        <span><strong>$10B+</strong> Projects Managed</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="section">
+    <!-- Expert Team Section -->
+    <section class="experts-section" id="experts">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Our Team</span>
-                <h2 class="section-title">Meet Our Expert Consultants</h2>
+            <div class="section-header-creative">
+                <span class="section-number">02</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Meet Our Expert Team</h2>
+                    <p class="section-subtitle">Industry veterans with proven track records</p>
+                </div>
             </div>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <h3>Dr. Sarah Mitchell</h3>
-                    <p class="team-role">Senior Mining Consultant</p>
-                    <p class="team-bio">25+ years in mine planning and optimization. PhD in Mining Engineering.</p>
-                    <div class="team-stats">
-                        <div class="team-stat">
-                            <strong>50+</strong>
-                            <span>Projects</span>
+            
+            <div class="experts-grid">
+                <div class="expert-card">
+                    <div class="expert-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
                         </div>
-                        <div class="team-stat">
-                            <strong>15</strong>
-                            <span>Countries</span>
-                        </div>
+                        <div class="expert-badge">Lead Consultant</div>
                     </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <h3>James Rodriguez</h3>
-                    <p class="team-role">Process Engineering Lead</p>
-                    <p class="team-bio">Expert in mineral processing and metallurgy. 20+ years experience.</p>
-                    <div class="team-stats">
-                        <div class="team-stat">
-                            <strong>40+</strong>
-                            <span>Projects</span>
+                    <div class="expert-info">
+                        <h3>Dr. Sarah Mitchell</h3>
+                        <p class="expert-title">Senior Mining Consultant</p>
+                        <p class="expert-bio">30+ years in mine planning and optimization. PhD in Mining Engineering from Colorado School of Mines.</p>
+                        <div class="expert-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>85+ Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-globe"></i>
+                                <span>25 Countries</span>
+                            </div>
                         </div>
-                        <div class="team-stat">
-                            <strong>12</strong>
-                            <span>Countries</span>
+                        <div class="expert-specialties">
+                            <span class="specialty-tag">Open Pit</span>
+                            <span class="specialty-tag">Optimization</span>
+                            <span class="specialty-tag">Strategy</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <h3>Dr. Wei Chen</h3>
-                    <p class="team-role">Economic Analyst</p>
-                    <p class="team-bio">Specialist in mining economics and financial modeling. PhD in Economics.</p>
-                    <div class="team-stats">
-                        <div class="team-stat">
-                            <strong>60+</strong>
-                            <span>Projects</span>
+                <div class="expert-card">
+                    <div class="expert-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
                         </div>
-                        <div class="team-stat">
-                            <strong>20</strong>
-                            <span>Countries</span>
+                        <div class="expert-badge">Technical Director</div>
+                    </div>
+                    <div class="expert-info">
+                        <h3>James Rodriguez</h3>
+                        <p class="expert-title">Process Engineering Lead</p>
+                        <p class="expert-bio">Expert in mineral processing and metallurgy with 25+ years of hands-on experience.</p>
+                        <div class="expert-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>70+ Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-globe"></i>
+                                <span>18 Countries</span>
+                            </div>
+                        </div>
+                        <div class="expert-specialties">
+                            <span class="specialty-tag">Processing</span>
+                            <span class="specialty-tag">Metallurgy</span>
+                            <span class="specialty-tag">Optimization</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <h3>Maria Santos</h3>
-                    <p class="team-role">ESG & Sustainability Expert</p>
-                    <p class="team-bio">Leading expert in sustainable mining practices and environmental compliance.</p>
-                    <div class="team-stats">
-                        <div class="team-stat">
-                            <strong>35+</strong>
-                            <span>Projects</span>
+                <div class="expert-card">
+                    <div class="expert-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
                         </div>
-                        <div class="team-stat">
-                            <strong>18</strong>
-                            <span>Countries</span>
+                        <div class="expert-badge">ESG Director</div>
+                    </div>
+                    <div class="expert-info">
+                        <h3>Dr. Maria Santos</h3>
+                        <p class="expert-title">ESG & Sustainability Expert</p>
+                        <p class="expert-bio">Leading authority on sustainable mining practices and environmental compliance.</p>
+                        <div class="expert-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>60+ Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-globe"></i>
+                                <span>22 Countries</span>
+                            </div>
+                        </div>
+                        <div class="expert-specialties">
+                            <span class="specialty-tag">ESG</span>
+                            <span class="specialty-tag">Sustainability</span>
+                            <span class="specialty-tag">Compliance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <div class="expert-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="expert-badge">Financial Advisor</div>
+                    </div>
+                    <div class="expert-info">
+                        <h3>Dr. Wei Chen</h3>
+                        <p class="expert-title">Mining Economics Specialist</p>
+                        <p class="expert-bio">PhD in Economics with specialization in mining project valuation and financial modeling.</p>
+                        <div class="expert-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>95+ Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-globe"></i>
+                                <span>30 Countries</span>
+                            </div>
+                        </div>
+                        <div class="expert-specialties">
+                            <span class="specialty-tag">Valuation</span>
+                            <span class="specialty-tag">Finance</span>
+                            <span class="specialty-tag">Economics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success-section" id="success">
+        <div class="container">
+            <div class="section-header-creative">
+                <span class="section-number">03</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Success Stories</h2>
+                    <p class="section-subtitle">Proven results across the globe</p>
+                </div>
+            </div>
+            
+            <div class="success-stories-grid">
+                <div class="success-story-card featured">
+                    <div class="story-badge">Featured Case</div>
+                    <div class="story-header">
+                        <div class="story-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div class="story-meta">
+                            <h3>Andean Copper Optimization</h3>
+                            <p class="story-location"><i class="fas fa-map-marker-alt"></i> Chile</p>
+                            <p class="story-type">Operational Excellence</p>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <p>Comprehensive operational review and optimization program for a major copper operation, delivering significant cost reductions and productivity improvements.</p>
+                        <div class="story-results">
+                            <div class="result-item">
+                                <div class="result-value">35%</div>
+                                <div class="result-label">Cost Reduction</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">28%</div>
+                                <div class="result-label">Productivity Gain</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">$120M</div>
+                                <div class="result-label">Annual Savings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-story-card">
+                    <div class="story-header">
+                        <div class="story-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="story-meta">
+                            <h3>Gold Mine Feasibility</h3>
+                            <p class="story-location"><i class="fas fa-map-marker-alt"></i> Australia</p>
+                            <p class="story-type">Feasibility Study</p>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <p>Bankable feasibility study for greenfield gold project, securing $650M in project financing.</p>
+                        <div class="story-results">
+                            <div class="result-item">
+                                <div class="result-value">$650M</div>
+                                <div class="result-label">Financed</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">22%</div>
+                                <div class="result-label">IRR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-story-card">
+                    <div class="story-header">
+                        <div class="story-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="story-meta">
+                            <h3>ESG Transformation</h3>
+                            <p class="story-location"><i class="fas fa-map-marker-alt"></i> Brazil</p>
+                            <p class="story-type">Sustainability</p>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <p>Complete ESG strategy implementation reducing carbon footprint by 45% while improving community relations.</p>
+                        <div class="story-results">
+                            <div class="result-item">
+                                <div class="result-value">45%</div>
+                                <div class="result-label">Carbon Reduction</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">A+</div>
+                                <div class="result-label">ESG Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-story-card">
+                    <div class="story-header">
+                        <div class="story-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="story-meta">
+                            <h3>M&A Due Diligence</h3>
+                            <p class="story-location"><i class="fas fa-map-marker-alt"></i> Canada</p>
+                            <p class="story-type">Due Diligence</p>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <p>Technical and financial due diligence for $2.5B mining asset acquisition.</p>
+                        <div class="story-results">
+                            <div class="result-item">
+                                <div class="result-value">$2.5B</div>
+                                <div class="result-label">Transaction</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">100%</div>
+                                <div class="result-label">Verified</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -368,17 +611,20 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section-creative">
+        <div class="cta-bg-pattern"></div>
         <div class="container">
-            <div class="cta-content">
+            <div class="cta-content-creative">
                 <h2>Ready to Transform Your Mining Project?</h2>
-                <p>Let our experts guide you to success</p>
-                <div class="cta-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-calendar"></i> Book Consultation
+                <p>Partner with experts who have delivered $15B+ in project value</p>
+                <div class="cta-buttons-group">
+                    <button class="btn-cta-primary">
+                        <span>Schedule Consultation</span>
+                        <i class="fas fa-calendar-alt"></i>
                     </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-file-alt"></i> Request Proposal
+                    <button class="btn-cta-secondary">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Request Proposal</span>
                     </button>
                 </div>
             </div>
@@ -386,39 +632,59 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-creative">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Consulting Hub</h4>
-                    <p>Expert advisory for mining excellence</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Expert Advisory</span>
+                    </div>
+                    <p>Strategic consulting for mining excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#expertise">Expertise</a></li>
-                        <li><a href="#team">Team</a></li>
+                        <li><a href="#services">Feasibility Studies</a></li>
+                        <li><a href="#services">Operational Excellence</a></li>
+                        <li><a href="#services">ESG & Sustainability</a></li>
+                        <li><a href="#services">Due Diligence</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                
+                <div class="footer-links">
                     <h4>Other Platforms</h4>
                     <ul>
-                        <li><a href="innovation-technology-hub.html">Innovation Hub</a></li>
-                        <li><a href="procurement-hub.html">Procurement Hub</a></li>
-                        <li><a href="analytics-platform.html">Analytics Platform</a></li>
-                        <li><a href="training-education-hub.html">Training Hub</a></li>
+                        <li><a href="innovation-technology-hub.html">Innovation Lab</a></li>
+                        <li><a href="procurement-hub.html">Supply Chain</a></li>
+                        <li><a href="analytics-platform.html">Analytics</a></li>
+                        <li><a href="training-education-hub.html">Academy</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: consulting@SES_-mining.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">White Papers</a></li>
+                        <li><a href="#">Expert Insights</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 SES_ Mining Solutions. All rights reserved.</p>
+                <p>&copy; 2025 SES_Mine Expert Advisory. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
