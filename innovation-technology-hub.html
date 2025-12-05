@@ -3,360 +3,660 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovation & Technology Hub - SES_ Mining Solutions</title>
+    <title>Innovation Lab | SES_Mine - Future Tech for Mining</title>
+    <meta name="description" content="AI-powered innovation lab with autonomous systems, digital twins, and cutting-edge R&D solutions.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="tech-grid"></div>
-        <div class="floating-particles"></div>
+<body class="dark-theme innovation-page">
+    <!-- Animated Tech Background -->
+    <div class="tech-background">
+        <div class="grid-overlay"></div>
+        <canvas id="neural-network"></canvas>
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-main">Innovation Hub</span>
-                        <span class="logo-sub">SES_ Mining Solutions</span>
-                    </div>
-                </a>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="#technologies" class="nav-link">Technologies</a></li>
-                    <li><a href="#solutions" class="nav-link">Solutions</a></li>
-                    <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+    <nav class="floating-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-glow">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Innovation Lab</span>
+                    <span class="brand-tagline">SES_Mine</span>
+                </div>
+            </a>
+            
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-item">Home</a></li>
+                    <li><a href="#technologies" class="nav-item">Technologies</a></li>
+                    <li><a href="#projects" class="nav-item">Projects</a></li>
+                    <li><a href="#lab" class="nav-item">R&D Lab</a></li>
                     <li class="nav-dropdown">
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-item">
                             Other Hubs <i class="fas fa-chevron-down"></i>
                         </a>
-                        <div class="dropdown-menu">
-                            <a href="procurement-hub.html" class="dropdown-item">
-                                <i class="fas fa-shopping-cart"></i>
-                                <div><strong>Procurement Hub</strong></div>
-                            </a>
-                            <a href="analytics-platform.html" class="dropdown-item">
-                                <i class="fas fa-chart-line"></i>
-                                <div><strong>Analytics Platform</strong></div>
-                            </a>
-                            <a href="consulting-hub.html" class="dropdown-item">
-                                <i class="fas fa-user-tie"></i>
-                                <div><strong>Consulting Hub</strong></div>
-                            </a>
-                            <a href="training-education-hub.html" class="dropdown-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <div><strong>Training Hub</strong></div>
-                            </a>
-                            <a href="engineering-hub.html" class="dropdown-item">
-                                <i class="fas fa-hard-hat"></i>
-                                <div><strong>Engineering Hub</strong></div>
-                            </a>
-                            <a href="economics-hub.html" class="dropdown-item">
-                                <i class="fas fa-chart-pie"></i>
-                                <div><strong>Economics Hub</strong></div>
-                            </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <a href="procurement-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-network-wired"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Supply Chain</h4>
+                                        <p>Smart Procurement</p>
+                                    </div>
+                                </a>
+                                <a href="analytics-platform.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-brain"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Analytics Engine</h4>
+                                        <p>Real-time Intelligence</p>
+                                    </div>
+                                </a>
+                                <a href="consulting-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-lightbulb"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Expert Advisory</h4>
+                                        <p>Strategic Consulting</p>
+                                    </div>
+                                </a>
+                                <a href="training-education-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-graduation-cap"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Academy</h4>
+                                        <p>Learn & Certify</p>
+                                    </div>
+                                </a>
+                                <a href="engineering-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-drafting-compass"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Engineering</h4>
+                                        <p>EPCM Services</p>
+                                    </div>
+                                </a>
+                                <a href="economics-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-chart-line"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Economics</h4>
+                                        <p>Financial Modeling</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+                
                 <div class="nav-actions">
-                    <button type="button" class="cta-btn">Get Started</button>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="cta-button glow-effect">
+                        <span>Access Lab</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
-                <button type="button" class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
+            
+            <button class="mobile-menu-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero-innovation">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-rocket"></i> Pioneering Mining Technology
+            <div class="hero-content-split">
+                <div class="hero-left">
+                    <div class="hero-badge animate-float">
+                        <span class="badge-dot pulsing"></span>
+                        <span>AI-Powered Innovation</span>
+                    </div>
+                    
+                    <h1 class="hero-title-large">
+                        <span class="title-line">Building the</span>
+                        <span class="title-highlight gradient-text">Future of Mining</span>
+                        <span class="title-line">with Advanced Tech</span>
+                    </h1>
+                    
+                    <p class="hero-description-large">
+                        Our Innovation Lab combines artificial intelligence, autonomous systems, 
+                        IoT sensors, and digital twin technology to revolutionize mining operations. 
+                        Experience the next generation of smart mining.
+                    </p>
+                    
+                    <div class="hero-features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>AI/ML Integration</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Autonomous Systems</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Digital Twin Technology</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>IoT & Edge Computing</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-cta-group">
+                        <button class="btn-primary-hero">
+                            <span>Explore Technologies</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                        <button class="btn-secondary-hero">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Watch Lab Tour</span>
+                        </button>
+                    </div>
                 </div>
-                <h1>
-                    Innovation & Technology for
-                    <span class="gradient-text">Next-Gen Mining</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Cutting-edge R&D, AI/ML integration, IoT solutions, and digital transformation 
-                    services to revolutionize your mining operations.
-                </p>
-                <div class="hero-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-rocket"></i> Explore Technologies
-                    </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-play"></i> Watch Demo
-                    </button>
+                
+                <div class="hero-right">
+                    <div class="innovation-visual">
+                        <div class="visual-center">
+                            <div class="center-orb">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                        </div>
+                        <div class="orbiting-icons">
+                            <div class="orbit-item" style="--orbit-angle: 0deg;">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="orbit-item" style="--orbit-angle: 72deg;">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="orbit-item" style="--orbit-angle: 144deg;">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div class="orbit-item" style="--orbit-angle: 216deg;">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="orbit-item" style="--orbit-angle: 288deg;">
+                                <i class="fas fa-satellite"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Technologies Section -->
-    <section id="technologies" class="section">
+    <section class="technologies-section" id="technologies">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Core Technologies</span>
-                <h2 class="section-title">Advanced Technology Stack</h2>
-                <p class="section-description">
-                    Leveraging the latest innovations to transform mining operations
-                </p>
+            <div class="section-header-creative">
+                <span class="section-number">01</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Core Technologies</h2>
+                    <p class="section-subtitle">Cutting-edge innovations powering the future</p>
+                </div>
             </div>
-            <div class="tech-grid-layout">
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-brain"></i>
+            
+            <div class="tech-showcase-grid">
+                <!-- AI & Machine Learning -->
+                <div class="tech-showcase-card">
+                    <div class="tech-card-header">
+                        <div class="tech-icon-large">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Artificial Intelligence</h3>
                     </div>
-                    <h3>Artificial Intelligence</h3>
-                    <p>Machine learning models for predictive maintenance, ore grade estimation, and process optimization.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> Predictive Analytics</li>
-                        <li><i class="fas fa-check"></i> Computer Vision</li>
-                        <li><i class="fas fa-check"></i> Natural Language Processing</li>
-                    </ul>
+                    <div class="tech-card-body">
+                        <p>Advanced machine learning models for predictive maintenance, ore grade estimation, and process optimization.</p>
+                        <div class="tech-capabilities">
+                            <div class="capability-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Predictive Analytics</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-eye"></i>
+                                <span>Computer Vision</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-comments"></i>
+                                <span>NLP Processing</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>Neural Networks</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-card-footer">
+                        <div class="tech-stats">
+                            <div class="stat">
+                                <span class="stat-value">95%</span>
+                                <span class="stat-label">Accuracy</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">40%</span>
+                                <span class="stat-label">Cost Reduction</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-network-wired"></i>
+                <!-- Autonomous Systems -->
+                <div class="tech-showcase-card">
+                    <div class="tech-card-header">
+                        <div class="tech-icon-large">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Autonomous Systems</h3>
                     </div>
-                    <h3>IoT & Sensors</h3>
-                    <p>Real-time monitoring and data collection from equipment, environment, and operations.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> Smart Sensors</li>
-                        <li><i class="fas fa-check"></i> Edge Computing</li>
-                        <li><i class="fas fa-check"></i> Real-Time Monitoring</li>
-                    </ul>
+                    <div class="tech-card-body">
+                        <p>Self-driving haul trucks, autonomous drilling systems, and robotic process automation for hazardous operations.</p>
+                        <div class="tech-capabilities">
+                            <div class="capability-item">
+                                <i class="fas fa-truck"></i>
+                                <span>Autonomous Vehicles</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-drone"></i>
+                                <span>Drone Inspection</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-cogs"></i>
+                                <span>Robotic Drilling</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-route"></i>
+                                <span>Fleet Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-card-footer">
+                        <div class="tech-stats">
+                            <div class="stat">
+                                <span class="stat-value">24/7</span>
+                                <span class="stat-label">Operations</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">60%</span>
+                                <span class="stat-label">Safety Improvement</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-cube"></i>
+                <!-- Digital Twin -->
+                <div class="tech-showcase-card">
+                    <div class="tech-card-header">
+                        <div class="tech-icon-large">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>Digital Twin Technology</h3>
                     </div>
-                    <h3>Digital Twin</h3>
-                    <p>Virtual replicas of physical assets for simulation, testing, and optimization.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> 3D Modeling</li>
-                        <li><i class="fas fa-check"></i> Simulation</li>
-                        <li><i class="fas fa-check"></i> Scenario Testing</li>
-                    </ul>
+                    <div class="tech-card-body">
+                        <p>Create virtual replicas of physical assets for real-time monitoring, simulation, and predictive optimization.</p>
+                        <div class="tech-capabilities">
+                            <div class="capability-item">
+                                <i class="fas fa-layer-group"></i>
+                                <span>3D Modeling</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>Real-time Sync</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-vial"></i>
+                                <span>Scenario Testing</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-chart-area"></i>
+                                <span>Performance Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-card-footer">
+                        <div class="tech-stats">
+                            <div class="stat">
+                                <span class="stat-value">100+</span>
+                                <span class="stat-label">Scenarios</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">25%</span>
+                                <span class="stat-label">Efficiency Gain</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-robot"></i>
+                <!-- IoT & Edge Computing -->
+                <div class="tech-showcase-card">
+                    <div class="tech-card-header">
+                        <div class="tech-icon-large">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>IoT & Edge Computing</h3>
                     </div>
-                    <h3>Automation & Robotics</h3>
-                    <p>Autonomous equipment, drones, and robotic systems for hazardous operations.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> Autonomous Vehicles</li>
-                        <li><i class="fas fa-check"></i> Drone Inspection</li>
-                        <li><i class="fas fa-check"></i> Robotic Process Automation</li>
-                    </ul>
+                    <div class="tech-card-body">
+                        <p>Smart sensors and edge computing for real-time data collection, processing, and instant decision-making.</p>
+                        <div class="tech-capabilities">
+                            <div class="capability-item">
+                                <i class="fas fa-satellite-dish"></i>
+                                <span>Smart Sensors</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-server"></i>
+                                <span>Edge Processing</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-wifi"></i>
+                                <span>5G Connectivity</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-database"></i>
+                                <span>Data Streaming</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-card-footer">
+                        <div class="tech-stats">
+                            <div class="stat">
+                                <span class="stat-value">10K+</span>
+                                <span class="stat-label">Sensors</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">&lt;1ms</span>
+                                <span class="stat-label">Latency</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-cloud"></i>
+                <!-- Blockchain & Security -->
+                <div class="tech-showcase-card">
+                    <div class="tech-card-header">
+                        <div class="tech-icon-large">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Blockchain & Security</h3>
                     </div>
-                    <h3>Cloud & Big Data</h3>
-                    <p>Scalable infrastructure for data storage, processing, and advanced analytics.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> Cloud Computing</li>
-                        <li><i class="fas fa-check"></i> Big Data Analytics</li>
-                        <li><i class="fas fa-check"></i> Data Warehousing</li>
-                    </ul>
+                    <div class="tech-card-body">
+                        <p>Immutable tracking of materials, secure transactions, and transparent supply chain management.</p>
+                        <div class="tech-capabilities">
+                            <div class="capability-item">
+                                <i class="fas fa-link"></i>
+                                <span>Supply Chain Tracking</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-file-contract"></i>
+                                <span>Smart Contracts</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Encryption</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-user-shield"></i>
+                                <span>Cybersecurity</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-card-footer">
+                        <div class="tech-stats">
+                            <div class="stat">
+                                <span class="stat-value">100%</span>
+                                <span class="stat-label">Transparency</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">Zero</span>
+                                <span class="stat-label">Breaches</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-shield-alt"></i>
+                <!-- AR/VR Solutions -->
+                <div class="tech-showcase-card">
+                    <div class="tech-card-header">
+                        <div class="tech-icon-large">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <h3>AR/VR Solutions</h3>
                     </div>
-                    <h3>Blockchain & Security</h3>
-                    <p>Secure, transparent tracking of materials, transactions, and supply chain.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> Supply Chain Tracking</li>
-                        <li><i class="fas fa-check"></i> Smart Contracts</li>
-                        <li><i class="fas fa-check"></i> Cybersecurity</li>
-                    </ul>
+                    <div class="tech-card-body">
+                        <p>Immersive training simulations, remote operations, and augmented reality for maintenance and inspection.</p>
+                        <div class="tech-capabilities">
+                            <div class="capability-item">
+                                <i class="fas fa-glasses"></i>
+                                <span>AR Maintenance</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-headset"></i>
+                                <span>VR Training</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-video"></i>
+                                <span>Remote Operations</span>
+                            </div>
+                            <div class="capability-item">
+                                <i class="fas fa-hand-pointer"></i>
+                                <span>Interactive 3D</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-card-footer">
+                        <div class="tech-stats">
+                            <div class="stat">
+                                <span class="stat-value">80%</span>
+                                <span class="stat-label">Training Efficiency</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">50%</span>
+                                <span class="stat-label">Time Saved</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solutions Section -->
-    <section id="solutions" class="section section-alt">
+    <!-- Innovation Projects -->
+    <section class="projects-section" id="projects">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Innovation Solutions</span>
-                <h2 class="section-title">Comprehensive Technology Solutions</h2>
-            </div>
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <div class="solution-number">01</div>
-                    <h3>Smart Mine Operations</h3>
-                    <p>Integrated IoT sensors, real-time monitoring, and AI-powered decision support for optimized operations.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="solution-card">
-                    <div class="solution-number">02</div>
-                    <h3>Predictive Maintenance</h3>
-                    <p>Machine learning algorithms to predict equipment failures before they occur, reducing downtime.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="solution-card">
-                    <div class="solution-number">03</div>
-                    <h3>Autonomous Fleet Management</h3>
-                    <p>Self-driving haul trucks, autonomous drilling, and coordinated fleet optimization.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="solution-card">
-                    <div class="solution-number">04</div>
-                    <h3>Environmental Monitoring</h3>
-                    <p>Real-time tracking of air quality, water usage, emissions, and environmental impact.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="solution-card">
-                    <div class="solution-number">05</div>
-                    <h3>Process Optimization</h3>
-                    <p>AI-driven optimization of crushing, grinding, flotation, and other processing operations.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="solution-card">
-                    <div class="solution-number">06</div>
-                    <h3>Safety & Risk Management</h3>
-                    <p>Advanced systems for hazard detection, worker safety, and risk mitigation.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <div class="section-header-creative">
+                <span class="section-number">02</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Innovation in Action</h2>
+                    <p class="section-subtitle">Real-world implementations delivering results</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Case Studies Section -->
-    <section id="case-studies" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Success Stories</span>
-                <h2 class="section-title">Innovation in Action</h2>
-            </div>
-            <div class="case-studies-grid">
-                <div class="case-study-card">
-                    <div class="case-study-image">
+            
+            <div class="projects-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
                         <i class="fas fa-truck-monster"></i>
                     </div>
-                    <div class="case-study-content">
-                        <h3>Autonomous Haul Fleet</h3>
-                        <p class="case-study-company">Major Copper Mine, Chile</p>
-                        <p class="case-study-description">
-                            Implemented autonomous haul truck fleet reducing operational costs by 35% 
-                            and improving safety metrics by 60%.
-                        </p>
-                        <div class="case-study-stats">
-                            <div class="stat">
-                                <div class="stat-value">35%</div>
-                                <div class="stat-label">Cost Reduction</div>
+                    <div class="timeline-content">
+                        <div class="project-card-timeline">
+                            <div class="project-header">
+                                <h3>Autonomous Fleet Deployment</h3>
+                                <span class="project-status active">Active</span>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">60%</div>
-                                <div class="stat-label">Safety Improvement</div>
+                            <p class="project-location">
+                                <i class="fas fa-map-marker-alt"></i> Copper Mine, Chile
+                            </p>
+                            <p class="project-description">
+                                Implemented 45 autonomous haul trucks with AI-powered fleet management system, 
+                                reducing operational costs by 35% and improving safety metrics by 60%.
+                            </p>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">45</span>
+                                    <span class="metric-label">Autonomous Trucks</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">35%</span>
+                                    <span class="metric-label">Cost Reduction</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">60%</span>
+                                    <span class="metric-label">Safety Improvement</span>
+                                </div>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">24/7</div>
-                                <div class="stat-label">Operations</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="case-study-card">
-                    <div class="case-study-image">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="case-study-content">
-                        <h3>Predictive Maintenance System</h3>
-                        <p class="case-study-company">Gold Mine, Australia</p>
-                        <p class="case-study-description">
-                            AI-powered predictive maintenance reduced unplanned downtime by 45% 
-                            and extended equipment life by 25%.
-                        </p>
-                        <div class="case-study-stats">
-                            <div class="stat">
-                                <div class="stat-value">45%</div>
-                                <div class="stat-label">Less Downtime</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">25%</div>
-                                <div class="stat-label">Extended Life</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">$8M</div>
-                                <div class="stat-label">Annual Savings</div>
+                            <div class="project-tech-tags">
+                                <span class="tech-tag">AI</span>
+                                <span class="tech-tag">Autonomous</span>
+                                <span class="tech-tag">Fleet Management</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="case-study-card">
-                    <div class="case-study-image">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
                         <i class="fas fa-cube"></i>
                     </div>
-                    <div class="case-study-content">
-                        <h3>Digital Twin Implementation</h3>
-                        <p class="case-study-company">Iron Ore Mine, Brazil</p>
-                        <p class="case-study-description">
-                            Virtual mine replica enabled optimization testing, improving throughput 
-                            by 20% without physical changes.
-                        </p>
-                        <div class="case-study-stats">
-                            <div class="stat">
-                                <div class="stat-value">20%</div>
-                                <div class="stat-label">Throughput Increase</div>
+                    <div class="timeline-content">
+                        <div class="project-card-timeline">
+                            <div class="project-header">
+                                <h3>Digital Twin Implementation</h3>
+                                <span class="project-status completed">Completed</span>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">100+</div>
-                                <div class="stat-label">Scenarios Tested</div>
+                            <p class="project-location">
+                                <i class="fas fa-map-marker-alt"></i> Iron Ore Mine, Brazil
+                            </p>
+                            <p class="project-description">
+                                Created comprehensive digital twin of entire mining operation, enabling 
+                                real-time optimization and predictive maintenance across all assets.
+                            </p>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">100%</span>
+                                    <span class="metric-label">Asset Coverage</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">20%</span>
+                                    <span class="metric-label">Throughput Increase</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">$15M</span>
+                                    <span class="metric-label">Annual Savings</span>
+                                </div>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">Zero</div>
-                                <div class="stat-label">Production Impact</div>
+                            <div class="project-tech-tags">
+                                <span class="tech-tag">Digital Twin</span>
+                                <span class="tech-tag">IoT</span>
+                                <span class="tech-tag">Real-time</span>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="project-card-timeline">
+                            <div class="project-header">
+                                <h3>AI Predictive Maintenance</h3>
+                                <span class="project-status active">Active</span>
+                            </div>
+                            <p class="project-location">
+                                <i class="fas fa-map-marker-alt"></i> Gold Mine, Australia
+                            </p>
+                            <p class="project-description">
+                                Deployed machine learning models to predict equipment failures before they occur, 
+                                reducing unplanned downtime by 45% and extending equipment life by 25%.
+                            </p>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">45%</span>
+                                    <span class="metric-label">Less Downtime</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">25%</span>
+                                    <span class="metric-label">Extended Life</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">$8M</span>
+                                    <span class="metric-label">Annual Savings</span>
+                                </div>
+                            </div>
+                            <div class="project-tech-tags">
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Predictive</span>
+                                <span class="tech-tag">Maintenance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D Lab Section -->
+    <section class="lab-section" id="lab">
+        <div class="container">
+            <div class="section-header-creative">
+                <span class="section-number">03</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Inside Our R&D Lab</h2>
+                    <p class="section-subtitle">Where innovation meets reality</p>
+                </div>
+            </div>
+            
+            <div class="lab-grid">
+                <div class="lab-feature">
+                    <div class="lab-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Research Facilities</h3>
+                    <p>State-of-the-art research labs equipped with the latest technology for testing and development.</p>
+                </div>
+                <div class="lab-feature">
+                    <div class="lab-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Team</h3>
+                    <p>120+ researchers, engineers, and data scientists working on next-generation solutions.</p>
+                </div>
+                <div class="lab-feature">
+                    <div class="lab-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Testing Ground</h3>
+                    <p>Real-world testing environment simulating actual mining conditions for validation.</p>
+                </div>
+                <div class="lab-feature">
+                    <div class="lab-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Industry Partners</h3>
+                    <p>Collaborations with leading universities and technology companies worldwide.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section-creative">
+        <div class="cta-bg-pattern"></div>
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Innovate Your Mining Operations?</h2>
-                <p>Let's discuss how our technology solutions can transform your business</p>
-                <div class="cta-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-rocket"></i> Start Innovation Journey
+            <div class="cta-content-creative">
+                <h2>Ready to Innovate Your Operations?</h2>
+                <p>Join the future of smart mining with SES_Mine Innovation Lab</p>
+                <div class="cta-buttons-group">
+                    <button class="btn-cta-primary">
+                        <span>Schedule Lab Tour</span>
+                        <i class="fas fa-rocket"></i>
                     </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-calendar"></i> Schedule Consultation
+                    <button class="btn-cta-secondary">
+                        <i class="fas fa-phone"></i>
+                        <span>Talk to Expert</span>
                     </button>
                 </div>
             </div>
@@ -364,39 +664,61 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-creative">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Innovation Hub</h4>
-                    <p>Pioneering technology solutions for modern mining</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-rocket"></i>
+                        <span>Innovation Lab</span>
+                    </div>
+                    <p>Pioneering the future of smart mining through advanced technology and innovation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+                
+                <div class="footer-links">
+                    <h4>Technologies</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#technologies">Technologies</a></li>
-                        <li><a href="#solutions">Solutions</a></li>
-                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#technologies">AI & Machine Learning</a></li>
+                        <li><a href="#technologies">Autonomous Systems</a></li>
+                        <li><a href="#technologies">Digital Twin</a></li>
+                        <li><a href="#technologies">IoT & Edge</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                
+                <div class="footer-links">
                     <h4>Other Platforms</h4>
                     <ul>
-                        <li><a href="procurement-hub.html">Procurement Hub</a></li>
-                        <li><a href="analytics-platform.html">Analytics Platform</a></li>
-                        <li><a href="consulting-hub.html">Consulting Hub</a></li>
-                        <li><a href="training-education-hub.html">Training Hub</a></li>
+                        <li><a href="procurement-hub.html">Supply Chain</a></li>
+                        <li><a href="analytics-platform.html">Analytics</a></li>
+                        <li><a href="consulting-hub.html">Consulting</a></li>
+                        <li><a href="training-education-hub.html">Academy</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: innovation@SES_-mining.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                        <li><a href="#">Contact Lab</a></li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 SES_ Mining Solutions. All rights reserved.</p>
+                <p>&copy; 2025 SES_Mine Innovation Lab. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
             </div>
         </div>
     </footer>
