@@ -3,114 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Economics Hub - SES_ Mining Solutions</title>
+    <title>Economics Hub | SES_Mine - Advanced Financial Modeling</title>
+    <meta name="description" content="AI-powered financial modeling, economic evaluation, and investment analysis for mining projects.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body class="dark-theme economics-page">
+    <!-- Financial Background -->
+    <div class="financial-background">
+        <canvas id="financial-chart-bg"></canvas>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-main">Economics Hub</span>
-                        <span class="logo-sub">SES_ Mining Solutions</span>
-                    </div>
-                </a>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#models" class="nav-link">Financial Models</a></li>
-                    <li><a href="#tools" class="nav-link">Tools</a></li>
+    <nav class="floating-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-glow">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Economics Hub</span>
+                    <span class="brand-tagline">SES_Mine</span>
+                </div>
+            </a>
+            
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-item">Home</a></li>
+                    <li><a href="#services" class="nav-item">Services</a></li>
+                    <li><a href="#models" class="nav-item">Models</a></li>
+                    <li><a href="#calculators" class="nav-item">Calculators</a></li>
                     <li class="nav-dropdown">
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-item">
                             Other Hubs <i class="fas fa-chevron-down"></i>
                         </a>
-                        <div class="dropdown-menu">
-                            <a href="innovation-technology-hub.html" class="dropdown-item">
-                                <i class="fas fa-lightbulb"></i>
-                                <div><strong>Innovation Hub</strong></div>
-                            </a>
-                            <a href="procurement-hub.html" class="dropdown-item">
-                                <i class="fas fa-shopping-cart"></i>
-                                <div><strong>Procurement Hub</strong></div>
-                            </a>
-                            <a href="analytics-platform.html" class="dropdown-item">
-                                <i class="fas fa-chart-line"></i>
-                                <div><strong>Analytics Platform</strong></div>
-                            </a>
-                            <a href="consulting-hub.html" class="dropdown-item">
-                                <i class="fas fa-user-tie"></i>
-                                <div><strong>Consulting Hub</strong></div>
-                            </a>
-                            <a href="training-education-hub.html" class="dropdown-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <div><strong>Training Hub</strong></div>
-                            </a>
-                            <a href="engineering-hub.html" class="dropdown-item">
-                                <i class="fas fa-hard-hat"></i>
-                                <div><strong>Engineering Hub</strong></div>
-                            </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <a href="innovation-technology-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-rocket"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Innovation Lab</h4>
+                                        <p>AI & Future Tech</p>
+                                    </div>
+                                </a>
+                                <a href="procurement-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-network-wired"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Supply Chain</h4>
+                                        <p>Smart Procurement</p>
+                                    </div>
+                                </a>
+                                <a href="analytics-platform.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-brain"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Analytics Engine</h4>
+                                        <p>Real-time Intelligence</p>
+                                    </div>
+                                </a>
+                                <a href="consulting-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-lightbulb"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Expert Advisory</h4>
+                                        <p>Strategic Consulting</p>
+                                    </div>
+                                </a>
+                                <a href="training-education-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-graduation-cap"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Academy</h4>
+                                        <p>Learn & Certify</p>
+                                    </div>
+                                </a>
+                                <a href="engineering-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-drafting-compass"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Engineering</h4>
+                                        <p>EPCM Services</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+                
                 <div class="nav-actions">
-                    <button type="button" class="cta-btn">Get Analysis</button>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="cta-button glow-effect">
+                        <span>Get Analysis</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
-                <button type="button" class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
+            
+            <button class="mobile-menu-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero-economics">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-calculator"></i> Financial Intelligence
+            <div class="hero-content-center">
+                <div class="hero-badge animate-float">
+                    <span class="badge-dot pulsing"></span>
+                    <span>AI-Powered Financial Intelligence</span>
                 </div>
-                <h1>
-                    Advanced Economic Analysis &
-                    <span class="gradient-text">Financial Modeling</span>
+                
+                <h1 class="hero-title-xl">
+                    <span class="title-line">Transform Data Into</span>
+                    <span class="title-highlight gradient-text">Investment Decisions</span>
                 </h1>
-                <p class="hero-subtitle">
-                    Comprehensive economic evaluation, financial modeling, and investment analysis 
-                    for mining projects. Make informed decisions backed by rigorous financial analysis.
+                
+                <p class="hero-description-center">
+                    Advanced financial modeling with AI-powered forecasting, Monte Carlo simulation, 
+                    and comprehensive economic evaluation. Make confident investment decisions backed 
+                    by rigorous financial analysis.
                 </p>
-                <div class="hero-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-calculator"></i> Start Analysis
+                
+                <div class="hero-cta-group">
+                    <button class="btn-primary-hero">
+                        <span>Explore Models</span>
+                        <div class="btn-glow"></div>
                     </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-file-download"></i> Download Models
+                    <button class="btn-secondary-hero">
+                        <i class="fas fa-calculator"></i>
+                        <span>Try Calculators</span>
                     </button>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-box">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Projects Analyzed</div>
+
+                <div class="economics-metrics">
+                    <div class="metric-card-inline">
+                        <div class="metric-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="metric-content">
+                            <div class="metric-number">600+</div>
+                            <div class="metric-label">Projects Analyzed</div>
+                        </div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-number">$15B+</div>
-                        <div class="stat-label">Project Value</div>
+                    <div class="metric-card-inline">
+                        <div class="metric-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="metric-content">
+                            <div class="metric-number">$22B+</div>
+                            <div class="metric-label">Project Value</div>
+                        </div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-number">30+</div>
-                        <div class="stat-label">Financial Experts</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Accuracy Rate</div>
+                    <div class="metric-card-inline">
+                        <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="metric-content">
+                            <div class="metric-number">95%</div>
+                            <div class="metric-label">Forecast Accuracy</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,284 +165,359 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section">
+    <section class="services-section" id="services">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Our Services</span>
-                <h2 class="section-title">Comprehensive Economic Services</h2>
+            <div class="section-header-creative">
+                <span class="section-number">01</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Financial Services</h2>
+                    <p class="section-subtitle">Comprehensive economic analysis</p>
+                </div>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
+            
+            <div class="economics-services-grid">
+                <div class="econ-service-card">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-calculator"></i>
                     </div>
                     <h3>Economic Evaluation</h3>
-                    <p>Complete economic analysis including NPV, IRR, payback period, and sensitivity analysis.</p>
-                    <ul class="service-features">
+                    <p>Complete NPV, IRR, payback analysis with sensitivity and scenario modeling.</p>
+                    <ul class="service-includes">
                         <li><i class="fas fa-check"></i> NPV/IRR Calculation</li>
-                        <li><i class="fas fa-check"></i> Payback Analysis</li>
-                        <li><i class="fas fa-check"></i> Sensitivity Studies</li>
+                        <li><i class="fas fa-check"></i> Sensitivity Analysis</li>
+                        <li><i class="fas fa-check"></i> Scenario Modeling</li>
                         <li><i class="fas fa-check"></i> Risk Assessment</li>
                     </ul>
+                    <div class="service-stat">
+                        <strong>500+</strong> Evaluations Completed
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="econ-service-card">
+                    <div class="service-icon-wrapper">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
                     <h3>Cash Flow Modeling</h3>
-                    <p>Detailed cash flow projections for project life cycle with multiple scenarios.</p>
-                    <ul class="service-features">
+                    <p>Detailed project cash flow projections with multiple scenarios and stress testing.</p>
+                    <ul class="service-includes">
                         <li><i class="fas fa-check"></i> Revenue Forecasting</li>
                         <li><i class="fas fa-check"></i> Cost Estimation</li>
-                        <li><i class="fas fa-check"></i> Working Capital</li>
                         <li><i class="fas fa-check"></i> Tax Modeling</li>
+                        <li><i class="fas fa-check"></i> Working Capital</li>
                     </ul>
+                    <div class="service-stat">
+                        <strong>$18B+</strong> Projects Modeled
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="econ-service-card">
+                    <div class="service-icon-wrapper">
                         <i class="fas fa-balance-scale"></i>
                     </div>
-                    <h3>Valuation Services</h3>
-                    <p>Professional asset valuation for mining projects and mineral resources.</p>
-                    <ul class="service-features">
+                    <h3>Asset Valuation</h3>
+                    <p>Professional mining asset valuation using DCF, comparable analysis, and market data.</p>
+                    <ul class="service-includes">
                         <li><i class="fas fa-check"></i> DCF Valuation</li>
                         <li><i class="fas fa-check"></i> Comparable Analysis</li>
                         <li><i class="fas fa-check"></i> Resource Valuation</li>
                         <li><i class="fas fa-check"></i> Market Assessment</li>
                     </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-dollar-sign"></i>
+                    <div class="service-stat">
+                        <strong>$12B+</strong> Assets Valued
                     </div>
-                    <h3>Cost Estimation</h3>
-                    <p>Accurate CAPEX and OPEX estimation for all project phases.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Capital Cost (CAPEX)</li>
-                        <li><i class="fas fa-check"></i> Operating Cost (OPEX)</li>
-                        <li><i class="fas fa-check"></i> Sustaining Capital</li>
-                        <li><i class="fas fa-check"></i> Cost Benchmarking</li>
-                    </ul>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
+                <div class="econ-service-card">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-dice"></i>
                     </div>
                     <h3>Risk Analysis</h3>
-                    <p>Comprehensive risk assessment and mitigation strategies.</p>
-                    <ul class="service-features">
+                    <p>Monte Carlo simulation and probabilistic analysis for investment decision-making.</p>
+                    <ul class="service-includes">
                         <li><i class="fas fa-check"></i> Monte Carlo Simulation</li>
-                        <li><i class="fas fa-check"></i> Scenario Analysis</li>
                         <li><i class="fas fa-check"></i> Risk Quantification</li>
-                        <li><i class="fas fa-check"></i> Mitigation Planning</li>
+                        <li><i class="fas fa-check"></i> Probability Analysis</li>
+                        <li><i class="fas fa-check"></i> Mitigation Strategies</li>
                     </ul>
+                    <div class="service-stat">
+                        <strong>10,000+</strong> Simulations Run
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="econ-service-card">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Cost Estimation</h3>
+                    <p>Accurate CAPEX and OPEX estimation using industry databases and AI algorithms.</p>
+                    <ul class="service-includes">
+                        <li><i class="fas fa-check"></i> Capital Costs (CAPEX)</li>
+                        <li><i class="fas fa-check"></i> Operating Costs (OPEX)</li>
+                        <li><i class="fas fa-check"></i> Cost Benchmarking</li>
+                        <li><i class="fas fa-check"></i> Escalation Modeling</li>
+                    </ul>
+                    <div class="service-stat">
+                        <strong>±10%</strong> Accuracy
+                    </div>
+                </div>
+
+                <div class="econ-service-card">
+                    <div class="service-icon-wrapper">
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3>Financing Strategy</h3>
-                    <p>Optimal financing structure and capital raising strategies.</p>
-                    <ul class="service-features">
+                    <p>Optimal capital structure and financing strategy for project development.</p>
+                    <ul class="service-includes">
                         <li><i class="fas fa-check"></i> Debt/Equity Structure</li>
                         <li><i class="fas fa-check"></i> Financing Options</li>
-                        <li><i class="fas fa-check"></i> Investor Relations</li>
+                        <li><i class="fas fa-check"></i> Lender Requirements</li>
                         <li><i class="fas fa-check"></i> Financial Planning</li>
                     </ul>
+                    <div class="service-stat">
+                        <strong>$8B+</strong> Financing Secured
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Financial Models Section -->
-    <section id="models" class="section section-alt">
+    <section class="models-section" id="models">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Financial Models</span>
-                <h2 class="section-title">Industry-Standard Models</h2>
+            <div class="section-header-creative">
+                <span class="section-number">02</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Financial Models</h2>
+                    <p class="section-subtitle">Industry-standard Excel models</p>
+                </div>
             </div>
-            <div class="models-grid">
-                <div class="model-card">
-                    <div class="model-header">
+            
+            <div class="models-showcase-grid">
+                <div class="model-showcase-card featured">
+                    <div class="model-badge">Bestseller</div>
+                    <div class="model-icon-large">
                         <i class="fas fa-file-excel"></i>
-                        <h3>NPV/IRR Model</h3>
                     </div>
-                    <p>Comprehensive discounted cash flow model with NPV and IRR calculations.</p>
-                    <div class="model-features">
-                        <span class="model-tag">Excel-based</span>
-                        <span class="model-tag">Customizable</span>
-                        <span class="model-tag">Multi-scenario</span>
-                    </div>
-                    <div class="model-includes">
-                        <h4>Includes:</h4>
+                    <h3>Complete Financial Model</h3>
+                    <p>Comprehensive project financial model from development through closure with full 3-statement integration.</p>
+                    <div class="model-features-list">
+                        <h4>Features:</h4>
                         <ul>
-                            <li>Revenue projections</li>
-                            <li>Cost schedules</li>
-                            <li>Tax calculations</li>
-                            <li>Sensitivity analysis</li>
-                            <li>Charts & graphs</li>
+                            <li><i class="fas fa-check-circle"></i> 3-Statement Model (P&L, Balance Sheet, Cash Flow)</li>
+                            <li><i class="fas fa-check-circle"></i> NPV/IRR Calculations</li>
+                            <li><i class="fas fa-check-circle"></i> Sensitivity Analysis</li>
+                            <li><i class="fas fa-check-circle"></i> Scenario Manager</li>
+                            <li><i class="fas fa-check-circle"></i> Monte Carlo Simulation</li>
+                            <li><i class="fas fa-check-circle"></i> Executive Dashboard</li>
+                            <li><i class="fas fa-check-circle"></i> Automated Charts</li>
                         </ul>
                     </div>
-                    <button type="button" class="model-btn">Download Model</button>
+                    <div class="model-specs">
+                        <span class="spec-tag"><i class="fas fa-file-excel"></i> Excel 2016+</span>
+                        <span class="spec-tag"><i class="fas fa-code"></i> VBA Macros</span>
+                        <span class="spec-tag"><i class="fas fa-shield-alt"></i> Password Protected</span>
+                    </div>
+                    <div class="model-footer">
+                        <div class="model-price">$499</div>
+                        <button class="model-btn-primary">Download Model</button>
+                    </div>
                 </div>
 
-                <div class="model-card featured">
-                    <div class="model-badge">Most Popular</div>
-                    <div class="model-header">
+                <div class="model-showcase-card">
+                    <div class="model-icon-large">
                         <i class="fas fa-file-excel"></i>
-                        <h3>Complete Financial Model</h3>
                     </div>
-                    <p>Full project financial model from development through closure.</p>
-                    <div class="model-features">
-                        <span class="model-tag">Comprehensive</span>
-                        <span class="model-tag">Professional</span>
-                        <span class="model-tag">Investor-ready</span>
-                    </div>
-                    <div class="model-includes">
-                        <h4>Includes:</h4>
+                    <h3>NPV/IRR Calculator</h3>
+                    <p>Fast and accurate NPV and IRR calculations with sensitivity analysis and charts.</p>
+                    <div class="model-features-list">
+                        <h4>Features:</h4>
                         <ul>
-                            <li>3-statement model</li>
-                            <li>Cash flow waterfall</li>
-                            <li>Debt schedule</li>
-                            <li>Risk analysis</li>
-                            <li>Executive dashboard</li>
+                            <li><i class="fas fa-check-circle"></i> NPV Calculation</li>
+                            <li><i class="fas fa-check-circle"></i> IRR Calculation</li>
+                            <li><i class="fas fa-check-circle"></i> Payback Period</li>
+                            <li><i class="fas fa-check-circle"></i> Sensitivity Tables</li>
+                            <li><i class="fas fa-check-circle"></i> Tornado Charts</li>
                         </ul>
                     </div>
-                    <button type="button" class="model-btn">Download Model</button>
+                    <div class="model-specs">
+                        <span class="spec-tag"><i class="fas fa-file-excel"></i> Excel 2016+</span>
+                        <span class="spec-tag"><i class="fas fa-tachometer-alt"></i> Fast</span>
+                    </div>
+                    <div class="model-footer">
+                        <div class="model-price">$149</div>
+                        <button class="model-btn-primary">Download Model</button>
+                    </div>
                 </div>
 
-                <div class="model-card">
-                    <div class="model-header">
+                <div class="model-showcase-card">
+                    <div class="model-icon-large">
                         <i class="fas fa-file-excel"></i>
-                        <h3>Cost Estimation Model</h3>
                     </div>
-                    <p>Detailed CAPEX and OPEX estimation tool with benchmarking.</p>
-                    <div class="model-features">
-                        <span class="model-tag">Detailed</span>
-                        <span class="model-tag">Database-linked</span>
-                        <span class="model-tag">Accurate</span>
-                    </div>
-                    <div class="model-includes">
-                        <h4>Includes:</h4>
+                    <h3>Cost Estimation Tool</h3>
+                    <p>Comprehensive CAPEX and OPEX estimation with equipment database and benchmarking.</p>
+                    <div class="model-features-list">
+                        <h4>Features:</h4>
                         <ul>
-                            <li>Equipment database</li>
-                            <li>Labor rates</li>
-                            <li>Material costs</li>
-                            <li>Indirect costs</li>
-                            <li>Contingency analysis</li>
+                            <li><i class="fas fa-check-circle"></i> Equipment Database</li>
+                            <li><i class="fas fa-check-circle"></i> Labor Rates</li>
+                            <li><i class="fas fa-check-circle"></i> Material Costs</li>
+                            <li><i class="fas fa-check-circle"></i> Indirect Costs</li>
+                            <li><i class="fas fa-check-circle"></i> Contingency Analysis</li>
                         </ul>
                     </div>
-                    <button type="button" class="model-btn">Download Model</button>
+                    <div class="model-specs">
+                        <span class="spec-tag"><i class="fas fa-database"></i> 5000+ Items</span>
+                        <span class="spec-tag"><i class="fas fa-sync-alt"></i> Updated 2025</span>
+                    </div>
+                    <div class="model-footer">
+                        <div class="model-price">$299</div>
+                        <button class="model-btn-primary">Download Model</button>
+                    </div>
+                </div>
+
+                <div class="model-showcase-card">
+                    <div class="model-icon-large">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3>Monte Carlo Simulator</h3>
+                    <p>Advanced probabilistic analysis with 10,000+ iterations and risk quantification.</p>
+                    <div class="model-features-list">
+                        <h4>Features:</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 10,000 Iterations</li>
+                            <li><i class="fas fa-check-circle"></i> Multiple Distributions</li>
+                            <li><i class="fas fa-check-circle"></i> Correlation Matrix</li>
+                            <li><i class="fas fa-check-circle"></i> Risk Metrics</li>
+                            <li><i class="fas fa-check-circle"></i> Probability Charts</li>
+                        </ul>
+                    </div>
+                    <div class="model-specs">
+                        <span class="spec-tag"><i class="fas fa-dice"></i> Probabilistic</span>
+                        <span class="spec-tag"><i class="fas fa-brain"></i> AI-Enhanced</span>
+                    </div>
+                    <div class="model-footer">
+                        <div class="model-price">$399</div>
+                        <button class="model-btn-primary">Download Model</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Calculator Section -->
-    <section id="tools" class="section">
+    <!-- Interactive Calculators -->
+    <section class="calculators-section" id="calculators">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Financial Tools</span>
-                <h2 class="section-title">Quick Economic Calculators</h2>
+            <div class="section-header-creative">
+                <span class="section-number">03</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Quick Calculators</h2>
+                    <p class="section-subtitle">Instant financial analysis tools</p>
+                </div>
             </div>
             
-            <div class="calculator-container">
+            <div class="calculator-interface">
                 <div class="calculator-tabs">
-                    <button type="button" class="calc-tab active" data-calc="npv">NPV Calculator</button>
-                    <button type="button" class="calc-tab" data-calc="irr">IRR Calculator</button>
-                    <button type="button" class="calc-tab" data-calc="payback">Payback Period</button>
-                    <button type="button" class="calc-tab" data-calc="breakeven">Breakeven Analysis</button>
+                    <button class="calc-tab-btn active" data-calc="npv">NPV Calculator</button>
+                    <button class="calc-tab-btn" data-calc="irr">IRR Calculator</button>
+                    <button class="calc-tab-btn" data-calc="payback">Payback Period</button>
+                    <button class="calc-tab-btn" data-calc="breakeven">Breakeven Analysis</button>
                 </div>
 
                 <!-- NPV Calculator -->
-                <div class="calculator-panel active" id="npv-calc">
-                    <h3><i class="fas fa-calculator"></i> Net Present Value Calculator</h3>
-                    <div class="calc-grid">
-                        <div class="calc-inputs">
-                            <div class="input-group">
+                <div class="calculator-panel active" id="npv-calculator">
+                    <div class="calculator-layout">
+                        <div class="calculator-inputs">
+                            <h3><i class="fas fa-calculator"></i> Net Present Value</h3>
+                            <div class="input-group-calc">
                                 <label>Initial Investment ($M)</label>
-                                <input type="number" id="npv-investment" value="100" class="calc-input">
+                                <input type="number" id="npv-investment" value="100" class="calc-input-field">
                             </div>
-                            <div class="input-group">
+                            <div class="input-group-calc">
                                 <label>Annual Cash Flow ($M)</label>
-                                <input type="number" id="npv-cashflow" value="25" class="calc-input">
+                                <input type="number" id="npv-cashflow" value="25" class="calc-input-field">
                             </div>
-                            <div class="input-group">
+                            <div class="input-group-calc">
                                 <label>Project Life (years)</label>
-                                <input type="number" id="npv-life" value="10" class="calc-input">
+                                <input type="number" id="npv-life" value="10" class="calc-input-field">
                             </div>
-                            <div class="input-group">
+                            <div class="input-group-calc">
                                 <label>Discount Rate (%)</label>
-                                <input type="number" id="npv-rate" value="10" class="calc-input">
+                                <input type="number" id="npv-rate" value="10" class="calc-input-field">
                             </div>
-                            <button type="button" class="calc-btn" onclick="calculateNPV()">Calculate NPV</button>
+                            <button class="calc-compute-btn" onclick="calculateNPV()">
+                                <i class="fas fa-calculator"></i> Calculate NPV
+                            </button>
                         </div>
-                        <div class="calc-results">
-                            <div class="result-card">
+
+                        <div class="calculator-results">
+                            <div class="result-display">
                                 <div class="result-label">Net Present Value</div>
-                                <div class="result-value" id="npv-result">$53.6M</div>
-                            </div>
-                            <div class="result-card">
-                                <div class="result-label">Project Status</div>
+                                <div class="result-value-large" id="npv-result">$53.6M</div>
                                 <div class="result-status positive" id="npv-status">
                                     <i class="fas fa-check-circle"></i> Economically Viable
                                 </div>
                             </div>
-                            <div class="result-explanation">
-                                <h4>Interpretation:</h4>
+                            <div class="result-explanation-box">
+                                <h4>Analysis:</h4>
                                 <p id="npv-explanation">
-                                    The project has a positive NPV of $53.6M, indicating it will create value 
-                                    and is economically viable at the given discount rate.
+                                    The project generates a positive NPV of $53.6M at a 10% discount rate, 
+                                    indicating it will create value for investors. The project is economically 
+                                    viable and should be considered for investment.
                                 </p>
+                            </div>
+                            <div class="result-metrics">
+                                <div class="metric-small">
+                                    <span class="metric-label">Total Cash Flow</span>
+                                    <span class="metric-value">$250M</span>
+                                </div>
+                                <div class="metric-small">
+                                    <span class="metric-label">PV of Cash Flows</span>
+                                    <span class="metric-value">$153.6M</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- IRR Calculator -->
-                <div class="calculator-panel" id="irr-calc">
-                    <h3><i class="fas fa-calculator"></i> Internal Rate of Return Calculator</h3>
-                    <div class="calc-grid">
-                        <div class="calc-inputs">
-                            <div class="input-group">
+                <div class="calculator-panel" id="irr-calculator">
+                    <div class="calculator-layout">
+                        <div class="calculator-inputs">
+                            <h3><i class="fas fa-percentage"></i> Internal Rate of Return</h3>
+                            <div class="input-group-calc">
                                 <label>Initial Investment ($M)</label>
-                                <input type="number" id="irr-investment" value="100" class="calc-input">
+                                <input type="number" id="irr-investment" value="100" class="calc-input-field">
                             </div>
-                            <div class="input-group">
+                            <div class="input-group-calc">
                                 <label>Annual Cash Flow ($M)</label>
-                                <input type="number" id="irr-cashflow" value="25" class="calc-input">
+                                <input type="number" id="irr-cashflow" value="25" class="calc-input-field">
                             </div>
-                            <div class="input-group">
+                            <div class="input-group-calc">
                                 <label>Project Life (years)</label>
-                                <input type="number" id="irr-life" value="10" class="calc-input">
+                                <input type="number" id="irr-life" value="10" class="calc-input-field">
                             </div>
-                            <div class="input-group">
+                            <div class="input-group-calc">
                                 <label>Required Return (%)</label>
-                                <input type="number" id="irr-required" value="10" class="calc-input">
+                                <input type="number" id="irr-required" value="10" class="calc-input-field">
                             </div>
-                            <button type="button" class="calc-btn" onclick="calculateIRR()">Calculate IRR</button>
+                            <button class="calc-compute-btn" onclick="calculateIRR()">
+                                <i class="fas fa-calculator"></i> Calculate IRR
+                            </button>
                         </div>
-                        <div class="calc-results">
-                            <div class="result-card">
+
+                        <div class="calculator-results">
+                            <div class="result-display">
                                 <div class="result-label">Internal Rate of Return</div>
-                                <div class="result-value" id="irr-result">21.4%</div>
-                            </div>
-                            <div class="result-card">
-                                <div class="result-label">vs Required Return</div>
+                                <div class="result-value-large" id="irr-result">21.4%</div>
                                 <div class="result-status positive" id="irr-status">
-                                    <i class="fas fa-arrow-up"></i> Exceeds Requirement
+                                    <i class="fas fa-arrow-up"></i> Exceeds Required Return
                                 </div>
                             </div>
-                            <div class="result-explanation">
-                                <h4>Interpretation:</h4>
+                            <div class="result-explanation-box">
+                                <h4>Analysis:</h4>
                                 <p id="irr-explanation">
-                                    The project IRR of 21.4% exceeds the required return of 10%, 
-                                    indicating strong investment potential.
+                                    The project IRR of 21.4% significantly exceeds the required return of 10%, 
+                                    indicating strong investment potential with substantial margin above the hurdle rate.
                                 </p>
                             </div>
                         </div>
@@ -403,30 +525,33 @@
                 </div>
 
                 <!-- Payback Calculator -->
-                <div class="calculator-panel" id="payback-calc">
-                    <h3><i class="fas fa-calculator"></i> Payback Period Calculator</h3>
-                    <div class="calc-grid">
-                        <div class="calc-inputs">
-                            <div class="input-group">
+                <div class="calculator-panel" id="payback-calculator">
+                    <div class="calculator-layout">
+                        <div class="calculator-inputs">
+                            <h3><i class="fas fa-clock"></i> Payback Period</h3>
+                            <div class="input-group-calc">
                                 <label>Initial Investment ($M)</label>
-                                <input type="number" id="pb-investment" value="100" class="calc-input">
+                                <input type="number" id="pb-investment" value="100" class="calc-input-field">
                             </div>
-                            <div class="input-group">
+                            <div class="input-group-calc">
                                 <label>Annual Cash Flow ($M)</label>
-                                <input type="number" id="pb-cashflow" value="25" class="calc-input">
+                                <input type="number" id="pb-cashflow" value="25" class="calc-input-field">
                             </div>
-                            <button type="button" class="calc-btn" onclick="calculatePayback()">Calculate Payback</button>
+                            <button class="calc-compute-btn" onclick="calculatePayback()">
+                                <i class="fas fa-calculator"></i> Calculate Payback
+                            </button>
                         </div>
-                        <div class="calc-results">
-                            <div class="result-card">
+
+                        <div class="calculator-results">
+                            <div class="result-display">
                                 <div class="result-label">Payback Period</div>
-                                <div class="result-value" id="pb-result">4.0 years</div>
+                                <div class="result-value-large" id="pb-result">4.0 years</div>
                             </div>
-                            <div class="result-explanation">
-                                <h4>Interpretation:</h4>
+                            <div class="result-explanation-box">
+                                <h4>Analysis:</h4>
                                 <p id="pb-explanation">
-                                    The initial investment will be recovered in 4.0 years through 
-                                    the project's cash flows.
+                                    The initial investment will be fully recovered in 4.0 years through the 
+                                    project's annual cash flows. This represents a relatively short payback period.
                                 </p>
                             </div>
                         </div>
@@ -434,39 +559,44 @@
                 </div>
 
                 <!-- Breakeven Calculator -->
-                <div class="calculator-panel" id="breakeven-calc">
-                    <h3><i class="fas fa-calculator"></i> Breakeven Analysis</h3>
-                    <div class="calc-grid">
-                        <div class="calc-inputs">
-                            <div class="input-group">
+                <div class="calculator-panel" id="breakeven-calculator">
+                    <div class="calculator-layout">
+                        <div class="calculator-inputs">
+                            <h3><i class="fas fa-balance-scale"></i> Breakeven Analysis</h3>
+                            <div class="input-group-calc">
                                 <label>Fixed Costs ($M/year)</label>
-                                <input type="number" id="be-fixed" value="50" class="calc-input">
+                                <input type="number" id="be-fixed" value="50" class="calc-input-field">
                             </div>
-                            <div class="input-group">
+                            <div class="input-group-calc">
                                 <label>Variable Cost ($/ton)</label>
-                                <input type="number" id="be-variable" value="30" class="calc-input">
+                                <input type="number" id="be-variable" value="30" class="calc-input-field">
                             </div>
-                            <div class="input-group">
+                            <div class="input-group-calc">
                                 <label>Selling Price ($/ton)</label>
-                                <input type="number" id="be-price" value="80" class="calc-input">
+                                <input type="number" id="be-price" value="80" class="calc-input-field">
                             </div>
-                            <button type="button" class="calc-btn" onclick="calculateBreakeven()">Calculate Breakeven</button>
+                            <button class="calc-compute-btn" onclick="calculateBreakeven()">
+                                <i class="fas fa-calculator"></i> Calculate Breakeven
+                            </button>
                         </div>
-                        <div class="calc-results">
-                            <div class="result-card">
+
+                        <div class="calculator-results">
+                            <div class="result-display">
                                 <div class="result-label">Breakeven Volume</div>
-                                <div class="result-value" id="be-result">1.0M tons/year</div>
+                                <div class="result-value-large" id="be-result">1.0M tons/year</div>
                             </div>
-                            <div class="result-card">
-                                <div class="result-label">Contribution Margin</div>
-                                <div class="result-value" id="be-margin">$50/ton</div>
-                            </div>
-                            <div class="result-explanation">
-                                <h4>Interpretation:</h4>
+                            <div class="result-explanation-box">
+                                <h4>Analysis:</h4>
                                 <p id="be-explanation">
-                                    The operation needs to produce 1.0M tons per year to cover all costs 
-                                    and break even.
+                                    The operation needs to produce and sell 1.0M tons per year to cover all 
+                                    fixed and variable costs and break even. Production above this level generates profit.
                                 </p>
+                            </div>
+                            <div class="result-metrics">
+                                <div class="metric-small">
+                                    <span class="metric-label">Contribution Margin</span>
+                                    <span class="metric-value" id="be-margin">$50/ton</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -475,50 +605,21 @@
         </div>
     </section>
 
-    <!-- Key Metrics Section -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Key Metrics</span>
-                <h2 class="section-title">Essential Economic Indicators</h2>
-            </div>
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>NPV (Net Present Value)</h3>
-                    <p>Present value of all future cash flows minus initial investment. Positive NPV indicates value creation.</p>
-                </div>
-                <div class="metric-card">
-                    <i class="fas fa-percentage"></i>
-                    <h3>IRR (Internal Rate of Return)</h3>
-                    <p>Discount rate at which NPV equals zero. Higher IRR indicates better investment opportunity.</p>
-                </div>
-                <div class="metric-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Payback Period</h3>
-                    <p>Time required to recover initial investment. Shorter payback indicates lower risk.</p>
-                </div>
-                <div class="metric-card">
-                    <i class="fas fa-balance-scale"></i>
-                    <h3>Breakeven Point</h3>
-                    <p>Production level where total revenue equals total costs. Critical for operational planning.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section-creative">
+        <div class="cta-bg-pattern"></div>
         <div class="container">
-            <div class="cta-content">
-                <h2>Need Professional Economic Analysis?</h2>
-                <p>Our experts can provide comprehensive financial modeling and analysis</p>
-                <div class="cta-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-calculator"></i> Request Analysis
+            <div class="cta-content-creative">
+                <h2>Need Professional Financial Analysis?</h2>
+                <p>Partner with experts who have analyzed $22B+ in mining projects</p>
+                <div class="cta-buttons-group">
+                    <button class="btn-cta-primary">
+                        <span>Request Analysis</span>
+                        <i class="fas fa-calculator"></i>
                     </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-phone"></i> Speak to Economist
+                    <button class="btn-cta-secondary">
+                        <i class="fas fa-phone"></i>
+                        <span>Speak to Economist</span>
                     </button>
                 </div>
             </div>
@@ -526,39 +627,59 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-creative">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Economics Hub</h4>
-                    <p>Financial intelligence for mining projects</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Economics Hub</span>
+                    </div>
+                    <p>Advanced financial modeling for mining investment decisions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#models">Financial Models</a></li>
-                        <li><a href="#tools">Tools</a></li>
+                        <li><a href="#services">Economic Evaluation</a></li>
+                        <li><a href="#services">Cash Flow Modeling</a></li>
+                        <li><a href="#services">Asset Valuation</a></li>
+                        <li><a href="#services">Risk Analysis</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                
+                <div class="footer-links">
                     <h4>Other Platforms</h4>
                     <ul>
-                        <li><a href="innovation-technology-hub.html">Innovation Hub</a></li>
-                        <li><a href="procurement-hub.html">Procurement Hub</a></li>
-                        <li><a href="analytics-platform.html">Analytics Platform</a></li>
-                        <li><a href="consulting-hub.html">Consulting Hub</a></li>
+                        <li><a href="innovation-technology-hub.html">Innovation Lab</a></li>
+                        <li><a href="procurement-hub.html">Supply Chain</a></li>
+                        <li><a href="analytics-platform.html">Analytics</a></li>
+                        <li><a href="consulting-hub.html">Consulting</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: economics@SES_-mining.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#models">Financial Models</a></li>
+                        <li><a href="#calculators">Calculators</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 SES_ Mining Solutions. All rights reserved.</p>
+                <p>&copy; 2025 SES_Mine Economics Hub. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -594,18 +715,14 @@
             const cashflow = parseFloat(document.getElementById('irr-cashflow').value);
             const life = parseFloat(document.getElementById('irr-life').value);
             
-            // Simplified IRR calculation
             const irr = ((cashflow * life) / investment - 1) / life * 100;
-            
             document.getElementById('irr-result').textContent = irr.toFixed(1) + '%';
         }
 
         function calculatePayback() {
             const investment = parseFloat(document.getElementById('pb-investment').value);
             const cashflow = parseFloat(document.getElementById('pb-cashflow').value);
-            
             const payback = investment / cashflow;
-            
             document.getElementById('pb-result').textContent = payback.toFixed(1) + ' years';
         }
 
@@ -613,7 +730,6 @@
             const fixed = parseFloat(document.getElementById('be-fixed').value);
             const variable = parseFloat(document.getElementById('be-variable').value);
             const price = parseFloat(document.getElementById('be-price').value);
-            
             const margin = price - variable;
             const breakeven = (fixed * 1000000) / margin;
             
@@ -622,14 +738,14 @@
         }
 
         // Tab switching
-        document.querySelectorAll('.calc-tab').forEach(tab => {
+        document.querySelectorAll('.calc-tab-btn').forEach(tab => {
             tab.addEventListener('click', function() {
-                document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.calc-tab-btn').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.calculator-panel').forEach(p => p.classList.remove('active'));
                 
                 this.classList.add('active');
                 const calcType = this.getAttribute('data-calc');
-                document.getElementById(calcType + '-calc').classList.add('active');
+                document.getElementById(calcType + '-calculator').classList.add('active');
             });
         });
     </script>
