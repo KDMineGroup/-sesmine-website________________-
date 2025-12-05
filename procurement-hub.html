@@ -3,340 +3,640 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovation & Technology Hub - SES_ Mining Solutions</title>
+    <title>Supply Chain Hub | SES_Mine - Smart Procurement Solutions</title>
+    <meta name="description" content="Intelligent procurement and supply chain management with blockchain tracking and automated workflows.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="tech-grid"></div>
-        <div class="floating-particles"></div>
+<body class="dark-theme supply-chain-page">
+    <!-- Network Background -->
+    <div class="network-background">
+        <canvas id="supply-network"></canvas>
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-main">Innovation Hub</span>
-                        <span class="logo-sub">SES_ Mining Solutions</span>
-                    </div>
-                </a>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="#technologies" class="nav-link">Technologies</a></li>
-                    <li><a href="#solutions" class="nav-link">Solutions</a></li>
-                    <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+    <nav class="floating-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-glow">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Supply Chain</span>
+                    <span class="brand-tagline">SES_Mine</span>
+                </div>
+            </a>
+            
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-item">Home</a></li>
+                    <li><a href="#solutions" class="nav-item">Solutions</a></li>
+                    <li><a href="#vendors" class="nav-item">Vendor Network</a></li>
+                    <li><a href="#tracking" class="nav-item">Tracking</a></li>
                     <li class="nav-dropdown">
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-item">
                             Other Hubs <i class="fas fa-chevron-down"></i>
                         </a>
-                        <div class="dropdown-menu">
-                            <a href="procurement-hub.html" class="dropdown-item">
-                                <i class="fas fa-shopping-cart"></i>
-                                <div><strong>Procurement Hub</strong></div>
-                            </a>
-                            <a href="analytics-platform.html" class="dropdown-item">
-                                <i class="fas fa-chart-line"></i>
-                                <div><strong>Analytics Platform</strong></div>
-                            </a>
-                            <a href="consulting-hub.html" class="dropdown-item">
-                                <i class="fas fa-user-tie"></i>
-                                <div><strong>Consulting Hub</strong></div>
-                            </a>
-                            <a href="training-education-hub.html" class="dropdown-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <div><strong>Training Hub</strong></div>
-                            </a>
-                            <a href="engineering-hub.html" class="dropdown-item">
-                                <i class="fas fa-hard-hat"></i>
-                                <div><strong>Engineering Hub</strong></div>
-                            </a>
-                            <a href="economics-hub.html" class="dropdown-item">
-                                <i class="fas fa-chart-pie"></i>
-                                <div><strong>Economics Hub</strong></div>
-                            </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <a href="innovation-technology-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-rocket"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Innovation Lab</h4>
+                                        <p>AI & Future Tech</p>
+                                    </div>
+                                </a>
+                                <a href="analytics-platform.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-brain"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Analytics Engine</h4>
+                                        <p>Real-time Intelligence</p>
+                                    </div>
+                                </a>
+                                <a href="consulting-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-lightbulb"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Expert Advisory</h4>
+                                        <p>Strategic Consulting</p>
+                                    </div>
+                                </a>
+                                <a href="training-education-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-graduation-cap"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Academy</h4>
+                                        <p>Learn & Certify</p>
+                                    </div>
+                                </a>
+                                <a href="engineering-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-drafting-compass"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Engineering</h4>
+                                        <p>EPCM Services</p>
+                                    </div>
+                                </a>
+                                <a href="economics-hub.html" class="mega-item">
+                                    <div class="mega-icon"><i class="fas fa-chart-line"></i></div>
+                                    <div class="mega-content">
+                                        <h4>Economics</h4>
+                                        <p>Financial Modeling</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+                
                 <div class="nav-actions">
-                    <button type="button" class="cta-btn">Get Started</button>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="cta-button glow-effect">
+                        <span>Vendor Portal</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
-                <button type="button" class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
+            
+            <button class="mobile-menu-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero-supply-chain">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-rocket"></i> Pioneering Mining Technology
-                </div>
-                <h1>
-                    Innovation & Technology for
-                    <span class="gradient-text">Next-Gen Mining</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Cutting-edge R&D, AI/ML integration, IoT solutions, and digital transformation 
-                    services to revolutionize your mining operations.
-                </p>
-                <div class="hero-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-rocket"></i> Explore Technologies
-                    </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-play"></i> Watch Demo
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technologies Section -->
-    <section id="technologies" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Core Technologies</span>
-                <h2 class="section-title">Advanced Technology Stack</h2>
-                <p class="section-description">
-                    Leveraging the latest innovations to transform mining operations
-                </p>
-            </div>
-            <div class="tech-grid-layout">
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-brain"></i>
+            <div class="hero-content-split">
+                <div class="hero-left">
+                    <div class="hero-badge animate-float">
+                        <span class="badge-dot pulsing"></span>
+                        <span>Blockchain-Powered Procurement</span>
                     </div>
-                    <h3>Artificial Intelligence</h3>
-                    <p>Machine learning models for predictive maintenance, ore grade estimation, and process optimization.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> Predictive Analytics</li>
-                        <li><i class="fas fa-check"></i> Computer Vision</li>
-                        <li><i class="fas fa-check"></i> Natural Language Processing</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-network-wired"></i>
+                    
+                    <h1 class="hero-title-large">
+                        <span class="title-line">Smart Supply Chain</span>
+                        <span class="title-highlight gradient-text">For Modern Mining</span>
+                    </h1>
+                    
+                    <p class="hero-description-large">
+                        Transform your procurement operations with AI-driven vendor management, 
+                        automated RFQ processing, blockchain tracking, and real-time supply chain visibility. 
+                        Reduce costs by 30% while improving efficiency.
+                    </p>
+                    
+                    <div class="hero-metrics-inline">
+                        <div class="metric-inline">
+                            <div class="metric-value">3,500+</div>
+                            <div class="metric-label">Verified Vendors</div>
+                        </div>
+                        <div class="metric-inline">
+                            <div class="metric-value">$850M</div>
+                            <div class="metric-label">Annual Procurement</div>
+                        </div>
+                        <div class="metric-inline">
+                            <div class="metric-value">30%</div>
+                            <div class="metric-label">Cost Savings</div>
+                        </div>
                     </div>
-                    <h3>IoT & Sensors</h3>
-                    <p>Real-time monitoring and data collection from equipment, environment, and operations.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> Smart Sensors</li>
-                        <li><i class="fas fa-check"></i> Edge Computing</li>
-                        <li><i class="fas fa-check"></i> Real-Time Monitoring</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-cube"></i>
+                    
+                    <div class="hero-cta-group">
+                        <button class="btn-primary-hero">
+                            <span>Start Procurement</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                        <button class="btn-secondary-hero">
+                            <i class="fas fa-handshake"></i>
+                            <span>Become Vendor</span>
+                        </button>
                     </div>
-                    <h3>Digital Twin</h3>
-                    <p>Virtual replicas of physical assets for simulation, testing, and optimization.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> 3D Modeling</li>
-                        <li><i class="fas fa-check"></i> Simulation</li>
-                        <li><i class="fas fa-check"></i> Scenario Testing</li>
-                    </ul>
                 </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-robot"></i>
+                
+                <div class="hero-right">
+                    <div class="supply-chain-visual">
+                        <div class="chain-node central">
+                            <i class="fas fa-industry"></i>
+                            <span>Mining Operation</span>
+                        </div>
+                        <div class="chain-node supplier" style="--position: 1;">
+                            <i class="fas fa-truck"></i>
+                            <span>Suppliers</span>
+                        </div>
+                        <div class="chain-node warehouse" style="--position: 2;">
+                            <i class="fas fa-warehouse"></i>
+                            <span>Warehouses</span>
+                        </div>
+                        <div class="chain-node logistics" style="--position: 3;">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Logistics</span>
+                        </div>
+                        <div class="chain-node vendor" style="--position: 4;">
+                            <i class="fas fa-store"></i>
+                            <span>Vendors</span>
+                        </div>
+                        <svg class="connection-lines">
+                            <line x1="50%" y1="50%" x2="80%" y2="20%" />
+                            <line x1="50%" y1="50%" x2="80%" y2="80%" />
+                            <line x1="50%" y1="50%" x2="20%" y2="80%" />
+                            <line x1="50%" y1="50%" x2="20%" y2="20%" />
+                        </svg>
                     </div>
-                    <h3>Automation & Robotics</h3>
-                    <p>Autonomous equipment, drones, and robotic systems for hazardous operations.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> Autonomous Vehicles</li>
-                        <li><i class="fas fa-check"></i> Drone Inspection</li>
-                        <li><i class="fas fa-check"></i> Robotic Process Automation</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>Cloud & Big Data</h3>
-                    <p>Scalable infrastructure for data storage, processing, and advanced analytics.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> Cloud Computing</li>
-                        <li><i class="fas fa-check"></i> Big Data Analytics</li>
-                        <li><i class="fas fa-check"></i> Data Warehousing</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Blockchain & Security</h3>
-                    <p>Secure, transparent tracking of materials, transactions, and supply chain.</p>
-                    <ul class="tech-features">
-                        <li><i class="fas fa-check"></i> Supply Chain Tracking</li>
-                        <li><i class="fas fa-check"></i> Smart Contracts</li>
-                        <li><i class="fas fa-check"></i> Cybersecurity</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Solutions Section -->
-    <section id="solutions" class="section section-alt">
+    <section class="solutions-section" id="solutions">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Innovation Solutions</span>
-                <h2 class="section-title">Comprehensive Technology Solutions</h2>
+            <div class="section-header-creative">
+                <span class="section-number">01</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Comprehensive Procurement Solutions</h2>
+                    <p class="section-subtitle">End-to-end supply chain management</p>
+                </div>
             </div>
-            <div class="solutions-grid">
-                <div class="solution-card">
+            
+            <div class="solutions-showcase">
+                <!-- Strategic Sourcing -->
+                <div class="solution-card-advanced">
                     <div class="solution-number">01</div>
-                    <h3>Smart Mine Operations</h3>
-                    <p>Integrated IoT sensors, real-time monitoring, and AI-powered decision support for optimized operations.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="solution-content">
+                        <div class="solution-icon-wrapper">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <h3>Strategic Sourcing</h3>
+                        <p>AI-powered vendor discovery and evaluation with predictive analytics for optimal supplier selection.</p>
+                        <div class="solution-features-list">
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Market Intelligence</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Vendor Scoring</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Risk Assessment</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Cost Benchmarking</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-action">
+                        <button class="solution-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
 
-                <div class="solution-card">
+                <!-- Automated RFQ -->
+                <div class="solution-card-advanced">
                     <div class="solution-number">02</div>
-                    <h3>Predictive Maintenance</h3>
-                    <p>Machine learning algorithms to predict equipment failures before they occur, reducing downtime.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="solution-content">
+                        <div class="solution-icon-wrapper">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Automated RFQ System</h3>
+                        <p>Streamlined request for quotation process with automated distribution and intelligent bid evaluation.</p>
+                        <div class="solution-features-list">
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Auto Distribution</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Bid Comparison</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Smart Evaluation</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Contract Generation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-action">
+                        <button class="solution-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
 
-                <div class="solution-card">
+                <!-- Blockchain Tracking -->
+                <div class="solution-card-advanced">
                     <div class="solution-number">03</div>
-                    <h3>Autonomous Fleet Management</h3>
-                    <p>Self-driving haul trucks, autonomous drilling, and coordinated fleet optimization.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="solution-content">
+                        <div class="solution-icon-wrapper">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>Blockchain Tracking</h3>
+                        <p>Immutable supply chain tracking with complete transparency from source to destination.</p>
+                        <div class="solution-features-list">
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Real-time Tracking</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Smart Contracts</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Provenance Verification</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Audit Trail</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-action">
+                        <button class="solution-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
 
-                <div class="solution-card">
+                <!-- Inventory Management -->
+                <div class="solution-card-advanced">
                     <div class="solution-number">04</div>
-                    <h3>Environmental Monitoring</h3>
-                    <p>Real-time tracking of air quality, water usage, emissions, and environmental impact.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="solution-content">
+                        <div class="solution-icon-wrapper">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <h3>Smart Inventory</h3>
+                        <p>AI-driven inventory optimization with predictive restocking and automated ordering.</p>
+                        <div class="solution-features-list">
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Demand Forecasting</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Auto Reordering</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Stock Optimization</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Multi-site Management</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-action">
+                        <button class="solution-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
 
-                <div class="solution-card">
+                <!-- Vendor Management -->
+                <div class="solution-card-advanced">
                     <div class="solution-number">05</div>
-                    <h3>Process Optimization</h3>
-                    <p>AI-driven optimization of crushing, grinding, flotation, and other processing operations.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="solution-content">
+                        <div class="solution-icon-wrapper">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3>Vendor Management</h3>
+                        <p>Comprehensive vendor lifecycle management with performance tracking and relationship optimization.</p>
+                        <div class="solution-features-list">
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Performance Metrics</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Compliance Tracking</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Risk Monitoring</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Relationship Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-action">
+                        <button class="solution-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
 
-                <div class="solution-card">
+                <!-- Cost Analytics -->
+                <div class="solution-card-advanced">
                     <div class="solution-number">06</div>
-                    <h3>Safety & Risk Management</h3>
-                    <p>Advanced systems for hazard detection, worker safety, and risk mitigation.</p>
-                    <a href="#" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="solution-content">
+                        <div class="solution-icon-wrapper">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Cost Analytics</h3>
+                        <p>Advanced spend analysis and cost optimization with AI-powered insights and recommendations.</p>
+                        <div class="solution-features-list">
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Spend Analysis</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Savings Tracking</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Budget Management</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Cost Forecasting</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-action">
+                        <button class="solution-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section -->
-    <section id="case-studies" class="section">
+    <!-- Vendor Network -->
+    <section class="vendor-network-section" id="vendors">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Success Stories</span>
-                <h2 class="section-title">Innovation in Action</h2>
+            <div class="section-header-creative">
+                <span class="section-number">02</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Global Vendor Network</h2>
+                    <p class="section-subtitle">3,500+ verified suppliers worldwide</p>
+                </div>
             </div>
-            <div class="case-studies-grid">
-                <div class="case-study-card">
-                    <div class="case-study-image">
-                        <i class="fas fa-truck-monster"></i>
+            
+            <div class="vendor-stats-grid">
+                <div class="vendor-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe-americas"></i>
                     </div>
-                    <div class="case-study-content">
-                        <h3>Autonomous Haul Fleet</h3>
-                        <p class="case-study-company">Major Copper Mine, Chile</p>
-                        <p class="case-study-description">
-                            Implemented autonomous haul truck fleet reducing operational costs by 35% 
-                            and improving safety metrics by 60%.
-                        </p>
-                        <div class="case-study-stats">
-                            <div class="stat">
-                                <div class="stat-value">35%</div>
-                                <div class="stat-label">Cost Reduction</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">60%</div>
-                                <div class="stat-label">Safety Improvement</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">24/7</div>
-                                <div class="stat-label">Operations</div>
-                            </div>
-                        </div>
+                    <div class="stat-content">
+                        <div class="stat-number-large">85</div>
+                        <div class="stat-label">Countries</div>
                     </div>
                 </div>
+                <div class="vendor-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number-large">3,500+</div>
+                        <div class="stat-label">Verified Vendors</div>
+                    </div>
+                </div>
+                <div class="vendor-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number-large">50K+</div>
+                        <div class="stat-label">Product Categories</div>
+                    </div>
+                </div>
+                <div class="vendor-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number-large">4.8/5</div>
+                        <div class="stat-label">Avg Rating</div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="case-study-card">
-                    <div class="case-study-image">
+            <div class="vendor-categories">
+                <h3>Product Categories</h3>
+                <div class="category-grid">
+                    <div class="category-item">
                         <i class="fas fa-cogs"></i>
+                        <span>Mining Equipment</span>
                     </div>
-                    <div class="case-study-content">
-                        <h3>Predictive Maintenance System</h3>
-                        <p class="case-study-company">Gold Mine, Australia</p>
-                        <p class="case-study-description">
-                            AI-powered predictive maintenance reduced unplanned downtime by 45% 
-                            and extended equipment life by 25%.
-                        </p>
-                        <div class="case-study-stats">
-                            <div class="stat">
-                                <div class="stat-value">45%</div>
-                                <div class="stat-label">Less Downtime</div>
+                    <div class="category-item">
+                        <i class="fas fa-wrench"></i>
+                        <span>Spare Parts</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-flask"></i>
+                        <span>Chemicals & Reagents</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-hard-hat"></i>
+                        <span>Safety Equipment</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-oil-can"></i>
+                        <span>Lubricants & Fuels</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-tools"></i>
+                        <span>Maintenance Supplies</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Electrical Components</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Technology & Software</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Tracking Dashboard -->
+    <section class="tracking-section" id="tracking">
+        <div class="container">
+            <div class="section-header-creative">
+                <span class="section-number">03</span>
+                <div class="section-title-group">
+                    <h2 class="section-title">Real-Time Tracking Dashboard</h2>
+                    <p class="section-subtitle">Complete visibility across your supply chain</p>
+                </div>
+            </div>
+            
+            <div class="tracking-dashboard">
+                <div class="dashboard-controls">
+                    <button class="control-btn active">Live View</button>
+                    <button class="control-btn">Orders</button>
+                    <button class="control-btn">Shipments</button>
+                    <button class="control-btn">Analytics</button>
+                </div>
+                
+                <div class="tracking-grid">
+                    <div class="tracking-card">
+                        <div class="tracking-header">
+                            <h4>Active Shipments</h4>
+                            <span class="tracking-count">24</span>
+                        </div>
+                        <div class="shipment-list">
+                            <div class="shipment-item">
+                                <div class="shipment-icon in-transit">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="shipment-info">
+                                    <div class="shipment-id">SH-2025-0142</div>
+                                    <div class="shipment-status">In Transit - 65% Complete</div>
+                                    <div class="shipment-eta">ETA: 2 days</div>
+                                </div>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">25%</div>
-                                <div class="stat-label">Extended Life</div>
+                            <div class="shipment-item">
+                                <div class="shipment-icon customs">
+                                    <i class="fas fa-passport"></i>
+                                </div>
+                                <div class="shipment-info">
+                                    <div class="shipment-id">SH-2025-0138</div>
+                                    <div class="shipment-status">Customs Clearance</div>
+                                    <div class="shipment-eta">ETA: 5 days</div>
+                                </div>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">$8M</div>
-                                <div class="stat-label">Annual Savings</div>
+                            <div class="shipment-item">
+                                <div class="shipment-icon delivered">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="shipment-info">
+                                    <div class="shipment-id">SH-2025-0135</div>
+                                    <div class="shipment-status">Delivered</div>
+                                    <div class="shipment-eta">Completed today</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="case-study-card">
-                    <div class="case-study-image">
-                        <i class="fas fa-cube"></i>
+                    <div class="tracking-card">
+                        <div class="tracking-header">
+                            <h4>Pending Orders</h4>
+                            <span class="tracking-count">12</span>
+                        </div>
+                        <div class="order-progress">
+                            <div class="progress-item">
+                                <div class="progress-label">
+                                    <span>Awaiting Approval</span>
+                                    <span>5</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 42%;"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-label">
+                                    <span>Processing</span>
+                                    <span>4</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 33%;"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-label">
+                                    <span>Ready to Ship</span>
+                                    <span>3</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 25%;"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="case-study-content">
-                        <h3>Digital Twin Implementation</h3>
-                        <p class="case-study-company">Iron Ore Mine, Brazil</p>
-                        <p class="case-study-description">
-                            Virtual mine replica enabled optimization testing, improving throughput 
-                            by 20% without physical changes.
-                        </p>
-                        <div class="case-study-stats">
-                            <div class="stat">
-                                <div class="stat-value">20%</div>
-                                <div class="stat-label">Throughput Increase</div>
+
+                    <div class="tracking-card">
+                        <div class="tracking-header">
+                            <h4>Vendor Performance</h4>
+                        </div>
+                        <div class="vendor-performance-list">
+                            <div class="vendor-item">
+                                <div class="vendor-name">Global Mining Supplies</div>
+                                <div class="vendor-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>5.0</span>
+                                </div>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">100+</div>
-                                <div class="stat-label">Scenarios Tested</div>
+                            <div class="vendor-item">
+                                <div class="vendor-name">TechEquip Solutions</div>
+                                <div class="vendor-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>4.8</span>
+                                </div>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">Zero</div>
-                                <div class="stat-label">Production Impact</div>
+                            <div class="vendor-item">
+                                <div class="vendor-name">Industrial Parts Co.</div>
+                                <div class="vendor-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>4.5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tracking-card">
+                        <div class="tracking-header">
+                            <h4>Cost Savings</h4>
+                        </div>
+                        <div class="savings-display">
+                            <div class="savings-amount">$2.4M</div>
+                            <div class="savings-label">This Quarter</div>
+                            <div class="savings-comparison">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>18% vs last quarter</span>
                             </div>
                         </div>
                     </div>
@@ -346,17 +646,20 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section-creative">
+        <div class="cta-bg-pattern"></div>
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Innovate Your Mining Operations?</h2>
-                <p>Let's discuss how our technology solutions can transform your business</p>
-                <div class="cta-buttons">
-                    <button type="button" class="btn-primary">
-                        <i class="fas fa-rocket"></i> Start Innovation Journey
+            <div class="cta-content-creative">
+                <h2>Transform Your Supply Chain Today</h2>
+                <p>Join 850+ mining operations optimizing procurement with SES_Mine</p>
+                <div class="cta-buttons-group">
+                    <button class="btn-cta-primary">
+                        <span>Start Free Trial</span>
+                        <i class="fas fa-rocket"></i>
                     </button>
-                    <button type="button" class="btn-secondary">
-                        <i class="fas fa-calendar"></i> Schedule Consultation
+                    <button class="btn-cta-secondary">
+                        <i class="fas fa-handshake"></i>
+                        <span>Become a Vendor</span>
                     </button>
                 </div>
             </div>
@@ -364,39 +667,59 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-creative">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Innovation Hub</h4>
-                    <p>Pioneering technology solutions for modern mining</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Supply Chain Hub</span>
+                    </div>
+                    <p>Smart procurement solutions for the modern mining industry.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+                
+                <div class="footer-links">
+                    <h4>Solutions</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#technologies">Technologies</a></li>
-                        <li><a href="#solutions">Solutions</a></li>
-                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#solutions">Strategic Sourcing</a></li>
+                        <li><a href="#solutions">Automated RFQ</a></li>
+                        <li><a href="#solutions">Blockchain Tracking</a></li>
+                        <li><a href="#solutions">Vendor Management</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                
+                <div class="footer-links">
                     <h4>Other Platforms</h4>
                     <ul>
-                        <li><a href="procurement-hub.html">Procurement Hub</a></li>
-                        <li><a href="analytics-platform.html">Analytics Platform</a></li>
-                        <li><a href="consulting-hub.html">Consulting Hub</a></li>
-                        <li><a href="training-education-hub.html">Training Hub</a></li>
+                        <li><a href="innovation-technology-hub.html">Innovation Lab</a></li>
+                        <li><a href="analytics-platform.html">Analytics</a></li>
+                        <li><a href="consulting-hub.html">Consulting</a></li>
+                        <li><a href="training-education-hub.html">Academy</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: innovation@SES_-mining.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Vendor Portal</a></li>
+                        <li><a href="#">Buyer Guide</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 SES_ Mining Solutions. All rights reserved.</p>
+                <p>&copy; 2025 SES_Mine Supply Chain Hub. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
