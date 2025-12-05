@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Innovation & Technology Hub - SES_Mine | Digital Mining Solutions</title>
+  <title>Innovation & Technology Hub - SES_Mine | Smart Mining Solutions</title>
+  <link rel="icon" type="image/png" href="images/ses-mine-logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
       :root {
           --primary-dark: #0a2540;
           --primary: #1a4d8c;
           --primary-light: #2d6fc2;
-          --secondary: #9d4edd;
-          --secondary-light: #c77dff;
-          --accent: #00c6b6;
+          --secondary: #06b6d4;
+          --secondary-light: #22d3ee;
+          --accent: #0891b2;
           --dark: #0f1419;
           --dark-alt: #1a1f26;
           --gray: #4a5568;
           --gray-light: #a0aec0;
           --white: #ffffff;
           --gradient-primary: linear-gradient(135deg, #1a4d8c 0%, #2d6fc2 100%);
-          --gradient-secondary: linear-gradient(135deg, #9d4edd 0%, #c77dff 100%);
-          --gradient-accent: linear-gradient(135deg, #00c6b6 0%, #34dac7 100%);
+          --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%);
+          --gradient-accent: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
       }
 
       * {
@@ -54,8 +55,27 @@
           right: 0;
           bottom: 0;
           background: 
-              radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(0, 198, 182, 0.08) 0%, transparent 50%);
+              radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(8, 145, 178, 0.08) 0%, transparent 50%);
+      }
+
+      /* Logo Styling */
+      .main-logo {
+          height: 70px;
+          width: auto;
+          max-width: 250px;
+          object-fit: contain;
+          transition: all 0.3s ease;
+          filter: drop-shadow(0 2px 8px rgba(45, 111, 194, 0.3));
+      }
+
+      .main-logo:hover {
+          transform: scale(1.05);
+          filter: drop-shadow(0 4px 15px rgba(45, 111, 194, 0.6));
+      }
+
+      @media (max-width: 768px) {
+          .main-logo { height: 50px; }
       }
 
       /* Navigation */
@@ -83,34 +103,14 @@
       .logo-container {
           display: flex;
           align-items: center;
-          gap: 1rem;
+          gap: 0;
           text-decoration: none;
           color: var(--white);
+          transition: all 0.3s ease;
       }
 
-      .logo-icon {
-          width: 50px;
-          height: 50px;
-          background: var(--gradient-primary);
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.5rem;
-          box-shadow: 0 4px 15px rgba(45, 111, 194, 0.4);
-      }
-
-      .logo-text h1 {
-          font-size: 1.5rem;
-          font-weight: 700;
-          background: var(--gradient-primary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
-
-      .logo-text p {
-          font-size: 0.75rem;
-          color: var(--gray-light);
+      .logo-container:hover {
+          transform: translateY(-2px);
       }
 
       .nav-menu {
@@ -127,12 +127,12 @@
       }
 
       .nav-menu a:hover {
-          color: var(--primary-light);
+          color: var(--secondary);
       }
 
       .nav-cta {
           padding: 0.75rem 1.5rem;
-          background: var(--gradient-primary);
+          background: var(--gradient-secondary);
           border: none;
           border-radius: 8px;
           color: var(--white);
@@ -143,7 +143,7 @@
 
       .nav-cta:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(45, 111, 194, 0.5);
+          box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
       }
 
       /* Hero Section */
@@ -166,8 +166,8 @@
           align-items: center;
           gap: 0.5rem;
           padding: 0.5rem 1rem;
-          background: rgba(157, 78, 221, 0.1);
-          border: 1px solid rgba(157, 78, 221, 0.3);
+          background: rgba(6, 182, 212, 0.1);
+          border: 1px solid rgba(6, 182, 212, 0.3);
           border-radius: 50px;
           color: var(--secondary);
           font-size: 0.9rem;
@@ -182,7 +182,7 @@
           margin-bottom: 1.5rem;
       }
 
-      .hero h1 .gradient-text {
+      .gradient-text {
           background: var(--gradient-secondary);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -217,7 +217,7 @@
 
       .btn-primary:hover {
           transform: translateY(-3px);
-          box-shadow: 0 6px 25px rgba(157, 78, 221, 0.5);
+          box-shadow: 0 6px 25px rgba(6, 182, 212, 0.5);
       }
 
       .btn-secondary {
@@ -232,7 +232,7 @@
       }
 
       .btn-secondary:hover {
-          background: rgba(157, 78, 221, 0.1);
+          background: rgba(6, 182, 212, 0.1);
       }
 
       .hero-image {
@@ -240,17 +240,6 @@
           border-radius: 20px;
           overflow: hidden;
           box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-      }
-
-      .hero-image::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(135deg, rgba(157, 78, 221, 0.3), rgba(0, 198, 182, 0.2));
-          z-index: 1;
       }
 
       .hero-image img {
@@ -274,8 +263,8 @@
       .section-badge {
           display: inline-block;
           padding: 0.5rem 1rem;
-          background: rgba(157, 78, 221, 0.1);
-          border: 1px solid rgba(157, 78, 221, 0.3);
+          background: rgba(6, 182, 212, 0.1);
+          border: 1px solid rgba(6, 182, 212, 0.3);
           border-radius: 50px;
           color: var(--secondary);
           font-size: 0.9rem;
@@ -301,13 +290,13 @@
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           gap: 2rem;
       }
 
       .tech-card {
           background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(157, 78, 221, 0.2);
+          border: 1px solid rgba(6, 182, 212, 0.2);
           border-radius: 20px;
           padding: 2.5rem;
           transition: all 0.4s;
@@ -334,7 +323,7 @@
       .tech-card:hover {
           transform: translateY(-10px);
           border-color: var(--secondary);
-          box-shadow: 0 20px 60px rgba(157, 78, 221, 0.3);
+          box-shadow: 0 20px 60px rgba(6, 182, 212, 0.3);
       }
 
       .tech-icon {
@@ -347,7 +336,7 @@
           justify-content: center;
           font-size: 2rem;
           margin-bottom: 1.5rem;
-          box-shadow: 0 10px 30px rgba(157, 78, 221, 0.4);
+          box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
       }
 
       .tech-card h3 {
@@ -386,13 +375,13 @@
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
           gap: 2rem;
       }
 
       .solution-card {
           background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(157, 78, 221, 0.2);
+          border: 1px solid rgba(6, 182, 212, 0.2);
           border-radius: 20px;
           overflow: hidden;
           transition: all 0.4s;
@@ -401,12 +390,12 @@
       .solution-card:hover {
           transform: translateY(-10px);
           border-color: var(--secondary);
-          box-shadow: 0 20px 60px rgba(157, 78, 221, 0.3);
+          box-shadow: 0 20px 60px rgba(6, 182, 212, 0.3);
       }
 
       .solution-image {
           width: 100%;
-          height: 250px;
+          height: 220px;
           overflow: hidden;
           position: relative;
       }
@@ -438,72 +427,151 @@
       }
 
       .solution-content h3 {
-          font-size: 1.4rem;
+          font-size: 1.5rem;
           margin-bottom: 1rem;
       }
 
       .solution-content p {
           color: var(--gray-light);
-          margin-bottom: 1.5rem;
           line-height: 1.7;
+          margin-bottom: 1.5rem;
       }
 
-      .solution-metrics {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1rem;
-          padding-top: 1.5rem;
-          border-top: 1px solid rgba(157, 78, 221, 0.2);
-      }
-
-      .solution-metric {
-          text-align: center;
-      }
-
-      .solution-metric-value {
-          font-size: 1.8rem;
-          font-weight: 800;
+      .solution-btn {
+          width: 100%;
+          padding: 0.8rem;
           background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          margin-bottom: 0.3rem;
+          border: none;
+          border-radius: 8px;
+          color: var(--white);
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s;
       }
 
-      .solution-metric-label {
-          font-size: 0.85rem;
-          color: var(--gray-light);
+      .solution-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
       }
 
-      /* Innovation Areas */
-      .innovation-areas {
+      /* Use Cases Section */
+      .use-cases {
           padding: 6rem 2rem;
           background: rgba(26, 31, 38, 0.5);
       }
 
-      .areas-grid {
+      .use-cases-grid {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 2rem;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 3rem;
       }
 
-      .area-card {
+      .use-case {
           background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(157, 78, 221, 0.2);
-          border-radius: 15px;
-          padding: 2rem;
-          text-align: center;
+          border: 1px solid rgba(6, 182, 212, 0.2);
+          border-radius: 20px;
+          padding: 2.5rem;
           transition: all 0.3s;
       }
 
-      .area-card:hover {
-          background: rgba(10, 37, 64, 0.8);
+      .use-case:hover {
           border-color: var(--secondary);
-          transform: translateY(-5px);
+          box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
       }
 
-      .area-icon {
+      .use-case-header {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+          margin-bottom: 1.5rem;
+      }
+
+      .use-case-icon {
+          width: 60px;
+          height: 60px;
+          background: var(--gradient-secondary);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.8rem;
+          flex-shrink: 0;
+      }
+
+      .use-case h3 {
+          font-size: 1.5rem;
+      }
+
+      .use-case p {
+          color: var(--gray-light);
+          line-height: 1.8;
+          margin-bottom: 1.5rem;
+      }
+
+      .use-case-stats {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+      }
+
+      .stat-item {
+          background: rgba(6, 182, 212, 0.1);
+          border: 1px solid rgba(6, 182, 212, 0.2);
+          border-radius: 10px;
+          padding: 1rem;
+          text-align: center;
+      }
+
+      .stat-value {
+          font-size: 1.8rem;
+          font-weight: 800;
+          color: var(--secondary);
+          margin-bottom: 0.3rem;
+      }
+
+      .stat-label {
+          font-size: 0.85rem;
+          color: var(--gray-light);
+      }
+
+      /* Innovation Timeline */
+      .timeline {
+          padding: 6rem 2rem;
+      }
+
+      .timeline-container {
+          max-width: 1000px;
+          margin: 0 auto;
+      }
+
+      .timeline-item {
+          display: grid;
+          grid-template-columns: 1fr 80px 1fr;
+          gap: 2rem;
+          margin-bottom: 3rem;
+          align-items: center;
+      }
+
+      .timeline-content {
+          background: rgba(10, 37, 64, 0.6);
+          border: 1px solid rgba(6, 182, 212, 0.2);
+          border-radius: 15px;
+          padding: 2rem;
+          transition: all 0.3s;
+      }
+
+      .timeline-content:hover {
+          border-color: var(--secondary);
+          transform: translateX(10px);
+      }
+
+      .timeline-item:nth-child(even) .timeline-content:hover {
+          transform: translateX(-10px);
+      }
+
+      .timeline-year {
           width: 80px;
           height: 80px;
           background: var(--gradient-secondary);
@@ -511,54 +579,27 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 2rem;
-          margin: 0 auto 1.5rem;
-          box-shadow: 0 8px 25px rgba(157, 78, 221, 0.4);
-      }
-
-      .area-card h3 {
-          font-size: 1.3rem;
-          margin-bottom: 0.5rem;
-      }
-
-      .area-card p {
-          color: var(--gray-light);
-          font-size: 0.95rem;
-      }
-
-      /* Stats Banner */
-      .stats-banner {
-          background: var(--gradient-secondary);
-          padding: 4rem 2rem;
-      }
-
-      .stats-container {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 3rem;
-      }
-
-      .stat-box {
-          text-align: center;
-      }
-
-      .stat-number {
-          font-size: 3rem;
+          font-size: 1.2rem;
           font-weight: 800;
-          margin-bottom: 0.5rem;
+          box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
       }
 
-      .stat-label {
-          font-size: 1rem;
-          opacity: 0.9;
+      .timeline-content h3 {
+          font-size: 1.3rem;
+          margin-bottom: 0.8rem;
+          color: var(--secondary);
+      }
+
+      .timeline-content p {
+          color: var(--gray-light);
+          line-height: 1.7;
       }
 
       /* CTA Section */
       .cta {
           padding: 6rem 2rem;
           text-align: center;
+          background: rgba(26, 31, 38, 0.5);
       }
 
       .cta h2 {
@@ -592,6 +633,19 @@
           margin-bottom: 3rem;
       }
 
+      .footer-logo {
+          height: 60px;
+          width: auto;
+          margin-bottom: 1rem;
+          filter: brightness(1.2) drop-shadow(0 2px 8px rgba(45, 111, 194, 0.3));
+          transition: all 0.3s ease;
+      }
+
+      .footer-logo:hover {
+          filter: brightness(1.3) drop-shadow(0 4px 12px rgba(45, 111, 194, 0.5));
+          transform: scale(1.02);
+      }
+
       .footer-brand {
           font-size: 1.8rem;
           font-weight: 800;
@@ -608,7 +662,7 @@
 
       .footer h4 {
           margin-bottom: 1.5rem;
-          color: var(--primary-light);
+          color: var(--secondary);
       }
 
       .footer-links {
@@ -626,7 +680,7 @@
       }
 
       .footer-links a:hover {
-          color: var(--primary-light);
+          color: var(--secondary);
           padding-left: 5px;
       }
 
@@ -646,6 +700,14 @@
               display: none;
           }
 
+          .use-cases-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .timeline-item {
+              grid-template-columns: 1fr;
+          }
+
           .footer-container {
               grid-template-columns: 1fr 1fr;
           }
@@ -657,8 +719,7 @@
           }
 
           .tech-grid,
-          .solutions-grid,
-          .areas-grid {
+          .solutions-grid {
               grid-template-columns: 1fr;
           }
 
@@ -675,22 +736,20 @@
   <nav class="navbar">
       <div class="nav-container">
           <a href="index.html" class="logo-container">
-              <div class="logo-icon">
-                  <i class="fas fa-mountain"></i>
-              </div>
-              <div class="logo-text">
-                  <h1>SES_Mine</h1>
-                  <p>Scientific & Engineering Supplies LLC</p>
-              </div>
+              <img src="images/ses-mine-logo.png" 
+                   alt="SES_Mine - Smart Engineering Solutions" 
+                   class="main-logo">
           </a>
           <ul class="nav-menu">
               <li><a href="index.html">Home</a></li>
               <li><a href="home.html">Platforms</a></li>
               <li><a href="engineering-hub.html">Engineering</a></li>
               <li><a href="economics-hub.html">Economics</a></li>
-              <li><a href="consulting-hub.html">Consulting</a></li>
+              <li><a href="analytics-platform.html">Analytics</a></li>
           </ul>
-          <button class="nav-cta" onclick="window.location.href='index.html'">Contact Us</button>
+          <button class="nav-cta" onclick="window.location.href='index.html'">
+              Get Started
+          </button>
       </div>
   </nav>
 
@@ -700,29 +759,29 @@
           <div class="hero-content">
               <div class="hero-badge">
                   <i class="fas fa-lightbulb"></i>
-                  <span>Innovation & Technology</span>
+                  <span>Future of Mining</span>
               </div>
               <h1>
-                  Future-Ready <span class="gradient-text">Digital Mining</span> Solutions
+                  Innovation & <span class="gradient-text">Smart Technology</span>
               </h1>
               <p class="hero-subtitle">
-                  Transform your mining operations with cutting-edge technology. From automation 
-                  and IoT to AI/ML and digital twins, we deliver innovation that drives efficiency, 
-                  safety, and sustainability across your entire operation.
+                  Transform your mining operations with cutting-edge AI, IoT, automation, and 
+                  digital twin technologies. Lead the industry with intelligent solutions that 
+                  optimize efficiency, safety, and sustainability.
               </p>
               <div class="hero-buttons">
                   <button class="btn-primary">
                       <i class="fas fa-rocket"></i>
-                      Explore Technologies
+                      Explore Solutions
                   </button>
                   <button class="btn-secondary">
-                      <i class="fas fa-play"></i>
+                      <i class="fas fa-video"></i>
                       Watch Demo
                   </button>
               </div>
           </div>
           <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop&q=80" alt="Innovation Technology">
+              <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop&q=80" alt="Innovation Hub">
           </div>
       </div>
   </section>
@@ -731,36 +790,22 @@
   <section class="technologies">
       <div class="section-header">
           <span class="section-badge">CORE TECHNOLOGIES</span>
-          <h2>Cutting-Edge Technology Stack</h2>
-          <p>Advanced technologies transforming the mining industry</p>
+          <h2>Smart Mining Technologies</h2>
+          <p>Advanced solutions for the digital mining era</p>
       </div>
 
       <div class="tech-grid">
           <div class="tech-card">
               <div class="tech-icon">
-                  <i class="fas fa-robot"></i>
-              </div>
-              <h3>Automation & Robotics</h3>
-              <p>Autonomous systems for safer and more efficient mining operations worldwide.</p>
-              <ul class="tech-features">
-                  <li><i class="fas fa-check-circle"></i> Autonomous Haulage Systems</li>
-                  <li><i class="fas fa-check-circle"></i> Automated Drilling</li>
-                  <li><i class="fas fa-check-circle"></i> Remote Operations Centers</li>
-                  <li><i class="fas fa-check-circle"></i> Robotic Inspection</li>
-              </ul>
-          </div>
-
-          <div class="tech-card">
-              <div class="tech-icon">
                   <i class="fas fa-brain"></i>
               </div>
-              <h3>AI & Machine Learning</h3>
-              <p>Intelligent systems for predictive maintenance and process optimization.</p>
+              <h3>Artificial Intelligence</h3>
+              <p>AI-powered predictive analytics and machine learning for optimal decision-making.</p>
               <ul class="tech-features">
-                  <li><i class="fas fa-check-circle"></i> Predictive Maintenance</li>
-                  <li><i class="fas fa-check-circle"></i> Process Optimization</li>
-                  <li><i class="fas fa-check-circle"></i> Ore Grade Prediction</li>
-                  <li><i class="fas fa-check-circle"></i> Safety Analytics</li>
+                  <li><i class="fas fa-check"></i> Predictive Maintenance</li>
+                  <li><i class="fas fa-check"></i> Resource Optimization</li>
+                  <li><i class="fas fa-check"></i> Automated Planning</li>
+                  <li><i class="fas fa-check"></i> Pattern Recognition</li>
               </ul>
           </div>
 
@@ -768,13 +813,27 @@
               <div class="tech-icon">
                   <i class="fas fa-network-wired"></i>
               </div>
-              <h3>IoT & Sensors</h3>
-              <p>Connected devices for real-time monitoring and comprehensive data collection.</p>
+              <h3>Internet of Things</h3>
+              <p>Connected sensors and devices for real-time monitoring and control.</p>
               <ul class="tech-features">
-                  <li><i class="fas fa-check-circle"></i> Equipment Monitoring</li>
-                  <li><i class="fas fa-check-circle"></i> Environmental Sensors</li>
-                  <li><i class="fas fa-check-circle"></i> Fleet Management</li>
-                  <li><i class="fas fa-check-circle"></i> Safety Wearables</li>
+                  <li><i class="fas fa-check"></i> Equipment Monitoring</li>
+                  <li><i class="fas fa-check"></i> Environmental Sensors</li>
+                  <li><i class="fas fa-check"></i> Fleet Tracking</li>
+                  <li><i class="fas fa-check"></i> Safety Systems</li>
+              </ul>
+          </div>
+
+          <div class="tech-card">
+              <div class="tech-icon">
+                  <i class="fas fa-robot"></i>
+              </div>
+              <h3>Automation & Robotics</h3>
+              <p>Autonomous equipment and robotic systems for enhanced productivity.</p>
+              <ul class="tech-features">
+                  <li><i class="fas fa-check"></i> Autonomous Haulage</li>
+                  <li><i class="fas fa-check"></i> Remote Operations</li>
+                  <li><i class="fas fa-check"></i> Robotic Drilling</li>
+                  <li><i class="fas fa-check"></i> Automated Loading</li>
               </ul>
           </div>
 
@@ -782,13 +841,27 @@
               <div class="tech-icon">
                   <i class="fas fa-cube"></i>
               </div>
-              <h3>Digital Twins</h3>
-              <p>Virtual replicas for simulation, testing, and optimization of operations.</p>
+              <h3>Digital Twin</h3>
+              <p>Virtual replicas of physical assets for simulation and optimization.</p>
               <ul class="tech-features">
-                  <li><i class="fas fa-check-circle"></i> Mine Simulation</li>
-                  <li><i class="fas fa-check-circle"></i> Process Modeling</li>
-                  <li><i class="fas fa-check-circle"></i> Scenario Testing</li>
-                  <li><i class="fas fa-check-circle"></i> Performance Analysis</li>
+                  <li><i class="fas fa-check"></i> Mine Simulation</li>
+                  <li><i class="fas fa-check"></i> Process Modeling</li>
+                  <li><i class="fas fa-check"></i> Scenario Testing</li>
+                  <li><i class="fas fa-check"></i> Performance Analysis</li>
+              </ul>
+          </div>
+
+          <div class="tech-card">
+              <div class="tech-icon">
+                  <i class="fas fa-drone"></i>
+              </div>
+              <h3>Drones & UAVs</h3>
+              <p>Aerial surveying and monitoring for comprehensive site intelligence.</p>
+              <ul class="tech-features">
+                  <li><i class="fas fa-check"></i> Topographic Surveys</li>
+                  <li><i class="fas fa-check"></i> Stockpile Measurement</li>
+                  <li><i class="fas fa-check"></i> Safety Inspections</li>
+                  <li><i class="fas fa-check"></i> Environmental Monitoring</li>
               </ul>
           </div>
 
@@ -797,26 +870,12 @@
                   <i class="fas fa-cloud"></i>
               </div>
               <h3>Cloud Computing</h3>
-              <p>Scalable cloud infrastructure for data storage and advanced processing.</p>
+              <p>Scalable cloud infrastructure for data processing and collaboration.</p>
               <ul class="tech-features">
-                  <li><i class="fas fa-check-circle"></i> Secure Data Storage</li>
-                  <li><i class="fas fa-check-circle"></i> Computing Power</li>
-                  <li><i class="fas fa-check-circle"></i> Collaboration Tools</li>
-                  <li><i class="fas fa-check-circle"></i> Remote Access</li>
-              </ul>
-          </div>
-
-          <div class="tech-card">
-              <div class="tech-icon">
-                  <i class="fas fa-vr-cardboard"></i>
-              </div>
-              <h3>AR/VR Solutions</h3>
-              <p>Immersive technologies for training, visualization, and remote assistance.</p>
-              <ul class="tech-features">
-                  <li><i class="fas fa-check-circle"></i> Virtual Training</li>
-                  <li><i class="fas fa-check-circle"></i> Remote Assistance</li>
-                  <li><i class="fas fa-check-circle"></i> 3D Visualization</li>
-                  <li><i class="fas fa-check-circle"></i> Safety Simulations</li>
+                  <li><i class="fas fa-check"></i> Data Storage</li>
+                  <li><i class="fas fa-check"></i> Real-time Processing</li>
+                  <li><i class="fas fa-check"></i> Remote Access</li>
+                  <li><i class="fas fa-check"></i> Collaboration Tools</li>
               </ul>
           </div>
       </div>
@@ -826,169 +885,260 @@
   <section class="solutions">
       <div class="section-header">
           <span class="section-badge">SMART SOLUTIONS</span>
-          <h2>Integrated Mining Solutions</h2>
-          <p>Complete technology platforms for modern mining operations</p>
+          <h2>Innovation Solutions</h2>
+          <p>Integrated technology packages for mining operations</p>
       </div>
 
       <div class="solutions-grid">
           <div class="solution-card">
               <div class="solution-image">
-                  <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=500&fit=crop&q=80" alt="Smart Mining">
-                  <span class="solution-badge">Featured</span>
-              </div>
-              <div class="solution-content">
-                  <h3>Smart Mining Platform</h3>
-                  <p>Integrated platform combining IoT, AI, and automation for intelligent mining operations and real-time decision making.</p>
-                  <div class="solution-metrics">
-                      <div class="solution-metric">
-                          <div class="solution-metric-value">40%</div>
-                          <div class="solution-metric-label">Efficiency Gain</div>
-                      </div>
-                      <div class="solution-metric">
-                          <div class="solution-metric-value">60%</div>
-                          <div class="solution-metric-label">Cost Reduction</div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div class="solution-card">
-              <div class="solution-image">
-                  <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=500&fit=crop&q=80" alt="Predictive Maintenance">
+                  <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop&q=80" alt="Autonomous Fleet">
                   <span class="solution-badge">Popular</span>
               </div>
               <div class="solution-content">
-                  <h3>Predictive Maintenance System</h3>
-                  <p>AI-powered predictive maintenance reducing unplanned downtime and extending equipment life significantly.</p>
-                  <div class="solution-metrics">
-                      <div class="solution-metric">
-                          <div class="solution-metric-value">50%</div>
-                          <div class="solution-metric-label">Less Downtime</div>
-                      </div>
-                      <div class="solution-metric">
-                          <div class="solution-metric-value">35%</div>
-                          <div class="solution-metric-label">Cost Savings</div>
-                      </div>
-                  </div>
+                  <h3>Autonomous Fleet Management</h3>
+                  <p>Complete autonomous haulage system with AI-powered route optimization and fleet coordination.</p>
+                  <button class="solution-btn">Learn More</button>
               </div>
           </div>
 
           <div class="solution-card">
               <div class="solution-image">
-                  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop&q=80" alt="Fleet Management">
-                  <span class="solution-badge">New</span>
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop&q=80" alt="Predictive Analytics">
+                  <span class="solution-badge">Featured</span>
               </div>
               <div class="solution-content">
-                  <h3>Autonomous Fleet Management</h3>
-                  <p>Complete fleet management system with autonomous vehicle integration and real-time optimization capabilities.</p>
-                  <div class="solution-metrics">
-                      <div class="solution-metric">
-                          <div class="solution-metric-value">45%</div>
-                          <div class="solution-metric-label">Productivity Up</div>
-                      </div>
-                      <div class="solution-metric">
-                          <div class="solution-metric-value">70%</div>
-                          <div class="solution-metric-label">Safety Improved</div>
-                      </div>
+                  <h3>Predictive Maintenance Platform</h3>
+                  <p>AI-driven predictive maintenance system reducing downtime and maintenance costs by up to 40%.</p>
+                  <button class="solution-btn">Learn More</button>
+              </div>
+          </div>
+
+          <div class="solution-card">
+              <div class="solution-image">
+                  <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=400&fit=crop&q=80" alt="Smart Operations">
+              </div>
+              <div class="solution-content">
+                  <h3>Smart Operations Center</h3>
+                  <p>Integrated command center with real-time monitoring, analytics, and control capabilities.</p>
+                  <button class="solution-btn">Learn More</button>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="use-cases">
+      <div class="section-header">
+          <span class="section-badge">SUCCESS STORIES</span>
+          <h2>Real-World Impact</h2>
+          <p>Proven results from our technology implementations</p>
+      </div>
+
+      <div class="use-cases-grid">
+          <div class="use-case">
+              <div class="use-case-header">
+                  <div class="use-case-icon">
+                      <i class="fas fa-truck"></i>
+                  </div>
+                  <h3>Autonomous Haulage System</h3>
+              </div>
+              <p>
+                  Implemented autonomous truck fleet at a major copper mine, resulting in 
+                  significant improvements in productivity, safety, and operational efficiency.
+              </p>
+              <div class="use-case-stats">
+                  <div class="stat-item">
+                      <div class="stat-value">30%</div>
+                      <div class="stat-label">Cost Reduction</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">25%</div>
+                      <div class="stat-label">Productivity Gain</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">60%</div>
+                      <div class="stat-label">Safety Improvement</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">24/7</div>
+                      <div class="stat-label">Operations</div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="use-case">
+              <div class="use-case-header">
+                  <div class="use-case-icon">
+                      <i class="fas fa-cogs"></i>
+                  </div>
+                  <h3>Predictive Maintenance AI</h3>
+              </div>
+              <p>
+                  Deployed AI-powered predictive maintenance across mining fleet, dramatically 
+                  reducing unplanned downtime and maintenance costs.
+              </p>
+              <div class="use-case-stats">
+                  <div class="stat-item">
+                      <div class="stat-value">40%</div>
+                      <div class="stat-label">Downtime Reduction</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">35%</div>
+                      <div class="stat-label">Cost Savings</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">50%</div>
+                      <div class="stat-label">Fewer Failures</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">95%</div>
+                      <div class="stat-label">Accuracy</div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="use-case">
+              <div class="use-case-header">
+                  <div class="use-case-icon">
+                      <i class="fas fa-cube"></i>
+                  </div>
+                  <h3>Digital Twin Implementation</h3>
+              </div>
+              <p>
+                  Created comprehensive digital twin of entire mining operation, enabling 
+                  real-time optimization and scenario planning.
+              </p>
+              <div class="use-case-stats">
+                  <div class="stat-item">
+                      <div class="stat-value">20%</div>
+                      <div class="stat-label">Efficiency Gain</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">15%</div>
+                      <div class="stat-label">Energy Savings</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">100%</div>
+                      <div class="stat-label">Visibility</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">$5M</div>
+                      <div class="stat-label">Annual Savings</div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="use-case">
+              <div class="use-case-header">
+                  <div class="use-case-icon">
+                      <i class="fas fa-network-wired"></i>
+                  </div>
+                  <h3>IoT Sensor Network</h3>
+              </div>
+              <p>
+                  Deployed comprehensive IoT sensor network for real-time monitoring of 
+                  equipment, environment, and operations.
+              </p>
+              <div class="use-case-stats">
+                  <div class="stat-item">
+                      <div class="stat-value">1000+</div>
+                      <div class="stat-label">Sensors Deployed</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">Real-time</div>
+                      <div class="stat-label">Data Streaming</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">45%</div>
+                      <div class="stat-label">Faster Response</div>
+                  </div>
+                  <div class="stat-item">
+                      <div class="stat-value">80%</div>
+                      <div class="stat-label">Issue Prevention</div>
                   </div>
               </div>
           </div>
       </div>
   </section>
 
-  <!-- Innovation Areas -->
-  <section class="innovation-areas">
+  <!-- Innovation Timeline -->
+  <section class="timeline">
       <div class="section-header">
-          <span class="section-badge">INNOVATION FOCUS</span>
-          <h2>Areas of Innovation</h2>
-          <p>Leading innovation across multiple mining domains</p>
+          <span class="section-badge">INNOVATION ROADMAP</span>
+          <h2>Technology Evolution</h2>
+          <p>Our journey in mining innovation</p>
       </div>
 
-      <div class="areas-grid">
-          <div class="area-card">
-              <div class="area-icon">
-                  <i class="fas fa-shield-alt"></i>
+      <div class="timeline-container">
+          <div class="timeline-item">
+              <div class="timeline-content">
+                  <h3>IoT & Connectivity</h3>
+                  <p>Launched comprehensive IoT platform with 10,000+ connected devices across mining operations.</p>
               </div>
-              <h3>Safety Innovation</h3>
-              <p>Advanced safety systems and wearable technology for worker protection</p>
+              <div class="timeline-year">2020</div>
+              <div></div>
           </div>
 
-          <div class="area-card">
-              <div class="area-icon">
-                  <i class="fas fa-leaf"></i>
+          <div class="timeline-item">
+              <div></div>
+              <div class="timeline-year">2021</div>
+              <div class="timeline-content">
+                  <h3>AI & Machine Learning</h3>
+                  <p>Introduced AI-powered predictive analytics and autonomous decision-making systems.</p>
               </div>
-              <h3>Sustainability</h3>
-              <p>Green mining technologies and carbon reduction solutions</p>
           </div>
 
-          <div class="area-card">
-              <div class="area-icon">
-                  <i class="fas fa-chart-line"></i>
+          <div class="timeline-item">
+              <div class="timeline-content">
+                  <h3>Autonomous Operations</h3>
+                  <p>Deployed first fully autonomous haulage fleet with 50+ autonomous trucks.</p>
               </div>
-              <h3>Productivity</h3>
-              <p>Optimization algorithms and process automation systems</p>
+              <div class="timeline-year">2022</div>
+              <div></div>
           </div>
 
-          <div class="area-card">
-              <div class="area-icon">
-                  <i class="fas fa-water"></i>
+          <div class="timeline-item">
+              <div></div>
+              <div class="timeline-year">2023</div>
+              <div class="timeline-content">
+                  <h3>Digital Twin Platform</h3>
+                  <p>Launched comprehensive digital twin solution for entire mining operations.</p>
               </div>
-              <h3>Water Management</h3>
-              <p>Smart water recycling and comprehensive monitoring systems</p>
           </div>
 
-          <div class="area-card">
-              <div class="area-icon">
-                  <i class="fas fa-bolt"></i>
+          <div class="timeline-item">
+              <div class="timeline-content">
+                  <h3>Integrated Smart Mining</h3>
+                  <p>Complete integration of AI, IoT, automation, and digital twins into unified platform.</p>
               </div>
-              <h3>Energy Efficiency</h3>
-              <p>Renewable energy integration and optimization solutions</p>
+              <div class="timeline-year">2024</div>
+              <div></div>
           </div>
 
-          <div class="area-card">
-              <div class="area-icon">
-                  <i class="fas fa-database"></i>
+          <div class="timeline-item">
+              <div></div>
+              <div class="timeline-year">2025</div>
+              <div class="timeline-content">
+                  <h3>Next-Gen Innovation</h3>
+                  <p>Pioneering quantum computing applications and advanced robotics for mining.</p>
               </div>
-              <h3>Data Analytics</h3>
-              <p>Big data processing and advanced analytics platforms</p>
-          </div>
-      </div>
-  </section>
-
-  <!-- Stats Banner -->
-  <section class="stats-banner">
-      <div class="stats-container">
-          <div class="stat-box">
-              <div class="stat-number">50+</div>
-              <div class="stat-label">AI Models Deployed</div>
-          </div>
-          <div class="stat-box">
-              <div class="stat-number">100+</div>
-              <div class="stat-label">Automation Projects</div>
-          </div>
-          <div class="stat-box">
-              <div class="stat-number">$200M+</div>
-              <div class="stat-label">Value Generated</div>
-          </div>
-          <div class="stat-box">
-              <div class="stat-number">30+</div>
-              <div class="stat-label">Countries Deployed</div>
           </div>
       </div>
   </section>
 
   <!-- CTA Section -->
   <section class="cta">
-      <h2>Ready to Embrace Digital Transformation?</h2>
-      <p>Let us help you implement cutting-edge technology solutions for your mining operation</p>
+      <h2>Ready to Embrace Smart Mining?</h2>
+      <p>Transform your operations with cutting-edge technology</p>
       <div class="hero-buttons" style="justify-content: center;">
           <button class="btn-primary">
-              <i class="fas fa-phone"></i>
-              Contact Innovation Team
+              <i class="fas fa-rocket"></i>
+              Start Innovation Journey
           </button>
           <button class="btn-secondary">
-              <i class="fas fa-calendar"></i>
-              Schedule Demo
+              <i class="fas fa-phone"></i>
+              Contact Innovation Team
           </button>
       </div>
   </section>
@@ -997,6 +1147,7 @@
   <footer class="footer">
       <div class="footer-container">
           <div>
+              <img src="images/ses-mine-logo.png" alt="SES_Mine" class="footer-logo">
               <div class="footer-brand">SES_Mine</div>
               <p class="footer-desc">
                   Scientific and Engineering Supplies LLC - Leading provider of comprehensive 
