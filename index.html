@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SES_Mine - Smart Engineering Solutions for Mining Excellence</title>
-  <link rel="icon" type="image/png" href="ses-mine-logo.png">
+  <title>SES_Mine - Smart Engineering Solutions for Mining Industry</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
       :root {
@@ -13,7 +12,6 @@
           --primary-light: #2d6fc2;
           --secondary: #f59e0b;
           --secondary-light: #fbbf24;
-          --accent: #ec4899;
           --dark: #0f1419;
           --dark-alt: #1a1f26;
           --gray: #4a5568;
@@ -21,7 +19,6 @@
           --white: #ffffff;
           --gradient-primary: linear-gradient(135deg, #1a4d8c 0%, #2d6fc2 100%);
           --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-          --gradient-accent: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
       }
 
       * {
@@ -35,11 +32,9 @@
           background: var(--dark);
           color: var(--white);
           line-height: 1.6;
-          overflow-x: hidden;
       }
 
-      /* Animated Background */
-      .animated-background {
+      .page-background {
           position: fixed;
           top: 0;
           left: 0;
@@ -47,10 +42,9 @@
           height: 100%;
           z-index: -1;
           background: linear-gradient(135deg, #0a2540 0%, #1a1f26 100%);
-          overflow: hidden;
       }
 
-      .animated-background::before {
+      .page-background::before {
           content: '';
           position: absolute;
           top: 0;
@@ -58,36 +52,8 @@
           right: 0;
           bottom: 0;
           background: 
-              radial-gradient(circle at 20% 50%, rgba(45, 111, 194, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
-          animation: pulse 8s ease-in-out infinite;
-      }
-
-      @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
-      }
-
-      .particles {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-      }
-
-      .particle {
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          background: rgba(45, 111, 194, 0.5);
-          border-radius: 50%;
-          animation: float 20s infinite;
-      }
-
-      @keyframes float {
-          0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+              radial-gradient(circle at 20% 50%, rgba(45, 111, 194, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 50%);
       }
 
       /* Logo Styling */
@@ -134,7 +100,6 @@
       .logo-container {
           display: flex;
           align-items: center;
-          gap: 0;
           text-decoration: none;
           color: var(--white);
           transition: all 0.3s ease;
@@ -155,22 +120,6 @@
           text-decoration: none;
           font-weight: 500;
           transition: all 0.3s;
-          position: relative;
-      }
-
-      .nav-menu a::after {
-          content: '';
-          position: absolute;
-          bottom: -5px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background: var(--primary-light);
-          transition: width 0.3s;
-      }
-
-      .nav-menu a:hover::after {
-          width: 100%;
       }
 
       .nav-menu a:hover {
@@ -195,10 +144,7 @@
 
       /* Hero Section */
       .hero {
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          padding: 8rem 2rem 4rem;
+          padding: 10rem 2rem 6rem;
           position: relative;
       }
 
@@ -206,7 +152,7 @@
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1.2fr 1fr;
           gap: 4rem;
           align-items: center;
       }
@@ -223,37 +169,13 @@
           font-size: 0.9rem;
           font-weight: 600;
           margin-bottom: 1.5rem;
-          animation: fadeInDown 1s ease;
-      }
-
-      @keyframes fadeInDown {
-          from {
-              opacity: 0;
-              transform: translateY(-20px);
-          }
-          to {
-              opacity: 1;
-              transform: translateY(0);
-          }
       }
 
       .hero h1 {
-          font-size: 4rem;
+          font-size: 3.5rem;
           font-weight: 800;
           line-height: 1.1;
           margin-bottom: 1.5rem;
-          animation: fadeInUp 1s ease 0.2s both;
-      }
-
-      @keyframes fadeInUp {
-          from {
-              opacity: 0;
-              transform: translateY(30px);
-          }
-          to {
-              opacity: 1;
-              transform: translateY(0);
-          }
       }
 
       .gradient-text {
@@ -263,28 +185,25 @@
       }
 
       .hero-subtitle {
-          font-size: 1.3rem;
+          font-size: 1.2rem;
           color: var(--gray-light);
           line-height: 1.8;
           margin-bottom: 2.5rem;
-          animation: fadeInUp 1s ease 0.4s both;
       }
 
       .hero-buttons {
           display: flex;
           gap: 1rem;
           margin-bottom: 3rem;
-          animation: fadeInUp 1s ease 0.6s both;
       }
 
       .btn-primary {
-          padding: 1.2rem 2.5rem;
+          padding: 1rem 2rem;
           background: var(--gradient-primary);
           border: none;
           border-radius: 8px;
           color: var(--white);
           font-weight: 600;
-          font-size: 1.1rem;
           cursor: pointer;
           transition: all 0.3s;
           display: inline-flex;
@@ -294,97 +213,64 @@
 
       .btn-primary:hover {
           transform: translateY(-3px);
-          box-shadow: 0 8px 30px rgba(45, 111, 194, 0.5);
+          box-shadow: 0 6px 25px rgba(45, 111, 194, 0.5);
       }
 
       .btn-secondary {
-          padding: 1.2rem 2.5rem;
+          padding: 1rem 2rem;
           background: transparent;
           border: 2px solid var(--primary-light);
           border-radius: 8px;
           color: var(--primary-light);
           font-weight: 600;
-          font-size: 1.1rem;
           cursor: pointer;
           transition: all 0.3s;
       }
 
       .btn-secondary:hover {
           background: rgba(45, 111, 194, 0.1);
-          transform: translateY(-3px);
+      }
+
+      .hero-stats {
+          display: flex;
+          gap: 3rem;
+      }
+
+      .hero-stat-number {
+          font-size: 2.5rem;
+          font-weight: 800;
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          line-height: 1;
+          margin-bottom: 0.5rem;
+      }
+
+      .hero-stat-label {
+          color: var(--gray-light);
+          font-size: 0.9rem;
       }
 
       .hero-image {
           position: relative;
-          animation: fadeIn 1s ease 0.8s both;
-      }
-
-      @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
       }
 
       .hero-image img {
           width: 100%;
           height: auto;
-          border-radius: 20px;
-          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-      }
-
-      /* Stats Section */
-      .stats {
-          padding: 4rem 2rem;
-          background: rgba(26, 31, 38, 0.5);
-      }
-
-      .stats-container {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 3rem;
-      }
-
-      .stat-box {
-          text-align: center;
-          padding: 2rem;
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(45, 111, 194, 0.2);
-          border-radius: 15px;
-          transition: all 0.3s;
-      }
-
-      .stat-box:hover {
-          transform: translateY(-10px);
-          border-color: var(--primary-light);
-          box-shadow: 0 15px 40px rgba(45, 111, 194, 0.3);
-      }
-
-      .stat-icon {
-          font-size: 3rem;
-          background: var(--gradient-primary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          margin-bottom: 1rem;
-      }
-
-      .stat-number {
-          font-size: 3rem;
-          font-weight: 800;
-          background: var(--gradient-primary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          margin-bottom: 0.5rem;
-      }
-
-      .stat-label {
-          font-size: 1rem;
-          color: var(--gray-light);
+          display: block;
       }
 
       /* Platforms Section */
-      .platforms {
+      .section {
           padding: 6rem 2rem;
+      }
+
+      .section-alt {
+          background: rgba(26, 31, 38, 0.5);
       }
 
       .section-header {
@@ -419,47 +305,29 @@
           color: var(--gray-light);
       }
 
-      .platforms-grid {
+      .grid {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           gap: 2rem;
       }
 
-      .platform-card {
+      .card {
           background: rgba(10, 37, 64, 0.6);
           border: 1px solid rgba(45, 111, 194, 0.2);
           border-radius: 20px;
           padding: 2.5rem;
           transition: all 0.4s;
-          position: relative;
-          overflow: hidden;
       }
 
-      .platform-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: var(--gradient-primary);
-          transform: scaleX(0);
-          transition: transform 0.4s;
-      }
-
-      .platform-card:hover::before {
-          transform: scaleX(1);
-      }
-
-      .platform-card:hover {
+      .card:hover {
           transform: translateY(-10px);
           border-color: var(--primary-light);
           box-shadow: 0 20px 60px rgba(45, 111, 194, 0.3);
       }
 
-      .platform-icon {
+      .feature-icon {
           width: 70px;
           height: 70px;
           background: var(--gradient-primary);
@@ -472,51 +340,60 @@
           box-shadow: 0 10px 30px rgba(45, 111, 194, 0.4);
       }
 
-      .platform-card h3 {
+      .card h3 {
           font-size: 1.5rem;
           margin-bottom: 1rem;
       }
 
-      .platform-card p {
+      .card p {
           color: var(--gray-light);
           line-height: 1.7;
           margin-bottom: 1.5rem;
       }
 
-      .platform-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          color: var(--primary-light);
-          text-decoration: none;
-          font-weight: 600;
+      /* Stats Section */
+      .stats-grid {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+      }
+
+      .stat-card {
+          background: rgba(10, 37, 64, 0.6);
+          border: 1px solid rgba(45, 111, 194, 0.2);
+          border-radius: 20px;
+          padding: 2.5rem;
+          text-align: center;
           transition: all 0.3s;
       }
 
-      .platform-link:hover {
-          gap: 1rem;
+      .stat-card:hover {
+          transform: translateY(-10px);
+          border-color: var(--primary-light);
+          box-shadow: 0 15px 40px rgba(45, 111, 194, 0.3);
       }
 
-      /* CTA Section */
-      .cta {
-          padding: 6rem 2rem;
-          text-align: center;
-          background: rgba(26, 31, 38, 0.5);
-      }
-
-      .cta h2 {
+      .stat-icon {
           font-size: 3rem;
-          font-weight: 800;
-          margin-bottom: 1rem;
           background: var(--gradient-primary);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+          margin-bottom: 1rem;
       }
 
-      .cta p {
-          font-size: 1.2rem;
+      .stat-number {
+          font-size: 3rem;
+          font-weight: 800;
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
           color: var(--gray-light);
-          margin-bottom: 2.5rem;
       }
 
       /* Footer */
@@ -612,8 +489,9 @@
               font-size: 2.5rem;
           }
 
-          .platforms-grid {
-              grid-template-columns: 1fr;
+          .hero-stats {
+              flex-direction: column;
+              gap: 1.5rem;
           }
 
           .footer-container {
@@ -623,25 +501,13 @@
   </style>
 </head>
 <body>
-  <div class="animated-background">
-      <div class="particles">
-          <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-          <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
-          <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
-          <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
-          <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
-          <div class="particle" style="left: 60%; animation-delay: 10s;"></div>
-          <div class="particle" style="left: 70%; animation-delay: 12s;"></div>
-          <div class="particle" style="left: 80%; animation-delay: 14s;"></div>
-          <div class="particle" style="left: 90%; animation-delay: 16s;"></div>
-      </div>
-  </div>
+  <div class="page-background"></div>
 
   <!-- Navigation -->
   <nav class="navbar">
       <div class="nav-container">
           <a href="index.html" class="logo-container">
-              <img src="images/ses-mine-logo.png" 
+              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
                    alt="SES_Mine - Smart Engineering Solutions" 
                    class="main-logo">
           </a>
@@ -663,158 +529,179 @@
       <div class="hero-container">
           <div class="hero-content">
               <div class="hero-badge">
-                  <i class="fas fa-rocket"></i>
-                  <span>Smart Engineering Solutions</span>
+                  <i class="fas fa-gem"></i>
+                  <span>Industry Leader Since 2010</span>
               </div>
               <h1>
-                  Transform Mining Operations with <span class="gradient-text">Data-Driven Engineering</span>
+                  Transform Your Mining Operations with <span class="gradient-text">Smart Solutions</span>
               </h1>
               <p class="hero-subtitle">
-                  An AI-Powered Engineering Ecosystem supporting Specialized mining cost estimation and 
-                  advanced planning capabilities. Revolutionize your mining operations with cutting-edge 
-                  technology and comprehensive digital solutions.
+                  SES_Mine provides comprehensive digital platforms for mining engineering, 
+                  economics, procurement, and innovation. Join 500+ mining companies worldwide 
+                  optimizing their operations with our cutting-edge technology.
               </p>
               <div class="hero-buttons">
                   <button class="btn-primary" onclick="window.location.href='home.html'">
                       <i class="fas fa-rocket"></i>
-                      Get Started
+                      Explore Platforms
                   </button>
-                  <button class="btn-secondary" onclick="window.location.href='#platforms'">
+                  <button class="btn-secondary">
                       <i class="fas fa-play"></i>
                       Watch Demo
                   </button>
               </div>
+              <div class="hero-stats">
+                  <div class="hero-stat">
+                      <div class="hero-stat-number">500+</div>
+                      <div class="hero-stat-label">Mining Companies</div>
+                  </div>
+                  <div class="hero-stat">
+                      <div class="hero-stat-number">50+</div>
+                      <div class="hero-stat-label">Countries</div>
+                  </div>
+                  <div class="hero-stat">
+                      <div class="hero-stat-number">$10B+</div>
+                      <div class="hero-stat-label">Projects Value</div>
+                  </div>
+              </div>
           </div>
           <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop&q=80" alt="Mining Operations">
+              <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop&q=80" alt="Mining Operations">
+          </div>
+      </div>
+  </section>
+
+  <!-- Platforms Overview Section -->
+  <section class="section">
+      <div class="section-header">
+          <span class="section-badge">OUR PLATFORMS</span>
+          <h2>Integrated Mining Solutions</h2>
+          <p>Comprehensive platforms designed for every aspect of mining operations</p>
+      </div>
+
+      <div class="grid">
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-drafting-compass"></i>
+              </div>
+              <h3>Engineering Hub</h3>
+              <p>Advanced mine planning, design optimization, and technical engineering solutions.</p>
+              <button class="btn-primary" onclick="window.location.href='engineering-hub.html'">
+                  Learn More
+              </button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Economics Hub</h3>
+              <p>Financial modeling, economic evaluation, and investment analysis tools.</p>
+              <button class="btn-primary" onclick="window.location.href='economics-hub.html'">
+                  Learn More
+              </button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-handshake"></i>
+              </div>
+              <h3>Consulting Hub</h3>
+              <p>Expert consulting services for strategic planning and operational optimization.</p>
+              <button class="btn-primary" onclick="window.location.href='consulting-hub.html'">
+                  Learn More
+              </button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-shopping-cart"></i>
+              </div>
+              <h3>Procurement Hub</h3>
+              <p>Streamlined procurement solutions and equipment sourcing for mining operations.</p>
+              <button class="btn-primary" onclick="window.location.href='procurement-hub.html'">
+                  Learn More
+              </button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-lightbulb"></i>
+              </div>
+              <h3>Innovation & Technology</h3>
+              <p>Cutting-edge automation, IoT, AI, and digital transformation solutions.</p>
+              <button class="btn-primary" onclick="window.location.href='innovation-technology-hub.html'">
+                  Learn More
+              </button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-chart-bar"></i>
+              </div>
+              <h3>Analytics Platform</h3>
+              <p>Real-time data analytics, predictive insights, and business intelligence.</p>
+              <button class="btn-primary" onclick="window.location.href='analytics-platform.html'">
+                  Learn More
+              </button>
           </div>
       </div>
   </section>
 
   <!-- Stats Section -->
-  <section class="stats">
-      <div class="stats-container">
-          <div class="stat-box">
-              <div class="stat-icon">
-                  <i class="fas fa-project-diagram"></i>
-              </div>
-              <div class="stat-number">500+</div>
-              <div class="stat-label">Projects Completed</div>
-          </div>
-          <div class="stat-box">
+  <section class="section section-alt">
+      <div class="stats-grid">
+          <div class="stat-card">
               <div class="stat-icon">
                   <i class="fas fa-users"></i>
               </div>
-              <div class="stat-number">200+</div>
+              <div class="stat-number">500+</div>
               <div class="stat-label">Global Clients</div>
           </div>
-          <div class="stat-box">
+
+          <div class="stat-card">
               <div class="stat-icon">
-                  <i class="fas fa-chart-line"></i>
+                  <i class="fas fa-project-diagram"></i>
               </div>
-              <div class="stat-number">$2B+</div>
-              <div class="stat-label">Projects Value</div>
+              <div class="stat-number">1,000+</div>
+              <div class="stat-label">Projects Completed</div>
           </div>
-          <div class="stat-box">
+
+          <div class="stat-card">
+              <div class="stat-icon">
+                  <i class="fas fa-globe"></i>
+              </div>
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Countries</div>
+          </div>
+
+          <div class="stat-card">
               <div class="stat-icon">
                   <i class="fas fa-award"></i>
               </div>
-              <div class="stat-number">98%</div>
-              <div class="stat-label">Client Satisfaction</div>
-          </div>
-      </div>
-  </section>
-
-  <!-- Platforms Section -->
-  <section class="platforms" id="platforms">
-      <div class="section-header">
-          <span class="section-badge">OUR PLATFORMS</span>
-          <h2>Comprehensive Mining Solutions</h2>
-          <p>Integrated digital platforms designed for modern mining operations</p>
-      </div>
-
-      <div class="platforms-grid">
-          <div class="platform-card">
-              <div class="platform-icon">
-                  <i class="fas fa-drafting-compass"></i>
-              </div>
-              <h3>Engineering Hub</h3>
-              <p>Advanced mine planning, design optimization, and technical engineering solutions for complex mining projects.</p>
-              <a href="engineering-hub.html" class="platform-link">
-                  Explore Platform <i class="fas fa-arrow-right"></i>
-              </a>
-          </div>
-
-          <div class="platform-card">
-              <div class="platform-icon">
-                  <i class="fas fa-chart-line"></i>
-              </div>
-              <h3>Economics Hub</h3>
-              <p>Financial modeling, economic evaluation, and investment analysis tools for mining projects.</p>
-              <a href="economics-hub.html" class="platform-link">
-                  Explore Platform <i class="fas fa-arrow-right"></i>
-              </a>
-          </div>
-
-          <div class="platform-card">
-              <div class="platform-icon">
-                  <i class="fas fa-handshake"></i>
-              </div>
-              <h3>Consulting Hub</h3>
-              <p>Expert consulting services for strategic planning, operational optimization, and project development.</p>
-              <a href="consulting-hub.html" class="platform-link">
-                  Explore Platform <i class="fas fa-arrow-right"></i>
-              </a>
-          </div>
-
-          <div class="platform-card">
-              <div class="platform-icon">
-                  <i class="fas fa-shopping-cart"></i>
-              </div>
-              <h3>Procurement Hub</h3>
-              <p>Streamlined procurement solutions, supplier management, and equipment sourcing for mining operations.</p>
-              <a href="procurement-hub.html" class="platform-link">
-                  Explore Platform <i class="fas fa-arrow-right"></i>
-              </a>
-          </div>
-
-          <div class="platform-card">
-              <div class="platform-icon">
-                  <i class="fas fa-lightbulb"></i>
-              </div>
-              <h3>Innovation & Technology</h3>
-              <p>Cutting-edge automation, IoT, AI, and digital transformation solutions for smart mining.</p>
-              <a href="innovation-technology-hub.html" class="platform-link">
-                  Explore Platform <i class="fas fa-arrow-right"></i>
-              </a>
-          </div>
-
-          <div class="platform-card">
-              <div class="platform-icon">
-                  <i class="fas fa-chart-bar"></i>
-              </div>
-              <h3>Analytics Platform</h3>
-              <p>Real-time data analytics, predictive insights, and business intelligence for informed decision-making.</p>
-              <a href="analytics-platform.html" class="platform-link">
-                  Explore Platform <i class="fas fa-arrow-right"></i>
-              </a>
+              <div class="stat-number">15+</div>
+              <div class="stat-label">Years Experience</div>
           </div>
       </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="cta">
-      <h2>Ready to Transform Your Mining Operations?</h2>
-      <p>Join leading mining companies worldwide in digital transformation</p>
-      <div class="hero-buttons" style="justify-content: center;">
-          <button class="btn-primary" onclick="window.location.href='home.html'">
-              <i class="fas fa-rocket"></i>
-              Get Started Today
-          </button>
-          <button class="btn-secondary">
-              <i class="fas fa-phone"></i>
-              Contact Sales
-          </button>
+  <section class="section">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem;">Ready to Transform Your Mining Operations?</h2>
+          <p style="color: var(--gray-light); font-size: 1.2rem; margin-bottom: 2rem;">
+              Join hundreds of mining companies optimizing their operations with SES_Mine
+          </p>
+          <div class="hero-buttons" style="justify-content: center;">
+              <button class="btn-primary" onclick="window.location.href='home.html'">
+                  <i class="fas fa-rocket"></i>
+                  Get Started
+              </button>
+              <button class="btn-secondary">
+                  <i class="fas fa-phone"></i>
+                  Contact Sales
+              </button>
+          </div>
       </div>
   </section>
 
@@ -822,7 +709,9 @@
   <footer class="footer">
       <div class="footer-container">
           <div>
-              <img src="images/ses-mine-logo.png" alt="SES_Mine" class="footer-logo">
+              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
+                   alt="SES_Mine" 
+                   class="footer-logo">
               <div class="footer-brand">SES_Mine</div>
               <p class="footer-desc">
                   Scientific and Engineering Supplies LLC - Leading provider of comprehensive 
