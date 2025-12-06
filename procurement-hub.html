@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Procurement Hub - SES_Mine | Equipment & Supply Chain Solutions</title>
-  <link rel="icon" type="image/png" href="images/ses-mine-logo.png">
+  <title>Procurement Hub - SES_Mine | Mining Equipment & Supply Solutions</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
       :root {
@@ -13,7 +12,6 @@
           --primary-light: #2d6fc2;
           --secondary: #f97316;
           --secondary-light: #fb923c;
-          --accent: #ea580c;
           --dark: #0f1419;
           --dark-alt: #1a1f26;
           --gray: #4a5568;
@@ -21,7 +19,6 @@
           --white: #ffffff;
           --gradient-primary: linear-gradient(135deg, #1a4d8c 0%, #2d6fc2 100%);
           --gradient-secondary: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
-          --gradient-accent: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
       }
 
       * {
@@ -56,10 +53,9 @@
           bottom: 0;
           background: 
               radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(234, 88, 12, 0.08) 0%, transparent 50%);
+              radial-gradient(circle at 80% 80%, rgba(251, 146, 60, 0.08) 0%, transparent 50%);
       }
 
-      /* Logo Styling */
       .main-logo {
           height: 70px;
           width: auto;
@@ -78,7 +74,6 @@
           .main-logo { height: 50px; }
       }
 
-      /* Navigation */
       .navbar {
           position: fixed;
           top: 0;
@@ -103,7 +98,6 @@
       .logo-container {
           display: flex;
           align-items: center;
-          gap: 0;
           text-decoration: none;
           color: var(--white);
           transition: all 0.3s ease;
@@ -146,7 +140,6 @@
           box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
       }
 
-      /* Hero Section */
       .hero {
           padding: 10rem 2rem 6rem;
           position: relative;
@@ -248,9 +241,11 @@
           display: block;
       }
 
-      /* Features Section */
-      .features {
+      .section {
           padding: 6rem 2rem;
+      }
+
+      .section-alt {
           background: rgba(26, 31, 38, 0.5);
       }
 
@@ -286,7 +281,7 @@
           color: var(--gray-light);
       }
 
-      .features-grid {
+      .grid {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
@@ -294,33 +289,15 @@
           gap: 2rem;
       }
 
-      .feature-card {
+      .card {
           background: rgba(10, 37, 64, 0.6);
           border: 1px solid rgba(249, 115, 22, 0.2);
           border-radius: 20px;
           padding: 2.5rem;
           transition: all 0.4s;
-          position: relative;
-          overflow: hidden;
       }
 
-      .feature-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: var(--gradient-secondary);
-          transform: scaleX(0);
-          transition: transform 0.4s;
-      }
-
-      .feature-card:hover::before {
-          transform: scaleX(1);
-      }
-
-      .feature-card:hover {
+      .card:hover {
           transform: translateY(-10px);
           border-color: var(--secondary);
           box-shadow: 0 20px 60px rgba(249, 115, 22, 0.3);
@@ -339,30 +316,43 @@
           box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
       }
 
-      .feature-card h3 {
+      .card h3 {
           font-size: 1.5rem;
           margin-bottom: 1rem;
       }
 
-      .feature-card p {
+      .card p {
           color: var(--gray-light);
           line-height: 1.7;
+          margin-bottom: 1.5rem;
       }
 
-      /* Equipment Database Section */
-      .equipment-db {
-          padding: 6rem 2rem;
+      .card ul {
+          list-style: none;
+          margin-bottom: 1.5rem;
       }
 
-      .equipment-grid {
+      .card ul li {
+          padding: 0.5rem 0;
+          color: var(--gray-light);
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+      }
+
+      .card ul li i {
+          color: var(--secondary);
+      }
+
+      .product-grid {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
           gap: 2rem;
       }
 
-      .equipment-card {
+      .product-card {
           background: rgba(10, 37, 64, 0.6);
           border: 1px solid rgba(249, 115, 22, 0.2);
           border-radius: 20px;
@@ -370,31 +360,31 @@
           transition: all 0.4s;
       }
 
-      .equipment-card:hover {
+      .product-card:hover {
           transform: translateY(-10px);
           border-color: var(--secondary);
           box-shadow: 0 20px 60px rgba(249, 115, 22, 0.3);
       }
 
-      .equipment-image {
+      .product-image {
           width: 100%;
           height: 220px;
           overflow: hidden;
           position: relative;
       }
 
-      .equipment-image img {
+      .product-image img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           transition: transform 0.6s;
       }
 
-      .equipment-card:hover .equipment-image img {
+      .product-card:hover .product-image img {
           transform: scale(1.1);
       }
 
-      .equipment-badge {
+      .product-badge {
           position: absolute;
           top: 1rem;
           right: 1rem;
@@ -405,11 +395,11 @@
           font-weight: 600;
       }
 
-      .equipment-content {
+      .product-content {
           padding: 2rem;
       }
 
-      .equipment-category {
+      .product-category {
           display: inline-block;
           padding: 0.3rem 0.8rem;
           background: rgba(249, 115, 22, 0.2);
@@ -419,153 +409,48 @@
           margin-bottom: 1rem;
       }
 
-      .equipment-content h3 {
+      .product-content h3 {
           font-size: 1.5rem;
           margin-bottom: 1rem;
       }
 
-      .equipment-specs {
-          list-style: none;
+      .product-content p {
+          color: var(--gray-light);
+          line-height: 1.7;
           margin-bottom: 1.5rem;
       }
 
-      .equipment-specs li {
-          padding: 0.5rem 0;
-          color: var(--gray-light);
-          display: flex;
-          justify-content: space-between;
-          border-bottom: 1px solid rgba(249, 115, 22, 0.1);
-      }
-
-      .equipment-specs li:last-child {
-          border-bottom: none;
-      }
-
-      .spec-label {
-          font-weight: 500;
-      }
-
-      .spec-value {
-          color: var(--secondary);
-          font-weight: 600;
-      }
-
-      .equipment-footer {
+      .product-specs {
           display: flex;
           gap: 1rem;
+          margin-bottom: 1.5rem;
+          flex-wrap: wrap;
       }
 
-      .equipment-btn {
-          flex: 1;
-          padding: 0.8rem;
-          background: var(--gradient-secondary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-      }
-
-      .equipment-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
-      }
-
-      .equipment-btn-secondary {
-          flex: 1;
-          padding: 0.8rem;
-          background: transparent;
-          border: 2px solid var(--secondary);
-          border-radius: 8px;
-          color: var(--secondary);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-      }
-
-      .equipment-btn-secondary:hover {
-          background: rgba(249, 115, 22, 0.1);
-      }
-
-      /* Suppliers Section */
-      .suppliers {
-          padding: 6rem 2rem;
-          background: rgba(26, 31, 38, 0.5);
-      }
-
-      .suppliers-grid {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 2rem;
-      }
-
-      .supplier-card {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(249, 115, 22, 0.2);
-          border-radius: 15px;
-          padding: 2rem;
-          text-align: center;
-          transition: all 0.3s;
-      }
-
-      .supplier-card:hover {
-          background: rgba(10, 37, 64, 0.8);
-          border-color: var(--secondary);
-          transform: translateY(-5px);
-      }
-
-      .supplier-logo {
-          width: 120px;
-          height: 120px;
-          background: rgba(249, 115, 22, 0.1);
-          border-radius: 50%;
+      .spec-item {
           display: flex;
           align-items: center;
-          justify-content: center;
-          margin: 0 auto 1.5rem;
-          font-size: 3rem;
-          color: var(--secondary);
-      }
-
-      .supplier-card h3 {
-          font-size: 1.2rem;
-          margin-bottom: 0.5rem;
-      }
-
-      .supplier-category {
+          gap: 0.5rem;
           color: var(--gray-light);
           font-size: 0.9rem;
-          margin-bottom: 1rem;
       }
 
-      .supplier-rating {
+      .spec-item i {
           color: var(--secondary);
-          margin-bottom: 1rem;
       }
 
-      .supplier-btn {
-          width: 100%;
-          padding: 0.7rem;
-          background: var(--gradient-secondary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
+      .product-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 1.5rem;
+          border-top: 1px solid rgba(249, 115, 22, 0.2);
       }
 
-      .supplier-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
-      }
-
-      /* Stats Section */
-      .stats {
-          padding: 6rem 2rem;
+      .product-price {
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: var(--secondary);
       }
 
       .stats-grid {
@@ -612,29 +497,6 @@
           color: var(--gray-light);
       }
 
-      /* CTA Section */
-      .cta {
-          padding: 6rem 2rem;
-          text-align: center;
-          background: rgba(26, 31, 38, 0.5);
-      }
-
-      .cta h2 {
-          font-size: 3rem;
-          font-weight: 800;
-          margin-bottom: 1rem;
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
-
-      .cta p {
-          font-size: 1.2rem;
-          color: var(--gray-light);
-          margin-bottom: 2.5rem;
-      }
-
-      /* Footer */
       .footer {
           padding: 4rem 2rem 2rem;
           background: rgba(10, 37, 64, 0.8);
@@ -727,9 +589,8 @@
               font-size: 2.5rem;
           }
 
-          .features-grid,
-          .equipment-grid,
-          .suppliers-grid,
+          .grid,
+          .product-grid,
           .stats-grid {
               grid-template-columns: 1fr;
           }
@@ -743,12 +604,11 @@
 <body>
   <div class="page-background"></div>
 
-  <!-- Navigation -->
   <nav class="navbar">
       <div class="nav-container">
           <a href="index.html" class="logo-container">
-              <img src="images/ses-mine-logo.png" 
-                   alt="SES_Mine - Smart Engineering Solutions" 
+              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
+                   alt="SES_Mine" 
                    class="main-logo">
           </a>
           <ul class="nav-menu">
@@ -756,7 +616,6 @@
               <li><a href="home.html">Platforms</a></li>
               <li><a href="engineering-hub.html">Engineering</a></li>
               <li><a href="economics-hub.html">Economics</a></li>
-              <li><a href="consulting-hub.html">Consulting</a></li>
           </ul>
           <button class="nav-cta" onclick="window.location.href='index.html'">
               Get Started
@@ -764,7 +623,6 @@
       </div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="hero">
       <div class="hero-container">
           <div class="hero-content">
@@ -773,12 +631,12 @@
                   <span>Smart Procurement</span>
               </div>
               <h1>
-                  Streamlined <span class="gradient-text">Equipment Procurement</span>
+                  Mining Equipment <span class="gradient-text">Procurement</span> Solutions
               </h1>
               <p class="hero-subtitle">
-                  Access the world's largest mining equipment database with real-time pricing, 
-                  supplier networks, and intelligent procurement tools. Optimize your supply chain 
-                  and reduce costs with our comprehensive procurement platform.
+                  Streamline your mining equipment procurement with our comprehensive platform. 
+                  Access thousands of suppliers, compare prices, and manage your entire supply 
+                  chain from one centralized hub.
               </p>
               <div class="hero-buttons">
                   <button class="btn-primary">
@@ -786,281 +644,32 @@
                       Browse Equipment
                   </button>
                   <button class="btn-secondary">
-                      <i class="fas fa-users"></i>
-                      View Suppliers
+                      <i class="fas fa-file-invoice"></i>
+                      Request Quote
                   </button>
               </div>
           </div>
           <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop&q=80" alt="Procurement Hub">
+              <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=600&fit=crop&q=80" alt="Mining Equipment">
           </div>
       </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="features">
-      <div class="section-header">
-          <span class="section-badge">CORE FEATURES</span>
-          <h2>Procurement Features</h2>
-          <p>Everything you need for efficient mining procurement</p>
-      </div>
-
-      <div class="features-grid">
-          <div class="feature-card">
-              <div class="feature-icon">
-                  <i class="fas fa-database"></i>
-              </div>
-              <h3>Equipment Database</h3>
-              <p>Access 50,000+ mining equipment listings with detailed specifications and real-time pricing.</p>
-          </div>
-
-          <div class="feature-card">
-              <div class="feature-icon">
-                  <i class="fas fa-network-wired"></i>
-              </div>
-              <h3>Supplier Network</h3>
-              <p>Connect with 5,000+ verified suppliers and manufacturers worldwide.</p>
-          </div>
-
-          <div class="feature-card">
-              <div class="feature-icon">
-                  <i class="fas fa-chart-line"></i>
-              </div>
-              <h3>Price Tracking</h3>
-              <p>Monitor equipment prices and market trends with advanced analytics tools.</p>
-          </div>
-
-          <div class="feature-card">
-              <div class="feature-icon">
-                  <i class="fas fa-file-contract"></i>
-              </div>
-              <h3>RFQ Management</h3>
-              <p>Streamline request for quotation processes with automated workflows.</p>
-          </div>
-
-          <div class="feature-card">
-              <div class="feature-icon">
-                  <i class="fas fa-shipping-fast"></i>
-              </div>
-              <h3>Logistics Support</h3>
-              <p>End-to-end logistics coordination for equipment delivery worldwide.</p>
-          </div>
-
-          <div class="feature-card">
-              <div class="feature-icon">
-                  <i class="fas fa-shield-alt"></i>
-              </div>
-              <h3>Quality Assurance</h3>
-              <p>Verified suppliers with quality certifications and performance ratings.</p>
-          </div>
-      </div>
-  </section>
-
-  <!-- Equipment Database Section -->
-  <section class="equipment-db">
-      <div class="section-header">
-          <span class="section-badge">EQUIPMENT DATABASE</span>
-          <h2>Featured Equipment</h2>
-          <p>Browse our comprehensive mining equipment catalog</p>
-      </div>
-
-      <div class="equipment-grid">
-          <div class="equipment-card">
-              <div class="equipment-image">
-                  <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop&q=80" alt="Haul Truck">
-                  <span class="equipment-badge">Popular</span>
-              </div>
-              <div class="equipment-content">
-                  <span class="equipment-category">Haul Trucks</span>
-                  <h3>Caterpillar 797F</h3>
-                  <ul class="equipment-specs">
-                      <li><span class="spec-label">Capacity:</span> <span class="spec-value">400 tons</span></li>
-                      <li><span class="spec-label">Engine:</span> <span class="spec-value">4000 HP</span></li>
-                      <li><span class="spec-label">Price Range:</span> <span class="spec-value">$5.5M - $6.2M</span></li>
-                  </ul>
-                  <div class="equipment-footer">
-                      <button class="equipment-btn">Request Quote</button>
-                      <button class="equipment-btn-secondary">Details</button>
-                  </div>
-              </div>
-          </div>
-
-          <div class="equipment-card">
-              <div class="equipment-image">
-                  <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=400&fit=crop&q=80" alt="Excavator">
-                  <span class="equipment-badge">Featured</span>
-              </div>
-              <div class="equipment-content">
-                  <span class="equipment-category">Excavators</span>
-                  <h3>Komatsu PC8000</h3>
-                  <ul class="equipment-specs">
-                      <li><span class="spec-label">Bucket:</span> <span class="spec-value">42 m³</span></li>
-                      <li><span class="spec-label">Weight:</span> <span class="spec-value">770 tons</span></li>
-                      <li><span class="spec-label">Price Range:</span> <span class="spec-value">$8M - $9M</span></li>
-                  </ul>
-                  <div class="equipment-footer">
-                      <button class="equipment-btn">Request Quote</button>
-                      <button class="equipment-btn-secondary">Details</button>
-                  </div>
-              </div>
-          </div>
-
-          <div class="equipment-card">
-              <div class="equipment-image">
-                  <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=400&fit=crop&q=80" alt="Drill Rig">
-              </div>
-              <div class="equipment-content">
-                  <span class="equipment-category">Drill Rigs</span>
-                  <h3>Atlas Copco DM45</h3>
-                  <ul class="equipment-specs">
-                      <li><span class="spec-label">Hole Size:</span> <span class="spec-value">229-311 mm</span></li>
-                      <li><span class="spec-label">Depth:</span> <span class="spec-value">60m</span></li>
-                      <li><span class="spec-label">Price Range:</span> <span class="spec-value">$2.5M - $3M</span></li>
-                  </ul>
-                  <div class="equipment-footer">
-                      <button class="equipment-btn">Request Quote</button>
-                      <button class="equipment-btn-secondary">Details</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-
-  <!-- Suppliers Section -->
-  <section class="suppliers">
-      <div class="section-header">
-          <span class="section-badge">SUPPLIER NETWORK</span>
-          <h2>Trusted Suppliers</h2>
-          <p>Connect with verified mining equipment suppliers</p>
-      </div>
-
-      <div class="suppliers-grid">
-          <div class="supplier-card">
-              <div class="supplier-logo">
-                  <i class="fas fa-industry"></i>
-              </div>
-              <h3>Caterpillar Inc.</h3>
-              <div class="supplier-category">Heavy Equipment</div>
-              <div class="supplier-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  (4.9/5)
-              </div>
-              <button class="supplier-btn">View Catalog</button>
-          </div>
-
-          <div class="supplier-card">
-              <div class="supplier-logo">
-                  <i class="fas fa-cogs"></i>
-              </div>
-              <h3>Komatsu Ltd.</h3>
-              <div class="supplier-category">Mining Equipment</div>
-              <div class="supplier-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  (4.8/5)
-              </div>
-              <button class="supplier-btn">View Catalog</button>
-          </div>
-
-          <div class="supplier-card">
-              <div class="supplier-logo">
-                  <i class="fas fa-tools"></i>
-              </div>
-              <h3>Sandvik Mining</h3>
-              <div class="supplier-category">Underground Equipment</div>
-              <div class="supplier-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  (4.9/5)
-              </div>
-              <button class="supplier-btn">View Catalog</button>
-          </div>
-
-          <div class="supplier-card">
-              <div class="supplier-logo">
-                  <i class="fas fa-wrench"></i>
-              </div>
-              <h3>Atlas Copco</h3>
-              <div class="supplier-category">Drilling Equipment</div>
-              <div class="supplier-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                  (4.7/5)
-              </div>
-              <button class="supplier-btn">View Catalog</button>
-          </div>
-
-          <div class="supplier-card">
-              <div class="supplier-logo">
-                  <i class="fas fa-truck"></i>
-              </div>
-              <h3>Liebherr Group</h3>
-              <div class="supplier-category">Haul Trucks</div>
-              <div class="supplier-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  (4.8/5)
-              </div>
-              <button class="supplier-btn">View Catalog</button>
-          </div>
-
-          <div class="supplier-card">
-              <div class="supplier-logo">
-                  <i class="fas fa-hammer"></i>
-              </div>
-              <h3>Hitachi Mining</h3>
-              <div class="supplier-category">Excavators</div>
-              <div class="supplier-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                  (4.6/5)
-              </div>
-              <button class="supplier-btn">View Catalog</button>
-          </div>
-      </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="stats">
-      <div class="section-header">
-          <span class="section-badge">PLATFORM METRICS</span>
-          <h2>By The Numbers</h2>
-          <p>Trusted by mining companies worldwide</p>
-      </div>
-
+  <section class="section section-alt">
       <div class="stats-grid">
           <div class="stat-card">
               <div class="stat-icon">
                   <i class="fas fa-boxes"></i>
               </div>
-              <div class="stat-number">50,000+</div>
-              <div class="stat-label">Equipment Listings</div>
+              <div class="stat-number">10,000+</div>
+              <div class="stat-label">Products Available</div>
           </div>
 
           <div class="stat-card">
               <div class="stat-icon">
-                  <i class="fas fa-handshake"></i>
+                  <i class="fas fa-truck"></i>
               </div>
-              <div class="stat-number">5,000+</div>
+              <div class="stat-number">500+</div>
               <div class="stat-label">Verified Suppliers</div>
           </div>
 
@@ -1068,45 +677,224 @@
               <div class="stat-icon">
                   <i class="fas fa-globe"></i>
               </div>
-              <div class="stat-number">120+</div>
-              <div class="stat-label">Countries Served</div>
+              <div class="stat-number">80+</div>
+              <div class="stat-label">Countries</div>
           </div>
 
           <div class="stat-card">
               <div class="stat-icon">
-                  <i class="fas fa-dollar-sign"></i>
+                  <i class="fas fa-clock"></i>
               </div>
-              <div class="stat-number">$10B+</div>
-              <div class="stat-label">Transaction Value</div>
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Support Available</div>
           </div>
       </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta">
-      <h2>Ready to Optimize Your Procurement?</h2>
-      <p>Join thousands of mining companies using our platform</p>
-      <div class="hero-buttons" style="justify-content: center;">
-          <button class="btn-primary">
-              <i class="fas fa-rocket"></i>
-              Start Procurement
-          </button>
-          <button class="btn-secondary">
-              <i class="fas fa-phone"></i>
-              Contact Sales
-          </button>
+  <section class="section">
+      <div class="section-header">
+          <span class="section-badge">FEATURED EQUIPMENT</span>
+          <h2>Popular Products</h2>
+          <p>Top mining equipment and supplies from verified suppliers</p>
+      </div>
+
+      <div class="product-grid">
+          <div class="product-card">
+              <div class="product-image">
+                  <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop&q=80" alt="Haul Truck">
+                  <span class="product-badge">Best Seller</span>
+              </div>
+              <div class="product-content">
+                  <span class="product-category">Heavy Equipment</span>
+                  <h3>Mining Haul Truck - 400 Ton</h3>
+                  <p>Heavy-duty haul truck designed for large-scale mining operations with advanced fuel efficiency.</p>
+                  <div class="product-specs">
+                      <div class="spec-item">
+                          <i class="fas fa-weight-hanging"></i>
+                          <span>400 Ton Capacity</span>
+                      </div>
+                      <div class="spec-item">
+                          <i class="fas fa-tachometer-alt"></i>
+                          <span>3000 HP</span>
+                      </div>
+                  </div>
+                  <div class="product-footer">
+                      <div class="product-price">Request Quote</div>
+                      <button class="btn-primary" style="padding: 0.8rem 1.5rem;">
+                          View Details
+                      </button>
+                  </div>
+              </div>
+          </div>
+
+          <div class="product-card">
+              <div class="product-image">
+                  <img src="https://images.unsplash.com/photo-1581092918484-8313e1f7e8c7?w=800&h=400&fit=crop&q=80" alt="Excavator">
+                  <span class="product-badge">New Arrival</span>
+              </div>
+              <div class="product-content">
+                  <span class="product-category">Excavators</span>
+                  <h3>Hydraulic Excavator - 800 Class</h3>
+                  <p>High-performance excavator with advanced hydraulics for maximum productivity and efficiency.</p>
+                  <div class="product-specs">
+                      <div class="spec-item">
+                          <i class="fas fa-weight-hanging"></i>
+                          <span>800 Ton Class</span>
+                      </div>
+                      <div class="spec-item">
+                          <i class="fas fa-cog"></i>
+                          <span>45m³ Bucket</span>
+                      </div>
+                  </div>
+                  <div class="product-footer">
+                      <div class="product-price">Request Quote</div>
+                      <button class="btn-primary" style="padding: 0.8rem 1.5rem;">
+                          View Details
+                      </button>
+                  </div>
+              </div>
+          </div>
+
+          <div class="product-card">
+              <div class="product-image">
+                  <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&h=400&fit=crop&q=80" alt="Drill Rig">
+                  <span class="product-badge">Featured</span>
+              </div>
+              <div class="product-content">
+                  <span class="product-category">Drilling</span>
+                  <h3>Rotary Blast Hole Drill</h3>
+                  <p>Advanced rotary drill for efficient blast hole drilling in open pit mining operations.</p>
+                  <div class="product-specs">
+                      <div class="spec-item">
+                          <i class="fas fa-arrows-alt-v"></i>
+                          <span>311mm Diameter</span>
+                      </div>
+                      <div class="spec-item">
+                          <i class="fas fa-bolt"></i>
+                          <span>1500 HP</span>
+                      </div>
+                  </div>
+                  <div class="product-footer">
+                      <div class="product-price">Request Quote</div>
+                      <button class="btn-primary" style="padding: 0.8rem 1.5rem;">
+                          View Details
+                      </button>
+                  </div>
+              </div>
+          </div>
       </div>
   </section>
 
-  <!-- Footer -->
+  <section class="section section-alt">
+      <div class="section-header">
+          <span class="section-badge">SERVICES</span>
+          <h2>Procurement Services</h2>
+          <p>Comprehensive procurement solutions for mining operations</p>
+      </div>
+
+      <div class="grid">
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-search"></i>
+              </div>
+              <h3>Equipment Sourcing</h3>
+              <p>Access to global network of verified mining equipment suppliers and manufacturers.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Global supplier network</li>
+                  <li><i class="fas fa-check"></i> Quality verification</li>
+                  <li><i class="fas fa-check"></i> Price comparison</li>
+                  <li><i class="fas fa-check"></i> Technical support</li>
+              </ul>
+              <button class="btn-primary">Learn More</button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-handshake"></i>
+              </div>
+              <h3>Vendor Management</h3>
+              <p>Streamlined vendor management and relationship building for optimal procurement.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Vendor evaluation</li>
+                  <li><i class="fas fa-check"></i> Performance tracking</li>
+                  <li><i class="fas fa-check"></i> Contract management</li>
+                  <li><i class="fas fa-check"></i> Compliance monitoring</li>
+              </ul>
+              <button class="btn-primary">Learn More</button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Price Optimization</h3>
+              <p>Advanced analytics and market intelligence for optimal pricing and cost savings.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Market analysis</li>
+                  <li><i class="fas fa-check"></i> Price benchmarking</li>
+                  <li><i class="fas fa-check"></i> Cost reduction</li>
+                  <li><i class="fas fa-check"></i> Savings tracking</li>
+              </ul>
+              <button class="btn-primary">Learn More</button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-truck-loading"></i>
+              </div>
+              <h3>Supply Chain Management</h3>
+              <p>End-to-end supply chain visibility and management for seamless operations.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Inventory management</li>
+                  <li><i class="fas fa-check"></i> Logistics coordination</li>
+                  <li><i class="fas fa-check"></i> Delivery tracking</li>
+                  <li><i class="fas fa-check"></i> Risk mitigation</li>
+              </ul>
+              <button class="btn-primary">Learn More</button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-file-contract"></i>
+              </div>
+              <h3>Contract Negotiation</h3>
+              <p>Expert support in contract negotiation and terms optimization.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Terms negotiation</li>
+                  <li><i class="fas fa-check"></i> Legal review</li>
+                  <li><i class="fas fa-check"></i> Risk assessment</li>
+                  <li><i class="fas fa-check"></i> Compliance assurance</li>
+              </ul>
+              <button class="btn-primary">Learn More</button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-tools"></i>
+              </div>
+              <h3>Spare Parts Management</h3>
+              <p>Comprehensive spare parts inventory and management solutions.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Parts catalog</li>
+                  <li><i class="fas fa-check"></i> Inventory optimization</li>
+                  <li><i class="fas fa-check"></i> Just-in-time delivery</li>
+                  <li><i class="fas fa-check"></i> Cost tracking</li>
+              </ul>
+              <button class="btn-primary">Learn More</button>
+          </div>
+      </div>
+  </section>
+
   <footer class="footer">
       <div class="footer-container">
           <div>
-              <img src="images/ses-mine-logo.png" alt="SES_Mine" class="footer-logo">
+              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
+                   alt="SES_Mine" 
+                   class="footer-logo">
               <div class="footer-brand">SES_Mine</div>
               <p class="footer-desc">
                   Scientific and Engineering Supplies LLC - Leading provider of comprehensive 
-                  mining solutions and digital transformation platforms for the global mining industry.
+                  mining solutions and digital transformation platforms.
               </p>
           </div>
           <div>
@@ -1124,14 +912,12 @@
                   <li><a href="innovation-technology-hub.html">Innovation & Tech</a></li>
                   <li><a href="analytics-platform.html">Analytics Platform</a></li>
                   <li><a href="training-education-hub.html">Training & Education</a></li>
-                  <li><a href="home.html">All Services</a></li>
               </ul>
           </div>
           <div>
               <h4>Company</h4>
               <ul class="footer-links">
                   <li><a href="#about">About Us</a></li>
-                  <li><a href="#careers">Careers</a></li>
                   <li><a href="#contact">Contact</a></li>
                   <li><a href="#support">Support</a></li>
               </ul>
