@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Consulting Hub - SES_Mine | Expert Mining Consulting Services</title>
-  <link rel="icon" type="image/png" href="images/ses-mine-logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
       :root {
@@ -13,7 +12,6 @@
           --primary-light: #2d6fc2;
           --secondary: #8b5cf6;
           --secondary-light: #a78bfa;
-          --accent: #6366f1;
           --dark: #0f1419;
           --dark-alt: #1a1f26;
           --gray: #4a5568;
@@ -21,7 +19,6 @@
           --white: #ffffff;
           --gradient-primary: linear-gradient(135deg, #1a4d8c 0%, #2d6fc2 100%);
           --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
-          --gradient-accent: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
       }
 
       * {
@@ -56,10 +53,9 @@
           bottom: 0;
           background: 
               radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+              radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.08) 0%, transparent 50%);
       }
 
-      /* Logo Styling */
       .main-logo {
           height: 70px;
           width: auto;
@@ -78,7 +74,6 @@
           .main-logo { height: 50px; }
       }
 
-      /* Navigation */
       .navbar {
           position: fixed;
           top: 0;
@@ -103,7 +98,6 @@
       .logo-container {
           display: flex;
           align-items: center;
-          gap: 0;
           text-decoration: none;
           color: var(--white);
           transition: all 0.3s ease;
@@ -146,7 +140,6 @@
           box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
       }
 
-      /* Hero Section */
       .hero {
           padding: 10rem 2rem 6rem;
           position: relative;
@@ -248,9 +241,11 @@
           display: block;
       }
 
-      /* Services Section */
-      .services {
+      .section {
           padding: 6rem 2rem;
+      }
+
+      .section-alt {
           background: rgba(26, 31, 38, 0.5);
       }
 
@@ -286,47 +281,29 @@
           color: var(--gray-light);
       }
 
-      .services-grid {
+      .grid {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           gap: 2rem;
       }
 
-      .service-card {
+      .card {
           background: rgba(10, 37, 64, 0.6);
           border: 1px solid rgba(139, 92, 246, 0.2);
           border-radius: 20px;
           padding: 2.5rem;
           transition: all 0.4s;
-          position: relative;
-          overflow: hidden;
       }
 
-      .service-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: var(--gradient-secondary);
-          transform: scaleX(0);
-          transition: transform 0.4s;
-      }
-
-      .service-card:hover::before {
-          transform: scaleX(1);
-      }
-
-      .service-card:hover {
+      .card:hover {
           transform: translateY(-10px);
           border-color: var(--secondary);
           box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
       }
 
-      .service-icon {
+      .feature-icon {
           width: 70px;
           height: 70px;
           background: var(--gradient-secondary);
@@ -339,23 +316,23 @@
           box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
       }
 
-      .service-card h3 {
+      .card h3 {
           font-size: 1.5rem;
           margin-bottom: 1rem;
       }
 
-      .service-card p {
+      .card p {
           color: var(--gray-light);
           line-height: 1.7;
           margin-bottom: 1.5rem;
       }
 
-      .service-features {
+      .card ul {
           list-style: none;
           margin-bottom: 1.5rem;
       }
 
-      .service-features li {
+      .card ul li {
           padding: 0.5rem 0;
           color: var(--gray-light);
           display: flex;
@@ -363,86 +340,43 @@
           gap: 0.5rem;
       }
 
-      .service-features li i {
+      .card ul li i {
           color: var(--secondary);
       }
 
-      .service-btn {
-          width: 100%;
-          padding: 0.8rem;
-          background: var(--gradient-secondary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-      }
-
-      .service-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
-      }
-
-      /* Expertise Section */
-      .expertise {
-          padding: 6rem 2rem;
-      }
-
-      .expertise-grid {
+      .stats-grid {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 3rem;
-          align-items: center;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
       }
 
-      .expertise-image {
-          position: relative;
+      .stat-card {
+          background: rgba(10, 37, 64, 0.6);
+          border: 1px solid rgba(139, 92, 246, 0.2);
           border-radius: 20px;
-          overflow: hidden;
-          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+          padding: 2.5rem;
+          text-align: center;
+          transition: all 0.3s;
       }
 
-      .expertise-image img {
-          width: 100%;
-          height: auto;
-          display: block;
+      .stat-card:hover {
+          transform: translateY(-10px);
+          border-color: var(--secondary);
+          box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
       }
 
-      .expertise-content h3 {
-          font-size: 2.5rem;
-          margin-bottom: 1.5rem;
+      .stat-icon {
+          font-size: 3rem;
           background: var(--gradient-secondary);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-      }
-
-      .expertise-content p {
-          color: var(--gray-light);
-          line-height: 1.8;
-          margin-bottom: 2rem;
-          font-size: 1.1rem;
-      }
-
-      .expertise-stats {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 2rem;
-          margin-top: 2rem;
-      }
-
-      .stat-box {
-          background: rgba(139, 92, 246, 0.1);
-          border: 1px solid rgba(139, 92, 246, 0.3);
-          border-radius: 15px;
-          padding: 1.5rem;
-          text-align: center;
+          margin-bottom: 1rem;
       }
 
       .stat-number {
-          font-size: 2.5rem;
+          font-size: 3rem;
           font-weight: 800;
           background: var(--gradient-secondary);
           -webkit-background-clip: text;
@@ -452,66 +386,6 @@
 
       .stat-label {
           color: var(--gray-light);
-          font-size: 0.9rem;
-      }
-
-      /* Process Section */
-      .process {
-          padding: 6rem 2rem;
-          background: rgba(26, 31, 38, 0.5);
-      }
-
-      .process-grid {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 2rem;
-      }
-
-      .process-step {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(139, 92, 246, 0.2);
-          border-radius: 20px;
-          padding: 2rem;
-          text-align: center;
-          transition: all 0.3s;
-          position: relative;
-      }
-
-      .process-step:hover {
-          transform: translateY(-10px);
-          border-color: var(--secondary);
-          box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
-      }
-
-      .process-number {
-          width: 60px;
-          height: 60px;
-          background: var(--gradient-secondary);
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.5rem;
-          font-weight: 800;
-          margin: 0 auto 1.5rem;
-          box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
-      }
-
-      .process-step h3 {
-          font-size: 1.3rem;
-          margin-bottom: 1rem;
-      }
-
-      .process-step p {
-          color: var(--gray-light);
-          line-height: 1.7;
-      }
-
-      /* Team Section */
-      .team {
-          padding: 6rem 2rem;
       }
 
       .team-grid {
@@ -540,7 +414,6 @@
           width: 100%;
           height: 280px;
           overflow: hidden;
-          position: relative;
       }
 
       .team-image img {
@@ -576,29 +449,6 @@
           font-size: 0.9rem;
       }
 
-      /* CTA Section */
-      .cta {
-          padding: 6rem 2rem;
-          text-align: center;
-          background: rgba(26, 31, 38, 0.5);
-      }
-
-      .cta h2 {
-          font-size: 3rem;
-          font-weight: 800;
-          margin-bottom: 1rem;
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
-
-      .cta p {
-          font-size: 1.2rem;
-          color: var(--gray-light);
-          margin-bottom: 2.5rem;
-      }
-
-      /* Footer */
       .footer {
           padding: 4rem 2rem 2rem;
           background: rgba(10, 37, 64, 0.8);
@@ -673,8 +523,7 @@
       }
 
       @media (max-width: 1024px) {
-          .hero-container,
-          .expertise-grid {
+          .hero-container {
               grid-template-columns: 1fr;
           }
 
@@ -692,13 +541,9 @@
               font-size: 2.5rem;
           }
 
-          .services-grid,
-          .process-grid,
+          .grid,
+          .stats-grid,
           .team-grid {
-              grid-template-columns: 1fr;
-          }
-
-          .expertise-stats {
               grid-template-columns: 1fr;
           }
 
@@ -711,12 +556,11 @@
 <body>
   <div class="page-background"></div>
 
-  <!-- Navigation -->
   <nav class="navbar">
       <div class="nav-container">
           <a href="index.html" class="logo-container">
-              <img src="images/ses-mine-logo.png" 
-                   alt="SES_Mine - Smart Engineering Solutions" 
+              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
+                   alt="SES_Mine" 
                    class="main-logo">
           </a>
           <ul class="nav-menu">
@@ -724,7 +568,6 @@
               <li><a href="home.html">Platforms</a></li>
               <li><a href="engineering-hub.html">Engineering</a></li>
               <li><a href="economics-hub.html">Economics</a></li>
-              <li><a href="analytics-platform.html">Analytics</a></li>
           </ul>
           <button class="nav-cta" onclick="window.location.href='index.html'">
               Get Started
@@ -732,7 +575,6 @@
       </div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="hero">
       <div class="hero-container">
           <div class="hero-content">
@@ -741,17 +583,17 @@
                   <span>Expert Consulting</span>
               </div>
               <h1>
-                  Strategic <span class="gradient-text">Mining Consulting</span>
+                  Strategic <span class="gradient-text">Mining Consulting</span> Services
               </h1>
               <p class="hero-subtitle">
-                  Transform your mining operations with expert guidance from industry veterans. 
-                  We provide comprehensive consulting services covering strategy, operations, 
-                  technology, and financial optimization for mining projects worldwide.
+                  Transform your mining operations with expert consulting services. Our team of 
+                  seasoned professionals brings decades of experience in strategic planning, 
+                  operational optimization, and technical due diligence.
               </p>
               <div class="hero-buttons">
                   <button class="btn-primary">
-                      <i class="fas fa-calendar"></i>
-                      Book Consultation
+                      <i class="fas fa-comments"></i>
+                      Schedule Consultation
                   </button>
                   <button class="btn-secondary">
                       <i class="fas fa-file-alt"></i>
@@ -760,199 +602,152 @@
               </div>
           </div>
           <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80" alt="Consulting Hub">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80" alt="Consulting Services">
           </div>
       </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="services">
+  <section class="section section-alt">
+      <div class="stats-grid">
+          <div class="stat-card">
+              <div class="stat-icon">
+                  <i class="fas fa-briefcase"></i>
+              </div>
+              <div class="stat-number">300+</div>
+              <div class="stat-label">Projects Delivered</div>
+          </div>
+
+          <div class="stat-card">
+              <div class="stat-icon">
+                  <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-number">150+</div>
+              <div class="stat-label">Clients Worldwide</div>
+          </div>
+
+          <div class="stat-card">
+              <div class="stat-icon">
+                  <i class="fas fa-globe-americas"></i>
+              </div>
+              <div class="stat-number">40+</div>
+              <div class="stat-label">Countries</div>
+          </div>
+
+          <div class="stat-card">
+              <div class="stat-icon">
+                  <i class="fas fa-award"></i>
+              </div>
+              <div class="stat-number">25+</div>
+              <div class="stat-label">Years Experience</div>
+          </div>
+      </div>
+  </section>
+
+  <section class="section">
       <div class="section-header">
-          <span class="section-badge">OUR SERVICES</span>
-          <h2>Consulting Services</h2>
-          <p>Comprehensive consulting solutions for mining excellence</p>
+          <span class="section-badge">CONSULTING SERVICES</span>
+          <h2>Our Expertise</h2>
+          <p>Comprehensive consulting solutions for mining operations</p>
       </div>
 
-      <div class="services-grid">
-          <div class="service-card">
-              <div class="service-icon">
+      <div class="grid">
+          <div class="card">
+              <div class="feature-icon">
                   <i class="fas fa-chess"></i>
               </div>
               <h3>Strategic Planning</h3>
-              <p>Long-term strategic planning and business development for mining operations.</p>
-              <ul class="service-features">
-                  <li><i class="fas fa-check"></i> Corporate Strategy</li>
-                  <li><i class="fas fa-check"></i> Growth Planning</li>
-                  <li><i class="fas fa-check"></i> Market Entry Strategy</li>
-                  <li><i class="fas fa-check"></i> M&A Advisory</li>
+              <p>Long-term strategic planning and business development for mining companies.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Corporate strategy</li>
+                  <li><i class="fas fa-check"></i> Growth planning</li>
+                  <li><i class="fas fa-check"></i> Market analysis</li>
+                  <li><i class="fas fa-check"></i> Portfolio optimization</li>
               </ul>
-              <button class="service-btn">Learn More</button>
+              <button class="btn-primary">Learn More</button>
           </div>
 
-          <div class="service-card">
-              <div class="service-icon">
+          <div class="card">
+              <div class="feature-icon">
                   <i class="fas fa-cogs"></i>
               </div>
               <h3>Operational Excellence</h3>
-              <p>Optimize mining operations for maximum efficiency and productivity.</p>
-              <ul class="service-features">
-                  <li><i class="fas fa-check"></i> Process Optimization</li>
-                  <li><i class="fas fa-check"></i> Productivity Improvement</li>
-                  <li><i class="fas fa-check"></i> Cost Reduction</li>
-                  <li><i class="fas fa-check"></i> Performance Management</li>
+              <p>Optimize mining operations for maximum efficiency and profitability.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Process optimization</li>
+                  <li><i class="fas fa-check"></i> Cost reduction</li>
+                  <li><i class="fas fa-check"></i> Productivity improvement</li>
+                  <li><i class="fas fa-check"></i> Performance benchmarking</li>
               </ul>
-              <button class="service-btn">Learn More</button>
+              <button class="btn-primary">Learn More</button>
           </div>
 
-          <div class="service-card">
-              <div class="service-icon">
-                  <i class="fas fa-drafting-compass"></i>
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-search-dollar"></i>
               </div>
-              <h3>Technical Planning</h3>
-              <p>Expert technical guidance for mine planning and design projects.</p>
-              <ul class="service-features">
-                  <li><i class="fas fa-check"></i> Mine Design Review</li>
-                  <li><i class="fas fa-check"></i> Production Planning</li>
-                  <li><i class="fas fa-check"></i> Equipment Selection</li>
-                  <li><i class="fas fa-check"></i> Technical Audits</li>
+              <h3>Technical Due Diligence</h3>
+              <p>Comprehensive technical and financial due diligence for mining assets.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Asset evaluation</li>
+                  <li><i class="fas fa-check"></i> Risk assessment</li>
+                  <li><i class="fas fa-check"></i> Resource validation</li>
+                  <li><i class="fas fa-check"></i> Investment analysis</li>
               </ul>
-              <button class="service-btn">Learn More</button>
+              <button class="btn-primary">Learn More</button>
           </div>
 
-          <div class="service-card">
-              <div class="service-icon">
-                  <i class="fas fa-chart-line"></i>
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-project-diagram"></i>
               </div>
-              <h3>Financial Optimization</h3>
-              <p>Maximize project value through financial analysis and optimization.</p>
-              <ul class="service-features">
-                  <li><i class="fas fa-check"></i> Value Engineering</li>
-                  <li><i class="fas fa-check"></i> Cost Optimization</li>
-                  <li><i class="fas fa-check"></i> Investment Analysis</li>
-                  <li><i class="fas fa-check"></i> Financial Modeling</li>
+              <h3>Project Management</h3>
+              <p>End-to-end project management for mining development and expansion.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Project planning</li>
+                  <li><i class="fas fa-check"></i> Execution oversight</li>
+                  <li><i class="fas fa-check"></i> Risk management</li>
+                  <li><i class="fas fa-check"></i> Quality assurance</li>
               </ul>
-              <button class="service-btn">Learn More</button>
+              <button class="btn-primary">Learn More</button>
           </div>
 
-          <div class="service-card">
-              <div class="service-icon">
-                  <i class="fas fa-laptop-code"></i>
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-leaf"></i>
               </div>
-              <h3>Digital Transformation</h3>
-              <p>Implement cutting-edge technology for smart mining operations.</p>
-              <ul class="service-features">
-                  <li><i class="fas fa-check"></i> Technology Roadmap</li>
-                  <li><i class="fas fa-check"></i> Automation Strategy</li>
-                  <li><i class="fas fa-check"></i> Data Analytics</li>
-                  <li><i class="fas fa-check"></i> IoT Implementation</li>
+              <h3>Sustainability Consulting</h3>
+              <p>Environmental and social sustainability strategies for responsible mining.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> ESG compliance</li>
+                  <li><i class="fas fa-check"></i> Environmental management</li>
+                  <li><i class="fas fa-check"></i> Community relations</li>
+                  <li><i class="fas fa-check"></i> Closure planning</li>
               </ul>
-              <button class="service-btn">Learn More</button>
+              <button class="btn-primary">Learn More</button>
           </div>
 
-          <div class="service-card">
-              <div class="service-icon">
+          <div class="card">
+              <div class="feature-icon">
                   <i class="fas fa-shield-alt"></i>
               </div>
               <h3>Risk Management</h3>
-              <p>Identify and mitigate operational and financial risks effectively.</p>
-              <ul class="service-features">
-                  <li><i class="fas fa-check"></i> Risk Assessment</li>
-                  <li><i class="fas fa-check"></i> Safety Audits</li>
-                  <li><i class="fas fa-check"></i> Compliance Review</li>
-                  <li><i class="fas fa-check"></i> Crisis Management</li>
+              <p>Comprehensive risk assessment and mitigation strategies.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Risk identification</li>
+                  <li><i class="fas fa-check"></i> Mitigation planning</li>
+                  <li><i class="fas fa-check"></i> Compliance management</li>
+                  <li><i class="fas fa-check"></i> Safety optimization</li>
               </ul>
-              <button class="service-btn">Learn More</button>
+              <button class="btn-primary">Learn More</button>
           </div>
       </div>
   </section>
 
-  <!-- Expertise Section -->
-  <section class="expertise">
-      <div class="expertise-grid">
-          <div class="expertise-image">
-              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop&q=80" alt="Our Expertise">
-          </div>
-          <div class="expertise-content">
-              <h3>Decades of Mining Expertise</h3>
-              <p>
-                  Our team brings together over 200 years of combined experience in mining 
-                  operations, engineering, economics, and technology. We've successfully 
-                  delivered consulting projects across 50+ countries, helping mining companies 
-                  optimize operations, reduce costs, and maximize profitability.
-              </p>
-              <p>
-                  From greenfield exploration to mature operations, we provide tailored 
-                  solutions that address your unique challenges and opportunities.
-              </p>
-              <div class="expertise-stats">
-                  <div class="stat-box">
-                      <div class="stat-number">500+</div>
-                      <div class="stat-label">Projects Delivered</div>
-                  </div>
-                  <div class="stat-box">
-                      <div class="stat-number">50+</div>
-                      <div class="stat-label">Countries Served</div>
-                  </div>
-                  <div class="stat-box">
-                      <div class="stat-number">$5B+</div>
-                      <div class="stat-label">Value Created</div>
-                  </div>
-                  <div class="stat-box">
-                      <div class="stat-number">98%</div>
-                      <div class="stat-label">Client Satisfaction</div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-
-  <!-- Process Section -->
-  <section class="process">
-      <div class="section-header">
-          <span class="section-badge">OUR APPROACH</span>
-          <h2>Consulting Process</h2>
-          <p>A proven methodology for delivering results</p>
-      </div>
-
-      <div class="process-grid">
-          <div class="process-step">
-              <div class="process-number">1</div>
-              <h3>Discovery</h3>
-              <p>Understand your challenges, objectives, and operational context through comprehensive analysis.</p>
-          </div>
-
-          <div class="process-step">
-              <div class="process-number">2</div>
-              <h3>Analysis</h3>
-              <p>Deep-dive into data, processes, and systems to identify opportunities and risks.</p>
-          </div>
-
-          <div class="process-step">
-              <div class="process-number">3</div>
-              <h3>Strategy</h3>
-              <p>Develop tailored solutions and actionable strategies aligned with your goals.</p>
-          </div>
-
-          <div class="process-step">
-              <div class="process-number">4</div>
-              <h3>Implementation</h3>
-              <p>Execute recommendations with hands-on support and change management.</p>
-          </div>
-
-          <div class="process-step">
-              <div class="process-number">5</div>
-              <h3>Optimization</h3>
-              <p>Continuously monitor, measure, and optimize for sustained improvements.</p>
-          </div>
-      </div>
-  </section>
-
-  <!-- Team Section -->
-  <section class="team">
+  <section class="section section-alt">
       <div class="section-header">
           <span class="section-badge">OUR TEAM</span>
           <h2>Expert Consultants</h2>
-          <p>Industry veterans with proven track records</p>
+          <p>Meet our team of experienced mining professionals</p>
       </div>
 
       <div class="team-grid">
@@ -961,9 +756,9 @@
                   <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&q=80" alt="Consultant">
               </div>
               <div class="team-content">
-                  <h3>Dr. Michael Chen</h3>
+                  <h3>Dr. Michael Thompson</h3>
                   <div class="team-role">Senior Mining Consultant</div>
-                  <p>30+ years in mine planning and operations optimization. PhD in Mining Engineering.</p>
+                  <p>40+ years in mining operations and strategic planning. Former VP of Operations at major mining company.</p>
               </div>
           </div>
 
@@ -973,8 +768,8 @@
               </div>
               <div class="team-content">
                   <h3>Sarah Williams</h3>
-                  <div class="team-role">Financial Advisory Lead</div>
-                  <p>Expert in mining economics and project finance with 25 years experience.</p>
+                  <div class="team-role">Operations Excellence Lead</div>
+                  <p>30+ years optimizing mining operations globally. Expert in lean mining and continuous improvement.</p>
               </div>
           </div>
 
@@ -983,9 +778,9 @@
                   <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&q=80" alt="Consultant">
               </div>
               <div class="team-content">
-                  <h3>James Rodriguez</h3>
-                  <div class="team-role">Technology Consultant</div>
-                  <p>Specialist in digital transformation and mining automation solutions.</p>
+                  <h3>David Chen</h3>
+                  <div class="team-role">Technical Due Diligence Specialist</div>
+                  <p>25+ years in mining asset evaluation and investment analysis. Completed 200+ due diligence projects.</p>
               </div>
           </div>
 
@@ -994,39 +789,45 @@
                   <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&q=80" alt="Consultant">
               </div>
               <div class="team-content">
-                  <h3>Dr. Emily Thompson</h3>
-                  <div class="team-role">Operational Excellence Director</div>
-                  <p>Process optimization expert with proven results across global operations.</p>
+                  <h3>Dr. Emily Rodriguez</h3>
+                  <div class="team-role">Sustainability Consultant</div>
+                  <p>20+ years in environmental management and ESG compliance for mining operations.</p>
               </div>
           </div>
       </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta">
-      <h2>Ready to Transform Your Operations?</h2>
-      <p>Schedule a consultation with our expert team today</p>
-      <div class="hero-buttons" style="justify-content: center;">
-          <button class="btn-primary">
-              <i class="fas fa-calendar"></i>
-              Book Consultation
-          </button>
-          <button class="btn-secondary">
-              <i class="fas fa-phone"></i>
-              Contact Us
-          </button>
+  <section class="section">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient-secondary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Ready to Transform Your Operations?
+          </h2>
+          <p style="color: var(--gray-light); font-size: 1.2rem; margin-bottom: 2rem;">
+              Schedule a consultation with our expert team today
+          </p>
+          <div class="hero-buttons" style="justify-content: center;">
+              <button class="btn-primary">
+                  <i class="fas fa-calendar-check"></i>
+                  Book Consultation
+              </button>
+              <button class="btn-secondary">
+                  <i class="fas fa-envelope"></i>
+                  Contact Us
+              </button>
+          </div>
       </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
       <div class="footer-container">
           <div>
-              <img src="images/ses-mine-logo.png" alt="SES_Mine" class="footer-logo">
+              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
+                   alt="SES_Mine" 
+                   class="footer-logo">
               <div class="footer-brand">SES_Mine</div>
               <p class="footer-desc">
                   Scientific and Engineering Supplies LLC - Leading provider of comprehensive 
-                  mining solutions and digital transformation platforms for the global mining industry.
+                  mining solutions and digital transformation platforms.
               </p>
           </div>
           <div>
@@ -1044,14 +845,12 @@
                   <li><a href="innovation-technology-hub.html">Innovation & Tech</a></li>
                   <li><a href="analytics-platform.html">Analytics Platform</a></li>
                   <li><a href="training-education-hub.html">Training & Education</a></li>
-                  <li><a href="home.html">All Services</a></li>
               </ul>
           </div>
           <div>
               <h4>Company</h4>
               <ul class="footer-links">
                   <li><a href="#about">About Us</a></li>
-                  <li><a href="#careers">Careers</a></li>
                   <li><a href="#contact">Contact</a></li>
                   <li><a href="#support">Support</a></li>
               </ul>
