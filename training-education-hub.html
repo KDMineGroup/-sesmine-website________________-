@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Training & Education Hub - SES_Mine | Professional Mining Education</title>
-  <link rel="icon" type="image/png" href="images/ses-mine-logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
       :root {
@@ -13,7 +12,6 @@
           --primary-light: #2d6fc2;
           --secondary: #ec4899;
           --secondary-light: #f472b6;
-          --accent: #db2777;
           --dark: #0f1419;
           --dark-alt: #1a1f26;
           --gray: #4a5568;
@@ -21,7 +19,6 @@
           --white: #ffffff;
           --gradient-primary: linear-gradient(135deg, #1a4d8c 0%, #2d6fc2 100%);
           --gradient-secondary: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
-          --gradient-accent: linear-gradient(135deg, #db2777 0%, #ec4899 100%);
       }
 
       * {
@@ -56,10 +53,9 @@
           bottom: 0;
           background: 
               radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(219, 39, 119, 0.08) 0%, transparent 50%);
+              radial-gradient(circle at 80% 80%, rgba(244, 114, 182, 0.08) 0%, transparent 50%);
       }
 
-      /* Logo Styling */
       .main-logo {
           height: 70px;
           width: auto;
@@ -78,7 +74,6 @@
           .main-logo { height: 50px; }
       }
 
-      /* Navigation */
       .navbar {
           position: fixed;
           top: 0;
@@ -103,7 +98,6 @@
       .logo-container {
           display: flex;
           align-items: center;
-          gap: 0;
           text-decoration: none;
           color: var(--white);
           transition: all 0.3s ease;
@@ -146,7 +140,6 @@
           box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
       }
 
-      /* Hero Section */
       .hero {
           padding: 10rem 2rem 6rem;
           position: relative;
@@ -248,10 +241,107 @@
           display: block;
       }
 
-      /* Stats Section */
-      .stats {
-          padding: 4rem 2rem;
+      .section {
+          padding: 6rem 2rem;
+      }
+
+      .section-alt {
           background: rgba(26, 31, 38, 0.5);
+      }
+
+      .section-header {
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto 4rem;
+      }
+
+      .section-badge {
+          display: inline-block;
+          padding: 0.5rem 1rem;
+          background: rgba(236, 72, 153, 0.1);
+          border: 1px solid rgba(236, 72, 153, 0.3);
+          border-radius: 50px;
+          color: var(--secondary);
+          font-size: 0.9rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+      }
+
+      .section-header h2 {
+          font-size: 3rem;
+          font-weight: 800;
+          margin-bottom: 1rem;
+          background: var(--gradient-secondary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+      .section-header p {
+          font-size: 1.1rem;
+          color: var(--gray-light);
+      }
+
+      .grid {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+      }
+
+      .card {
+          background: rgba(10, 37, 64, 0.6);
+          border: 1px solid rgba(236, 72, 153, 0.2);
+          border-radius: 20px;
+          padding: 2.5rem;
+          transition: all 0.4s;
+      }
+
+      .card:hover {
+          transform: translateY(-10px);
+          border-color: var(--secondary);
+          box-shadow: 0 20px 60px rgba(236, 72, 153, 0.3);
+      }
+
+      .feature-icon {
+          width: 70px;
+          height: 70px;
+          background: var(--gradient-secondary);
+          border-radius: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          margin-bottom: 1.5rem;
+          box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+      }
+
+      .card h3 {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+      }
+
+      .card p {
+          color: var(--gray-light);
+          line-height: 1.7;
+          margin-bottom: 1.5rem;
+      }
+
+      .card ul {
+          list-style: none;
+          margin-bottom: 1.5rem;
+      }
+
+      .card ul li {
+          padding: 0.5rem 0;
+          color: var(--gray-light);
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+      }
+
+      .card ul li i {
+          color: var(--secondary);
       }
 
       .stats-grid {
@@ -298,471 +388,6 @@
           color: var(--gray-light);
       }
 
-      /* Courses Section */
-      .courses {
-          padding: 6rem 2rem;
-      }
-
-      .section-header {
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto 4rem;
-      }
-
-      .section-badge {
-          display: inline-block;
-          padding: 0.5rem 1rem;
-          background: rgba(236, 72, 153, 0.1);
-          border: 1px solid rgba(236, 72, 153, 0.3);
-          border-radius: 50px;
-          color: var(--secondary);
-          font-size: 0.9rem;
-          font-weight: 600;
-          margin-bottom: 1rem;
-      }
-
-      .section-header h2 {
-          font-size: 3rem;
-          font-weight: 800;
-          margin-bottom: 1rem;
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
-
-      .section-header p {
-          font-size: 1.1rem;
-          color: var(--gray-light);
-      }
-
-      .courses-grid {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-          gap: 2rem;
-      }
-
-      .course-card {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(236, 72, 153, 0.2);
-          border-radius: 20px;
-          overflow: hidden;
-          transition: all 0.4s;
-      }
-
-      .course-card:hover {
-          transform: translateY(-10px);
-          border-color: var(--secondary);
-          box-shadow: 0 20px 60px rgba(236, 72, 153, 0.3);
-      }
-
-      .course-image {
-          width: 100%;
-          height: 220px;
-          overflow: hidden;
-          position: relative;
-      }
-
-      .course-image img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.6s;
-      }
-
-      .course-card:hover .course-image img {
-          transform: scale(1.1);
-      }
-
-      .course-badge {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          padding: 0.5rem 1rem;
-          background: var(--gradient-secondary);
-          border-radius: 20px;
-          font-size: 0.8rem;
-          font-weight: 600;
-      }
-
-      .course-level {
-          position: absolute;
-          top: 1rem;
-          left: 1rem;
-          padding: 0.5rem 1rem;
-          background: rgba(10, 37, 64, 0.9);
-          border-radius: 20px;
-          font-size: 0.8rem;
-          font-weight: 600;
-      }
-
-      .course-content {
-          padding: 2rem;
-      }
-
-      .course-category {
-          display: inline-block;
-          padding: 0.3rem 0.8rem;
-          background: rgba(236, 72, 153, 0.2);
-          border-radius: 15px;
-          font-size: 0.8rem;
-          color: var(--secondary);
-          margin-bottom: 1rem;
-      }
-
-      .course-content h3 {
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
-      }
-
-      .course-content p {
-          color: var(--gray-light);
-          line-height: 1.7;
-          margin-bottom: 1.5rem;
-      }
-
-      .course-meta {
-          display: flex;
-          gap: 1.5rem;
-          margin-bottom: 1.5rem;
-          padding-bottom: 1.5rem;
-          border-bottom: 1px solid rgba(236, 72, 153, 0.2);
-      }
-
-      .meta-item {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          color: var(--gray-light);
-          font-size: 0.9rem;
-      }
-
-      .meta-item i {
-          color: var(--secondary);
-      }
-
-      .course-footer {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-      }
-
-      .course-price {
-          font-size: 1.5rem;
-          font-weight: 800;
-          color: var(--secondary);
-      }
-
-      .course-btn {
-          padding: 0.8rem 1.5rem;
-          background: var(--gradient-secondary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-      }
-
-      .course-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
-      }
-
-      /* Certifications Section */
-      .certifications {
-          padding: 6rem 2rem;
-          background: rgba(26, 31, 38, 0.5);
-      }
-
-      .cert-grid {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-      }
-
-      .cert-card {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(236, 72, 153, 0.2);
-          border-radius: 20px;
-          padding: 2.5rem;
-          transition: all 0.4s;
-          position: relative;
-          overflow: hidden;
-      }
-
-      .cert-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: var(--gradient-secondary);
-          transform: scaleX(0);
-          transition: transform 0.4s;
-      }
-
-      .cert-card:hover::before {
-          transform: scaleX(1);
-      }
-
-      .cert-card:hover {
-          transform: translateY(-10px);
-          border-color: var(--secondary);
-          box-shadow: 0 20px 60px rgba(236, 72, 153, 0.3);
-      }
-
-      .cert-icon {
-          width: 70px;
-          height: 70px;
-          background: var(--gradient-secondary);
-          border-radius: 15px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 2rem;
-          margin-bottom: 1.5rem;
-          box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
-      }
-
-      .cert-card h3 {
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
-      }
-
-      .cert-card p {
-          color: var(--gray-light);
-          line-height: 1.7;
-          margin-bottom: 1.5rem;
-      }
-
-      .cert-features {
-          list-style: none;
-          margin-bottom: 1.5rem;
-      }
-
-      .cert-features li {
-          padding: 0.5rem 0;
-          color: var(--gray-light);
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-      }
-
-      .cert-features li i {
-          color: var(--secondary);
-      }
-
-      .cert-btn {
-          width: 100%;
-          padding: 0.8rem;
-          background: var(--gradient-secondary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-      }
-
-      .cert-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
-      }
-
-      /* Instructors Section */
-      .instructors {
-          padding: 6rem 2rem;
-      }
-
-      .instructors-grid {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 2rem;
-      }
-
-      .instructor-card {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(236, 72, 153, 0.2);
-          border-radius: 20px;
-          overflow: hidden;
-          transition: all 0.4s;
-      }
-
-      .instructor-card:hover {
-          transform: translateY(-10px);
-          border-color: var(--secondary);
-          box-shadow: 0 20px 60px rgba(236, 72, 153, 0.3);
-      }
-
-      .instructor-image {
-          width: 100%;
-          height: 280px;
-          overflow: hidden;
-          position: relative;
-      }
-
-      .instructor-image img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.6s;
-      }
-
-      .instructor-card:hover .instructor-image img {
-          transform: scale(1.1);
-      }
-
-      .instructor-content {
-          padding: 2rem;
-          text-align: center;
-      }
-
-      .instructor-content h3 {
-          font-size: 1.3rem;
-          margin-bottom: 0.5rem;
-      }
-
-      .instructor-role {
-          color: var(--secondary);
-          font-size: 0.9rem;
-          margin-bottom: 1rem;
-      }
-
-      .instructor-content p {
-          color: var(--gray-light);
-          line-height: 1.7;
-          font-size: 0.9rem;
-          margin-bottom: 1rem;
-      }
-
-      .instructor-stats {
-          display: flex;
-          justify-content: space-around;
-          padding-top: 1rem;
-          border-top: 1px solid rgba(236, 72, 153, 0.2);
-      }
-
-      .instructor-stat {
-          text-align: center;
-      }
-
-      .stat-value-small {
-          font-size: 1.5rem;
-          font-weight: 800;
-          color: var(--secondary);
-      }
-
-      .stat-label-small {
-          font-size: 0.8rem;
-          color: var(--gray-light);
-      }
-
-      /* Learning Paths Section */
-      .learning-paths {
-          padding: 6rem 2rem;
-          background: rgba(26, 31, 38, 0.5);
-      }
-
-      .paths-container {
-          max-width: 1200px;
-          margin: 0 auto;
-      }
-
-      .path-item {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(236, 72, 153, 0.2);
-          border-radius: 20px;
-          padding: 2.5rem;
-          margin-bottom: 2rem;
-          transition: all 0.3s;
-      }
-
-      .path-item:hover {
-          border-color: var(--secondary);
-          box-shadow: 0 15px 40px rgba(236, 72, 153, 0.3);
-      }
-
-      .path-header {
-          display: flex;
-          align-items: center;
-          gap: 1.5rem;
-          margin-bottom: 1.5rem;
-      }
-
-      .path-number {
-          width: 60px;
-          height: 60px;
-          background: var(--gradient-secondary);
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.5rem;
-          font-weight: 800;
-          flex-shrink: 0;
-      }
-
-      .path-item h3 {
-          font-size: 1.8rem;
-      }
-
-      .path-item p {
-          color: var(--gray-light);
-          line-height: 1.8;
-          margin-bottom: 1.5rem;
-      }
-
-      .path-modules {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 1rem;
-      }
-
-      .module-tag {
-          padding: 0.8rem 1rem;
-          background: rgba(236, 72, 153, 0.1);
-          border: 1px solid rgba(236, 72, 153, 0.3);
-          border-radius: 10px;
-          color: var(--gray-light);
-          text-align: center;
-          transition: all 0.3s;
-      }
-
-      .module-tag:hover {
-          background: rgba(236, 72, 153, 0.2);
-          border-color: var(--secondary);
-          color: var(--secondary);
-      }
-
-      /* CTA Section */
-      .cta {
-          padding: 6rem 2rem;
-          text-align: center;
-      }
-
-      .cta h2 {
-          font-size: 3rem;
-          font-weight: 800;
-          margin-bottom: 1rem;
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
-
-      .cta p {
-          font-size: 1.2rem;
-          color: var(--gray-light);
-          margin-bottom: 2.5rem;
-      }
-
-      /* Footer */
       .footer {
           padding: 4rem 2rem 2rem;
           background: rgba(10, 37, 64, 0.8);
@@ -855,10 +480,8 @@
               font-size: 2.5rem;
           }
 
-          .stats-grid,
-          .courses-grid,
-          .cert-grid,
-          .instructors-grid {
+          .grid,
+          .stats-grid {
               grid-template-columns: 1fr;
           }
 
@@ -871,20 +494,18 @@
 <body>
   <div class="page-background"></div>
 
-  <!-- Navigation -->
   <nav class="navbar">
       <div class="nav-container">
           <a href="index.html" class="logo-container">
-              <img src="images/ses-mine-logo.png" 
-                   alt="SES_Mine - Smart Engineering Solutions" 
+              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
+                   alt="SES_Mine" 
                    class="main-logo">
           </a>
           <ul class="nav-menu">
               <li><a href="index.html">Home</a></li>
               <li><a href="home.html">Platforms</a></li>
               <li><a href="engineering-hub.html">Engineering</a></li>
-              <li><a href="economics-hub.html">Economics</a></li>
-              <li><a href="consulting-hub.html">Consulting</a></li>
+              <li><a href="analytics-platform.html">Analytics</a></li>
           </ul>
           <button class="nav-cta" onclick="window.location.href='index.html'">
               Get Started
@@ -892,7 +513,6 @@
       </div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="hero">
       <div class="hero-container">
           <div class="hero-content">
@@ -901,7 +521,7 @@
                   <span>Professional Education</span>
               </div>
               <h1>
-                  Mining <span class="gradient-text">Education & Training</span>
+                  Mining <span class="gradient-text">Education</span> & Training Hub
               </h1>
               <p class="hero-subtitle">
                   Advance your mining career with industry-leading courses, certifications, and 
@@ -925,8 +545,7 @@
       </div>
   </section>
 
-  <!-- Stats Section -->
-  <section class="stats">
+  <section class="section section-alt">
       <div class="stats-grid">
           <div class="stat-card">
               <div class="stat-icon">
@@ -962,361 +581,137 @@
       </div>
   </section>
 
-  <!-- Courses Section -->
-  <section class="courses">
+  <section class="section">
       <div class="section-header">
-          <span class="section-badge">POPULAR COURSES</span>
-          <h2>Featured Courses</h2>
-          <p>Industry-leading training programs for mining professionals</p>
+          <span class="section-badge">LEARNING PROGRAMS</span>
+          <h2>Training Solutions</h2>
+          <p>Comprehensive education programs for mining professionals</p>
       </div>
 
-      <div class="courses-grid">
-          <div class="course-card">
-              <div class="course-image">
-                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop&q=80" alt="Mine Planning">
-                  <span class="course-badge">Bestseller</span>
-                  <span class="course-level">Advanced</span>
+      <div class="grid">
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-laptop-code"></i>
               </div>
-              <div class="course-content">
-                  <span class="course-category">Engineering</span>
-                  <h3>Advanced Mine Planning & Design</h3>
-                  <p>Comprehensive course covering modern mine planning techniques, optimization, and design principles.</p>
-                  <div class="course-meta">
-                      <div class="meta-item">
-                          <i class="fas fa-clock"></i>
-                          <span>40 hours</span>
-                      </div>
-                      <div class="meta-item">
-                          <i class="fas fa-users"></i>
-                          <span>1,250 students</span>
-                      </div>
-                      <div class="meta-item">
-                          <i class="fas fa-star"></i>
-                          <span>4.9</span>
-                      </div>
-                  </div>
-                  <div class="course-footer">
-                      <div class="course-price">$1,299</div>
-                      <button class="course-btn">Enroll Now</button>
-                  </div>
-              </div>
+              <h3>Online Courses</h3>
+              <p>Self-paced online courses covering all aspects of modern mining operations.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> 200+ courses</li>
+                  <li><i class="fas fa-check"></i> Self-paced learning</li>
+                  <li><i class="fas fa-check"></i> Video lectures</li>
+                  <li><i class="fas fa-check"></i> Lifetime access</li>
+              </ul>
+              <button class="btn-primary">Explore Courses</button>
           </div>
 
-          <div class="course-card">
-              <div class="course-image">
-                  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&q=80" alt="Mining Economics">
-                  <span class="course-badge">Popular</span>
-                  <span class="course-level">Intermediate</span>
-              </div>
-              <div class="course-content">
-                  <span class="course-category">Economics</span>
-                  <h3>Mining Economics & Financial Analysis</h3>
-                  <p>Master financial modeling, economic evaluation, and investment analysis for mining projects.</p>
-                  <div class="course-meta">
-                      <div class="meta-item">
-                          <i class="fas fa-clock"></i>
-                          <span>35 hours</span>
-                      </div>
-                      <div class="meta-item">
-                          <i class="fas fa-users"></i>
-                          <span>980 students</span>
-                      </div>
-                      <div class="meta-item">
-                          <i class="fas fa-star"></i>
-                          <span>4.8</span>
-                      </div>
-                  </div>
-                  <div class="course-footer">
-                      <div class="course-price">$999</div>
-                      <button class="course-btn">Enroll Now</button>
-                  </div>
-              </div>
-          </div>
-
-          <div class="course-card">
-              <div class="course-image">
-                  <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop&q=80" alt="Smart Mining">
-                  <span class="course-badge">New</span>
-                  <span class="course-level">Beginner</span>
-              </div>
-              <div class="course-content">
-                  <span class="course-category">Technology</span>
-                  <h3>Smart Mining & Automation</h3>
-                  <p>Introduction to AI, IoT, and automation technologies transforming modern mining operations.</p>
-                  <div class="course-meta">
-                      <div class="meta-item">
-                          <i class="fas fa-clock"></i>
-                          <span>25 hours</span>
-                      </div>
-                      <div class="meta-item">
-                          <i class="fas fa-users"></i>
-                          <span>750 students</span>
-                      </div>
-                      <div class="meta-item">
-                          <i class="fas fa-star"></i>
-                          <span>5.0</span>
-                      </div>
-                  </div>
-                  <div class="course-footer">
-                      <div class="course-price">$799</div>
-                      <button class="course-btn">Enroll Now</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-
-  <!-- Certifications Section -->
-  <section class="certifications">
-      <div class="section-header">
-          <span class="section-badge">CERTIFICATIONS</span>
-          <h2>Professional Certifications</h2>
-          <p>Industry-recognized credentials for mining professionals</p>
-      </div>
-
-      <div class="cert-grid">
-          <div class="cert-card">
-              <div class="cert-icon">
+          <div class="card">
+              <div class="feature-icon">
                   <i class="fas fa-award"></i>
               </div>
-              <h3>Certified Mining Engineer</h3>
-              <p>Comprehensive certification covering all aspects of mining engineering and operations.</p>
-              <ul class="cert-features">
-                  <li><i class="fas fa-check"></i> 12-week program</li>
-                  <li><i class="fas fa-check"></i> 6 core modules</li>
-                  <li><i class="fas fa-check"></i> Final examination</li>
+              <h3>Professional Certifications</h3>
+              <p>Industry-recognized certifications to advance your mining career.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> 30+ certifications</li>
                   <li><i class="fas fa-check"></i> Industry recognized</li>
+                  <li><i class="fas fa-check"></i> Expert instructors</li>
+                  <li><i class="fas fa-check"></i> Career advancement</li>
               </ul>
-              <button class="cert-btn">Learn More</button>
+              <button class="btn-primary">View Certifications</button>
           </div>
 
-          <div class="cert-card">
-              <div class="cert-icon">
-                  <i class="fas fa-chart-line"></i>
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-chalkboard-teacher"></i>
               </div>
-              <h3>Mining Economics Specialist</h3>
-              <p>Advanced certification in mining economics, financial modeling, and project evaluation.</p>
-              <ul class="cert-features">
-                  <li><i class="fas fa-check"></i> 10-week program</li>
-                  <li><i class="fas fa-check"></i> 5 core modules</li>
-                  <li><i class="fas fa-check"></i> Capstone project</li>
-                  <li><i class="fas fa-check"></i> CPD accredited</li>
+              <h3>Live Training</h3>
+              <p>Interactive live training sessions with industry experts.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Live sessions</li>
+                  <li><i class="fas fa-check"></i> Q&A with experts</li>
+                  <li><i class="fas fa-check"></i> Hands-on practice</li>
+                  <li><i class="fas fa-check"></i> Networking opportunities</li>
               </ul>
-              <button class="cert-btn">Learn More</button>
+              <button class="btn-primary">Schedule Training</button>
           </div>
 
-          <div class="cert-card">
-              <div class="cert-icon">
-                  <i class="fas fa-robot"></i>
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-building"></i>
               </div>
-              <h3>Smart Mining Technology</h3>
-              <p>Certification in automation, AI, and digital transformation for mining operations.</p>
-              <ul class="cert-features">
-                  <li><i class="fas fa-check"></i> 8-week program</li>
-                  <li><i class="fas fa-check"></i> 4 core modules</li>
-                  <li><i class="fas fa-check"></i> Hands-on projects</li>
-                  <li><i class="fas fa-check"></i> Digital badge</li>
+              <h3>Corporate Training</h3>
+              <p>Customized training programs for mining companies and teams.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Custom programs</li>
+                  <li><i class="fas fa-check"></i> On-site training</li>
+                  <li><i class="fas fa-check"></i> Team development</li>
+                  <li><i class="fas fa-check"></i> Flexible scheduling</li>
               </ul>
-              <button class="cert-btn">Learn More</button>
+              <button class="btn-primary">Contact Sales</button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-user-graduate"></i>
+              </div>
+              <h3>Mentorship Programs</h3>
+              <p>One-on-one mentorship with experienced mining professionals.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Expert mentors</li>
+                  <li><i class="fas fa-check"></i> Personalized guidance</li>
+                  <li><i class="fas fa-check"></i> Career coaching</li>
+                  <li><i class="fas fa-check"></i> Industry insights</li>
+              </ul>
+              <button class="btn-primary">Find Mentor</button>
+          </div>
+
+          <div class="card">
+              <div class="feature-icon">
+                  <i class="fas fa-tools"></i>
+              </div>
+              <h3>Practical Workshops</h3>
+              <p>Hands-on workshops for practical skills development.</p>
+              <ul>
+                  <li><i class="fas fa-check"></i> Hands-on training</li>
+                  <li><i class="fas fa-check"></i> Real equipment</li>
+                  <li><i class="fas fa-check"></i> Safety focus</li>
+                  <li><i class="fas fa-check"></i> Small groups</li>
+              </ul>
+              <button class="btn-primary">View Workshops</button>
           </div>
       </div>
   </section>
 
-  <!-- Instructors Section -->
-  <section class="instructors">
-      <div class="section-header">
-          <span class="section-badge">EXPERT INSTRUCTORS</span>
-          <h2>Learn From The Best</h2>
-          <p>Industry veterans with decades of real-world experience</p>
-      </div>
-
-      <div class="instructors-grid">
-          <div class="instructor-card">
-              <div class="instructor-image">
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&q=80" alt="Instructor">
-              </div>
-              <div class="instructor-content">
-                  <h3>Dr. Robert Anderson</h3>
-                  <div class="instructor-role">Senior Mining Engineer</div>
-                  <p>35+ years in mine planning and operations. PhD in Mining Engineering from Colorado School of Mines.</p>
-                  <div class="instructor-stats">
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">15</div>
-                          <div class="stat-label-small">Courses</div>
-                      </div>
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">12K</div>
-                          <div class="stat-label-small">Students</div>
-                      </div>
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">4.9</div>
-                          <div class="stat-label-small">Rating</div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div class="instructor-card">
-              <div class="instructor-image">
-                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&q=80" alt="Instructor">
-              </div>
-              <div class="instructor-content">
-                  <h3>Sarah Mitchell</h3>
-                  <div class="instructor-role">Mining Economist</div>
-                  <p>25+ years in mining economics and financial analysis. Former VP at major mining company.</p>
-                  <div class="instructor-stats">
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">12</div>
-                          <div class="stat-label-small">Courses</div>
-                      </div>
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">9K</div>
-                          <div class="stat-label-small">Students</div>
-                      </div>
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">4.8</div>
-                          <div class="stat-label-small">Rating</div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div class="instructor-card">
-              <div class="instructor-image">
-                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&q=80" alt="Instructor">
-              </div>
-              <div class="instructor-content">
-                  <h3>James Chen</h3>
-                  <div class="instructor-role">Technology Specialist</div>
-                  <p>20+ years implementing automation and digital solutions in mining operations worldwide.</p>
-                  <div class="instructor-stats">
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">10</div>
-                          <div class="stat-label-small">Courses</div>
-                      </div>
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">8K</div>
-                          <div class="stat-label-small">Students</div>
-                      </div>
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">5.0</div>
-                          <div class="stat-label-small">Rating</div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div class="instructor-card">
-              <div class="instructor-image">
-                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&q=80" alt="Instructor">
-              </div>
-              <div class="instructor-content">
-                  <h3>Dr. Maria Rodriguez</h3>
-                  <div class="instructor-role">Geotechnical Expert</div>
-                  <p>30+ years in geotechnical engineering and slope stability analysis for mining projects.</p>
-                  <div class="instructor-stats">
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">8</div>
-                          <div class="stat-label-small">Courses</div>
-                      </div>
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">6K</div>
-                          <div class="stat-label-small">Students</div>
-                      </div>
-                      <div class="instructor-stat">
-                          <div class="stat-value-small">4.9</div>
-                          <div class="stat-label-small">Rating</div>
-                      </div>
-                  </div>
-              </div>
+  <section class="section section-alt">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient-secondary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Start Your Learning Journey Today
+          </h2>
+          <p style="color: var(--gray-light); font-size: 1.2rem; margin-bottom: 2rem;">
+              Join thousands of mining professionals advancing their careers
+          </p>
+          <div class="hero-buttons" style="justify-content: center;">
+              <button class="btn-primary">
+                  <i class="fas fa-rocket"></i>
+                  Browse All Courses
+              </button>
+              <button class="btn-secondary">
+                  <i class="fas fa-gift"></i>
+                  Get Free Trial
+              </button>
           </div>
       </div>
   </section>
 
-  <!-- Learning Paths Section -->
-  <section class="learning-paths">
-      <div class="section-header">
-          <span class="section-badge">LEARNING PATHS</span>
-          <h2>Structured Learning Journeys</h2>
-          <p>Follow curated paths to master specific mining disciplines</p>
-      </div>
-
-      <div class="paths-container">
-          <div class="path-item">
-              <div class="path-header">
-                  <div class="path-number">1</div>
-                  <h3>Mining Engineering Path</h3>
-              </div>
-              <p>Complete journey from fundamentals to advanced mine planning and design expertise.</p>
-              <div class="path-modules">
-                  <div class="module-tag">Mining Fundamentals</div>
-                  <div class="module-tag">Geology & Resources</div>
-                  <div class="module-tag">Mine Planning</div>
-                  <div class="module-tag">Equipment Selection</div>
-                  <div class="module-tag">Production Scheduling</div>
-                  <div class="module-tag">Advanced Design</div>
-              </div>
-          </div>
-
-          <div class="path-item">
-              <div class="path-header">
-                  <div class="path-number">2</div>
-                  <h3>Mining Economics Path</h3>
-              </div>
-              <p>Master financial analysis, economic modeling, and investment evaluation for mining projects.</p>
-              <div class="path-modules">
-                  <div class="module-tag">Economics Basics</div>
-                  <div class="module-tag">Cost Estimation</div>
-                  <div class="module-tag">Financial Modeling</div>
-                  <div class="module-tag">Project Valuation</div>
-                  <div class="module-tag">Risk Analysis</div>
-                  <div class="module-tag">Investment Strategy</div>
-              </div>
-          </div>
-
-          <div class="path-item">
-              <div class="path-header">
-                  <div class="path-number">3</div>
-                  <h3>Digital Mining Path</h3>
-              </div>
-              <p>Learn cutting-edge technologies transforming modern mining operations.</p>
-              <div class="path-modules">
-                  <div class="module-tag">IoT & Sensors</div>
-                  <div class="module-tag">Data Analytics</div>
-                  <div class="module-tag">AI & Machine Learning</div>
-                  <div class="module-tag">Automation Systems</div>
-                  <div class="module-tag">Digital Twin</div>
-                  <div class="module-tag">Smart Operations</div>
-              </div>
-          </div>
-      </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta">
-      <h2>Start Your Learning Journey Today</h2>
-      <p>Join thousands of mining professionals advancing their careers</p>
-      <div class="hero-buttons" style="justify-content: center;">
-          <button class="btn-primary">
-              <i class="fas fa-rocket"></i>
-              Browse All Courses
-          </button>
-          <button class="btn-secondary">
-              <i class="fas fa-gift"></i>
-              Get Free Trial
-          </button>
-      </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
       <div class="footer-container">
           <div>
-              <img src="images/ses-mine-logo.png" alt="SES_Mine" class="footer-logo">
+              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
+                   alt="SES_Mine" 
+                   class="footer-logo">
               <div class="footer-brand">SES_Mine</div>
               <p class="footer-desc">
                   Scientific and Engineering Supplies LLC - Leading provider of comprehensive 
-                  mining solutions and digital transformation platforms for the global mining industry.
+                  mining solutions and digital transformation platforms.
               </p>
           </div>
           <div>
@@ -1334,14 +729,12 @@
                   <li><a href="innovation-technology-hub.html">Innovation & Tech</a></li>
                   <li><a href="analytics-platform.html">Analytics Platform</a></li>
                   <li><a href="training-education-hub.html">Training & Education</a></li>
-                  <li><a href="home.html">All Services</a></li>
               </ul>
           </div>
           <div>
               <h4>Company</h4>
               <ul class="footer-links">
                   <li><a href="#about">About Us</a></li>
-                  <li><a href="#careers">Careers</a></li>
                   <li><a href="#contact">Contact</a></li>
                   <li><a href="#support">Support</a></li>
               </ul>
