@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulting Hub - SES_Mine | Expert Mining Consulting Services</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta name="description" content="Consulting Hub - Expert mining consulting services for strategic planning, operational excellence, and project optimization">
+  <title>Consulting Hub - SESMine</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
       :root {
-          --primary-dark: #0a2540;
-          --primary: #1a4d8c;
-          --primary-light: #2d6fc2;
-          --secondary: #8b5cf6;
-          --secondary-light: #a78bfa;
-          --dark: #0f1419;
-          --dark-alt: #1a1f26;
-          --gray: #4a5568;
-          --gray-light: #a0aec0;
-          --white: #ffffff;
-          --gradient-primary: linear-gradient(135deg, #1a4d8c 0%, #2d6fc2 100%);
-          --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+          --primary-color: #2c3e50;
+          --secondary-color: #34495e;
+          --accent-color: #16a085;
+          --success-color: #27ae60;
+          --dark-bg: #0a1628;
+          --light-bg: #f8f9fa;
+          --text-dark: #2c3e50;
+          --gradient-1: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+          --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+          --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+          --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+          --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       * {
@@ -28,472 +30,711 @@
       }
 
       body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background: var(--dark);
-          color: var(--white);
+          font-family: 'Inter', sans-serif;
+          color: var(--text-dark);
           line-height: 1.6;
+          overflow-x: hidden;
       }
 
-      .page-background {
+      h1, h2, h3, h4, h5, h6 {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+      }
+
+      /* Navigation */
+      .navbar {
           position: fixed;
           top: 0;
-          left: 0;
           width: 100%;
-          height: 100%;
-          z-index: -1;
-          background: linear-gradient(135deg, #0a2540 0%, #1a1f26 100%);
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(10px);
+          box-shadow: var(--shadow-sm);
+          z-index: 1000;
       }
 
-      .page-background::before {
+      .nav-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 80px;
+      }
+
+      .logo {
+          font-size: 28px;
+          font-weight: 800;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          text-decoration: none;
+      }
+
+      .nav-menu {
+          display: flex;
+          list-style: none;
+          gap: 40px;
+      }
+
+      .nav-menu a {
+          text-decoration: none;
+          color: var(--text-dark);
+          font-weight: 500;
+          transition: var(--transition);
+      }
+
+      .nav-menu a:hover {
+          color: var(--primary-color);
+      }
+
+      .btn {
+          padding: 12px 28px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: var(--transition);
+          cursor: pointer;
+          border: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .btn-primary {
+          background: var(--gradient-1);
+          color: white;
+          box-shadow: var(--shadow-sm);
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+      }
+
+      /* Hero Section */
+      .hero {
+          margin-top: 80px;
+          min-height: 90vh;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          background-image: linear-gradient(rgba(44, 62, 80, 0.85), rgba(52, 73, 94, 0.85)),
+                            url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80');
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+      }
+
+      .hero::before {
           content: '';
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background: 
-              radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.08) 0%, transparent 50%);
+          background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
       }
 
-      .main-logo {
-          height: 70px;
-          width: auto;
-          max-width: 250px;
-          object-fit: contain;
-          transition: all 0.3s ease;
-          filter: drop-shadow(0 2px 8px rgba(45, 111, 194, 0.3));
-      }
-
-      .main-logo:hover {
-          transform: scale(1.05);
-          filter: drop-shadow(0 4px 15px rgba(45, 111, 194, 0.6));
-      }
-
-      @media (max-width: 768px) {
-          .main-logo { height: 50px; }
-      }
-
-      .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          background: rgba(10, 37, 64, 0.95);
-          backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(45, 111, 194, 0.2);
-          z-index: 1000;
-          padding: 1rem 0;
-      }
-
-      .nav-container {
+      .hero-content {
           max-width: 1400px;
           margin: 0 auto;
-          padding: 0 2rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-      }
-
-      .logo-container {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          color: var(--white);
-          transition: all 0.3s ease;
-      }
-
-      .logo-container:hover {
-          transform: translateY(-2px);
-      }
-
-      .nav-menu {
-          display: flex;
-          list-style: none;
-          gap: 2rem;
-      }
-
-      .nav-menu a {
-          color: var(--gray-light);
-          text-decoration: none;
-          font-weight: 500;
-          transition: all 0.3s;
-      }
-
-      .nav-menu a:hover {
-          color: var(--secondary);
-      }
-
-      .nav-cta {
-          padding: 0.75rem 1.5rem;
-          background: var(--gradient-secondary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-      }
-
-      .nav-cta:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
-      }
-
-      .hero {
-          padding: 10rem 2rem 6rem;
+          padding: 80px 30px;
           position: relative;
+          z-index: 1;
+          text-align: center;
+          color: white;
       }
 
-      .hero-container {
+      .hero-content h1 {
+          font-size: 56px;
+          margin-bottom: 20px;
+          animation: fadeInUp 0.8s ease-out;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      }
+
+      .hero-content p {
+          font-size: 22px;
+          opacity: 0.95;
+          margin-bottom: 35px;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+          animation: fadeInUp 0.8s ease-out 0.2s backwards;
+      }
+
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(30px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      /* Expertise Areas */
+      .expertise {
+          padding: 100px 30px;
+          background: white;
+      }
+
+      .expertise-container {
           max-width: 1400px;
           margin: 0 auto;
-          display: grid;
-          grid-template-columns: 1.2fr 1fr;
-          gap: 4rem;
-          align-items: center;
-      }
-
-      .hero-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.5rem 1rem;
-          background: rgba(139, 92, 246, 0.1);
-          border: 1px solid rgba(139, 92, 246, 0.3);
-          border-radius: 50px;
-          color: var(--secondary);
-          font-size: 0.9rem;
-          font-weight: 600;
-          margin-bottom: 1.5rem;
-      }
-
-      .hero h1 {
-          font-size: 3.5rem;
-          font-weight: 800;
-          line-height: 1.1;
-          margin-bottom: 1.5rem;
-      }
-
-      .gradient-text {
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
-
-      .hero-subtitle {
-          font-size: 1.2rem;
-          color: var(--gray-light);
-          line-height: 1.8;
-          margin-bottom: 2.5rem;
-      }
-
-      .hero-buttons {
-          display: flex;
-          gap: 1rem;
-          margin-bottom: 3rem;
-      }
-
-      .btn-primary {
-          padding: 1rem 2rem;
-          background: var(--gradient-secondary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-      }
-
-      .btn-primary:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
-      }
-
-      .btn-secondary {
-          padding: 1rem 2rem;
-          background: transparent;
-          border: 2px solid var(--secondary);
-          border-radius: 8px;
-          color: var(--secondary);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-      }
-
-      .btn-secondary:hover {
-          background: rgba(139, 92, 246, 0.1);
-      }
-
-      .hero-image {
-          position: relative;
-          border-radius: 20px;
-          overflow: hidden;
-          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-      }
-
-      .hero-image img {
-          width: 100%;
-          height: auto;
-          display: block;
-      }
-
-      .section {
-          padding: 6rem 2rem;
-      }
-
-      .section-alt {
-          background: rgba(26, 31, 38, 0.5);
       }
 
       .section-header {
           text-align: center;
           max-width: 800px;
-          margin: 0 auto 4rem;
+          margin: 0 auto 60px;
       }
 
-      .section-badge {
+      .section-tag {
           display: inline-block;
-          padding: 0.5rem 1rem;
-          background: rgba(139, 92, 246, 0.1);
-          border: 1px solid rgba(139, 92, 246, 0.3);
+          background: var(--gradient-1);
+          color: white;
+          padding: 8px 20px;
           border-radius: 50px;
-          color: var(--secondary);
-          font-size: 0.9rem;
+          font-size: 14px;
           font-weight: 600;
-          margin-bottom: 1rem;
+          margin-bottom: 15px;
       }
 
       .section-header h2 {
-          font-size: 3rem;
-          font-weight: 800;
-          margin-bottom: 1rem;
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          font-size: 42px;
+          margin-bottom: 20px;
       }
 
       .section-header p {
-          font-size: 1.1rem;
-          color: var(--gray-light);
+          font-size: 18px;
+          color: #666;
       }
 
-      .grid {
-          max-width: 1400px;
-          margin: 0 auto;
+      .expertise-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 30px;
       }
 
-      .card {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(139, 92, 246, 0.2);
+      .expertise-card {
+          background: var(--light-bg);
           border-radius: 20px;
-          padding: 2.5rem;
-          transition: all 0.4s;
+          padding: 35px;
+          text-align: center;
+          transition: var(--transition);
+          cursor: pointer;
+          border: 3px solid transparent;
       }
 
-      .card:hover {
+      .expertise-card:hover {
+          background: white;
+          box-shadow: var(--shadow-lg);
           transform: translateY(-10px);
-          border-color: var(--secondary);
-          box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+          border-color: var(--primary-color);
       }
 
-      .feature-icon {
-          width: 70px;
-          height: 70px;
-          background: var(--gradient-secondary);
-          border-radius: 15px;
+      .expertise-icon {
+          width: 80px;
+          height: 80px;
+          background: var(--gradient-1);
+          border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 2rem;
-          margin-bottom: 1.5rem;
-          box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+          font-size: 36px;
+          color: white;
+          margin: 0 auto 25px;
       }
 
-      .card h3 {
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
+      .expertise-card:nth-child(2) .expertise-icon {
+          background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%);
       }
 
-      .card p {
-          color: var(--gray-light);
-          line-height: 1.7;
-          margin-bottom: 1.5rem;
+      .expertise-card:nth-child(3) .expertise-icon {
+          background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
       }
 
-      .card ul {
-          list-style: none;
-          margin-bottom: 1.5rem;
+      .expertise-card:nth-child(4) .expertise-icon {
+          background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
       }
 
-      .card ul li {
-          padding: 0.5rem 0;
-          color: var(--gray-light);
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
+      .expertise-card:nth-child(5) .expertise-icon {
+          background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
       }
 
-      .card ul li i {
-          color: var(--secondary);
+      .expertise-card:nth-child(6) .expertise-icon {
+          background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
       }
 
-      .stats-grid {
+      .expertise-card:nth-child(7) .expertise-icon {
+          background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+      }
+
+      .expertise-card:nth-child(8) .expertise-icon {
+          background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+      }
+
+      .expertise-card h3 {
+          font-size: 20px;
+          margin-bottom: 12px;
+          color: var(--text-dark);
+      }
+
+      .expertise-card p {
+          color: #666;
+          font-size: 14px;
+          line-height: 1.8;
+      }
+
+      /* Services Section */
+      .services {
+          padding: 100px 30px;
+          background: var(--light-bg);
+      }
+
+      .services-container {
           max-width: 1400px;
           margin: 0 auto;
+      }
+
+      .services-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 2rem;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
       }
 
-      .stat-card {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(139, 92, 246, 0.2);
-          border-radius: 20px;
-          padding: 2.5rem;
-          text-align: center;
-          transition: all 0.3s;
-      }
-
-      .stat-card:hover {
-          transform: translateY(-10px);
-          border-color: var(--secondary);
-          box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
-      }
-
-      .stat-icon {
-          font-size: 3rem;
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          margin-bottom: 1rem;
-      }
-
-      .stat-number {
-          font-size: 3rem;
-          font-weight: 800;
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          margin-bottom: 0.5rem;
-      }
-
-      .stat-label {
-          color: var(--gray-light);
-      }
-
-      .team-grid {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 2rem;
-      }
-
-      .team-card {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(139, 92, 246, 0.2);
+      .service-card {
+          background: white;
           border-radius: 20px;
           overflow: hidden;
-          transition: all 0.4s;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
+          cursor: pointer;
       }
 
-      .team-card:hover {
+      .service-card:hover {
           transform: translateY(-10px);
-          border-color: var(--secondary);
-          box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+          box-shadow: var(--shadow-lg);
       }
 
-      .team-image {
+      .service-image {
           width: 100%;
-          height: 280px;
+          height: 250px;
           overflow: hidden;
+          position: relative;
       }
 
-      .team-image img {
+      .service-image img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.6s;
+          transition: transform 0.5s ease;
       }
 
-      .team-card:hover .team-image img {
+      .service-card:hover .service-image img {
           transform: scale(1.1);
       }
 
-      .team-content {
-          padding: 2rem;
+      .service-badge {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: var(--gradient-1);
+          color: white;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 600;
+      }
+
+      .service-content {
+          padding: 30px;
+      }
+
+      .service-content h3 {
+          font-size: 24px;
+          margin-bottom: 15px;
+          color: var(--text-dark);
+      }
+
+      .service-content p {
+          color: #666;
+          line-height: 1.8;
+          margin-bottom: 20px;
+      }
+
+      .service-features {
+          list-style: none;
+          margin-bottom: 20px;
+      }
+
+      .service-features li {
+          padding: 8px 0;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          color: #555;
+      }
+
+      .service-features i {
+          color: var(--success-color);
+      }
+
+      /* Consulting Process */
+      .process {
+          padding: 100px 30px;
+          background: white;
+      }
+
+      .process-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .process-timeline {
+          position: relative;
+          padding: 50px 0;
+      }
+
+      .process-timeline::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 4px;
+          height: 100%;
+          background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+      }
+
+      .process-step {
+          display: flex;
+          align-items: center;
+          margin-bottom: 60px;
+          position: relative;
+      }
+
+      .process-step:nth-child(even) {
+          flex-direction: row-reverse;
+      }
+
+      .process-content {
+          width: 45%;
+          background: var(--light-bg);
+          padding: 30px;
+          border-radius: 20px;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
+      }
+
+      .process-step:hover .process-content {
+          box-shadow: var(--shadow-lg);
+          transform: scale(1.05);
+      }
+
+      .process-number {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 60px;
+          background: var(--gradient-1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 24px;
+          font-weight: 800;
+          box-shadow: 0 0 0 10px white;
+      }
+
+      .process-content h3 {
+          font-size: 24px;
+          margin-bottom: 12px;
+          color: var(--text-dark);
+      }
+
+      .process-content p {
+          color: #666;
+          line-height: 1.8;
+      }
+
+      /* Team Section */
+      .team {
+          padding: 100px 30px;
+          background: var(--light-bg);
+      }
+
+      .team-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .team-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 30px;
+      }
+
+      .team-member {
+          background: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
           text-align: center;
       }
 
-      .team-content h3 {
-          font-size: 1.3rem;
-          margin-bottom: 0.5rem;
+      .team-member:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-lg);
       }
 
-      .team-role {
-          color: var(--secondary);
-          font-size: 0.9rem;
-          margin-bottom: 1rem;
+      .member-photo {
+          width: 100%;
+          height: 280px;
+          overflow: hidden;
+          position: relative;
       }
 
-      .team-content p {
-          color: var(--gray-light);
-          line-height: 1.7;
-          font-size: 0.9rem;
+      .member-photo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
       }
 
+      .member-social {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+          padding: 15px;
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          opacity: 0;
+          transition: var(--transition);
+      }
+
+      .team-member:hover .member-social {
+          opacity: 1;
+      }
+
+      .social-link {
+          width: 35px;
+          height: 35px;
+          background: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--primary-color);
+          transition: var(--transition);
+          text-decoration: none;
+      }
+
+      .social-link:hover {
+          background: var(--primary-color);
+          color: white;
+      }
+
+      .member-info {
+          padding: 25px;
+      }
+
+      .member-info h4 {
+          font-size: 20px;
+          margin-bottom: 5px;
+      }
+
+      .member-role {
+          color: var(--primary-color);
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 10px;
+      }
+
+      .member-bio {
+          font-size: 13px;
+          color: #666;
+          line-height: 1.6;
+      }
+
+      /* Client Testimonials */
+      .testimonials {
+          padding: 100px 30px;
+          background: white;
+      }
+
+      .testimonials-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .testimonials-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+      }
+
+      .testimonial-card {
+          background: var(--light-bg);
+          border-radius: 20px;
+          padding: 35px;
+          position: relative;
+          transition: var(--transition);
+      }
+
+      .testimonial-card:hover {
+          box-shadow: var(--shadow-lg);
+          transform: translateY(-10px);
+      }
+
+      .quote-icon {
+          font-size: 48px;
+          color: var(--primary-color);
+          opacity: 0.2;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+      }
+
+      .testimonial-text {
+          font-size: 16px;
+          line-height: 1.8;
+          color: #555;
+          margin-bottom: 25px;
+          font-style: italic;
+      }
+
+      .testimonial-author {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+      }
+
+      .author-avatar {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid var(--primary-color);
+      }
+
+      .author-info h4 {
+          font-size: 16px;
+          margin-bottom: 5px;
+      }
+
+      .author-position {
+          font-size: 13px;
+          color: #666;
+      }
+
+      .rating {
+          color: #f39c12;
+          margin-top: 5px;
+      }
+
+      /* CTA Section */
+      .cta {
+          padding: 100px 30px;
+          background: var(--gradient-1);
+          text-align: center;
+          color: white;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .cta::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.1;
+      }
+
+      .cta-content {
+          max-width: 800px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 1;
+      }
+
+      .cta h2 {
+          font-size: 48px;
+          margin-bottom: 20px;
+      }
+
+      .cta p {
+          font-size: 20px;
+          opacity: 0.95;
+          margin-bottom: 40px;
+      }
+
+      .btn-white {
+          background: white;
+          color: var(--primary-color);
+      }
+
+      .btn-outline-white {
+          border: 2px solid white;
+          color: white;
+          background: transparent;
+      }
+
+      .btn-outline-white:hover {
+          background: white;
+          color: var(--primary-color);
+      }
+
+      /* Footer */
       .footer {
-          padding: 4rem 2rem 2rem;
-          background: rgba(10, 37, 64, 0.8);
-          border-top: 1px solid rgba(45, 111, 194, 0.2);
+          background: var(--dark-bg);
+          color: white;
+          padding: 60px 30px 30px;
       }
 
-      .footer-container {
+      .footer-content {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
           grid-template-columns: 2fr 1fr 1fr 1fr;
-          gap: 3rem;
-          margin-bottom: 3rem;
+          gap: 50px;
+          margin-bottom: 40px;
       }
 
-      .footer-logo {
-          height: 60px;
-          width: auto;
-          margin-bottom: 1rem;
-          filter: brightness(1.2) drop-shadow(0 2px 8px rgba(45, 111, 194, 0.3));
-          transition: all 0.3s ease;
-      }
-
-      .footer-logo:hover {
-          filter: brightness(1.3) drop-shadow(0 4px 12px rgba(45, 111, 194, 0.5));
-          transform: scale(1.02);
-      }
-
-      .footer-brand {
-          font-size: 1.8rem;
-          font-weight: 800;
-          background: var(--gradient-primary);
+      .footer-brand h3 {
+          font-size: 26px;
+          margin-bottom: 15px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          margin-bottom: 1rem;
       }
 
-      .footer-desc {
-          color: var(--gray-light);
-          line-height: 1.7;
+      .footer-brand p {
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.8;
       }
 
-      .footer h4 {
-          margin-bottom: 1.5rem;
-          color: var(--secondary);
+      .footer-column h4 {
+          font-size: 18px;
+          margin-bottom: 20px;
       }
 
       .footer-links {
@@ -501,364 +742,634 @@
       }
 
       .footer-links li {
-          margin-bottom: 0.8rem;
+          margin-bottom: 12px;
       }
 
       .footer-links a {
-          color: var(--gray-light);
+          color: rgba(255, 255, 255, 0.7);
           text-decoration: none;
-          transition: all 0.3s;
+          transition: var(--transition);
       }
 
       .footer-links a:hover {
-          color: var(--secondary);
+          color: white;
           padding-left: 5px;
       }
 
       .footer-bottom {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
           text-align: center;
-          padding-top: 2rem;
-          border-top: 1px solid rgba(45, 111, 194, 0.2);
-          color: var(--gray-light);
+          color: rgba(255, 255, 255, 0.7);
       }
 
+      /* Responsive */
       @media (max-width: 1024px) {
-          .hero-container {
-              grid-template-columns: 1fr;
+          .expertise-grid {
+              grid-template-columns: repeat(2, 1fr);
           }
 
-          .nav-menu {
-              display: none;
+          .services-grid {
+              grid-template-columns: repeat(2, 1fr);
           }
 
-          .footer-container {
+          .team-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .testimonials-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .process-timeline::before {
+              left: 30px;
+          }
+
+          .process-step,
+          .process-step:nth-child(even) {
+              flex-direction: row;
+          }
+
+          .process-content {
+              width: calc(100% - 100px);
+              margin-left: 100px;
+          }
+
+          .process-number {
+              left: 30px;
+          }
+
+          .footer-content {
               grid-template-columns: 1fr 1fr;
           }
       }
 
       @media (max-width: 768px) {
-          .hero h1 {
-              font-size: 2.5rem;
+          .hero-content h1 {
+              font-size: 36px;
           }
 
-          .grid,
-          .stats-grid,
+          .expertise-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .services-grid {
+              grid-template-columns: 1fr;
+          }
+
           .team-grid {
               grid-template-columns: 1fr;
           }
 
-          .footer-container {
+          .testimonials-grid {
               grid-template-columns: 1fr;
           }
+
+          .footer-content {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      /* Scroll Animations */
+      .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+          opacity: 1;
+          transform: translateY(0);
       }
   </style>
 </head>
 <body>
-  <div class="page-background"></div>
-
+  <!-- Navigation -->
   <nav class="navbar">
       <div class="nav-container">
-          <a href="index.html" class="logo-container">
-              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
-                   alt="SES_Mine" 
-                   class="main-logo">
+          <a href="index.html" class="logo">
+              <i class="fas fa-gem"></i>
+              SESMine
           </a>
           <ul class="nav-menu">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="home.html">Platforms</a></li>
-              <li><a href="engineering-hub.html">Engineering</a></li>
-              <li><a href="economics-hub.html">Economics</a></li>
+              <li><a href="home.html">Dashboard</a></li>
+              <li><a href="#expertise">Expertise</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="contact.html">Contact</a></li>
           </ul>
-          <button class="nav-cta" onclick="window.location.href='index.html'">
-              Get Started
-          </button>
+          <a href="#contact" class="btn btn-primary">Book Consultation <i class="fas fa-arrow-right"></i></a>
       </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="hero">
-      <div class="hero-container">
-          <div class="hero-content">
-              <div class="hero-badge">
-                  <i class="fas fa-handshake"></i>
-                  <span>Expert Consulting</span>
-              </div>
-              <h1>
-                  Strategic <span class="gradient-text">Mining Consulting</span> Services
-              </h1>
-              <p class="hero-subtitle">
-                  Transform your mining operations with expert consulting services. Our team of 
-                  seasoned professionals brings decades of experience in strategic planning, 
-                  operational optimization, and technical due diligence.
-              </p>
-              <div class="hero-buttons">
-                  <button class="btn-primary">
-                      <i class="fas fa-comments"></i>
-                      Schedule Consultation
-                  </button>
-                  <button class="btn-secondary">
-                      <i class="fas fa-file-alt"></i>
-                      View Case Studies
-                  </button>
-              </div>
-          </div>
-          <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80" alt="Consulting Services">
+      <div class="hero-content">
+          <h1>Strategic Mining Consulting</h1>
+          <p>Transform your mining operations with expert consulting services from industry-leading professionals with decades of combined experience</p>
+          <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+              <a href="#expertise" class="btn btn-white">Our Expertise <i class="fas fa-lightbulb"></i></a>
+              <a href="#services" class="btn btn-outline-white">View Services <i class="fas fa-briefcase"></i></a>
           </div>
       </div>
   </section>
 
-  <section class="section section-alt">
-      <div class="stats-grid">
-          <div class="stat-card">
-              <div class="stat-icon">
-                  <i class="fas fa-briefcase"></i>
-              </div>
-              <div class="stat-number">300+</div>
-              <div class="stat-label">Projects Delivered</div>
+  <!-- Expertise Areas -->
+  <section class="expertise" id="expertise">
+      <div class="expertise-container">
+          <div class="section-header">
+              <span class="section-tag">CORE EXPERTISE</span>
+              <h2>Comprehensive Consulting Services</h2>
+              <p>Specialized knowledge across all aspects of mining operations</p>
           </div>
+          <div class="expertise-grid">
+              <!-- Expertise 1 -->
+              <div class="expertise-card animate-on-scroll">
+                  <div class="expertise-icon">
+                      <i class="fas fa-chart-line"></i>
+                  </div>
+                  <h3>Strategic Planning</h3>
+                  <p>Long-term strategic development, business planning, and growth strategies</p>
+              </div>
 
-          <div class="stat-card">
-              <div class="stat-icon">
-                  <i class="fas fa-users"></i>
+              <!-- Expertise 2 -->
+              <div class="expertise-card animate-on-scroll">
+                  <div class="expertise-icon">
+                      <i class="fas fa-cogs"></i>
+                  </div>
+                  <h3>Operational Excellence</h3>
+                  <p>Process optimization, efficiency improvements, and operational audits</p>
               </div>
-              <div class="stat-number">150+</div>
-              <div class="stat-label">Clients Worldwide</div>
-          </div>
 
-          <div class="stat-card">
-              <div class="stat-icon">
-                  <i class="fas fa-globe-americas"></i>
+              <!-- Expertise 3 -->
+              <div class="expertise-card animate-on-scroll">
+                  <div class="expertise-icon">
+                      <i class="fas fa-project-diagram"></i>
+                  </div>
+                  <h3>Project Management</h3>
+                  <p>PMO setup, project controls, and execution management</p>
               </div>
-              <div class="stat-number">40+</div>
-              <div class="stat-label">Countries</div>
-          </div>
 
-          <div class="stat-card">
-              <div class="stat-icon">
-                  <i class="fas fa-award"></i>
+              <!-- Expertise 4 -->
+              <div class="expertise-card animate-on-scroll">
+                  <div class="expertise-icon">
+                      <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <h3>Risk Management</h3>
+                  <p>Risk assessment, mitigation strategies, and compliance management</p>
               </div>
-              <div class="stat-number">25+</div>
-              <div class="stat-label">Years Experience</div>
-          </div>
-      </div>
-  </section>
 
-  <section class="section">
-      <div class="section-header">
-          <span class="section-badge">CONSULTING SERVICES</span>
-          <h2>Our Expertise</h2>
-          <p>Comprehensive consulting solutions for mining operations</p>
-      </div>
+              <!-- Expertise 5 -->
+              <div class="expertise-card animate-on-scroll">
+                  <div class="expertise-icon">
+                      <i class="fas fa-leaf"></i>
+                  </div>
+                  <h3>Sustainability</h3>
+                  <p>ESG compliance, environmental management, and sustainable practices</p>
+              </div>
 
-      <div class="grid">
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-chess"></i>
+              <!-- Expertise 6 -->
+              <div class="expertise-card animate-on-scroll">
+                  <div class="expertise-icon">
+                      <i class="fas fa-users"></i>
+                  </div>
+                  <h3>Change Management</h3>
+                  <p>Organizational transformation, culture change, and stakeholder engagement</p>
               </div>
-              <h3>Strategic Planning</h3>
-              <p>Long-term strategic planning and business development for mining companies.</p>
-              <ul>
-                  <li><i class="fas fa-check"></i> Corporate strategy</li>
-                  <li><i class="fas fa-check"></i> Growth planning</li>
-                  <li><i class="fas fa-check"></i> Market analysis</li>
-                  <li><i class="fas fa-check"></i> Portfolio optimization</li>
-              </ul>
-              <button class="btn-primary">Learn More</button>
-          </div>
 
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-cogs"></i>
+              <!-- Expertise 7 -->
+              <div class="expertise-card animate-on-scroll">
+                  <div class="expertise-icon">
+                      <i class="fas fa-dollar-sign"></i>
+                  </div>
+                  <h3>Cost Optimization</h3>
+                  <p>Cost reduction programs, value engineering, and financial performance</p>
               </div>
-              <h3>Operational Excellence</h3>
-              <p>Optimize mining operations for maximum efficiency and profitability.</p>
-              <ul>
-                  <li><i class="fas fa-check"></i> Process optimization</li>
-                  <li><i class="fas fa-check"></i> Cost reduction</li>
-                  <li><i class="fas fa-check"></i> Productivity improvement</li>
-                  <li><i class="fas fa-check"></i> Performance benchmarking</li>
-              </ul>
-              <button class="btn-primary">Learn More</button>
-          </div>
 
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-search-dollar"></i>
-              </div>
-              <h3>Technical Due Diligence</h3>
-              <p>Comprehensive technical and financial due diligence for mining assets.</p>
-              <ul>
-                  <li><i class="fas fa-check"></i> Asset evaluation</li>
-                  <li><i class="fas fa-check"></i> Risk assessment</li>
-                  <li><i class="fas fa-check"></i> Resource validation</li>
-                  <li><i class="fas fa-check"></i> Investment analysis</li>
-              </ul>
-              <button class="btn-primary">Learn More</button>
-          </div>
-
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-project-diagram"></i>
-              </div>
-              <h3>Project Management</h3>
-              <p>End-to-end project management for mining development and expansion.</p>
-              <ul>
-                  <li><i class="fas fa-check"></i> Project planning</li>
-                  <li><i class="fas fa-check"></i> Execution oversight</li>
-                  <li><i class="fas fa-check"></i> Risk management</li>
-                  <li><i class="fas fa-check"></i> Quality assurance</li>
-              </ul>
-              <button class="btn-primary">Learn More</button>
-          </div>
-
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-leaf"></i>
-              </div>
-              <h3>Sustainability Consulting</h3>
-              <p>Environmental and social sustainability strategies for responsible mining.</p>
-              <ul>
-                  <li><i class="fas fa-check"></i> ESG compliance</li>
-                  <li><i class="fas fa-check"></i> Environmental management</li>
-                  <li><i class="fas fa-check"></i> Community relations</li>
-                  <li><i class="fas fa-check"></i> Closure planning</li>
-              </ul>
-              <button class="btn-primary">Learn More</button>
-          </div>
-
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-shield-alt"></i>
-              </div>
-              <h3>Risk Management</h3>
-              <p>Comprehensive risk assessment and mitigation strategies.</p>
-              <ul>
-                  <li><i class="fas fa-check"></i> Risk identification</li>
-                  <li><i class="fas fa-check"></i> Mitigation planning</li>
-                  <li><i class="fas fa-check"></i> Compliance management</li>
-                  <li><i class="fas fa-check"></i> Safety optimization</li>
-              </ul>
-              <button class="btn-primary">Learn More</button>
-          </div>
-      </div>
-  </section>
-
-  <section class="section section-alt">
-      <div class="section-header">
-          <span class="section-badge">OUR TEAM</span>
-          <h2>Expert Consultants</h2>
-          <p>Meet our team of experienced mining professionals</p>
-      </div>
-
-      <div class="team-grid">
-          <div class="team-card">
-              <div class="team-image">
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&q=80" alt="Consultant">
-              </div>
-              <div class="team-content">
-                  <h3>Dr. Michael Thompson</h3>
-                  <div class="team-role">Senior Mining Consultant</div>
-                  <p>40+ years in mining operations and strategic planning. Former VP of Operations at major mining company.</p>
-              </div>
-          </div>
-
-          <div class="team-card">
-              <div class="team-image">
-                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&q=80" alt="Consultant">
-              </div>
-              <div class="team-content">
-                  <h3>Sarah Williams</h3>
-                  <div class="team-role">Operations Excellence Lead</div>
-                  <p>30+ years optimizing mining operations globally. Expert in lean mining and continuous improvement.</p>
-              </div>
-          </div>
-
-          <div class="team-card">
-              <div class="team-image">
-                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&q=80" alt="Consultant">
-              </div>
-              <div class="team-content">
-                  <h3>David Chen</h3>
-                  <div class="team-role">Technical Due Diligence Specialist</div>
-                  <p>25+ years in mining asset evaluation and investment analysis. Completed 200+ due diligence projects.</p>
-              </div>
-          </div>
-
-          <div class="team-card">
-              <div class="team-image">
-                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&q=80" alt="Consultant">
-              </div>
-              <div class="team-content">
-                  <h3>Dr. Emily Rodriguez</h3>
-                  <div class="team-role">Sustainability Consultant</div>
-                  <p>20+ years in environmental management and ESG compliance for mining operations.</p>
+              <!-- Expertise 8 -->
+              <div class="expertise-card animate-on-scroll">
+                  <div class="expertise-icon">
+                      <i class="fas fa-robot"></i>
+                  </div>
+                  <h3>Digital Transformation</h3>
+                  <p>Technology adoption, automation, and digital strategy implementation</p>
               </div>
           </div>
       </div>
   </section>
 
-  <section class="section">
-      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-          <h2 style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient-secondary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-              Ready to Transform Your Operations?
-          </h2>
-          <p style="color: var(--gray-light); font-size: 1.2rem; margin-bottom: 2rem;">
-              Schedule a consultation with our expert team today
-          </p>
-          <div class="hero-buttons" style="justify-content: center;">
-              <button class="btn-primary">
-                  <i class="fas fa-calendar-check"></i>
-                  Book Consultation
-              </button>
-              <button class="btn-secondary">
-                  <i class="fas fa-envelope"></i>
-                  Contact Us
-              </button>
+  <!-- Services Section -->
+  <section class="services" id="services">
+      <div class="services-container">
+          <div class="section-header">
+              <span class="section-tag">CONSULTING SERVICES</span>
+              <h2>Tailored Solutions for Your Needs</h2>
+              <p>Comprehensive consulting services designed to drive results</p>
+          </div>
+          <div class="services-grid">
+              <!-- Service 1 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Strategic Advisory" loading="lazy">
+                      <span class="service-badge">FLAGSHIP</span>
+                  </div>
+                  <div class="service-content">
+                      <h3>Strategic Advisory</h3>
+                      <p>High-level strategic guidance for C-suite executives and board members on critical business decisions.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> Business Strategy</li>
+                          <li><i class="fas fa-check-circle"></i> M&A Advisory</li>
+                          <li><i class="fas fa-check-circle"></i> Market Entry</li>
+                          <li><i class="fas fa-check-circle"></i> Portfolio Optimization</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+
+              <!-- Service 2 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Operational Review" loading="lazy">
+                      <span class="service-badge">POPULAR</span>
+                  </div>
+                  <div class="service-content">
+                      <h3>Operational Review</h3>
+                      <p>Comprehensive assessment of operations to identify improvement opportunities and efficiency gains.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> Process Audits</li>
+                          <li><i class="fas fa-check-circle"></i> Benchmarking</li>
+                          <li><i class="fas fa-check-circle"></i> Gap Analysis</li>
+                          <li><i class="fas fa-check-circle"></i> Action Plans</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+
+              <!-- Service 3 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80" alt="Technical Due Diligence" loading="lazy">
+                      <span class="service-badge">EXPERT</span>
+                  </div>
+                  <div class="service-content">
+                      <h3>Technical Due Diligence</h3>
+                      <p>Independent technical reviews for investment decisions, acquisitions, and project financing.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> Asset Evaluation</li>
+                          <li><i class="fas fa-check-circle"></i> Risk Assessment</li>
+                          <li><i class="fas fa-check-circle"></i> Resource Verification</li>
+                          <li><i class="fas fa-check-circle"></i> Compliance Review</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+
+              <!-- Service 4 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Performance Improvement" loading="lazy">
+                  </div>
+                  <div class="service-content">
+                      <h3>Performance Improvement</h3>
+                      <p>Hands-on implementation support to drive measurable improvements in operational performance.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> Lean Implementation</li>
+                          <li><i class="fas fa-check-circle"></i> Six Sigma Projects</li>
+                          <li><i class="fas fa-check-circle"></i> KPI Development</li>
+                          <li><i class="fas fa-check-circle"></i> Continuous Improvement</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+
+              <!-- Service 5 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80" alt="Interim Management" loading="lazy">
+                  </div>
+                  <div class="service-content">
+                      <h3>Interim Management</h3>
+                      <p>Experienced executives to fill critical leadership roles during transitions or transformations.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> Executive Placement</li>
+                          <li><i class="fas fa-check-circle"></i> Crisis Management</li>
+                          <li><i class="fas fa-check-circle"></i> Turnaround Leadership</li>
+                          <li><i class="fas fa-check-circle"></i> Knowledge Transfer</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+
+              <!-- Service 6 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80" alt="Training & Development" loading="lazy">
+                  </div>
+                  <div class="service-content">
+                      <h3>Training & Development</h3>
+                      <p>Customized training programs to build capabilities and develop your team's expertise.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> Leadership Development</li>
+                          <li><i class="fas fa-check-circle"></i> Technical Training</li>
+                          <li><i class="fas fa-check-circle"></i> Workshops & Seminars</li>
+                          <li><i class="fas fa-check-circle"></i> Mentoring Programs</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
           </div>
       </div>
   </section>
 
+  <!-- Consulting Process -->
+  <section class="process">
+      <div class="process-container">
+          <div class="section-header">
+              <span class="section-tag">OUR APPROACH</span>
+              <h2>Proven Consulting Methodology</h2>
+              <p>A structured approach that delivers measurable results</p>
+          </div>
+          <div class="process-timeline">
+              <!-- Step 1 -->
+              <div class="process-step animate-on-scroll">
+                  <div class="process-content">
+                      <h3>Discovery & Assessment</h3>
+                      <p>We begin with a comprehensive assessment of your current situation, challenges, and objectives through stakeholder interviews, data analysis, and site visits.</p>
+                  </div>
+                  <div class="process-number">1</div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="process-step animate-on-scroll">
+                  <div class="process-content">
+                      <h3>Analysis & Strategy</h3>
+                      <p>Our experts analyze findings, benchmark against industry best practices, and develop tailored strategies aligned with your goals and constraints.</p>
+                  </div>
+                  <div class="process-number">2</div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="process-step animate-on-scroll">
+                  <div class="process-content">
+                      <h3>Solution Design</h3>
+                      <p>We design practical, implementable solutions with detailed roadmaps, resource requirements, and clear success metrics.</p>
+                  </div>
+                  <div class="process-number">3</div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="process-step animate-on-scroll">
+                  <div class="process-content">
+                      <h3>Implementation Support</h3>
+                      <p>Our team works alongside yours to implement recommendations, providing hands-on support, training, and change management.</p>
+                  </div>
+                  <div class="process-number">4</div>
+              </div>
+
+              <!-- Step 5 -->
+              <div class="process-step animate-on-scroll">
+                  <div class="process-content">
+                      <h3>Monitoring & Optimization</h3>
+                      <p>We track progress against KPIs, make adjustments as needed, and ensure sustainable improvements are embedded in your operations.</p>
+                  </div>
+                  <div class="process-number">5</div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team" id="team">
+      <div class="team-container">
+          <div class="section-header">
+              <span class="section-tag">OUR CONSULTANTS</span>
+              <h2>Expert Team of Professionals</h2>
+              <p>Industry veterans with proven track records</p>
+          </div>
+          <div class="team-grid">
+              <!-- Team Member 1 -->
+              <div class="team-member animate-on-scroll">
+                  <div class="member-photo">
+                      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Senior Consultant" loading="lazy">
+                      <div class="member-social">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                      </div>
+                  </div>
+                  <div class="member-info">
+                      <h4>Dr. Michael Chen</h4>
+                      <div class="member-role">Senior Mining Consultant</div>
+                      <p class="member-bio">30+ years in mining operations and strategic planning. PhD in Mining Engineering.</p>
+                  </div>
+              </div>
+
+              <!-- Team Member 2 -->
+              <div class="team-member animate-on-scroll">
+                  <div class="member-photo">
+                      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Operations Expert" loading="lazy">
+                      <div class="member-social">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                      </div>
+                  </div>
+                  <div class="member-info">
+                      <h4>Sarah Williams</h4>
+                      <div class="member-role">Operations Excellence Lead</div>
+                      <p class="member-bio">Expert in operational improvement with 25 years of hands-on experience.</p>
+                  </div>
+              </div>
+
+              <!-- Team Member 3 -->
+              <div class="team-member animate-on-scroll">
+                  <div class="member-photo">
+                      <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Strategy Advisor" loading="lazy">
+                      <div class="member-social">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                      </div>
+                  </div>
+                  <div class="member-info">
+                      <h4>James Rodriguez</h4>
+                      <div class="member-role">Strategic Advisory Partner</div>
+                      <p class="member-bio">Former mining executive with extensive M&A and corporate strategy experience.</p>
+                  </div>
+              </div>
+
+              <!-- Team Member 4 -->
+              <div class="team-member animate-on-scroll">
+                  <div class="member-photo">
+                      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Sustainability Expert" loading="lazy">
+                      <div class="member-social">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                      </div>
+                  </div>
+                  <div class="member-info">
+                      <h4>Dr. Emily Thompson</h4>
+                      <div class="member-role">Sustainability Consultant</div>
+                      <p class="member-bio">Leading expert in ESG compliance and sustainable mining practices.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Client Testimonials -->
+  <section class="testimonials">
+      <div class="testimonials-container">
+          <div class="section-header">
+              <span class="section-tag">CLIENT SUCCESS</span>
+              <h2>What Our Clients Say</h2>
+              <p>Trusted by leading mining companies worldwide</p>
+          </div>
+          <div class="testimonials-grid">
+              <!-- Testimonial 1 -->
+              <div class="testimonial-card animate-on-scroll">
+                  <i class="fas fa-quote-right quote-icon"></i>
+                  <p class="testimonial-text">"SESMine's consulting team helped us achieve a 35% reduction in operating costs while improving safety metrics. Their expertise and hands-on approach made all the difference."</p>
+                  <div class="testimonial-author">
+                      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Client" class="author-avatar" loading="lazy">
+                      <div class="author-info">
+                          <h4>John Patterson</h4>
+                          <div class="author-position">COO, Global Mining Corp</div>
+                          <div class="rating">
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Testimonial 2 -->
+              <div class="testimonial-card animate-on-scroll">
+                  <i class="fas fa-quote-right quote-icon"></i>
+                  <p class="testimonial-text">"The strategic advisory services provided invaluable insights for our expansion plans. Their market analysis and due diligence were thorough and actionable."</p>
+                  <div class="testimonial-author">
+                      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Client" class="author-avatar" loading="lazy">
+                      <div class="author-info">
+                          <h4>Maria Garcia</h4>
+                          <div class="author-position">CEO, Mineral Resources Ltd</div>
+                          <div class="rating">
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Testimonial 3 -->
+              <div class="testimonial-card animate-on-scroll">
+                  <i class="fas fa-quote-right quote-icon"></i>
+                  <p class="testimonial-text">"Outstanding interim management support during our operational turnaround. The team brought immediate value and left us with sustainable improvements."</p>
+                  <div class="testimonial-author">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Client" class="author-avatar" loading="lazy">
+                      <div class="author-info">
+                          <h4>David Lee</h4>
+                          <div class="author-position">VP Operations, Copper Mining Inc</div>
+                          <div class="rating">
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+      <div class="cta-content">
+          <h2>Transform Your Mining Operations</h2>
+          <p>Partner with industry experts to unlock your operation's full potential</p>
+          <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+              <a href="#contact" class="btn btn-large btn-white">Book Free Consultation <i class="fas fa-calendar-check"></i></a>
+              <a href="#services" class="btn btn-large btn-outline-white">Explore Services <i class="fas fa-arrow-right"></i></a>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
-      <div class="footer-container">
-          <div>
-              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
-                   alt="SES_Mine" 
-                   class="footer-logo">
-              <div class="footer-brand">SES_Mine</div>
-              <p class="footer-desc">
-                  Scientific and Engineering Supplies LLC - Leading provider of comprehensive 
-                  mining solutions and digital transformation platforms.
-              </p>
+      <div class="footer-content">
+          <div class="footer-brand">
+              <h3>SESMine</h3>
+              <p>Leading provider of comprehensive mining solutions, combining engineering excellence, economic expertise, and innovative technology.</p>
           </div>
-          <div>
+          <div class="footer-column">
               <h4>Platforms</h4>
               <ul class="footer-links">
                   <li><a href="engineering-hub.html">Engineering Hub</a></li>
                   <li><a href="economics-hub.html">Economics Hub</a></li>
-                  <li><a href="procurement-hub.html">Procurement Hub</a></li>
                   <li><a href="consulting-hub.html">Consulting Hub</a></li>
+                  <li><a href="procurement-hub.html">Procurement Hub</a></li>
               </ul>
           </div>
-          <div>
-              <h4>Services</h4>
+          <div class="footer-column">
+              <h4>Resources</h4>
               <ul class="footer-links">
-                  <li><a href="innovation-technology-hub.html">Innovation & Tech</a></li>
-                  <li><a href="analytics-platform.html">Analytics Platform</a></li>
-                  <li><a href="training-education-hub.html">Training & Education</a></li>
+                  <li><a href="#">Documentation</a></li>
+                  <li><a href="#">Case Studies</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Support</a></li>
               </ul>
           </div>
-          <div>
+          <div class="footer-column">
               <h4>Company</h4>
               <ul class="footer-links">
-                  <li><a href="#about">About Us</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                  <li><a href="#support">Support</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
               </ul>
           </div>
       </div>
       <div class="footer-bottom">
-          <p>&copy; 2025 SES_Mine - Scientific and Engineering Supplies LLC. All rights reserved.</p>
+          <p>&copy; 2025 SESMine. All rights reserved. | Empowering Mining Excellence Worldwide</p>
       </div>
   </footer>
+
+  <script>
+      // Scroll Animation
+      const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('animated');
+              }
+          });
+      }, observerOptions);
+
+      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const target = document.querySelector(this.getAttribute('href'));
+              if (target) {
+                  target.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                  });
+              }
+          });
+      });
+  </script>
 </body>
 </html>
