@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Innovation & Technology Hub - Digital transformation, automation, AI, IoT, and cutting-edge technology solutions for modern mining operations">
+  <title>Innovation & Technology Hub - SESMine</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+      :root {
+          --primary-color: #9b59b6;
+          --secondary-color: #8e44ad;
+          --accent-color: #6c3483;
+          --success-color: #27ae60;
+          --dark-bg: #0a1628;
+          --light-bg: #f8f9fa;
+          --text-dark: #2c3e50;
+          --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+          --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+          --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+          --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+          --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          color: var(--text-dark);
+          line-height: 1.6;
+          overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+      }
+
+      /* Navigation */
+      .navbar {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(10px);
+          box-shadow: var(--shadow-sm);
+          z-index: 1000;
+      }
+
+      .nav-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 80px;
+      }
+
+      .logo {
+          font-size: 28px;
+          font-weight: 800;
+          background: var(--gradient-1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          text-decoration: none;
+      }
+
+      .nav-menu {
+          display: flex;
+          list-style: none;
+          gap: 40px;
+      }
+
+      .nav-menu a {
+          text-decoration: none;
+          color: var(--text-dark);
+          font-weight: 500;
+          transition: var(--transition);
+      }
+
+      .nav-menu a:hover {
+          color: var(--primary-color);
+      }
+
+      .btn {
+          padding: 12px 28px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: var(--transition);
+          cursor: pointer;
+          border: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .btn-primary {
+          background: var(--gradient-1);
+          color: white;
+          box-shadow: var(--shadow-sm);
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+      }
+
+      /* Hero Section */
+      .hero {
+          margin-top: 80px;
+          min-height: 90vh;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .hero::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.15;
+          animation: slowZoom 30s ease-in-out infinite alternate;
+      }
+
+      @keyframes slowZoom {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.1); }
+      }
+
+      .hero-particles {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          overflow: hidden;
+      }
+
+      .particle {
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 50%;
+          animation: float 20s infinite;
+      }
+
+      @keyframes float {
+          0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+      }
+
+      .hero-content {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 80px 30px;
+          position: relative;
+          z-index: 1;
+          text-align: center;
+          color: white;
+      }
+
+      .hero-badge {
+          display: inline-block;
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          padding: 10px 25px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 25px;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          animation: fadeInDown 0.8s ease-out;
+      }
+
+      .hero-content h1 {
+          font-size: 56px;
+          margin-bottom: 20px;
+          animation: fadeInUp 0.8s ease-out;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      }
+
+      .hero-content p {
+          font-size: 22px;
+          opacity: 0.95;
+          margin-bottom: 35px;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+          animation: fadeInUp 0.8s ease-out 0.2s backwards;
+      }
+
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(30px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      @keyframes fadeInDown {
+          from {
+              opacity: 0;
+              transform: translateY(-30px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      /* Technology Categories */
+      .tech-categories {
+          padding: 100px 30px;
+          background: white;
+      }
+
+      .tech-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .section-header {
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto 60px;
+      }
+
+      .section-tag {
+          display: inline-block;
+          background: var(--gradient-1);
+          color: white;
+          padding: 8px 20px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 15px;
+      }
+
+      .section-header h2 {
+          font-size: 42px;
+          margin-bottom: 20px;
+      }
+
+      .section-header p {
+          font-size: 18px;
+          color: #666;
+      }
+
+      .tech-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 30px;
+      }
+
+      .tech-card {
+          background: var(--light-bg);
+          border-radius: 20px;
+          padding: 35px;
+          text-align: center;
+          transition: var(--transition);
+          cursor: pointer;
+          border: 3px solid transparent;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .tech-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+          transition: left 0.5s;
+      }
+
+      .tech-card:hover::before {
+          left: 100%;
+      }
+
+      .tech-card:hover {
+          background: white;
+          box-shadow: var(--shadow-lg);
+          transform: translateY(-10px);
+          border-color: var(--primary-color);
+      }
+
+      .tech-icon {
+          width: 80px;
+          height: 80px;
+          background: var(--gradient-1);
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 36px;
+          color: white;
+          margin: 0 auto 25px;
+          transition: var(--transition);
+      }
+
+      .tech-card:hover .tech-icon {
+          transform: rotateY(360deg);
+      }
+
+      .tech-card:nth-child(2) .tech-icon {
+          background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .tech-card:nth-child(3) .tech-icon {
+          background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .tech-card:nth-child(4) .tech-icon {
+          background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+
+      .tech-card:nth-child(5) .tech-icon {
+          background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+
+      .tech-card:nth-child(6) .tech-icon {
+          background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+      }
+
+      .tech-card:nth-child(7) .tech-icon {
+          background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      }
+
+      .tech-card:nth-child(8) .tech-icon {
+          background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      }
+
+      .tech-card h3 {
+          font-size: 20px;
+          margin-bottom: 12px;
+          color: var(--text-dark);
+      }
+
+      .tech-card p {
+          color: #666;
+          font-size: 14px;
+          line-height: 1.8;
+      }
+
+      /* Solutions Section */
+      .solutions {
+          padding: 100px 30px;
+          background: var(--light-bg);
+      }
+
+      .solutions-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .solutions-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+      }
+
+      .solution-card {
+          background: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
+          cursor: pointer;
+      }
+
+      .solution-card:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-lg);
+      }
+
+      .solution-image {
+          width: 100%;
+          height: 250px;
+          overflow: hidden;
+          position: relative;
+      }
+
+      .solution-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+      }
+
+      .solution-card:hover .solution-image img {
+          transform: scale(1.1);
+      }
+
+      .solution-badge {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: var(--gradient-1);
+          color: white;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 600;
+      }
+
+      .solution-content {
+          padding: 30px;
+      }
+
+      .solution-content h3 {
+          font-size: 24px;
+          margin-bottom: 15px;
+          color: var(--text-dark);
+      }
+
+      .solution-content p {
+          color: #666;
+          line-height: 1.8;
+          margin-bottom: 20px;
+      }
+
+      .solution-features {
+          list-style: none;
+          margin-bottom: 20px;
+      }
+
+      .solution-features li {
+          padding: 8px 0;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          color: #555;
+      }
+
+      .solution-features i {
+          color: var(--success-color);
+      }
+
+      /* Innovation Showcase */
+      .showcase {
+          padding: 100px 30px;
+          background: white;
+      }
+
+      .showcase-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .showcase-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px;
+      }
+
+      .showcase-item {
+          background: var(--light-bg);
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
+      }
+
+      .showcase-item:hover {
+          box-shadow: var(--shadow-lg);
+      }
+
+      .showcase-image {
+          width: 100%;
+          height: 300px;
+          overflow: hidden;
+          position: relative;
+      }
+
+      .showcase-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .showcase-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+          display: flex;
+          align-items: flex-end;
+          padding: 30px;
+          color: white;
+      }
+
+      .showcase-tag {
+          background: var(--gradient-1);
+          padding: 6px 16px;
+          border-radius: 15px;
+          font-size: 12px;
+          font-weight: 600;
+          margin-bottom: 10px;
+          display: inline-block;
+      }
+
+      .showcase-content {
+          padding: 35px;
+      }
+
+      .showcase-content h3 {
+          font-size: 26px;
+          margin-bottom: 15px;
+      }
+
+      .showcase-content p {
+          color: #666;
+          line-height: 1.8;
+          margin-bottom: 25px;
+      }
+
+      .showcase-stats {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          padding-top: 25px;
+          border-top: 2px solid #e0e0e0;
+      }
+
+      .stat-item {
+          text-align: center;
+      }
+
+      .stat-value {
+          font-size: 28px;
+          font-weight: 700;
+          color: var(--primary-color);
+          display: block;
+      }
+
+      .stat-label {
+          font-size: 12px;
+          color: #666;
+          text-transform: uppercase;
+      }
+
+      /* ROI Calculator */
+      .roi-calculator {
+          padding: 100px 30px;
+          background: var(--light-bg);
+      }
+
+      .roi-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .calculator-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+      }
+
+      .calculator-card {
+          background: white;
+          border-radius: 20px;
+          padding: 40px;
+          box-shadow: var(--shadow-sm);
+      }
+
+      .calculator-card h3 {
+          font-size: 28px;
+          margin-bottom: 30px;
+          color: var(--text-dark);
+      }
+
+      .input-group {
+          margin-bottom: 25px;
+      }
+
+      .input-group label {
+          display: block;
+          font-weight: 600;
+          margin-bottom: 10px;
+          color: var(--text-dark);
+      }
+
+      .input-group input,
+      .input-group select {
+          width: 100%;
+          padding: 15px;
+          border: 2px solid #e0e0e0;
+          border-radius: 10px;
+          font-size: 16px;
+          transition: var(--transition);
+      }
+
+      .input-group input:focus,
+      .input-group select:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 4px rgba(155, 89, 182, 0.1);
+      }
+
+      .calculate-btn {
+          width: 100%;
+          padding: 18px;
+          background: var(--gradient-1);
+          color: white;
+          border: none;
+          border-radius: 10px;
+          font-size: 18px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: var(--transition);
+      }
+
+      .calculate-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+      }
+
+      .result-card {
+          background: var(--gradient-1);
+          border-radius: 20px;
+          padding: 40px;
+          color: white;
+      }
+
+      .result-item {
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          border-radius: 15px;
+          margin-bottom: 20px;
+      }
+
+      .result-label {
+          font-size: 14px;
+          opacity: 0.9;
+          margin-bottom: 5px;
+      }
+
+      .result-value {
+          font-size: 32px;
+          font-weight: 800;
+      }
+
+      /* Partners Section */
+      .partners {
+          padding: 100px 30px;
+          background: white;
+      }
+
+      .partners-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .partners-grid {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 30px;
+          align-items: center;
+      }
+
+      .partner-logo {
+          background: var(--light-bg);
+          padding: 30px;
+          border-radius: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: var(--transition);
+          cursor: pointer;
+          height: 120px;
+      }
+
+      .partner-logo:hover {
+          background: white;
+          box-shadow: var(--shadow-md);
+          transform: translateY(-5px);
+      }
+
+      .partner-logo i {
+          font-size: 48px;
+          color: #999;
+      }
+
+      /* CTA Section */
+      .cta {
+          padding: 100px 30px;
+          background: var(--gradient-1);
+          text-align: center;
+          color: white;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .cta::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.1;
+      }
+
+      .cta-content {
+          max-width: 800px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 1;
+      }
+
+      .cta h2 {
+          font-size: 48px;
+          margin-bottom: 20px;
+      }
+
+      .cta p {
+          font-size: 20px;
+          opacity: 0.95;
+          margin-bottom: 40px;
+      }
+
+      .btn-white {
+          background: white;
+          color: var(--primary-color);
+      }
+
+      .btn-outline-white {
+          border: 2px solid white;
+          color: white;
+          background: transparent;
+      }
+
+      .btn-outline-white:hover {
+          background: white;
+          color: var(--primary-color);
+      }
+
+      /* Footer */
+      .footer {
+          background: var(--dark-bg);
+          color: white;
+          padding: 60px 30px 30px;
+      }
+
+      .footer-content {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr 1fr;
+          gap: 50px;
+          margin-bottom: 40px;
+      }
+
+      .footer-brand h3 {
+          font-size: 26px;
+          margin-bottom: 15px;
+          background: var(--gradient-1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+      .footer-brand p {
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.8;
+      }
+
+      .footer-column h4 {
+          font-size: 18px;
+          margin-bottom: 20px;
+      }
+
+      .footer-links {
+          list-style: none;
+      }
+
+      .footer-links li {
+          margin-bottom: 12px;
+      }
+
+      .footer-links a {
+          color: rgba(255, 255, 255, 0.7);
+          text-decoration: none;
+          transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+          color: white;
+          padding-left: 5px;
+      }
+
+      .footer-bottom {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          text-align: center;
+          color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+          .tech-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .solutions-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .showcase-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .calculator-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .partners-grid {
+              grid-template-columns: repeat(3, 1fr);
+          }
+
+          .footer-content {
+              grid-template-columns: 1fr 1fr;
+          }
+      }
+
+      @media (max-width: 768px) {
+          .hero-content h1 {
+              font-size: 36px;
+          }
+
+          .tech-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .solutions-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .partners-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .footer-content {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      /* Scroll Animations */
+      .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+      <div class="nav-container">
+          <a href="index.html" class="logo">
+              <i class="fas fa-gem"></i>
+              SESMine
+          </a>
+          <ul class="nav-menu">
+              <li><a href="home.html">Dashboard</a></li>
+              <li><a href="#technologies">Technologies</a></li>
+              <li><a href="#solutions">Solutions</a></li>
+              <li><a href="#showcase">Showcase</a></li>
+              <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Start Innovation <i class="fas fa-rocket"></i></a>
+      </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+      <div class="hero-particles" id="particles"></div>
+      <div class="hero-content">
+          <div class="hero-badge">
+              <i class="fas fa-rocket"></i> FUTURE OF MINING
+          </div>
+          <h1>Innovation & Technology Hub</h1>
+          <p>Transform your mining operations with cutting-edge technology, AI-powered solutions, automation, and digital transformation strategies</p>
+          <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+              <a href="#technologies" class="btn btn-white">Explore Technologies <i class="fas fa-microchip"></i></a>
+              <a href="#solutions" class="btn btn-outline-white">View Solutions <i class="fas fa-lightbulb"></i></a>
+          </div>
+      </div>
+  </section>
+
+  <!-- Technology Categories -->
+  <section class="tech-categories" id="technologies">
+      <div class="tech-container">
+          <div class="section-header">
+              <span class="section-tag">CORE TECHNOLOGIES</span>
+              <h2>Advanced Technology Solutions</h2>
+              <p>Leveraging the latest innovations to revolutionize mining operations</p>
+          </div>
+          <div class="tech-grid">
+              <!-- Tech 1 -->
+              <div class="tech-card animate-on-scroll">
+                  <div class="tech-icon">
+                      <i class="fas fa-brain"></i>
+                  </div>
+                  <h3>Artificial Intelligence</h3>
+                  <p>Machine learning models for predictive maintenance, optimization, and decision support</p>
+              </div>
+
+              <!-- Tech 2 -->
+              <div class="tech-card animate-on-scroll">
+                  <div class="tech-icon">
+                      <i class="fas fa-robot"></i>
+                  </div>
+                  <h3>Automation & Robotics</h3>
+                  <p>Autonomous equipment, robotic systems, and process automation solutions</p>
+              </div>
+
+              <!-- Tech 3 -->
+              <div class="tech-card animate-on-scroll">
+                  <div class="tech-icon">
+                      <i class="fas fa-network-wired"></i>
+                  </div>
+                  <h3>IoT & Sensors</h3>
+                  <p>Real-time monitoring with connected devices and advanced sensor networks</p>
+              </div>
+
+              <!-- Tech 4 -->
+              <div class="tech-card animate-on-scroll">
+                  <div class="tech-icon">
+                      <i class="fas fa-cloud"></i>
+                  </div>
+                  <h3>Cloud Computing</h3>
+                  <p>Scalable cloud infrastructure for data processing and collaboration</p>
+              </div>
+
+              <!-- Tech 5 -->
+              <div class="tech-card animate-on-scroll">
+                  <div class="tech-icon">
+                      <i class="fas fa-vr-cardboard"></i>
+                  </div>
+                  <h3>AR/VR Solutions</h3>
+                  <p>Immersive training, remote operations, and virtual site inspections</p>
+              </div>
+
+              <!-- Tech 6 -->
+              <div class="tech-card animate-on-scroll">
+                  <div class="tech-icon">
+                      <i class="fas fa-cube"></i>
+                  </div>
+                  <h3>Digital Twin</h3>
+                  <p>Virtual replicas of physical assets for simulation and optimization</p>
+              </div>
+
+              <!-- Tech 7 -->
+              <div class="tech-card animate-on-scroll">
+                  <div class="tech-icon">
+                      <i class="fas fa-database"></i>
+                  </div>
+                  <h3>Big Data Analytics</h3>
+                  <p>Advanced analytics for insights from massive operational datasets</p>
+              </div>
+
+              <!-- Tech 8 -->
+              <div class="tech-card animate-on-scroll">
+                  <div class="tech-icon">
+                      <i class="fas fa-link"></i>
+                  </div>
+                  <h3>Blockchain</h3>
+                  <p>Secure supply chain tracking and transparent mineral provenance</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="solutions" id="solutions">
+      <div class="solutions-container">
+          <div class="section-header">
+              <span class="section-tag">INNOVATION SOLUTIONS</span>
+              <h2>Transformative Technology Solutions</h2>
+              <p>Comprehensive solutions designed for modern mining challenges</p>
+          </div>
+          <div class="solutions-grid">
+              <!-- Solution 1 -->
+              <div class="solution-card animate-on-scroll">
+                  <div class="solution-image">
+                      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80" alt="Smart Mining Platform" loading="lazy">
+                      <span class="solution-badge">FLAGSHIP</span>
+                  </div>
+                  <div class="solution-content">
+                      <h3>Smart Mining Platform</h3>
+                      <p>Integrated IoT platform connecting all mining operations for real-time visibility and control.</p>
+                      <ul class="solution-features">
+                          <li><i class="fas fa-check-circle"></i> Real-time Monitoring</li>
+                          <li><i class="fas fa-check-circle"></i> Predictive Analytics</li>
+                          <li><i class="fas fa-check-circle"></i> Automated Alerts</li>
+                          <li><i class="fas fa-check-circle"></i> Mobile Access</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+
+              <!-- Solution 2 -->
+              <div class="solution-card animate-on-scroll">
+                  <div class="solution-image">
+                      <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&q=80" alt="Autonomous Fleet" loading="lazy">
+                      <span class="solution-badge">ADVANCED</span>
+                  </div>
+                  <div class="solution-content">
+                      <h3>Autonomous Fleet Management</h3>
+                      <p>AI-powered autonomous vehicle systems for safer and more efficient hauling operations.</p>
+                      <ul class="solution-features">
+                          <li><i class="fas fa-check-circle"></i> Self-Driving Trucks</li>
+                          <li><i class="fas fa-check-circle"></i> Route Optimization</li>
+                          <li><i class="fas fa-check-circle"></i> Collision Avoidance</li>
+                          <li><i class="fas fa-check-circle"></i> Fleet Coordination</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+
+              <!-- Solution 3 -->
+              <div class="solution-card animate-on-scroll">
+                  <div class="solution-image">
+                      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="Predictive Maintenance" loading="lazy">
+                      <span class="solution-badge">POPULAR</span>
+                  </div>
+                  <div class="solution-content">
+                      <h3>Predictive Maintenance AI</h3>
+                      <p>Machine learning algorithms that predict equipment failures before they occur.</p>
+                      <ul class="solution-features">
+                          <li><i class="fas fa-check-circle"></i> Failure Prediction</li>
+                          <li><i class="fas fa-check-circle"></i> Maintenance Scheduling</li>
+                          <li><i class="fas fa-check-circle"></i> Parts Forecasting</li>
+                          <li><i class="fas fa-check-circle"></i> Downtime Reduction</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+
+              <!-- Solution 4 -->
+              <div class="solution-card animate-on-scroll">
+                  <div class="solution-image">
+                      <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&q=80" alt="Drone Surveying" loading="lazy">
+                  </div>
+                  <div class="solution-content">
+                      <h3>Drone Surveying & Mapping</h3>
+                      <p>Advanced aerial surveying using drones and photogrammetry for accurate site mapping.</p>
+                      <ul class="solution-features">
+                          <li><i class="fas fa-check-circle"></i> 3D Site Models</li>
+                          <li><i class="fas fa-check-circle"></i> Volume Calculations</li>
+                          <li><i class="fas fa-check-circle"></i> Progress Tracking</li>
+                          <li><i class="fas fa-check-circle"></i> Safety Inspections</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+
+              <!-- Solution 5 -->
+              <div class="solution-card animate-on-scroll">
+                  <div class="solution-image">
+                      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Digital Twin" loading="lazy">
+                  </div>
+                  <div class="solution-content">
+                      <h3>Mine Digital Twin</h3>
+                      <p>Complete virtual replica of your mine for simulation, testing, and optimization.</p>
+                      <ul class="solution-features">
+                          <li><i class="fas fa-check-circle"></i> Virtual Simulation</li>
+                          <li><i class="fas fa-check-circle"></i> Scenario Testing</li>
+                          <li><i class="fas fa-check-circle"></i> Process Optimization</li>
+                          <li><i class="fas fa-check-circle"></i> Training Environment</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+
+              <!-- Solution 6 -->
+              <div class="solution-card animate-on-scroll">
+                  <div class="solution-image">
+                      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80" alt="Control Center" loading="lazy">
+                  </div>
+                  <div class="solution-content">
+                      <h3>Integrated Control Center</h3>
+                      <p>Centralized command center for monitoring and controlling all mining operations.</p>
+                      <ul class="solution-features">
+                          <li><i class="fas fa-check-circle"></i> Unified Dashboard</li>
+                          <li><i class="fas fa-check-circle"></i> Remote Operations</li>
+                          <li><i class="fas fa-check-circle"></i> Real-time Alerts</li>
+                          <li><i class="fas fa-check-circle"></i> Performance KPIs</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Innovation Showcase -->
+  <section class="showcase" id="showcase">
+      <div class="showcase-container">
+          <div class="section-header">
+              <span class="section-tag">SUCCESS STORIES</span>
+              <h2>Innovation in Action</h2>
+              <p>Real-world implementations delivering measurable results</p>
+          </div>
+          <div class="showcase-grid">
+              <!-- Showcase 1 -->
+              <div class="showcase-item animate-on-scroll">
+                  <div class="showcase-image">
+                      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Autonomous Mining" loading="lazy">
+                      <div class="showcase-overlay">
+                          <div>
+                              <span class="showcase-tag">AUTOMATION</span>
+                              <h3 style="font-size: 24px; margin: 0;">Fully Autonomous Mine</h3>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="showcase-content">
+                      <h3>World's First Fully Autonomous Open Pit Mine</h3>
+                      <p>Implemented complete autonomous fleet with 45 self-driving haul trucks, resulting in 30% productivity increase and zero safety incidents over 2 years of operation.</p>
+                      <div class="showcase-stats">
+                          <div class="stat-item">
+                              <span class="stat-value">45</span>
+                              <span class="stat-label">Autonomous Trucks</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-value">30%</span>
+                              <span class="stat-label">Productivity Gain</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-value">Zero</span>
+                              <span class="stat-label">Incidents</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Showcase 2 -->
+              <div class="showcase-item animate-on-scroll">
+                  <div class="showcase-image">
+                      <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&q=80" alt="AI Optimization" loading="lazy">
+                      <div class="showcase-overlay">
+                          <div>
+                              <span class="showcase-tag">ARTIFICIAL INTELLIGENCE</span>
+                              <h3 style="font-size: 24px; margin: 0;">AI-Powered Optimization</h3>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="showcase-content">
+                      <h3>AI-Driven Process Plant Optimization</h3>
+                      <p>Machine learning system optimizing crushing and grinding circuits in real-time, achieving 15% throughput increase and 12% energy reduction while improving recovery rates.</p>
+                      <div class="showcase-stats">
+                          <div class="stat-item">
+                              <span class="stat-value">15%</span>
+                              <span class="stat-label">Throughput Increase</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-value">12%</span>
+                              <span class="stat-label">Energy Savings</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-value">24/7</span>
+                              <span class="stat-label">Optimization</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- ROI Calculator -->
+  <section class="roi-calculator">
+      <div class="roi-container">
+          <div class="section-header">
+              <span class="section-tag">ROI CALCULATOR</span>
+              <h2>Calculate Your Technology ROI</h2>
+              <p>Estimate the return on investment for digital transformation</p>
+          </div>
+          <div class="calculator-grid">
+              <div class="calculator-card">
+                  <h3>Current Operations</h3>
+                  <div class="input-group">
+                      <label>Annual Production (tonnes)</label>
+                      <input type="number" id="production" placeholder="5000000" value="5000000">
+                  </div>
+                  <div class="input-group">
+                      <label>Operating Cost per Tonne ($)</label>
+                      <input type="number" id="costPerTonne" placeholder="25" value="25">
+                  </div>
+                  <div class="input-group">
+                      <label>Equipment Downtime (%)</label>
+                      <input type="number" id="downtime" placeholder="15" value="15">
+                  </div>
+                  <div class="input-group">
+                      <label>Technology Investment ($)</label>
+                      <input type="number" id="investment" placeholder="5000000" value="5000000">
+                  </div>
+                  <div class="input-group">
+                      <label>Technology Type</label>
+                      <select id="techType">
+                          <option value="automation">Automation & Robotics</option>
+                          <option value="ai">AI & Analytics</option>
+                          <option value="iot">IoT & Sensors</option>
+                          <option value="digital-twin">Digital Twin</option>
+                      </select>
+                  </div>
+                  <button class="calculate-btn" onclick="calculateROI()">
+                      <i class="fas fa-calculator"></i> Calculate ROI
+                  </button>
+              </div>
+
+              <div class="result-card">
+                  <h3>Expected Returns</h3>
+                  <div class="result-item">
+                      <div class="result-label">Annual Savings</div>
+                      <div class="result-value" id="annualSavings">$0</div>
+                  </div>
+                  <div class="result-item">
+                      <div class="result-label">ROI Percentage</div>
+                      <div class="result-value" id="roiPercent">0%</div>
+                  </div>
+                  <div class="result-item">
+                      <div class="result-label">Payback Period</div>
+                      <div class="result-value" id="paybackPeriod">0 months</div>
+                  </div>
+                  <div class="result-item">
+                      <div class="result-label">5-Year Value</div>
+                      <div class="result-value" id="fiveYearValue">$0</div>
+                  </div>
+                  <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                      <p style="font-size: 14px; opacity: 0.9; line-height: 1.8;">
+                          <i class="fas fa-info-circle"></i> Projections based on industry benchmarks. Actual results may vary based on implementation and site conditions.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Technology Partners -->
+  <section class="partners">
+      <div class="partners-container">
+          <div class="section-header">
+              <span class="section-tag">TECHNOLOGY PARTNERS</span>
+              <h2>Leading Technology Partners</h2>
+              <p>Collaborating with industry-leading technology providers</p>
+          </div>
+          <div class="partners-grid">
+              <div class="partner-logo animate-on-scroll">
+                  <i class="fab fa-microsoft"></i>
+              </div>
+              <div class="partner-logo animate-on-scroll">
+                  <i class="fab fa-aws"></i>
+              </div>
+              <div class="partner-logo animate-on-scroll">
+                  <i class="fab fa-google"></i>
+              </div>
+              <div class="partner-logo animate-on-scroll">
+                  <i class="fab fa-ibm"></i>
+              </div>
+              <div class="partner-logo animate-on-scroll">
+                  <i class="fas fa-microchip"></i>
+              </div>
+              <div class="partner-logo animate-on-scroll">
+                  <i class="fas fa-network-wired"></i>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+      <div class="cta-content">
+          <h2>Ready to Transform Your Operations?</h2>
+          <p>Start your digital transformation journey with cutting-edge mining technology</p>
+          <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+              <a href="#contact" class="btn btn-large btn-white">Schedule Demo <i class="fas fa-calendar-check"></i></a>
+              <a href="#solutions" class="btn btn-large btn-outline-white">Explore Solutions <i class="fas fa-rocket"></i></a>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="footer-content">
+          <div class="footer-brand">
+              <h3>SESMine</h3>
+              <p>Leading provider of comprehensive mining solutions, combining engineering excellence, economic expertise, and innovative technology.</p>
+          </div>
+          <div class="footer-column">
+              <h4>Platforms</h4>
+              <ul class="footer-links">
+                  <li><a href="engineering-hub.html">Engineering Hub</a></li>
+                  <li><a href="economics-hub.html">Economics Hub</a></li>
+                  <li><a href="consulting-hub.html">Consulting Hub</a></li>
+                  <li><a href="procurement-hub.html">Procurement Hub</a></li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h4>Resources</h4>
+              <ul class="footer-links">
+                  <li><a href="#">Documentation</a></li>
+                  <li><a href="#">Case Studies</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Support</a></li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h4>Company</h4>
+              <ul class="footer-links">
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2025 SESMine. All rights reserved. | Empowering Mining Excellence Worldwide</p>
+      </div>
+  </footer>
+
+  <script>
+      // Create animated particles
+      function createParticles() {
+          const container = document.getElementById('particles');
+          const particleCount = 50;
+          
+          for (let i = 0; i < particleCount; i++) {
+              const particle = document.createElement('div');
+              particle.className = 'particle';
+              particle.style.left = Math.random() * 100 + '%';
+              particle.style.animationDelay = Math.random() * 20 + 's';
+              particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+              container.appendChild(particle);
+          }
+      }
+
+      // ROI Calculator
+      function calculateROI() {
+          const production = parseFloat(document.getElementById('production').value);
+          const costPerTonne = parseFloat(document.getElementById('costPerTonne').value);
+          const downtime = parseFloat(document.getElementById('downtime').value);
+          const investment = parseFloat(document.getElementById('investment').value);
+
+          // Calculate annual operating cost
+          const annualCost = production * costPerTonne;
+
+          // Expected improvements (conservative estimates)
+          const productivityGain = 0.15; // 15% productivity increase
+          const downtimeReduction = 0.40; // 40% downtime reduction
+          const costReduction = 0.10; // 10% cost reduction
+
+          // Calculate savings
+          const productivitySavings = annualCost * productivityGain;
+          const downtimeSavings = (annualCost * (downtime / 100)) * downtimeReduction;
+          const operationalSavings = annualCost * costReduction;
+          
+          const totalAnnualSavings = productivitySavings + downtimeSavings + operationalSavings;
+
+          // Calculate ROI
+          const roi = ((totalAnnualSavings - investment) / investment) * 100;
+          const paybackMonths = (investment / totalAnnualSavings) * 12;
+          const fiveYearValue = (totalAnnualSavings * 5) - investment;
+
+          // Update results
+          document.getElementById('annualSavings').textContent = '$' + totalAnnualSavings.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+          document.getElementById('roiPercent').textContent = roi.toFixed(1) + '%';
+          document.getElementById('paybackPeriod').textContent = paybackMonths.toFixed(1) + ' months';
+          document.getElementById('fiveYearValue').textContent = '$' + fiveYearValue.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+      }
+
+      // Scroll Animation
+      const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('animated');
+              }
+          });
+      }, observerOptions);
+
+      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+      // Initialize
+      window.addEventListener('load', () => {
+          createParticles();
+          calculateROI();
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const target = document.querySelector(this.getAttribute('href'));
+              if (target) {
+                  target.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                  });
+              }
+          });
+      });
+  </script>
+</body>
+</html>

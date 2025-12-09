@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Training & Education Hub - Professional mining training, certification programs, e-learning courses, and skill development for mining professionals">
+  <title>Training & Education Hub - SESMine</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+      :root {
+          --primary-color: #e67e22;
+          --secondary-color: #d35400;
+          --accent-color: #f39c12;
+          --success-color: #27ae60;
+          --dark-bg: #0a1628;
+          --light-bg: #f8f9fa;
+          --text-dark: #2c3e50;
+          --gradient-1: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+          --gradient-2: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+          --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+          --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+          --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+          --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          color: var(--text-dark);
+          line-height: 1.6;
+          overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+      }
+
+      /* Navigation */
+      .navbar {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(10px);
+          box-shadow: var(--shadow-sm);
+          z-index: 1000;
+      }
+
+      .nav-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 80px;
+      }
+
+      .logo {
+          font-size: 28px;
+          font-weight: 800;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          text-decoration: none;
+      }
+
+      .nav-menu {
+          display: flex;
+          list-style: none;
+          gap: 40px;
+      }
+
+      .nav-menu a {
+          text-decoration: none;
+          color: var(--text-dark);
+          font-weight: 500;
+          transition: var(--transition);
+      }
+
+      .nav-menu a:hover {
+          color: var(--primary-color);
+      }
+
+      .btn {
+          padding: 12px 28px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: var(--transition);
+          cursor: pointer;
+          border: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .btn-primary {
+          background: var(--gradient-1);
+          color: white;
+          box-shadow: var(--shadow-sm);
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+      }
+
+      /* Hero Section */
+      .hero {
+          margin-top: 80px;
+          min-height: 90vh;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          background-image: linear-gradient(rgba(230, 126, 34, 0.85), rgba(211, 84, 0, 0.85)),
+                            url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&q=80');
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+      }
+
+      .hero::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      }
+
+      .hero-content {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 80px 30px;
+          position: relative;
+          z-index: 1;
+          text-align: center;
+          color: white;
+      }
+
+      .hero-content h1 {
+          font-size: 56px;
+          margin-bottom: 20px;
+          animation: fadeInUp 0.8s ease-out;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      }
+
+      .hero-content p {
+          font-size: 22px;
+          opacity: 0.95;
+          margin-bottom: 35px;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+          animation: fadeInUp 0.8s ease-out 0.2s backwards;
+      }
+
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(30px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      /* Stats Section */
+      .stats {
+          padding: 80px 30px;
+          background: white;
+          margin-top: -50px;
+          position: relative;
+          z-index: 2;
+      }
+
+      .stats-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 30px;
+      }
+
+      .stat-card {
+          background: var(--light-bg);
+          padding: 35px;
+          border-radius: 20px;
+          text-align: center;
+          transition: var(--transition);
+      }
+
+      .stat-card:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-lg);
+      }
+
+      .stat-icon {
+          width: 70px;
+          height: 70px;
+          background: var(--gradient-1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 32px;
+          color: white;
+          margin: 0 auto 20px;
+      }
+
+      .stat-value {
+          font-size: 42px;
+          font-weight: 800;
+          color: var(--primary-color);
+          margin-bottom: 8px;
+      }
+
+      .stat-label {
+          font-size: 16px;
+          color: #666;
+          font-weight: 500;
+      }
+
+      /* Training Programs */
+      .programs {
+          padding: 100px 30px;
+          background: var(--light-bg);
+      }
+
+      .programs-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .section-header {
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto 60px;
+      }
+
+      .section-tag {
+          display: inline-block;
+          background: var(--gradient-1);
+          color: white;
+          padding: 8px 20px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 15px;
+      }
+
+      .section-header h2 {
+          font-size: 42px;
+          margin-bottom: 20px;
+      }
+
+      .section-header p {
+          font-size: 18px;
+          color: #666;
+      }
+
+      .programs-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+      }
+
+      .program-card {
+          background: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
+          cursor: pointer;
+      }
+
+      .program-card:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-lg);
+      }
+
+      .program-image {
+          width: 100%;
+          height: 220px;
+          overflow: hidden;
+          position: relative;
+      }
+
+      .program-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+      }
+
+      .program-card:hover .program-image img {
+          transform: scale(1.1);
+      }
+
+      .program-badge {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: var(--gradient-1);
+          color: white;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 600;
+      }
+
+      .program-content {
+          padding: 30px;
+      }
+
+      .program-meta {
+          display: flex;
+          gap: 20px;
+          margin-bottom: 15px;
+          font-size: 14px;
+          color: #666;
+      }
+
+      .program-meta span {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+      }
+
+      .program-content h3 {
+          font-size: 22px;
+          margin-bottom: 12px;
+          color: var(--text-dark);
+      }
+
+      .program-content p {
+          color: #666;
+          line-height: 1.8;
+          margin-bottom: 20px;
+      }
+
+      .program-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 20px;
+          border-top: 2px solid var(--light-bg);
+      }
+
+      .program-price {
+          font-size: 24px;
+          font-weight: 700;
+          color: var(--primary-color);
+      }
+
+      .program-rating {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+      }
+
+      .stars {
+          color: #f39c12;
+      }
+
+      .rating-count {
+          font-size: 13px;
+          color: #666;
+      }
+
+      /* Course Categories */
+      .categories {
+          padding: 100px 30px;
+          background: white;
+      }
+
+      .categories-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .categories-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 30px;
+      }
+
+      .category-card {
+          background: var(--light-bg);
+          border-radius: 20px;
+          padding: 40px;
+          text-align: center;
+          transition: var(--transition);
+          cursor: pointer;
+          border: 3px solid transparent;
+      }
+
+      .category-card:hover {
+          background: white;
+          box-shadow: var(--shadow-lg);
+          transform: translateY(-10px);
+          border-color: var(--primary-color);
+      }
+
+      .category-icon {
+          width: 80px;
+          height: 80px;
+          background: var(--gradient-1);
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 36px;
+          color: white;
+          margin: 0 auto 20px;
+      }
+
+      .category-card:nth-child(2) .category-icon {
+          background: var(--gradient-2);
+      }
+
+      .category-card:nth-child(3) .category-icon {
+          background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .category-card:nth-child(4) .category-icon {
+          background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+
+      .category-card:nth-child(5) .category-icon {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .category-card:nth-child(6) .category-icon {
+          background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+      }
+
+      .category-card:nth-child(7) .category-icon {
+          background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      }
+
+      .category-card:nth-child(8) .category-icon {
+          background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      }
+
+      .category-card h3 {
+          font-size: 20px;
+          margin-bottom: 10px;
+      }
+
+      .course-count {
+          font-size: 14px;
+          color: #666;
+      }
+
+      /* Instructors */
+      .instructors {
+          padding: 100px 30px;
+          background: var(--light-bg);
+      }
+
+      .instructors-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .instructors-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 30px;
+      }
+
+      .instructor-card {
+          background: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
+          text-align: center;
+      }
+
+      .instructor-card:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-lg);
+      }
+
+      .instructor-photo {
+          width: 100%;
+          height: 280px;
+          overflow: hidden;
+          position: relative;
+      }
+
+      .instructor-photo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .instructor-social {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+          padding: 15px;
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          opacity: 0;
+          transition: var(--transition);
+      }
+
+      .instructor-card:hover .instructor-social {
+          opacity: 1;
+      }
+
+      .social-link {
+          width: 35px;
+          height: 35px;
+          background: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--primary-color);
+          transition: var(--transition);
+          text-decoration: none;
+      }
+
+      .social-link:hover {
+          background: var(--primary-color);
+          color: white;
+      }
+
+      .instructor-info {
+          padding: 25px;
+      }
+
+      .instructor-info h4 {
+          font-size: 20px;
+          margin-bottom: 5px;
+      }
+
+      .instructor-title {
+          color: var(--primary-color);
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 15px;
+      }
+
+      .instructor-stats {
+          display: flex;
+          justify-content: space-around;
+          padding-top: 15px;
+          border-top: 2px solid var(--light-bg);
+      }
+
+      .stat-item {
+          text-align: center;
+      }
+
+      .stat-number {
+          font-size: 20px;
+          font-weight: 700;
+          color: var(--primary-color);
+          display: block;
+      }
+
+      .stat-text {
+          font-size: 12px;
+          color: #666;
+      }
+
+      /* Learning Paths */
+      .learning-paths {
+          padding: 100px 30px;
+          background: white;
+      }
+
+      .paths-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .paths-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px;
+      }
+
+      .path-card {
+          background: var(--light-bg);
+          border-radius: 20px;
+          padding: 40px;
+          transition: var(--transition);
+      }
+
+      .path-card:hover {
+          box-shadow: var(--shadow-lg);
+          transform: translateY(-5px);
+      }
+
+      .path-header {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin-bottom: 25px;
+      }
+
+      .path-icon {
+          width: 70px;
+          height: 70px;
+          background: var(--gradient-1);
+          border-radius: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 32px;
+          color: white;
+      }
+
+      .path-info h3 {
+          font-size: 26px;
+          margin-bottom: 5px;
+      }
+
+      .path-duration {
+          color: #666;
+          font-size: 14px;
+      }
+
+      .path-description {
+          color: #666;
+          line-height: 1.8;
+          margin-bottom: 25px;
+      }
+
+      .path-courses {
+          list-style: none;
+      }
+
+      .path-courses li {
+          padding: 12px 0;
+          border-bottom: 1px solid #e0e0e0;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+      }
+
+      .path-courses li:last-child {
+          border-bottom: none;
+      }
+
+      .course-number {
+          width: 30px;
+          height: 30px;
+          background: var(--gradient-1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: 700;
+          font-size: 14px;
+      }
+
+      /* Testimonials */
+      .testimonials {
+          padding: 100px 30px;
+          background: var(--light-bg);
+      }
+
+      .testimonials-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .testimonials-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+      }
+
+      .testimonial-card {
+          background: white;
+          border-radius: 20px;
+          padding: 35px;
+          position: relative;
+          transition: var(--transition);
+      }
+
+      .testimonial-card:hover {
+          box-shadow: var(--shadow-lg);
+          transform: translateY(-10px);
+      }
+
+      .quote-icon {
+          font-size: 48px;
+          color: var(--primary-color);
+          opacity: 0.2;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+      }
+
+      .testimonial-text {
+          font-size: 16px;
+          line-height: 1.8;
+          color: #555;
+          margin-bottom: 25px;
+          font-style: italic;
+      }
+
+      .testimonial-author {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+      }
+
+      .author-avatar {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid var(--primary-color);
+      }
+
+      .author-info h4 {
+          font-size: 16px;
+          margin-bottom: 5px;
+      }
+
+      .author-position {
+          font-size: 13px;
+          color: #666;
+      }
+
+      .rating {
+          color: #f39c12;
+          margin-top: 5px;
+      }
+
+      /* CTA Section */
+      .cta {
+          padding: 100px 30px;
+          background: var(--gradient-1);
+          text-align: center;
+          color: white;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .cta::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.1;
+      }
+
+      .cta-content {
+          max-width: 800px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 1;
+      }
+
+      .cta h2 {
+          font-size: 48px;
+          margin-bottom: 20px;
+      }
+
+      .cta p {
+          font-size: 20px;
+          opacity: 0.95;
+          margin-bottom: 40px;
+      }
+
+      .btn-white {
+          background: white;
+          color: var(--primary-color);
+      }
+
+      .btn-outline-white {
+          border: 2px solid white;
+          color: white;
+          background: transparent;
+      }
+
+      .btn-outline-white:hover {
+          background: white;
+          color: var(--primary-color);
+      }
+
+      /* Footer */
+      .footer {
+          background: var(--dark-bg);
+          color: white;
+          padding: 60px 30px 30px;
+      }
+
+      .footer-content {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr 1fr;
+          gap: 50px;
+          margin-bottom: 40px;
+      }
+
+      .footer-brand h3 {
+          font-size: 26px;
+          margin-bottom: 15px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+      .footer-brand p {
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.8;
+      }
+
+      .footer-column h4 {
+          font-size: 18px;
+          margin-bottom: 20px;
+      }
+
+      .footer-links {
+          list-style: none;
+      }
+
+      .footer-links li {
+          margin-bottom: 12px;
+      }
+
+      .footer-links a {
+          color: rgba(255, 255, 255, 0.7);
+          text-decoration: none;
+          transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+          color: white;
+          padding-left: 5px;
+      }
+
+      .footer-bottom {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          text-align: center;
+          color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+          .stats-container {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .programs-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .categories-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .instructors-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .paths-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .testimonials-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .footer-content {
+              grid-template-columns: 1fr 1fr;
+          }
+      }
+
+      @media (max-width: 768px) {
+          .hero-content h1 {
+              font-size: 36px;
+          }
+
+          .stats-container {
+              grid-template-columns: 1fr;
+          }
+
+          .programs-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .categories-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .instructors-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .testimonials-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .footer-content {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      /* Scroll Animations */
+      .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+      <div class="nav-container">
+          <a href="index.html" class="logo">
+              <i class="fas fa-gem"></i>
+              SESMine
+          </a>
+          <ul class="nav-menu">
+              <li><a href="home.html">Dashboard</a></li>
+              <li><a href="#programs">Programs</a></li>
+              <li><a href="#categories">Categories</a></li>
+              <li><a href="#instructors">Instructors</a></li>
+              <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Enroll Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+      <div class="hero-content">
+          <h1>Training & Education Hub</h1>
+          <p>Advance your mining career with world-class training programs, professional certifications, and expert-led courses designed for industry professionals</p>
+          <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+              <a href="#programs" class="btn btn-white">Browse Courses <i class="fas fa-book-open"></i></a>
+              <a href="#categories" class="btn btn-outline-white">View Categories <i class="fas fa-th-large"></i></a>
+          </div>
+      </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+      <div class="stats-container">
+          <div class="stat-card animate-on-scroll">
+              <div class="stat-icon">
+                  <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="stat-value">15,000+</div>
+              <div class="stat-label">Students Trained</div>
+          </div>
+
+          <div class="stat-card animate-on-scroll">
+              <div class="stat-icon">
+                  <i class="fas fa-book"></i>
+              </div>
+              <div class="stat-value">250+</div>
+              <div class="stat-label">Courses Available</div>
+          </div>
+
+          <div class="stat-card animate-on-scroll">
+              <div class="stat-icon">
+                  <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+              <div class="stat-value">85+</div>
+              <div class="stat-label">Expert Instructors</div>
+          </div>
+
+          <div class="stat-card animate-on-scroll">
+              <div class="stat-icon">
+                  <i class="fas fa-certificate"></i>
+              </div>
+              <div class="stat-value">98%</div>
+              <div class="stat-label">Satisfaction Rate</div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Training Programs -->
+  <section class="programs" id="programs">
+      <div class="programs-container">
+          <div class="section-header">
+              <span class="section-tag">FEATURED PROGRAMS</span>
+              <h2>Professional Training Programs</h2>
+              <p>Comprehensive courses designed by industry experts</p>
+          </div>
+          <div class="programs-grid">
+              <!-- Program 1 -->
+              <div class="program-card animate-on-scroll">
+                  <div class="program-image">
+                      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Mine Planning" loading="lazy">
+                      <span class="program-badge">BESTSELLER</span>
+                  </div>
+                  <div class="program-content">
+                      <div class="program-meta">
+                          <span><i class="fas fa-clock"></i> 40 hours</span>
+                          <span><i class="fas fa-signal"></i> Advanced</span>
+                          <span><i class="fas fa-users"></i> 1,250 students</span>
+                      </div>
+                      <h3>Advanced Mine Planning & Design</h3>
+                      <p>Comprehensive course covering modern mine planning techniques, optimization strategies, and design software.</p>
+                      <div class="program-footer">
+                          <div class="program-price">$899</div>
+                          <div class="program-rating">
+                              <div class="stars">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                              </div>
+                              <span class="rating-count">(4.9)</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Program 2 -->
+              <div class="program-card animate-on-scroll">
+                  <div class="program-image">
+                      <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Safety Management" loading="lazy">
+                      <span class="program-badge">CERTIFIED</span>
+                  </div>
+                  <div class="program-content">
+                      <div class="program-meta">
+                          <span><i class="fas fa-clock"></i> 32 hours</span>
+                          <span><i class="fas fa-signal"></i> Intermediate</span>
+                          <span><i class="fas fa-users"></i> 2,100 students</span>
+                      </div>
+                      <h3>Mining Safety Management</h3>
+                      <p>Professional certification in mining safety standards, risk assessment, and emergency response protocols.</p>
+                      <div class="program-footer">
+                          <div class="program-price">$749</div>
+                          <div class="program-rating">
+                              <div class="stars">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                              </div>
+                              <span class="rating-count">(4.8)</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Program 3 -->
+              <div class="program-card animate-on-scroll">
+                  <div class="program-image">
+                      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Geology" loading="lazy">
+                      <span class="program-badge">NEW</span>
+                  </div>
+                  <div class="program-content">
+                      <div class="program-meta">
+                          <span><i class="fas fa-clock"></i> 48 hours</span>
+                          <span><i class="fas fa-signal"></i> Advanced</span>
+                          <span><i class="fas fa-users"></i> 850 students</span>
+                      </div>
+                      <h3>Applied Mining Geology</h3>
+                      <p>In-depth exploration of geological principles, resource estimation, and ore body modeling techniques.</p>
+                      <div class="program-footer">
+                          <div class="program-price">$999</div>
+                          <div class="program-rating">
+                              <div class="stars">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star-half-alt"></i>
+                              </div>
+                              <span class="rating-count">(4.7)</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Program 4 -->
+              <div class="program-card animate-on-scroll">
+                  <div class="program-image">
+                      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Project Management" loading="lazy">
+                  </div>
+                  <div class="program-content">
+                      <div class="program-meta">
+                          <span><i class="fas fa-clock"></i> 36 hours</span>
+                          <span><i class="fas fa-signal"></i> Intermediate</span>
+                          <span><i class="fas fa-users"></i> 1,500 students</span>
+                      </div>
+                      <h3>Mining Project Management</h3>
+                      <p>Master project management principles specific to mining operations, from planning to execution.</p>
+                      <div class="program-footer">
+                          <div class="program-price">$799</div>
+                          <div class="program-rating">
+                              <div class="stars">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                              </div>
+                              <span class="rating-count">(4.9)</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Program 5 -->
+              <div class="program-card animate-on-scroll">
+                  <div class="program-image">
+                      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Data Analytics" loading="lazy">
+                  </div>
+                  <div class="program-content">
+                      <div class="program-meta">
+                          <span><i class="fas fa-clock"></i> 44 hours</span>
+                          <span><i class="fas fa-signal"></i> Advanced</span>
+                          <span><i class="fas fa-users"></i> 950 students</span>
+                      </div>
+                      <h3>Mining Data Analytics</h3>
+                      <p>Learn to leverage data analytics and AI for operational optimization and decision-making.</p>
+                      <div class="program-footer">
+                          <div class="program-price">$849</div>
+                          <div class="program-rating">
+                              <div class="stars">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star-half-alt"></i>
+                              </div>
+                              <span class="rating-count">(4.8)</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Program 6 -->
+              <div class="program-card animate-on-scroll">
+                  <div class="program-image">
+                      <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&q=80" alt="Environmental" loading="lazy">
+                  </div>
+                  <div class="program-content">
+                      <div class="program-meta">
+                          <span><i class="fas fa-clock"></i> 28 hours</span>
+                          <span><i class="fas fa-signal"></i> Beginner</span>
+                          <span><i class="fas fa-users"></i> 1,800 students</span>
+                      </div>
+                      <h3>Environmental Management</h3>
+                      <p>Understand environmental regulations, sustainability practices, and ESG compliance in mining.</p>
+                      <div class="program-footer">
+                          <div class="program-price">$649</div>
+                          <div class="program-rating">
+                              <div class="stars">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                              </div>
+                              <span class="rating-count">(4.9)</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Course Categories -->
+  <section class="categories" id="categories">
+      <div class="categories-container">
+          <div class="section-header">
+              <span class="section-tag">COURSE CATEGORIES</span>
+              <h2>Explore by Topic</h2>
+              <p>Find the perfect course for your career goals</p>
+          </div>
+          <div class="categories-grid">
+              <div class="category-card animate-on-scroll">
+                  <div class="category-icon">
+                      <i class="fas fa-hard-hat"></i>
+                  </div>
+                  <h3>Mining Operations</h3>
+                  <p class="course-count">45 Courses</p>
+              </div>
+
+              <div class="category-card animate-on-scroll">
+                  <div class="category-icon">
+                      <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <h3>Safety & Health</h3>
+                  <p class="course-count">38 Courses</p>
+              </div>
+
+              <div class="category-card animate-on-scroll">
+                  <div class="category-icon">
+                      <i class="fas fa-mountain"></i>
+                  </div>
+                  <h3>Geology & Exploration</h3>
+                  <p class="course-count">32 Courses</p>
+              </div>
+
+              <div class="category-card animate-on-scroll">
+                  <div class="category-icon">
+                      <i class="fas fa-cogs"></i>
+                  </div>
+                  <h3>Equipment & Maintenance</h3>
+                  <p class="course-count">28 Courses</p>
+              </div>
+
+              <div class="category-card animate-on-scroll">
+                  <div class="category-icon">
+                      <i class="fas fa-chart-line"></i>
+                  </div>
+                  <h3>Economics & Finance</h3>
+                  <p class="course-count">25 Courses</p>
+              </div>
+
+              <div class="category-card animate-on-scroll">
+                  <div class="category-icon">
+                      <i class="fas fa-leaf"></i>
+                  </div>
+                  <h3>Environmental</h3>
+                  <p class="course-count">22 Courses</p>
+              </div>
+
+              <div class="category-card animate-on-scroll">
+                  <div class="category-icon">
+                      <i class="fas fa-robot"></i>
+                  </div>
+                  <h3>Technology & Innovation</h3>
+                  <p class="course-count">30 Courses</p>
+              </div>
+
+              <div class="category-card animate-on-scroll">
+                  <div class="category-icon">
+                      <i class="fas fa-users"></i>
+                  </div>
+                  <h3>Leadership & Management</h3>
+                  <p class="course-count">30 Courses</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Instructors -->
+  <section class="instructors" id="instructors">
+      <div class="instructors-container">
+          <div class="section-header">
+              <span class="section-tag">EXPERT INSTRUCTORS</span>
+              <h2>Learn From Industry Leaders</h2>
+              <p>World-class professionals with decades of experience</p>
+          </div>
+          <div class="instructors-grid">
+              <!-- Instructor 1 -->
+              <div class="instructor-card animate-on-scroll">
+                  <div class="instructor-photo">
+                      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Instructor" loading="lazy">
+                      <div class="instructor-social">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                      </div>
+                  </div>
+                  <div class="instructor-info">
+                      <h4>Dr. Robert Anderson</h4>
+                      <div class="instructor-title">Mining Engineering Expert</div>
+                      <div class="instructor-stats">
+                          <div class="stat-item">
+                              <span class="stat-number">12</span>
+                              <span class="stat-text">Courses</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-number">3,500</span>
+                              <span class="stat-text">Students</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-number">4.9</span>
+                              <span class="stat-text">Rating</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Instructor 2 -->
+              <div class="instructor-card animate-on-scroll">
+                  <div class="instructor-photo">
+                      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Instructor" loading="lazy">
+                      <div class="instructor-social">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                      </div>
+                  </div>
+                  <div class="instructor-info">
+                      <h4>Jennifer Martinez</h4>
+                      <div class="instructor-title">Safety & Compliance Specialist</div>
+                      <div class="instructor-stats">
+                          <div class="stat-item">
+                              <span class="stat-number">8</span>
+                              <span class="stat-text">Courses</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-number">2,800</span>
+                              <span class="stat-text">Students</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-number">4.8</span>
+                              <span class="stat-text">Rating</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Instructor 3 -->
+              <div class="instructor-card animate-on-scroll">
+                  <div class="instructor-photo">
+                      <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Instructor" loading="lazy">
+                      <div class="instructor-social">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                      </div>
+                  </div>
+                  <div class="instructor-info">
+                      <h4>Michael Chen</h4>
+                      <div class="instructor-title">Geology & Resource Expert</div>
+                      <div class="instructor-stats">
+                          <div class="stat-item">
+                              <span class="stat-number">10</span>
+                              <span class="stat-text">Courses</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-number">3,200</span>
+                              <span class="stat-text">Students</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-number">4.9</span>
+                              <span class="stat-text">Rating</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Instructor 4 -->
+              <div class="instructor-card animate-on-scroll">
+                  <div class="instructor-photo">
+                      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Instructor" loading="lazy">
+                      <div class="instructor-social">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                      </div>
+                  </div>
+                  <div class="instructor-info">
+                      <h4>Dr. Sarah Thompson</h4>
+                      <div class="instructor-title">Environmental Consultant</div>
+                      <div class="instructor-stats">
+                          <div class="stat-item">
+                              <span class="stat-number">7</span>
+                              <span class="stat-text">Courses</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-number">2,500</span>
+                              <span class="stat-text">Students</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-number">4.9</span>
+                              <span class="stat-text">Rating</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Learning Paths -->
+  <section class="learning-paths">
+      <div class="paths-container">
+          <div class="section-header">
+              <span class="section-tag">LEARNING PATHS</span>
+              <h2>Structured Career Development</h2>
+              <p>Follow curated learning paths for career advancement</p>
+          </div>
+          <div class="paths-grid">
+              <!-- Path 1 -->
+              <div class="path-card animate-on-scroll">
+                  <div class="path-header">
+                      <div class="path-icon">
+                          <i class="fas fa-user-graduate"></i>
+                      </div>
+                      <div class="path-info">
+                          <h3>Mining Engineer Path</h3>
+                          <div class="path-duration"><i class="fas fa-clock"></i> 6 months • 8 courses</div>
+                      </div>
+                  </div>
+                  <p class="path-description">Complete learning path from fundamentals to advanced mine planning and design for aspiring mining engineers.</p>
+                  <ul class="path-courses">
+                      <li>
+                          <div class="course-number">1</div>
+                          <span>Introduction to Mining Engineering</span>
+                      </li>
+                      <li>
+                          <div class="course-number">2</div>
+                          <span>Mine Planning Fundamentals</span>
+                      </li>
+                      <li>
+                          <div class="course-number">3</div>
+                          <span>Rock Mechanics & Ground Control</span>
+                      </li>
+                      <li>
+                          <div class="course-number">4</div>
+                          <span>Advanced Mine Design</span>
+                      </li>
+                  </ul>
+              </div>
+
+              <!-- Path 2 -->
+              <div class="path-card animate-on-scroll">
+                  <div class="path-header">
+                      <div class="path-icon">
+                          <i class="fas fa-user-shield"></i>
+                      </div>
+                      <div class="path-info">
+                          <h3>Safety Manager Path</h3>
+                          <div class="path-duration"><i class="fas fa-clock"></i> 4 months • 6 courses</div>
+                      </div>
+                  </div>
+                  <p class="path-description">Comprehensive safety management training from basic compliance to advanced risk management and emergency response.</p>
+                  <ul class="path-courses">
+                      <li>
+                          <div class="course-number">1</div>
+                          <span>Mining Safety Fundamentals</span>
+                      </li>
+                      <li>
+                          <div class="course-number">2</div>
+                          <span>Risk Assessment & Management</span>
+                      </li>
+                      <li>
+                          <div class="course-number">3</div>
+                          <span>Emergency Response Planning</span>
+                      </li>
+                      <li>
+                          <div class="course-number">4</div>
+                          <span>Safety Leadership & Culture</span>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+      <div class="testimonials-container">
+          <div class="section-header">
+              <span class="section-tag">STUDENT SUCCESS</span>
+              <h2>What Our Students Say</h2>
+              <p>Real feedback from mining professionals</p>
+          </div>
+          <div class="testimonials-grid">
+              <!-- Testimonial 1 -->
+              <div class="testimonial-card animate-on-scroll">
+                  <i class="fas fa-quote-right quote-icon"></i>
+                  <p class="testimonial-text">"The Advanced Mine Planning course transformed my career. The practical examples and expert instruction gave me the skills I needed to advance to senior engineer."</p>
+                  <div class="testimonial-author">
+                      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Student" class="author-avatar" loading="lazy">
+                      <div class="author-info">
+                          <h4>James Wilson</h4>
+                          <div class="author-position">Senior Mining Engineer</div>
+                          <div class="rating">
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Testimonial 2 -->
+              <div class="testimonial-card animate-on-scroll">
+                  <i class="fas fa-quote-right quote-icon"></i>
+                  <p class="testimonial-text">"Excellent safety management program! The certification helped me secure my current role as Safety Manager. Highly practical and industry-relevant content."</p>
+                  <div class="testimonial-author">
+                      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Student" class="author-avatar" loading="lazy">
+                      <div class="author-info">
+                          <h4>Maria Rodriguez</h4>
+                          <div class="author-position">Safety Manager</div>
+                          <div class="rating">
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Testimonial 3 -->
+              <div class="testimonial-card animate-on-scroll">
+                  <i class="fas fa-quote-right quote-icon"></i>
+                  <p class="testimonial-text">"The geology courses are outstanding. Dr. Chen's teaching style makes complex concepts easy to understand. Best investment in my professional development."</p>
+                  <div class="testimonial-author">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Student" class="author-avatar" loading="lazy">
+                      <div class="author-info">
+                          <h4>David Kim</h4>
+                          <div class="author-position">Exploration Geologist</div>
+                          <div class="rating">
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+      <div class="cta-content">
+          <h2>Start Your Learning Journey Today</h2>
+          <p>Join thousands of mining professionals advancing their careers through expert-led training</p>
+          <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+              <a href="#contact" class="btn btn-large btn-white">Enroll Now <i class="fas fa-graduation-cap"></i></a>
+              <a href="#programs" class="btn btn-large btn-outline-white">Browse Courses <i class="fas fa-book-open"></i></a>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="footer-content">
+          <div class="footer-brand">
+              <h3>SESMine</h3>
+              <p>Leading provider of comprehensive mining solutions, combining engineering excellence, economic expertise, and innovative technology.</p>
+          </div>
+          <div class="footer-column">
+              <h4>Platforms</h4>
+              <ul class="footer-links">
+                  <li><a href="engineering-hub.html">Engineering Hub</a></li>
+                  <li><a href="economics-hub.html">Economics Hub</a></li>
+                  <li><a href="consulting-hub.html">Consulting Hub</a></li>
+                  <li><a href="procurement-hub.html">Procurement Hub</a></li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h4>Resources</h4>
+              <ul class="footer-links">
+                  <li><a href="#">Documentation</a></li>
+                  <li><a href="#">Case Studies</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Support</a></li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h4>Company</h4>
+              <ul class="footer-links">
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2025 SESMine. All rights reserved. | Empowering Mining Excellence Worldwide</p>
+      </div>
+  </footer>
+
+  <script>
+      // Scroll Animation
+      const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('animated');
+              }
+          });
+      }, observerOptions);
+
+      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const target = document.querySelector(this.getAttribute('href'));
+              if (target) {
+                  target.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                  });
+              }
+          });
+      });
+  </script>
+</body>
+</html>

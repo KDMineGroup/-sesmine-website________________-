@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SESMine - Comprehensive Mining Solutions Platform. Engineering, Economics, Consulting, Procurement, Innovation, Analytics, and Training.">
+    <title>SESMine - Complete Mining Solutions Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --dark-bg: #0a1628;
+            --light-bg: #f8f9fa;
+            --text-dark: #2c3e50;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .logo i {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background-image: 
+                linear-gradient(rgba(44, 62, 80, 0.7), rgba(52, 152, 219, 0.7)),
+                url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 150px 30px 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 18px;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-outline-white {
+            border: 3px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 80px 30px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            background: var(--light-bg);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+
+        .stat-card:nth-child(2) .stat-icon {
+            background: var(--gradient-2);
+        }
+
+        .stat-card:nth-child(3) .stat-icon {
+            background: var(--gradient-3);
+        }
+
+        .stat-card:nth-child(4) .stat-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .stat-value {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* Platforms Section */
+        .platforms {
+            padding: 100px 30px;
+            background: var(--light-bg);
+        }
+
+        .platforms-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .platform-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .platform-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .platform-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .platform-card:hover .platform-image img {
+            transform: scale(1.1);
+        }
+
+        .platform-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-1);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .platform-content {
+            padding: 35px;
+        }
+
+        .platform-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .platform-card:nth-child(2) .platform-icon,
+        .platform-card:nth-child(2) .platform-badge {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+
+        .platform-card:nth-child(3) .platform-icon,
+        .platform-card:nth-child(3) .platform-badge {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+
+        .platform-card:nth-child(4) .platform-icon,
+        .platform-card:nth-child(4) .platform-badge {
+            background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%);
+        }
+
+        .platform-card:nth-child(5) .platform-icon,
+        .platform-card:nth-child(5) .platform-badge {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+
+        .platform-card:nth-child(6) .platform-icon,
+        .platform-card:nth-child(6) .platform-badge {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+
+        .platform-card:nth-child(7) .platform-icon,
+        .platform-card:nth-child(7) .platform-badge {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+
+        .platform-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .platform-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .platform-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .platform-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .platform-features i {
+            color: var(--success-color);
+            font-size: 16px;
+        }
+
+        .platform-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .platform-link:hover {
+            gap: 12px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 30px;
+            background: white;
+        }
+
+        .features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: var(--light-bg);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            background: white;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+
+        .feature-card h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 30px;
+            background: var(--gradient-1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            font-size: 52px;
+            margin-bottom: 25px;
+        }
+
+        .cta p {
+            font-size: 22px;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 80px 30px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--gradient-1);
+            transform: translateY(-5px);
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .platforms-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-gem"></i>
+                SESMine
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html">Platforms</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="home.html" class="btn btn-primary">Explore Platforms <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i> World's Leading Mining Solutions Platform
+            </div>
+            <h1>Transform Your Mining Operations</h1>
+            <p class="hero-subtitle">
+                Comprehensive digital platform integrating engineering, economics, consulting, procurement, innovation, analytics, and training for the modern mining industry
+            </p>
+            <div class="hero-buttons">
+                <a href="home.html" class="btn btn-large btn-white">Get Started <i class="fas fa-rocket"></i></a>
+                <a href="#platforms" class="btn btn-large btn-outline-white">Explore Solutions <i class="fas fa-compass"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-value">10,000+</div>
+                <div class="stat-label">Active Users Worldwide</div>
+            </div>
+
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="stat-value">5,000+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="stat-value">75+</div>
+                <div class="stat-label">Countries Served</div>
+            </div>
+
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="stat-value">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section class="platforms" id="platforms">
+        <div class="platforms-container">
+            <div class="section-header">
+                <span class="section-tag">OUR PLATFORMS</span>
+                <h2>Integrated Mining Solutions</h2>
+                <p>Seven specialized platforms designed to cover every aspect of your mining operations</p>
+            </div>
+            <div class="platforms-grid">
+                <!-- Platform 1: Engineering Hub -->
+                <a href="engineering-hub.html" class="platform-card animate-on-scroll">
+                    <div class="platform-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80" alt="Engineering Hub" loading="lazy">
+                        <span class="platform-badge">Popular</span>
+                    </div>
+                    <div class="platform-content">
+                        <div class="platform-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3>Engineering Hub</h3>
+                        <p>Advanced mine planning, design, and engineering solutions with 3D modeling and optimization.</p>
+                        <ul class="platform-features">
+                            <li><i class="fas fa-check-circle"></i> Mine Planning & Design</li>
+                            <li><i class="fas fa-check-circle"></i> Process Engineering</li>
+                            <li><i class="fas fa-check-circle"></i> Geotechnical Analysis</li>
+                        </ul>
+                        <span class="platform-link">Explore Engineering <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- Platform 2: Economics Hub -->
+                <a href="economics-hub.html" class="platform-card animate-on-scroll">
+                    <div class="platform-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Economics Hub" loading="lazy">
+                        <span class="platform-badge">Featured</span>
+                    </div>
+                    <div class="platform-content">
+                        <div class="platform-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Economics Hub</h3>
+                        <p>Comprehensive financial modeling, cost estimation, and economic analysis tools.</p>
+                        <ul class="platform-features">
+                            <li><i class="fas fa-check-circle"></i> NPV Calculator</li>
+                            <li><i class="fas fa-check-circle"></i> Cost Estimation</li>
+                            <li><i class="fas fa-check-circle"></i> Market Analysis</li>
+                        </ul>
+                        <span class="platform-link">Explore Economics <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- Platform 3: Consulting Hub -->
+                <a href="consulting-hub.html" class="platform-card animate-on-scroll">
+                    <div class="platform-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Consulting Hub" loading="lazy">
+                        <span class="platform-badge">Expert</span>
+                    </div>
+                    <div class="platform-content">
+                        <div class="platform-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Consulting Hub</h3>
+                        <p>Expert consulting services with experienced professionals and proven methodologies.</p>
+                        <ul class="platform-features">
+                            <li><i class="fas fa-check-circle"></i> Expert Consultants</li>
+                            <li><i class="fas fa-check-circle"></i> Strategic Planning</li>
+                            <li><i class="fas fa-check-circle"></i> Case Studies</li>
+                        </ul>
+                        <span class="platform-link">Explore Consulting <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- Platform 4: Procurement Hub -->
+                <a href="procurement-hub.html" class="platform-card animate-on-scroll">
+                    <div class="platform-image">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Procurement Hub" loading="lazy">
+                        <span class="platform-badge">New</span>
+                    </div>
+                    <div class="platform-content">
+                        <div class="platform-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <h3>Procurement Hub</h3>
+                        <p>Complete procurement platform connecting suppliers with mining operations worldwide.</p>
+                        <ul class="platform-features">
+                            <li><i class="fas fa-check-circle"></i> Equipment Catalog</li>
+                            <li><i class="fas fa-check-circle"></i> Supplier Network</li>
+                            <li><i class="fas fa-check-circle"></i> RFQ Management</li>
+                        </ul>
+                        <span class="platform-link">Explore Procurement <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- Platform 5: Innovation & Technology Hub -->
+                <a href="innovation-technology-hub.html" class="platform-card animate-on-scroll">
+                    <div class="platform-image">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Innovation Hub" loading="lazy">
+                        <span class="platform-badge">Advanced</span>
+                    </div>
+                    <div class="platform-content">
+                        <div class="platform-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Innovation & Technology</h3>
+                        <p>Cutting-edge technology solutions including AI, IoT, automation, and digital twins.</p>
+                        <ul class="platform-features">
+                            <li><i class="fas fa-check-circle"></i> AI & Machine Learning</li>
+                            <li><i class="fas fa-check-circle"></i> IoT Integration</li>
+                            <li><i class="fas fa-check-circle"></i> Automation Systems</li>
+                        </ul>
+                        <span class="platform-link">Explore Innovation <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- Platform 6: Analytics Platform -->
+                <a href="analytics-platform.html" class="platform-card animate-on-scroll">
+                    <div class="platform-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Analytics Platform" loading="lazy">
+                        <span class="platform-badge">Trending</span>
+                    </div>
+                    <div class="platform-content">
+                        <div class="platform-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Analytics Platform</h3>
+                        <p>Real-time data analytics, business intelligence, and predictive insights.</p>
+                        <ul class="platform-features">
+                            <li><i class="fas fa-check-circle"></i> Real-time Dashboards</li>
+                            <li><i class="fas fa-check-circle"></i> Predictive Analytics</li>
+                            <li><i class="fas fa-check-circle"></i> Custom Reports</li>
+                        </ul>
+                        <span class="platform-link">Explore Analytics <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- Platform 7: Training & Education Hub -->
+                <a href="training-education-hub.html" class="platform-card animate-on-scroll">
+                    <div class="platform-image">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" alt="Training Hub" loading="lazy">
+                        <span class="platform-badge">Learning</span>
+                    </div>
+                    <div class="platform-content">
+                        <div class="platform-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Training & Education</h3>
+                        <p>Comprehensive training programs, certifications, and continuous learning resources.</p>
+                        <ul class="platform-features">
+                            <li><i class="fas fa-check-circle"></i> Online Courses</li>
+                            <li><i class="fas fa-check-circle"></i> Certifications</li>
+                            <li><i class="fas fa-check-circle"></i> Expert Instructors</li>
+                        </ul>
+                        <span class="platform-link">Explore Training <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="section-header">
+                <span class="section-tag">WHY CHOOSE US</span>
+                <h2>Platform Features</h2>
+                <p>Everything you need to succeed in modern mining operations</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Enterprise Security</h4>
+                    <p>Bank-level encryption and security protocols to protect your sensitive data</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <h4>Real-time Sync</h4>
+                    <p>Instant synchronization across all platforms and devices</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h4>Cloud-Based</h4>
+                    <p>Access your data anywhere, anytime from any device</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p>Round-the-clock expert support whenever you need it</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h4>API Integration</h4>
+                    <p>Seamless integration with your existing systems</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Mobile Ready</h4>
+                    <p>Fully responsive design optimized for all devices</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>AI-Powered</h4>
+                    <p>Advanced AI and machine learning capabilities</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h4>Advanced Analytics</h4>
+                    <p>Comprehensive data analytics and visualization tools</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Mining Operations?</h2>
+            <p>Join thousands of mining professionals already using SESMine to optimize their operations</p>
+            <div class="hero-buttons">
+                <a href="home.html" class="btn btn-large btn-white">Start Free Trial <i class="fas fa-rocket"></i></a>
+                <a href="#" class="btn btn-large btn-outline-white">Schedule Demo <i class="fas fa-calendar"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>SESMine</h3>
+                <p>The world's most comprehensive mining solutions platform. Empowering the future of mining through innovation, technology, and expertise.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Platforms</h4>
+                <ul class="footer-links">
+                    <li><a href="engineering-hub.html">Engineering Hub</a></li>
+                    <li><a href="economics-hub.html">Economics Hub</a></li>
+                    <li><a href="consulting-hub.html">Consulting Hub</a></li>
+                    <li><a href="procurement-hub.html">Procurement Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Solutions</h4>
+                <ul class="footer-links">
+                    <li><a href="innovation-technology-hub.html">Innovation & Tech</a></li>
+                    <li><a href="analytics-platform.html">Analytics Platform</a></li>
+                    <li><a href="training-education-hub.html">Training & Education</a></li>
+                    <li><a href="home.html">All Platforms</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 SESMine.com - All rights reserved. | Empowering the Future of Mining</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target.toLocaleString() + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString();
+                }
+            }, 16);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statValues = entry.target.querySelectorAll('.stat-value');
+                    statValues.forEach(stat => {
+                        const text = stat.textContent;
+                        const number = parseInt(text.replace(/[^0-9]/g, ''));
+                        animateCounter(stat, number);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        console.log('%c🎉 SESMine Platform Loaded!', 'color: #667eea; font-size: 20px; font-weight: bold;');
+        console.log('%c✨ Welcome to the future of mining', 'color: #27ae60; font-size: 14px;');
+    </script>
+</body>
+</html>

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Account Settings - SESMine Dashboard">
+  <title>Settings - SESMine</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+      :root {
+          --primary-color: #667eea;
+          --secondary-color: #764ba2;
+          --accent-color: #3498db;
+          --success-color: #27ae60;
+          --warning-color: #f39c12;
+          --error-color: #e74c3c;
+          --dark-bg: #0a1628;
+          --light-bg: #f8f9fa;
+          --text-dark: #2c3e50;
+          --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+          --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+          --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+          --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          color: var(--text-dark);
+          line-height: 1.6;
+          background: var(--light-bg);
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+      }
+
+      /* Navigation */
+      .navbar {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          background: white;
+          box-shadow: var(--shadow-sm);
+          z-index: 1000;
+      }
+
+      .nav-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 70px;
+      }
+
+      .logo {
+          font-size: 24px;
+          font-weight: 800;
+          background: var(--gradient-1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          text-decoration: none;
+      }
+
+      .nav-right {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+      }
+
+      .nav-link {
+          text-decoration: none;
+          color: var(--text-dark);
+          font-weight: 500;
+          transition: var(--transition);
+          padding: 8px 16px;
+          border-radius: 8px;
+      }
+
+      .nav-link:hover {
+          background: var(--light-bg);
+          color: var(--primary-color);
+      }
+
+      /* Main Content */
+      .main-content {
+          margin-top: 70px;
+          padding: 40px 30px;
+          max-width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      .page-header {
+          margin-bottom: 30px;
+      }
+
+      .page-header h1 {
+          font-size: 32px;
+          margin-bottom: 10px;
+      }
+
+      .page-header p {
+          color: #666;
+          font-size: 16px;
+      }
+
+      /* Settings Navigation */
+      .settings-nav {
+          background: white;
+          border-radius: 15px;
+          padding: 10px;
+          box-shadow: var(--shadow-sm);
+          margin-bottom: 30px;
+          display: flex;
+          gap: 10px;
+          overflow-x: auto;
+      }
+
+      .settings-tab {
+          padding: 12px 24px;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: var(--transition);
+          font-weight: 600;
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .settings-tab:hover {
+          background: var(--light-bg);
+      }
+
+      .settings-tab.active {
+          background: var(--gradient-1);
+          color: white;
+      }
+
+      /* Settings Content */
+      .settings-content {
+          background: white;
+          border-radius: 20px;
+          padding: 40px;
+          box-shadow: var(--shadow-sm);
+      }
+
+      .settings-section {
+          display: none;
+      }
+
+      .settings-section.active {
+          display: block;
+      }
+
+      .section-title {
+          font-size: 24px;
+          margin-bottom: 25px;
+          padding-bottom: 15px;
+          border-bottom: 2px solid var(--light-bg);
+      }
+
+      .form-group {
+          margin-bottom: 25px;
+      }
+
+      .form-group label {
+          display: block;
+          font-weight: 600;
+          margin-bottom: 10px;
+          color: var(--text-dark);
+          font-size: 14px;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+          width: 100%;
+          padding: 12px 15px;
+          border: 2px solid #e0e0e0;
+          border-radius: 10px;
+          font-size: 15px;
+          font-family: 'Inter', sans-serif;
+          transition: var(--transition);
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+      }
+
+      .form-group textarea {
+          resize: vertical;
+          min-height: 100px;
+      }
+
+      .form-row {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+      }
+
+      .form-help {
+          font-size: 13px;
+          color: #666;
+          margin-top: 5px;
+      }
+
+      /* Toggle Switch */
+      .toggle-group {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background: var(--light-bg);
+          border-radius: 12px;
+          margin-bottom: 15px;
+      }
+
+      .toggle-info h4 {
+          font-size: 16px;
+          margin-bottom: 5px;
+      }
+
+      .toggle-info p {
+          font-size: 13px;
+          color: #666;
+      }
+
+      .toggle-switch {
+          position: relative;
+          width: 50px;
+          height: 26px;
+      }
+
+      .toggle-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+
+      .toggle-slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: var(--transition);
+          border-radius: 34px;
+      }
+
+      .toggle-slider:before {
+          position: absolute;
+          content: "";
+          height: 20px;
+          width: 20px;
+          left: 3px;
+          bottom: 3px;
+          background-color: white;
+          transition: var(--transition);
+          border-radius: 50%;
+      }
+
+      .toggle-switch input:checked + .toggle-slider {
+          background: var(--gradient-1);
+      }
+
+      .toggle-switch input:checked + .toggle-slider:before {
+          transform: translateX(24px);
+      }
+
+      /* Buttons */
+      .btn {
+          padding: 12px 28px;
+          border-radius: 10px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: var(--transition);
+          cursor: pointer;
+          border: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 15px;
+      }
+
+      .btn-primary {
+          background: var(--gradient-1);
+          color: white;
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+      }
+
+      .btn-secondary {
+          background: var(--light-bg);
+          color: var(--text-dark);
+      }
+
+      .btn-secondary:hover {
+          background: #e0e0e0;
+      }
+
+      .btn-danger {
+          background: var(--error-color);
+          color: white;
+      }
+
+      .btn-danger:hover {
+          background: #c0392b;
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+      }
+
+      .btn-group {
+          display: flex;
+          gap: 15px;
+          margin-top: 30px;
+      }
+
+      /* Alert Box */
+      .alert {
+          padding: 15px 20px;
+          border-radius: 10px;
+          margin-bottom: 25px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+      }
+
+      .alert-success {
+          background: #d4edda;
+          color: #155724;
+          border-left: 4px solid var(--success-color);
+      }
+
+      .alert-warning {
+          background: #fff3cd;
+          color: #856404;
+          border-left: 4px solid var(--warning-color);
+      }
+
+      .alert-danger {
+          background: #f8d7da;
+          color: #721c24;
+          border-left: 4px solid var(--error-color);
+      }
+
+      /* Plan Card */
+      .plan-card {
+          padding: 25px;
+          background: var(--light-bg);
+          border-radius: 15px;
+          margin-bottom: 20px;
+      }
+
+      .plan-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+      }
+
+      .plan-name {
+          font-size: 20px;
+          font-weight: 700;
+      }
+
+      .plan-badge {
+          padding: 6px 15px;
+          background: var(--gradient-1);
+          color: white;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 600;
+      }
+
+      .plan-price {
+          font-size: 32px;
+          font-weight: 800;
+          color: var(--primary-color);
+          margin-bottom: 10px;
+      }
+
+      .plan-features {
+          list-style: none;
+          margin-bottom: 20px;
+      }
+
+      .plan-features li {
+          padding: 8px 0;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+      }
+
+      .plan-features i {
+          color: var(--success-color);
+      }
+
+      /* Danger Zone */
+      .danger-zone {
+          border: 2px solid var(--error-color);
+          border-radius: 15px;
+          padding: 25px;
+          margin-top: 30px;
+      }
+
+      .danger-zone h3 {
+          color: var(--error-color);
+          margin-bottom: 15px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+          .settings-nav {
+              flex-direction: column;
+          }
+
+          .form-row {
+              grid-template-columns: 1fr;
+          }
+
+          .btn-group {
+              flex-direction: column;
+          }
+
+          .btn {
+              width: 100%;
+              justify-content: center;
+          }
+      }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+      <div class="nav-container">
+          <a href="index.html" class="logo">
+              <i class="fas fa-gem"></i>
+              SESMine
+          </a>
+          <div class="nav-right">
+              <a href="home.html" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a>
+              <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+              <a href="settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a>
+          </div>
+      </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <div class="page-header">
+          <h1>Account Settings</h1>
+          <p>Manage your account preferences and settings</p>
+      </div>
+
+      <!-- Settings Navigation -->
+      <div class="settings-nav">
+          <div class="settings-tab active" onclick="showTab('profile')">
+              <i class="fas fa-user"></i> Profile
+          </div>
+          <div class="settings-tab" onclick="showTab('security')">
+              <i class="fas fa-shield-alt"></i> Security
+          </div>
+          <div class="settings-tab" onclick="showTab('notifications')">
+              <i class="fas fa-bell"></i> Notifications
+          </div>
+          <div class="settings-tab" onclick="showTab('billing')">
+              <i class="fas fa-credit-card"></i> Billing
+          </div>
+          <div class="settings-tab" onclick="showTab('preferences')">
+              <i class="fas fa-sliders-h"></i> Preferences
+          </div>
+      </div>
+
+      <!-- Settings Content -->
+      <div class="settings-content">
+          <!-- Profile Settings -->
+          <div class="settings-section active" id="profile">
+              <h2 class="section-title">Profile Information</h2>
+              
+              <form onsubmit="saveProfile(event)">
+                  <div class="form-row">
+                      <div class="form-group">
+                          <label>First Name</label>
+                          <input type="text" id="firstName" value="John" required>
+                      </div>
+                      <div class="form-group">
+                          <label>Last Name</label>
+                          <input type="text" id="lastName" value="Doe" required>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Email Address</label>
+                      <input type="email" id="email" value="john.doe@abcmining.com" required>
+                      <div class="form-help">Your email address is used for login and notifications</div>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Company Name</label>
+                      <input type="text" id="company" value="ABC Mining Corporation" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Job Title</label>
+                      <input type="text" id="jobTitle" value="Senior Mining Engineer">
+                  </div>
+
+                  <div class="form-row">
+                      <div class="form-group">
+                          <label>Phone Number</label>
+                          <input type="tel" id="phone" value="+1 (555) 123-4567">
+                      </div>
+                      <div class="form-group">
+                          <label>Country</label>
+                          <select id="country">
+                              <option>United States</option>
+                              <option>Canada</option>
+                              <option>United Kingdom</option>
+                              <option>Australia</option>
+                              <option>Other</option>
+                          </select>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Bio</label>
+                      <textarea id="bio" placeholder="Tell us about yourself...">Experienced mining engineer with 15+ years in the industry.</textarea>
+                  </div>
+
+                  <div class="btn-group">
+                      <button type="submit" class="btn btn-primary">
+                          <i class="fas fa-save"></i> Save Changes
+                      </button>
+                      <button type="button" class="btn btn-secondary">
+                          <i class="fas fa-times"></i> Cancel
+                      </button>
+                  </div>
+              </form>
+          </div>
+
+          <!-- Security Settings -->
+          <div class="settings-section" id="security">
+              <h2 class="section-title">Security Settings</h2>
+
+              <div class="alert alert-success">
+                  <i class="fas fa-check-circle"></i>
+                  Your account is secure. Two-factor authentication is enabled.
+              </div>
+
+              <form onsubmit="changePassword(event)">
+                  <div class="form-group">
+                      <label>Current Password</label>
+                      <input type="password" placeholder="Enter current password" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label>New Password</label>
+                      <input type="password" placeholder="Enter new password" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Confirm New Password</label>
+                      <input type="password" placeholder="Confirm new password" required>
+                  </div>
+
+                  <div class="btn-group">
+                      <button type="submit" class="btn btn-primary">
+                          <i class="fas fa-key"></i> Change Password
+                      </button>
+                  </div>
+              </form>
+
+              <h3 style="margin-top: 40px; margin-bottom: 20px;">Two-Factor Authentication</h3>
+              <div class="toggle-group">
+                  <div class="toggle-info">
+                      <h4>Enable 2FA</h4>
+                      <p>Add an extra layer of security to your account</p>
+                  </div>
+                  <label class="toggle-switch">
+                      <input type="checkbox" checked>
+                      <span class="toggle-slider"></span>
+                  </label>
+              </div>
+
+              <h3 style="margin-top: 40px; margin-bottom: 20px;">Active Sessions</h3>
+              <div class="alert alert-warning">
+                  <i class="fas fa-info-circle"></i>
+                  You are currently logged in on 2 devices. Last login: Today at 9:45 AM
+              </div>
+              <button class="btn btn-secondary">
+                  <i class="fas fa-sign-out-alt"></i> Sign Out All Other Sessions
+              </button>
+          </div>
+
+          <!-- Notifications Settings -->
+          <div class="settings-section" id="notifications">
+              <h2 class="section-title">Notification Preferences</h2>
+
+              <h3 style="margin-bottom: 20px;">Email Notifications</h3>
+              <div class="toggle-group">
+                  <div class="toggle-info">
+                      <h4>Course Updates</h4>
+                      <p>Receive notifications about new courses and updates</p>
+                  </div>
+                  <label class="toggle-switch">
+                      <input type="checkbox" checked>
+                      <span class="toggle-slider"></span>
+                  </label>
+              </div>
+
+              <div class="toggle-group">
+                  <div class="toggle-info">
+                      <h4>Project Alerts</h4>
+                      <p>Get notified about project milestones and deadlines</p>
+                  </div>
+                  <label class="toggle-switch">
+                      <input type="checkbox" checked>
+                      <span class="toggle-slider"></span>
+                  </label>
+              </div>
+
+              <div class="toggle-group">
+                  <div class="toggle-info">
+                      <h4>Newsletter</h4>
+                      <p>Receive our monthly newsletter with industry insights</p>
+                  </div>
+                  <label class="toggle-switch">
+                      <input type="checkbox">
+                      <span class="toggle-slider"></span>
+                  </label>
+              </div>
+
+              <div class="toggle-group">
+                  <div class="toggle-info">
+                      <h4>Marketing Emails</h4>
+                      <p>Receive promotional offers and product updates</p>
+                  </div>
+                  <label class="toggle-switch">
+                      <input type="checkbox">
+                      <span class="toggle-slider"></span>
+                  </label>
+              </div>
+
+              <h3 style="margin-top: 40px; margin-bottom: 20px;">Push Notifications</h3>
+              <div class="toggle-group">
+                  <div class="toggle-info">
+                      <h4>Browser Notifications</h4>
+                      <p>Receive real-time notifications in your browser</p>
+                  </div>
+                  <label class="toggle-switch">
+                      <input type="checkbox" checked>
+                      <span class="toggle-slider"></span>
+                  </label>
+              </div>
+
+              <div class="btn-group">
+                  <button class="btn btn-primary">
+                      <i class="fas fa-save"></i> Save Preferences
+                  </button>
+              </div>
+          </div>
+
+          <!-- Billing Settings -->
+          <div class="settings-section" id="billing">
+              <h2 class="section-title">Billing & Subscription</h2>
+
+              <div class="plan-card">
+                  <div class="plan-header">
+                      <div class="plan-name">Premium Plan</div>
+                      <div class="plan-badge">ACTIVE</div>
+                  </div>
+                  <div class="plan-price">$99<span style="font-size: 16px; font-weight: 400;">/month</span></div>
+                  <ul class="plan-features">
+                      <li><i class="fas fa-check-circle"></i> Unlimited access to all platforms</li>
+                      <li><i class="fas fa-check-circle"></i> Advanced analytics and reporting</li>
+                      <li><i class="fas fa-check-circle"></i> Priority customer support</li>
+                      <li><i class="fas fa-check-circle"></i> All training courses included</li>
+                      <li><i class="fas fa-check-circle"></i> API access</li>
+                  </ul>
+                  <div class="btn-group">
+                      <button class="btn btn-primary">
+                          <i class="fas fa-arrow-up"></i> Upgrade Plan
+                      </button>
+                      <button class="btn btn-secondary">
+                          <i class="fas fa-times"></i> Cancel Subscription
+                      </button>
+                  </div>
+              </div>
+
+              <h3 style="margin-top: 40px; margin-bottom: 20px;">Payment Method</h3>
+              <div class="alert alert-success">
+                  <i class="fas fa-credit-card"></i>
+                  Visa ending in 4242 - Expires 12/2025
+              </div>
+              <button class="btn btn-secondary">
+                  <i class="fas fa-edit"></i> Update Payment Method
+              </button>
+
+              <h3 style="margin-top: 40px; margin-bottom: 20px;">Billing History</h3>
+              <div style="background: var(--light-bg); padding: 20px; border-radius: 12px;">
+                  <p style="color: #666;">No billing history available yet.</p>
+              </div>
+          </div>
+
+          <!-- Preferences Settings -->
+          <div class="settings-section" id="preferences">
+              <h2 class="section-title">Application Preferences</h2>
+
+              <div class="form-group">
+                  <label>Language</label>
+                  <select>
+                      <option>English</option>
+                      <option>Spanish</option>
+                      <option>French</option>
+                      <option>German</option>
+                      <option>Chinese</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label>Timezone</label>
+                  <select>
+                      <option>UTC-08:00 (Pacific Time)</option>
+                      <option>UTC-05:00 (Eastern Time)</option>
+                      <option>UTC+00:00 (GMT)</option>
+                      <option>UTC+10:00 (Australian Eastern Time)</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label>Date Format</label>
+                  <select>
+                      <option>MM/DD/YYYY</option>
+                      <option>DD/MM/YYYY</option>
+                      <option>YYYY-MM-DD</option>
+                  </select>
+              </div>
+
+              <h3 style="margin-top: 40px; margin-bottom: 20px;">Display Settings</h3>
+              <div class="toggle-group">
+                  <div class="toggle-info">
+                      <h4>Dark Mode</h4>
+                      <p>Use dark theme for the interface</p>
+                  </div>
+                  <label class="toggle-switch">
+                      <input type="checkbox">
+                      <span class="toggle-slider"></span>
+                  </label>
+              </div>
+
+              <div class="toggle-group">
+                  <div class="toggle-info">
+                      <h4>Compact View</h4>
+                      <p>Show more content on screen</p>
+                  </div>
+                  <label class="toggle-switch">
+                      <input type="checkbox">
+                      <span class="toggle-slider"></span>
+                  </label>
+              </div>
+
+              <div class="btn-group">
+                  <button class="btn btn-primary">
+                      <i class="fas fa-save"></i> Save Preferences
+                  </button>
+              </div>
+
+              <div class="danger-zone">
+                  <h3>Danger Zone</h3>
+                  <p style="color: #666; margin-bottom: 20px;">Once you delete your account, there is no going back. Please be certain.</p>
+                  <button class="btn btn-danger" onclick="deleteAccount()">
+                      <i class="fas fa-trash-alt"></i> Delete Account
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      // Tab switching
+      function showTab(tabName) {
+          // Hide all sections
+          document.querySelectorAll('.settings-section').forEach(section => {
+              section.classList.remove('active');
+          });
+          
+          // Remove active class from all tabs
+          document.querySelectorAll('.settings-tab').forEach(tab => {
+              tab.classList.remove('active');
+          });
+          
+          // Show selected section
+          document.getElementById(tabName).classList.add('active');
+          
+          // Add active class to clicked tab
+          event.target.closest('.settings-tab').classList.add('active');
+      }
+
+      // Save profile
+      function saveProfile(event) {
+          event.preventDefault();
+          
+          const firstName = document.getElementById('firstName').value;
+          const lastName = document.getElementById('lastName').value;
+          const email = document.getElementById('email').value;
+          const company = document.getElementById('company').value;
+          
+          // Store in localStorage
+          localStorage.setItem('userName', `${firstName} ${lastName}`);
+          localStorage.setItem('userEmail', email);
+          localStorage.setItem('userCompany', company);
+          
+          alert('Profile updated successfully!');
+      }
+
+      // Change password
+      function changePassword(event) {
+          event.preventDefault();
+          alert('Password changed successfully!');
+      }
+
+      // Delete account
+      function deleteAccount() {
+          if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+              if (confirm('This will permanently delete all your data. Are you absolutely sure?')) {
+                  localStorage.clear();
+                  alert('Account deleted successfully.');
+                  window.location.href = 'index.html';
+              }
+          }
+      }
+
+      // Load user data
+      window.addEventListener('load', () => {
+          const userName = localStorage.getItem('userName') || 'John Doe';
+          const userEmail = localStorage.getItem('userEmail') || 'john.doe@abcmining.com';
+          const userCompany = localStorage.getItem('userCompany') || 'ABC Mining Corporation';
+          
+          const [firstName, lastName] = userName.split(' ');
+          document.getElementById('firstName').value = firstName;
+          document.getElementById('lastName').value = lastName || '';
+          document.getElementById('email').value = userEmail;
+          document.getElementById('company').value = userCompany;
+      });
+  </script>
+</body>
+</html>
