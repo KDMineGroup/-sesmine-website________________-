@@ -1,546 +1,1365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Platforms - SES_Mine | Comprehensive Mining Solutions</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-      :root {
-          --primary-dark: #0a2540;
-          --primary: #1a4d8c;
-          --primary-light: #2d6fc2;
-          --secondary: #10b981;
-          --dark: #0f1419;
-          --dark-alt: #1a1f26;
-          --gray: #4a5568;
-          --gray-light: #a0aec0;
-          --white: #ffffff;
-          --gradient-primary: linear-gradient(135deg, #1a4d8c 0%, #2d6fc2 100%);
-      }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SESMine Home Dashboard - Access all platforms, search, filter, and manage your mining solutions">
+    <title>Home Dashboard - SESMine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --dark-bg: #0a1628;
+            --light-bg: #f8f9fa;
+            --text-dark: #2c3e50;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-      * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background: var(--dark);
-          color: var(--white);
-          line-height: 1.6;
-      }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--light-bg);
+        }
 
-      .page-background {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
-          background: linear-gradient(135deg, #0a2540 0%, #1a1f26 100%);
-      }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
 
-      .page-background::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: 
-              radial-gradient(circle at 20% 50%, rgba(45, 111, 194, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
-      }
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+        }
 
-      .main-logo {
-          height: 70px;
-          width: auto;
-          max-width: 250px;
-          object-fit: contain;
-          transition: all 0.3s ease;
-          filter: drop-shadow(0 2px 8px rgba(45, 111, 194, 0.3));
-      }
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
 
-      .main-logo:hover {
-          transform: scale(1.05);
-          filter: drop-shadow(0 4px 15px rgba(45, 111, 194, 0.6));
-      }
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            text-decoration: none;
+        }
 
-      @media (max-width: 768px) {
-          .main-logo { height: 50px; }
-      }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-      .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          background: rgba(10, 37, 64, 0.95);
-          backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(45, 111, 194, 0.2);
-          z-index: 1000;
-          padding: 1rem 0;
-      }
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
 
-      .nav-container {
-          max-width: 1400px;
-          margin: 0 auto;
-          padding: 0 2rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-      }
+        .user-profile:hover {
+            background: var(--light-bg);
+        }
 
-      .logo-container {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          color: var(--white);
-          transition: all 0.3s ease;
-      }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--secondary-color);
+        }
 
-      .logo-container:hover {
-          transform: translateY(-2px);
-      }
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
 
-      .nav-menu {
-          display: flex;
-          list-style: none;
-          gap: 2rem;
-      }
+        .user-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
 
-      .nav-menu a {
-          color: var(--gray-light);
-          text-decoration: none;
-          font-weight: 500;
-          transition: all 0.3s;
-      }
+        .user-role {
+            font-size: 12px;
+            color: #666;
+        }
 
-      .nav-menu a:hover {
-          color: var(--primary-light);
-      }
+        .btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
 
-      .nav-cta {
-          padding: 0.75rem 1.5rem;
-          background: var(--gradient-primary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-      }
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+        }
 
-      .nav-cta:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(45, 111, 194, 0.5);
-      }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
 
-      .hero {
-          padding: 10rem 2rem 4rem;
-          text-align: center;
-      }
+        /* Dashboard Header */
+        .dashboard-header {
+            margin-top: 70px;
+            padding: 60px 30px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
 
-      .hero h1 {
-          font-size: 4rem;
-          font-weight: 800;
-          margin-bottom: 1.5rem;
-          background: var(--gradient-primary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
+        .dashboard-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
 
-      .hero p {
-          font-size: 1.3rem;
-          color: var(--gray-light);
-          max-width: 800px;
-          margin: 0 auto 3rem;
-      }
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
 
-      .platforms-grid {
-          max-width: 1400px;
-          margin: 0 auto;
-          padding: 4rem 2rem;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-          gap: 2.5rem;
-      }
+        .welcome-text {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
 
-      .platform-card {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(45, 111, 194, 0.2);
-          border-radius: 20px;
-          padding: 3rem;
-          transition: all 0.4s;
-          cursor: pointer;
-      }
+        .dashboard-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
 
-      .platform-card:hover {
-          transform: translateY(-15px);
-          border-color: var(--primary-light);
-          box-shadow: 0 25px 70px rgba(45, 111, 194, 0.4);
-      }
+        .dashboard-subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
 
-      .platform-icon {
-          width: 80px;
-          height: 80px;
-          background: var(--gradient-primary);
-          border-radius: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 2.5rem;
-          margin-bottom: 2rem;
-          box-shadow: 0 15px 40px rgba(45, 111, 194, 0.5);
-      }
+        /* Search & Filter Section */
+        .search-filter-section {
+            max-width: 1600px;
+            margin: -30px auto 0;
+            padding: 0 30px;
+            position: relative;
+            z-index: 10;
+        }
 
-      .platform-card.engineering .platform-icon { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); }
-      .platform-card.economics .platform-icon { background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); }
-      .platform-card.consulting .platform-icon { background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); }
-      .platform-card.procurement .platform-icon { background: linear-gradient(135deg, #f97316 0%, #fb923c 100%); }
-      .platform-card.innovation .platform-icon { background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%); }
-      .platform-card.analytics .platform-icon { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); }
-      .platform-card.training .platform-icon { background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%); }
+        .search-filter-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+        }
 
-      .platform-card h2 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-      }
+        .search-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
 
-      .platform-card p {
-          color: var(--gray-light);
-          line-height: 1.8;
-          margin-bottom: 2rem;
-      }
+        .search-input-wrapper {
+            flex: 1;
+            position: relative;
+        }
 
-      .platform-features {
-          list-style: none;
-          margin-bottom: 2rem;
-      }
+        .search-input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
 
-      .platform-features li {
-          padding: 0.7rem 0;
-          color: var(--gray-light);
-          display: flex;
-          align-items: center;
-          gap: 0.8rem;
-      }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+        }
 
-      .platform-features li i {
-          color: var(--primary-light);
-          font-size: 1.1rem;
-      }
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 18px;
+        }
 
-      .btn-primary {
-          width: 100%;
-          padding: 1rem 2rem;
-          background: var(--gradient-primary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-      }
+        .filter-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-      .btn-primary:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 6px 25px rgba(45, 111, 194, 0.5);
-      }
+        .filter-btn {
+            padding: 12px 24px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            background: white;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-      .footer {
-          padding: 4rem 2rem 2rem;
-          background: rgba(10, 37, 64, 0.8);
-          border-top: 1px solid rgba(45, 111, 194, 0.2);
-      }
+        .filter-btn:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
 
-      .footer-container {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 2fr 1fr 1fr 1fr;
-          gap: 3rem;
-          margin-bottom: 3rem;
-      }
+        .filter-btn.active {
+            background: var(--gradient-1);
+            color: white;
+            border-color: transparent;
+        }
 
-      .footer-logo {
-          height: 60px;
-          width: auto;
-          margin-bottom: 1rem;
-          filter: brightness(1.2) drop-shadow(0 2px 8px rgba(45, 111, 194, 0.3));
-          transition: all 0.3s ease;
-      }
+        /* Quick Stats */
+        .quick-stats {
+            max-width: 1600px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
 
-      .footer-logo:hover {
-          filter: brightness(1.3) drop-shadow(0 4px 12px rgba(45, 111, 194, 0.5));
-          transform: scale(1.02);
-      }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
 
-      .footer-brand {
-          font-size: 1.8rem;
-          font-weight: 800;
-          background: var(--gradient-primary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          margin-bottom: 1rem;
-      }
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
 
-      .footer-desc {
-          color: var(--gray-light);
-          line-height: 1.7;
-      }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
 
-      .footer h4 {
-          margin-bottom: 1.5rem;
-          color: var(--primary-light);
-      }
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-      .footer-links {
-          list-style: none;
-      }
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
 
-      .footer-links li {
-          margin-bottom: 0.8rem;
-      }
+        .stat-card:nth-child(2) .stat-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
 
-      .footer-links a {
-          color: var(--gray-light);
-          text-decoration: none;
-          transition: all 0.3s;
-      }
+        .stat-card:nth-child(3) .stat-icon {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
 
-      .footer-links a:hover {
-          color: var(--primary-light);
-          padding-left: 5px;
-      }
+        .stat-card:nth-child(4) .stat-icon {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
 
-      .footer-bottom {
-          text-align: center;
-          padding-top: 2rem;
-          border-top: 1px solid rgba(45, 111, 194, 0.2);
-          color: var(--gray-light);
-      }
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
 
-      @media (max-width: 1024px) {
-          .nav-menu {
-              display: none;
-          }
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
 
-          .footer-container {
-              grid-template-columns: 1fr 1fr;
-          }
-      }
+        .stat-change {
+            font-size: 12px;
+            color: var(--success-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
 
-      @media (max-width: 768px) {
-          .hero h1 {
-              font-size: 2.5rem;
-          }
+        /* Platforms Grid */
+        .platforms-section {
+            max-width: 1600px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
 
-          .platforms-grid {
-              grid-template-columns: 1fr;
-          }
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-          .footer-container {
-              grid-template-columns: 1fr;
-          }
-      }
-  </style>
+        .view-toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toggle-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .toggle-btn:hover,
+        .toggle-btn.active {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .platform-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .platform-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .platform-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .platform-card:hover .platform-image img {
+            transform: scale(1.1);
+        }
+
+        .platform-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+
+        .platform-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gradient-1);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .platform-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: white;
+            width: fit-content;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #27ae60;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .platform-content {
+            padding: 25px;
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .platform-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .platform-card:nth-child(2) .platform-icon,
+        .platform-card:nth-child(2) .platform-badge {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+
+        .platform-card:nth-child(3) .platform-icon,
+        .platform-card:nth-child(3) .platform-badge {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+
+        .platform-card:nth-child(4) .platform-icon,
+        .platform-card:nth-child(4) .platform-badge {
+            background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%);
+        }
+
+        .platform-card:nth-child(5) .platform-icon,
+        .platform-card:nth-child(5) .platform-badge {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+
+        .platform-card:nth-child(6) .platform-icon,
+        .platform-card:nth-child(6) .platform-badge {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+
+        .platform-card:nth-child(7) .platform-icon,
+        .platform-card:nth-child(7) .platform-badge {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+
+        .platform-title h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .platform-category {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .platform-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .platform-stats {
+            display: flex;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--light-bg);
+        }
+
+        .platform-stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .platform-stat i {
+            color: var(--secondary-color);
+        }
+
+        /* Recent Activity */
+        .recent-activity {
+            max-width: 1600px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            background: var(--light-bg);
+            transition: var(--transition);
+        }
+
+        .activity-item:hover {
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .activity-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .activity-description {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .activity-time {
+            font-size: 13px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 60px 30px 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .platforms-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-header h1 {
+                font-size: 32px;
+            }
+
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .user-info {
+                display: none;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--light-bg);
+            border-top-color: var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-  <div class="page-background"></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-gem"></i>
+                SESMine
+            </a>
+            <div class="nav-actions">
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus"></i> New Project
+                </button>
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="User" class="user-avatar">
+                    <div class="user-info">
+                        <div class="user-name">John Anderson</div>
+                        <div class="user-role">Mining Engineer</div>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <nav class="navbar">
-      <div class="nav-container">
-          <a href="index.html" class="logo-container">
-              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
-                   alt="SES_Mine" 
-                   class="main-logo">
-          </a>
-          <ul class="nav-menu">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="home.html">Platforms</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-          </ul>
-          <button class="nav-cta" onclick="window.location.href='index.html'">
-              Get Started
-          </button>
-      </div>
-  </nav>
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="header-content">
+            <div class="welcome-text">Welcome back, John! 👋</div>
+            <h1>Your Mining Command Center</h1>
+            <p class="dashboard-subtitle">Access all your platforms, projects, and insights in one place</p>
+        </div>
+    </section>
 
-  <section class="hero">
-      <h1>All Platforms</h1>
-      <p>Comprehensive suite of integrated solutions for modern mining operations</p>
-  </section>
+    <!-- Search & Filter -->
+    <section class="search-filter-section">
+        <div class="search-filter-card">
+            <div class="search-bar">
+                <div class="search-input-wrapper">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search platforms, projects, or resources...">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> All Platforms
+                </button>
+                <button class="filter-btn" data-filter="engineering">
+                    <i class="fas fa-hard-hat"></i> Engineering
+                </button>
+                <button class="filter-btn" data-filter="economics">
+                    <i class="fas fa-chart-line"></i> Economics
+                </button>
+                <button class="filter-btn" data-filter="technology">
+                    <i class="fas fa-robot"></i> Technology
+                </button>
+                <button class="filter-btn" data-filter="analytics">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </button>
+                <button class="filter-btn" data-filter="recent">
+                    <i class="fas fa-clock"></i> Recently Used
+                </button>
+                <button class="filter-btn" data-filter="favorites">
+                    <i class="fas fa-star"></i> Favorites
+                </button>
+            </div>
+        </div>
+    </section>
 
-  <div class="platforms-grid">
-      <div class="platform-card engineering" onclick="window.location.href='engineering-hub.html'">
-          <div class="platform-icon">
-              <i class="fas fa-drafting-compass"></i>
-          </div>
-          <h2>Engineering Hub</h2>
-          <p>Advanced mine planning, design optimization, and technical engineering solutions for modern mining operations.</p>
-          <ul class="platform-features">
-              <li><i class="fas fa-check-circle"></i> Mine Planning & Design</li>
-              <li><i class="fas fa-check-circle"></i> Resource Estimation</li>
-              <li><i class="fas fa-check-circle"></i> Equipment Selection</li>
-              <li><i class="fas fa-check-circle"></i> Production Scheduling</li>
-          </ul>
-          <button class="btn-primary">
-              Explore Engineering Hub <i class="fas fa-arrow-right"></i>
-          </button>
-      </div>
+    <!-- Quick Stats -->
+    <section class="quick-stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                </div>
+                <div class="stat-value">24</div>
+                <div class="stat-label">Active Projects</div>
+                <div class="stat-change">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+3 this month</span>
+                </div>
+            </div>
 
-      <div class="platform-card economics" onclick="window.location.href='economics-hub.html'">
-          <div class="platform-icon">
-              <i class="fas fa-chart-line"></i>
-          </div>
-          <h2>Economics Hub</h2>
-          <p>Financial modeling, economic evaluation, and investment analysis tools for mining projects.</p>
-          <ul class="platform-features">
-              <li><i class="fas fa-check-circle"></i> NPV & IRR Calculators</li>
-              <li><i class="fas fa-check-circle"></i> Cost Estimation</li>
-              <li><i class="fas fa-check-circle"></i> Financial Modeling</li>
-              <li><i class="fas fa-check-circle"></i> Risk Analysis</li>
-          </ul>
-          <button class="btn-primary">
-              Explore Economics Hub <i class="fas fa-arrow-right"></i>
-          </button>
-      </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+                <div class="stat-value">156</div>
+                <div class="stat-label">Team Members</div>
+                <div class="stat-change">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+12 this month</span>
+                </div>
+            </div>
 
-      <div class="platform-card consulting" onclick="window.location.href='consulting-hub.html'">
-          <div class="platform-icon">
-              <i class="fas fa-handshake"></i>
-          </div>
-          <h2>Consulting Hub</h2>
-          <p>Expert consulting services for strategic planning and operational optimization.</p>
-          <ul class="platform-features">
-              <li><i class="fas fa-check-circle"></i> Strategic Planning</li>
-              <li><i class="fas fa-check-circle"></i> Operational Excellence</li>
-              <li><i class="fas fa-check-circle"></i> Technical Due Diligence</li>
-              <li><i class="fas fa-check-circle"></i> Expert Guidance</li>
-          </ul>
-          <button class="btn-primary">
-              Explore Consulting Hub <i class="fas fa-arrow-right"></i>
-          </button>
-      </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                </div>
+                <div class="stat-value">89</div>
+                <div class="stat-label">Reports Generated</div>
+                <div class="stat-change">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+15 this week</span>
+                </div>
+            </div>
 
-      <div class="platform-card procurement" onclick="window.location.href='procurement-hub.html'">
-          <div class="platform-icon">
-              <i class="fas fa-shopping-cart"></i>
-          </div>
-          <h2>Procurement Hub</h2>
-          <p>Streamlined procurement solutions and equipment sourcing for mining operations.</p>
-          <ul class="platform-features">
-              <li><i class="fas fa-check-circle"></i> Equipment Sourcing</li>
-              <li><i class="fas fa-check-circle"></i> Vendor Management</li>
-              <li><i class="fas fa-check-circle"></i> Price Comparison</li>
-              <li><i class="fas fa-check-circle"></i> Supply Chain</li>
-          </ul>
-          <button class="btn-primary">
-              Explore Procurement Hub <i class="fas fa-arrow-right"></i>
-          </button>
-      </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+                <div class="stat-value">2,847</div>
+                <div class="stat-label">Hours Saved</div>
+                <div class="stat-change">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+234 this month</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="platform-card innovation" onclick="window.location.href='innovation-technology-hub.html'">
-          <div class="platform-icon">
-              <i class="fas fa-lightbulb"></i>
-          </div>
-          <h2>Innovation & Technology</h2>
-          <p>Cutting-edge automation, IoT, AI, and digital transformation solutions.</p>
-          <ul class="platform-features">
-              <li><i class="fas fa-check-circle"></i> Smart Mining</li>
-              <li><i class="fas fa-check-circle"></i> AI & Automation</li>
-              <li><i class="fas fa-check-circle"></i> IoT Solutions</li>
-              <li><i class="fas fa-check-circle"></i> Digital Twin</li>
-          </ul>
-          <button class="btn-primary">
-              Explore Innovation Hub <i class="fas fa-arrow-right"></i>
-          </button>
-      </div>
+    <!-- Platforms Grid -->
+    <section class="platforms-section">
+        <div class="section-title">
+            <h2>All Platforms</h2>
+            <div class="view-toggle">
+                <button class="toggle-btn active">
+                    <i class="fas fa-th-large"></i>
+                </button>
+                <button class="toggle-btn">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+        </div>
 
-      <div class="platform-card analytics" onclick="window.location.href='analytics-platform.html'">
-          <div class="platform-icon">
-              <i class="fas fa-chart-bar"></i>
-          </div>
-          <h2>Analytics Platform</h2>
-          <p>Real-time data analytics, predictive insights, and business intelligence.</p>
-          <ul class="platform-features">
-              <li><i class="fas fa-check-circle"></i> Real-time Analytics</li>
-              <li><i class="fas fa-check-circle"></i> Predictive Modeling</li>
-              <li><i class="fas fa-check-circle"></i> Business Intelligence</li>
-              <li><i class="fas fa-check-circle"></i> Custom Dashboards</li>
-          </ul>
-          <button class="btn-primary">
-              Explore Analytics Platform <i class="fas fa-arrow-right"></i>
-          </button>
-      </div>
+        <div class="platforms-grid" id="platformsGrid">
+            <!-- Platform 1: Engineering Hub -->
+            <a href="engineering-hub.html" class="platform-card" data-category="engineering">
+                <div class="platform-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80" alt="Engineering Hub" loading="lazy">
+                    <div class="platform-overlay">
+                        <div class="platform-status">
+                            <span class="status-dot"></span>
+                            <span>Active</span>
+                        </div>
+                    </div>
+                    <span class="platform-badge">Popular</span>
+                </div>
+                <div class="platform-content">
+                    <div class="platform-header">
+                        <div class="platform-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <div class="platform-title">
+                            <h3>Engineering Hub</h3>
+                            <div class="platform-category">Engineering & Design</div>
+                        </div>
+                    </div>
+                    <p class="platform-description">
+                        Advanced mine planning, design, and engineering solutions with 3D modeling and optimization tools.
+                    </p>
+                    <div class="platform-stats">
+                        <div class="platform-stat">
+                            <i class="fas fa-folder"></i>
+                            <span>12 Projects</span>
+                        </div>
+                        <div class="platform-stat">
+                            <i class="fas fa-clock"></i>
+                            <span>Last used 2h ago</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
 
-      <div class="platform-card training" onclick="window.location.href='training-education-hub.html'">
-          <div class="platform-icon">
-              <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h2>Training & Education</h2>
-          <p>Professional development courses and certifications for mining professionals.</p>
-          <ul class="platform-features">
-              <li><i class="fas fa-check-circle"></i> Online Courses</li>
-              <li><i class="fas fa-check-circle"></i> Certifications</li>
-              <li><i class="fas fa-check-circle"></i> Expert Instructors</li>
-              <li><i class="fas fa-check-circle"></i> Career Development</li>
-          </ul>
-          <button class="btn-primary">
-              Explore Training Hub <i class="fas fa-arrow-right"></i>
-          </button>
-      </div>
-  </div>
+            <!-- Platform 2: Economics Hub -->
+            <a href="economics-hub.html" class="platform-card" data-category="economics">
+                <div class="platform-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Economics Hub" loading="lazy">
+                    <div class="platform-overlay">
+                        <div class="platform-status">
+                            <span class="status-dot"></span>
+                            <span>Active</span>
+                        </div>
+                    </div>
+                    <span class="platform-badge">Featured</span>
+                </div>
+                <div class="platform-content">
+                    <div class="platform-header">
+                        <div class="platform-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="platform-title">
+                            <h3>Economics Hub</h3>
+                            <div class="platform-category">Financial Analysis</div>
+                        </div>
+                    </div>
+                    <p class="platform-description">
+                        Comprehensive financial modeling, cost estimation, and economic analysis with working calculators.
+                    </p>
+                    <div class="platform-stats">
+                        <div class="platform-stat">
+                            <i class="fas fa-folder"></i>
+                            <span>8 Projects</span>
+                        </div>
+                        <div class="platform-stat">
+                            <i class="fas fa-clock"></i>
+                            <span>Last used 5h ago</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
 
-  <footer class="footer">
-      <div class="footer-container">
-          <div>
-              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
-                   alt="SES_Mine" 
-                   class="footer-logo">
-              <div class="footer-brand">SES_Mine</div>
-              <p class="footer-desc">
-                  Scientific and Engineering Supplies LLC - Leading provider of comprehensive 
-                  mining solutions and digital transformation platforms.
-              </p>
-          </div>
-          <div>
-              <h4>Platforms</h4>
-              <ul class="footer-links">
-                  <li><a href="engineering-hub.html">Engineering Hub</a></li>
-                  <li><a href="economics-hub.html">Economics Hub</a></li>
-                  <li><a href="procurement-hub.html">Procurement Hub</a></li>
-                  <li><a href="consulting-hub.html">Consulting Hub</a></li>
-              </ul>
-          </div>
-          <div>
-              <h4>Services</h4>
-              <ul class="footer-links">
-                  <li><a href="innovation-technology-hub.html">Innovation & Tech</a></li>
-                  <li><a href="analytics-platform.html">Analytics Platform</a></li>
-                  <li><a href="training-education-hub.html">Training & Education</a></li>
-              </ul>
-          </div>
-          <div>
-              <h4>Company</h4>
-              <ul class="footer-links">
-                  <li><a href="#about">About Us</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                  <li><a href="#support">Support</a></li>
-              </ul>
-          </div>
-      </div>
-      <div class="footer-bottom">
-          <p>&copy; 2025 SES_Mine - Scientific and Engineering Supplies LLC. All rights reserved.</p>
-      </div>
-  </footer>
+            <!-- Platform 3: Consulting Hub -->
+            <a href="consulting-hub.html" class="platform-card" data-category="consulting">
+                <div class="platform-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Consulting Hub" loading="lazy">
+                    <div class="platform-overlay">
+                        <div class="platform-status">
+                            <span class="status-dot"></span>
+                            <span>Active</span>
+                        </div>
+                    </div>
+                    <span class="platform-badge">Expert</span>
+                </div>
+                <div class="platform-content">
+                    <div class="platform-header">
+                        <div class="platform-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="platform-title">
+                            <h3>Consulting Hub</h3>
+                            <div class="platform-category">Expert Services</div>
+                        </div>
+                    </div>
+                    <p class="platform-description">
+                        Professional consulting services with experienced experts and proven methodologies.
+                    </p>
+                    <div class="platform-stats">
+                        <div class="platform-stat">
+                            <i class="fas fa-folder"></i>
+                            <span>5 Projects</span>
+                        </div>
+                        <div class="platform-stat">
+                            <i class="fas fa-clock"></i>
+                            <span>Last used 1d ago</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Platform 4: Procurement Hub -->
+            <a href="procurement-hub.html" class="platform-card" data-category="procurement">
+                <div class="platform-image">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Procurement Hub" loading="lazy">
+                    <div class="platform-overlay">
+                        <div class="platform-status">
+                            <span class="status-dot"></span>
+                            <span>Active</span>
+                        </div>
+                    </div>
+                    <span class="platform-badge">New</span>
+                </div>
+                <div class="platform-content">
+                    <div class="platform-header">
+                        <div class="platform-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <div class="platform-title">
+                            <h3>Procurement Hub</h3>
+                            <div class="platform-category">Supply Chain</div>
+                        </div>
+                    </div>
+                    <p class="platform-description">
+                        Complete procurement platform with equipment catalog, supplier network, and RFQ management.
+                    </p>
+                    <div class="platform-stats">
+                        <div class="platform-stat">
+                            <i class="fas fa-folder"></i>
+                            <span>15 Orders</span>
+                        </div>
+                        <div class="platform-stat">
+                            <i class="fas fa-clock"></i>
+                            <span>Last used 3h ago</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Platform 5: Innovation & Technology Hub -->
+            <a href="innovation-technology-hub.html" class="platform-card" data-category="technology">
+                <div class="platform-image">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Innovation Hub" loading="lazy">
+                    <div class="platform-overlay">
+                        <div class="platform-status">
+                            <span class="status-dot"></span>
+                            <span>Active</span>
+                        </div>
+                    </div>
+                    <span class="platform-badge">Advanced</span>
+                </div>
+                <div class="platform-content">
+                    <div class="platform-header">
+                        <div class="platform-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="platform-title">
+                            <h3>Innovation & Technology</h3>
+                            <div class="platform-category">Digital Solutions</div>
+                        </div>
+                    </div>
+                    <p class="platform-description">
+                        Cutting-edge technology including AI, IoT, automation, and digital twin solutions.
+                    </p>
+                    <div class="platform-stats">
+                        <div class="platform-stat">
+                            <i class="fas fa-folder"></i>
+                            <span>7 Projects</span>
+                        </div>
+                        <div class="platform-stat">
+                            <i class="fas fa-clock"></i>
+                            <span>Last used 4h ago</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Platform 6: Analytics Platform -->
+            <a href="analytics-platform.html" class="platform-card" data-category="analytics">
+                <div class="platform-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Analytics Platform" loading="lazy">
+                    <div class="platform-overlay">
+                        <div class="platform-status">
+                            <span class="status-dot"></span>
+                            <span>Active</span>
+                        </div>
+                    </div>
+                    <span class="platform-badge">Trending</span>
+                </div>
+                <div class="platform-content">
+                    <div class="platform-header">
+                        <div class="platform-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="platform-title">
+                            <h3>Analytics Platform</h3>
+                            <div class="platform-category">Data & Insights</div>
+                        </div>
+                    </div>
+                    <p class="platform-description">
+                        Real-time data analytics, business intelligence, and predictive insights with live dashboards.
+                    </p>
+                    <div class="platform-stats">
+                        <div class="platform-stat">
+                            <i class="fas fa-folder"></i>
+                            <span>18 Dashboards</span>
+                        </div>
+                        <div class="platform-stat">
+                            <i class="fas fa-clock"></i>
+                            <span>Last used 1h ago</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Platform 7: Training & Education Hub -->
+            <a href="training-education-hub.html" class="platform-card" data-category="education">
+                <div class="platform-image">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" alt="Training Hub" loading="lazy">
+                    <div class="platform-overlay">
+                        <div class="platform-status">
+                            <span class="status-dot"></span>
+                            <span>Active</span>
+                        </div>
+                    </div>
+                    <span class="platform-badge">Learning</span>
+                </div>
+                <div class="platform-content">
+                    <div class="platform-header">
+                        <div class="platform-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="platform-title">
+                            <h3>Training & Education</h3>
+                            <div class="platform-category">Learning & Development</div>
+                        </div>
+                    </div>
+                    <p class="platform-description">
+                        Comprehensive training programs, certifications, and continuous learning resources.
+                    </p>
+                    <div class="platform-stats">
+                        <div class="platform-stat">
+                            <i class="fas fa-folder"></i>
+                            <span>24 Courses</span>
+                        </div>
+                        <div class="platform-stat">
+                            <i class="fas fa-clock"></i>
+                            <span>Last used 2d ago</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading platforms...</p>
+        </div>
+    </section>
+
+    <!-- Recent Activity -->
+    <section class="recent-activity">
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="activity-card">
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-title">New NPV Report Generated</div>
+                        <div class="activity-description">Economics Hub - Copper Mine Project Financial Analysis</div>
+                    </div>
+                    <div class="activity-time">
+                        <i class="fas fa-clock"></i>
+                        <span>2 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-title">Team Member Added</div>
+                        <div class="activity-description">Sarah Chen joined Engineering Hub - Gold Project Team</div>
+                    </div>
+                    <div class="activity-time">
+                        <i class="fas fa-clock"></i>
+                        <span>5 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-title">Equipment Order Placed</div>
+                        <div class="activity-description">Procurement Hub - 3x Haul Trucks ordered from Caterpillar</div>
+                    </div>
+                    <div class="activity-time">
+                        <i class="fas fa-clock"></i>
+                        <span>1 day ago</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-title">Course Completed</div>
+                        <div class="activity-description">Training Hub - Advanced Mine Planning Certification</div>
+                    </div>
+                    <div class="activity-time">
+                        <i class="fas fa-clock"></i>
+                        <span>2 days ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>SESMine</h3>
+                <p>The world's most comprehensive mining solutions platform. Empowering the future of mining through innovation, technology, and expertise.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Platforms</h4>
+                <ul class="footer-links">
+                    <li><a href="engineering-hub.html">Engineering Hub</a></li>
+                    <li><a href="economics-hub.html">Economics Hub</a></li>
+                    <li><a href="consulting-hub.html">Consulting Hub</a></li>
+                    <li><a href="procurement-hub.html">Procurement Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Solutions</h4>
+                <ul class="footer-links">
+                    <li><a href="innovation-technology-hub.html">Innovation & Tech</a></li>
+                    <li><a href="analytics-platform.html">Analytics Platform</a></li>
+                    <li><a href="training-education-hub.html">Training & Education</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 SESMine.com - All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const platformsGrid = document.getElementById('platformsGrid');
+        const platformCards = platformsGrid.querySelectorAll('.platform-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            platformCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('.platform-description').textContent.toLowerCase();
+                const category = card.querySelector('.platform-category').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                platformCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const category = card.getAttribute('data-category');
+                        if (category === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // View toggle
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
+        
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                toggleButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // You can add grid/list view toggle logic here
+                console.log('View toggled');
+            });
+        });
+
+        // Simulate loading
+        window.addEventListener('load', () => {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.classList.remove('active');
+            }, 500);
+        });
+
+        console.log('%c🏠 Dashboard Loaded!', 'color: #667eea; font-size: 20px; font-weight: bold;');
+        console.log('%c✨ All platforms ready', 'color: #27ae60; font-size: 14px;');
+    </script>
 </body>
 </html>
