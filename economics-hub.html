@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Economics Hub - SES_Mine | Financial Modeling & Analysis</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta name="description" content="Economics Hub - Comprehensive financial analysis, economic modeling, and investment evaluation for mining projects">
+  <title>Economics Hub - SESMine</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
       :root {
-          --primary-dark: #0a2540;
-          --primary: #1a4d8c;
-          --primary-light: #2d6fc2;
-          --secondary: #f59e0b;
-          --secondary-light: #fbbf24;
-          --dark: #0f1419;
-          --dark-alt: #1a1f26;
-          --gray: #4a5568;
-          --gray-light: #a0aec0;
-          --white: #ffffff;
-          --gradient-primary: linear-gradient(135deg, #1a4d8c 0%, #2d6fc2 100%);
-          --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+          --primary-color: #f39c12;
+          --secondary-color: #e67e22;
+          --accent-color: #d35400;
+          --success-color: #27ae60;
+          --dark-bg: #0a1628;
+          --light-bg: #f8f9fa;
+          --text-dark: #2c3e50;
+          --gradient-1: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+          --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+          --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+          --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+          --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       * {
@@ -28,426 +30,640 @@
       }
 
       body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background: var(--dark);
-          color: var(--white);
+          font-family: 'Inter', sans-serif;
+          color: var(--text-dark);
           line-height: 1.6;
+          overflow-x: hidden;
       }
 
-      .page-background {
+      h1, h2, h3, h4, h5, h6 {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+      }
+
+      /* Navigation */
+      .navbar {
           position: fixed;
           top: 0;
-          left: 0;
           width: 100%;
-          height: 100%;
-          z-index: -1;
-          background: linear-gradient(135deg, #0a2540 0%, #1a1f26 100%);
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(10px);
+          box-shadow: var(--shadow-sm);
+          z-index: 1000;
       }
 
-      .page-background::before {
+      .nav-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 80px;
+      }
+
+      .logo {
+          font-size: 28px;
+          font-weight: 800;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          text-decoration: none;
+      }
+
+      .nav-menu {
+          display: flex;
+          list-style: none;
+          gap: 40px;
+      }
+
+      .nav-menu a {
+          text-decoration: none;
+          color: var(--text-dark);
+          font-weight: 500;
+          transition: var(--transition);
+      }
+
+      .nav-menu a:hover {
+          color: var(--primary-color);
+      }
+
+      .btn {
+          padding: 12px 28px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: var(--transition);
+          cursor: pointer;
+          border: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .btn-primary {
+          background: var(--gradient-1);
+          color: white;
+          box-shadow: var(--shadow-sm);
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+      }
+
+      /* Hero Section */
+      .hero {
+          margin-top: 80px;
+          min-height: 90vh;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          background-image: linear-gradient(rgba(243, 156, 18, 0.85), rgba(230, 126, 34, 0.85)),
+                            url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1920&q=80');
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+      }
+
+      .hero::before {
           content: '';
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background: 
-              radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.08) 0%, transparent 50%);
+          background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
       }
 
-      .main-logo {
-          height: 70px;
-          width: auto;
-          max-width: 250px;
-          object-fit: contain;
-          transition: all 0.3s ease;
-          filter: drop-shadow(0 2px 8px rgba(45, 111, 194, 0.3));
-      }
-
-      .main-logo:hover {
-          transform: scale(1.05);
-          filter: drop-shadow(0 4px 15px rgba(45, 111, 194, 0.6));
-      }
-
-      @media (max-width: 768px) {
-          .main-logo { height: 50px; }
-      }
-
-      .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          background: rgba(10, 37, 64, 0.95);
-          backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(45, 111, 194, 0.2);
-          z-index: 1000;
-          padding: 1rem 0;
-      }
-
-      .nav-container {
+      .hero-content {
           max-width: 1400px;
           margin: 0 auto;
-          padding: 0 2rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-      }
-
-      .logo-container {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          color: var(--white);
-          transition: all 0.3s ease;
-      }
-
-      .logo-container:hover {
-          transform: translateY(-2px);
-      }
-
-      .nav-menu {
-          display: flex;
-          list-style: none;
-          gap: 2rem;
-      }
-
-      .nav-menu a {
-          color: var(--gray-light);
-          text-decoration: none;
-          font-weight: 500;
-          transition: all 0.3s;
-      }
-
-      .nav-menu a:hover {
-          color: var(--secondary);
-      }
-
-      .nav-cta {
-          padding: 0.75rem 1.5rem;
-          background: var(--gradient-secondary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-      }
-
-      .nav-cta:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
-      }
-
-      .hero {
-          padding: 10rem 2rem 6rem;
+          padding: 80px 30px;
           position: relative;
+          z-index: 1;
+          text-align: center;
+          color: white;
       }
 
-      .hero-container {
+      .hero-content h1 {
+          font-size: 56px;
+          margin-bottom: 20px;
+          animation: fadeInUp 0.8s ease-out;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      }
+
+      .hero-content p {
+          font-size: 22px;
+          opacity: 0.95;
+          margin-bottom: 35px;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+          animation: fadeInUp 0.8s ease-out 0.2s backwards;
+      }
+
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(30px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      /* Quick Tools Section */
+      .quick-tools {
+          padding: 80px 30px;
+          background: white;
+          margin-top: -50px;
+          position: relative;
+          z-index: 2;
+      }
+
+      .tools-container {
           max-width: 1400px;
           margin: 0 auto;
-          display: grid;
-          grid-template-columns: 1.2fr 1fr;
-          gap: 4rem;
-          align-items: center;
-      }
-
-      .hero-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.5rem 1rem;
-          background: rgba(245, 158, 11, 0.1);
-          border: 1px solid rgba(245, 158, 11, 0.3);
-          border-radius: 50px;
-          color: var(--secondary);
-          font-size: 0.9rem;
-          font-weight: 600;
-          margin-bottom: 1.5rem;
-      }
-
-      .hero h1 {
-          font-size: 3.5rem;
-          font-weight: 800;
-          line-height: 1.1;
-          margin-bottom: 1.5rem;
-      }
-
-      .gradient-text {
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
-
-      .hero-subtitle {
-          font-size: 1.2rem;
-          color: var(--gray-light);
-          line-height: 1.8;
-          margin-bottom: 2.5rem;
-      }
-
-      .hero-buttons {
-          display: flex;
-          gap: 1rem;
-          margin-bottom: 3rem;
-      }
-
-      .btn-primary {
-          padding: 1rem 2rem;
-          background: var(--gradient-secondary);
-          border: none;
-          border-radius: 8px;
-          color: var(--white);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-      }
-
-      .btn-primary:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 6px 25px rgba(245, 158, 11, 0.5);
-      }
-
-      .btn-secondary {
-          padding: 1rem 2rem;
-          background: transparent;
-          border: 2px solid var(--secondary);
-          border-radius: 8px;
-          color: var(--secondary);
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-      }
-
-      .btn-secondary:hover {
-          background: rgba(245, 158, 11, 0.1);
-      }
-
-      .hero-image {
-          position: relative;
-          border-radius: 20px;
-          overflow: hidden;
-          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-      }
-
-      .hero-image img {
-          width: 100%;
-          height: auto;
-          display: block;
-      }
-
-      .section {
-          padding: 6rem 2rem;
-      }
-
-      .section-alt {
-          background: rgba(26, 31, 38, 0.5);
       }
 
       .section-header {
           text-align: center;
           max-width: 800px;
-          margin: 0 auto 4rem;
+          margin: 0 auto 60px;
       }
 
-      .section-badge {
+      .section-tag {
           display: inline-block;
-          padding: 0.5rem 1rem;
-          background: rgba(245, 158, 11, 0.1);
-          border: 1px solid rgba(245, 158, 11, 0.3);
+          background: var(--gradient-1);
+          color: white;
+          padding: 8px 20px;
           border-radius: 50px;
-          color: var(--secondary);
-          font-size: 0.9rem;
+          font-size: 14px;
           font-weight: 600;
-          margin-bottom: 1rem;
+          margin-bottom: 15px;
       }
 
       .section-header h2 {
-          font-size: 3rem;
-          font-weight: 800;
-          margin-bottom: 1rem;
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          font-size: 42px;
+          margin-bottom: 20px;
       }
 
       .section-header p {
-          font-size: 1.1rem;
-          color: var(--gray-light);
+          font-size: 18px;
+          color: #666;
       }
 
-      .calculator-section {
-          max-width: 1200px;
-          margin: 0 auto;
-      }
-
-      .calculator-card {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(245, 158, 11, 0.2);
-          border-radius: 20px;
-          padding: 3rem;
-          margin-bottom: 2rem;
-      }
-
-      .calculator-card h3 {
-          font-size: 2rem;
-          margin-bottom: 2rem;
-          color: var(--secondary);
-      }
-
-      .input-grid {
+      .tools-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 1.5rem;
-          margin-bottom: 2rem;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
       }
 
-      .input-group {
-          display: flex;
-          flex-direction: column;
-      }
-
-      .input-group label {
-          margin-bottom: 0.5rem;
-          color: var(--gray-light);
-          font-weight: 500;
-      }
-
-      .input-group input {
-          padding: 1rem;
-          background: rgba(10, 37, 64, 0.8);
-          border: 1px solid rgba(245, 158, 11, 0.3);
-          border-radius: 8px;
-          color: var(--white);
-          font-size: 1rem;
-          transition: all 0.3s;
-      }
-
-      .input-group input:focus {
-          outline: none;
-          border-color: var(--secondary);
-          box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
-      }
-
-      .result-box {
-          background: rgba(245, 158, 11, 0.1);
-          border: 2px solid var(--secondary);
-          border-radius: 15px;
-          padding: 2rem;
-          text-align: center;
-          margin-top: 2rem;
-      }
-
-      .result-label {
-          color: var(--gray-light);
-          font-size: 1rem;
-          margin-bottom: 0.5rem;
-      }
-
-      .result-value {
-          font-size: 3rem;
-          font-weight: 800;
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
-
-      .grid {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-      }
-
-      .card {
-          background: rgba(10, 37, 64, 0.6);
-          border: 1px solid rgba(245, 158, 11, 0.2);
+      .tool-card {
+          background: var(--light-bg);
           border-radius: 20px;
-          padding: 2.5rem;
-          transition: all 0.4s;
+          padding: 40px;
+          transition: var(--transition);
+          cursor: pointer;
+          border: 3px solid transparent;
       }
 
-      .card:hover {
+      .tool-card:hover {
+          background: white;
+          box-shadow: var(--shadow-lg);
           transform: translateY(-10px);
-          border-color: var(--secondary);
-          box-shadow: 0 20px 60px rgba(245, 158, 11, 0.3);
+          border-color: var(--primary-color);
       }
 
-      .feature-icon {
+      .tool-icon {
           width: 70px;
           height: 70px;
-          background: var(--gradient-secondary);
+          background: var(--gradient-1);
           border-radius: 15px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 2rem;
-          margin-bottom: 1.5rem;
-          box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+          font-size: 32px;
+          color: white;
+          margin-bottom: 25px;
       }
 
-      .card h3 {
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
+      .tool-card h3 {
+          font-size: 22px;
+          margin-bottom: 15px;
+          color: var(--text-dark);
       }
 
-      .card p {
-          color: var(--gray-light);
-          line-height: 1.7;
-          margin-bottom: 1.5rem;
+      .tool-card p {
+          color: #666;
+          line-height: 1.8;
+          margin-bottom: 20px;
       }
 
+      .tool-features {
+          list-style: none;
+          margin-bottom: 25px;
+      }
+
+      .tool-features li {
+          padding: 8px 0;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          color: #555;
+      }
+
+      .tool-features i {
+          color: var(--success-color);
+      }
+
+      /* Interactive Calculator Section */
+      .calculator-section {
+          padding: 100px 30px;
+          background: var(--light-bg);
+      }
+
+      .calculator-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .calculator-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+      }
+
+      .calculator-card {
+          background: white;
+          border-radius: 20px;
+          padding: 40px;
+          box-shadow: var(--shadow-sm);
+      }
+
+      .calculator-card h3 {
+          font-size: 28px;
+          margin-bottom: 30px;
+          color: var(--text-dark);
+      }
+
+      .input-group {
+          margin-bottom: 25px;
+      }
+
+      .input-group label {
+          display: block;
+          font-weight: 600;
+          margin-bottom: 10px;
+          color: var(--text-dark);
+      }
+
+      .input-group input,
+      .input-group select {
+          width: 100%;
+          padding: 15px;
+          border: 2px solid #e0e0e0;
+          border-radius: 10px;
+          font-size: 16px;
+          transition: var(--transition);
+      }
+
+      .input-group input:focus,
+      .input-group select:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.1);
+      }
+
+      .calculate-btn {
+          width: 100%;
+          padding: 18px;
+          background: var(--gradient-1);
+          color: white;
+          border: none;
+          border-radius: 10px;
+          font-size: 18px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: var(--transition);
+      }
+
+      .calculate-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+      }
+
+      .result-card {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          border-radius: 20px;
+          padding: 40px;
+          color: white;
+      }
+
+      .result-item {
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          border-radius: 15px;
+          margin-bottom: 20px;
+      }
+
+      .result-label {
+          font-size: 14px;
+          opacity: 0.9;
+          margin-bottom: 5px;
+      }
+
+      .result-value {
+          font-size: 32px;
+          font-weight: 800;
+      }
+
+      /* Services Section */
+      .services {
+          padding: 100px 30px;
+          background: white;
+      }
+
+      .services-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .services-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+      }
+
+      .service-card {
+          background: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
+          cursor: pointer;
+      }
+
+      .service-card:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-lg);
+      }
+
+      .service-image {
+          width: 100%;
+          height: 250px;
+          overflow: hidden;
+          position: relative;
+      }
+
+      .service-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+      }
+
+      .service-card:hover .service-image img {
+          transform: scale(1.1);
+      }
+
+      .service-badge {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: var(--gradient-1);
+          color: white;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 600;
+      }
+
+      .service-content {
+          padding: 30px;
+      }
+
+      .service-content h3 {
+          font-size: 24px;
+          margin-bottom: 15px;
+          color: var(--text-dark);
+      }
+
+      .service-content p {
+          color: #666;
+          line-height: 1.8;
+          margin-bottom: 20px;
+      }
+
+      .service-features {
+          list-style: none;
+          margin-bottom: 20px;
+      }
+
+      .service-features li {
+          padding: 8px 0;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          color: #555;
+      }
+
+      .service-features i {
+          color: var(--success-color);
+      }
+
+      /* Case Studies Section */
+      .case-studies {
+          padding: 100px 30px;
+          background: var(--light-bg);
+      }
+
+      .case-studies-container {
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .case-studies-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px;
+      }
+
+      .case-study-card {
+          background: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
+      }
+
+      .case-study-card:hover {
+          box-shadow: var(--shadow-lg);
+      }
+
+      .case-study-image {
+          width: 100%;
+          height: 300px;
+          overflow: hidden;
+          position: relative;
+      }
+
+      .case-study-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .case-study-content {
+          padding: 35px;
+      }
+
+      .case-study-tag {
+          display: inline-block;
+          background: var(--gradient-1);
+          color: white;
+          padding: 6px 16px;
+          border-radius: 15px;
+          font-size: 12px;
+          font-weight: 600;
+          margin-bottom: 15px;
+      }
+
+      .case-study-content h3 {
+          font-size: 26px;
+          margin-bottom: 15px;
+      }
+
+      .case-study-content p {
+          color: #666;
+          line-height: 1.8;
+          margin-bottom: 25px;
+      }
+
+      .case-study-stats {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          padding-top: 25px;
+          border-top: 2px solid var(--light-bg);
+      }
+
+      .stat-item {
+          text-align: center;
+      }
+
+      .stat-value {
+          font-size: 28px;
+          font-weight: 700;
+          color: var(--primary-color);
+          display: block;
+      }
+
+      .stat-label {
+          font-size: 12px;
+          color: #666;
+          text-transform: uppercase;
+      }
+
+      /* CTA Section */
+      .cta {
+          padding: 100px 30px;
+          background: var(--gradient-1);
+          text-align: center;
+          color: white;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .cta::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.1;
+      }
+
+      .cta-content {
+          max-width: 800px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 1;
+      }
+
+      .cta h2 {
+          font-size: 48px;
+          margin-bottom: 20px;
+      }
+
+      .cta p {
+          font-size: 20px;
+          opacity: 0.95;
+          margin-bottom: 40px;
+      }
+
+      .btn-white {
+          background: white;
+          color: var(--primary-color);
+      }
+
+      .btn-outline-white {
+          border: 2px solid white;
+          color: white;
+          background: transparent;
+      }
+
+      .btn-outline-white:hover {
+          background: white;
+          color: var(--primary-color);
+      }
+
+      /* Footer */
       .footer {
-          padding: 4rem 2rem 2rem;
-          background: rgba(10, 37, 64, 0.8);
-          border-top: 1px solid rgba(45, 111, 194, 0.2);
+          background: var(--dark-bg);
+          color: white;
+          padding: 60px 30px 30px;
       }
 
-      .footer-container {
+      .footer-content {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
           grid-template-columns: 2fr 1fr 1fr 1fr;
-          gap: 3rem;
-          margin-bottom: 3rem;
+          gap: 50px;
+          margin-bottom: 40px;
       }
 
-      .footer-logo {
-          height: 60px;
-          width: auto;
-          margin-bottom: 1rem;
-          filter: brightness(1.2) drop-shadow(0 2px 8px rgba(45, 111, 194, 0.3));
-          transition: all 0.3s ease;
-      }
-
-      .footer-logo:hover {
-          filter: brightness(1.3) drop-shadow(0 4px 12px rgba(45, 111, 194, 0.5));
-          transform: scale(1.02);
-      }
-
-      .footer-brand {
-          font-size: 1.8rem;
-          font-weight: 800;
-          background: var(--gradient-primary);
+      .footer-brand h3 {
+          font-size: 26px;
+          margin-bottom: 15px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          margin-bottom: 1rem;
       }
 
-      .footer-desc {
-          color: var(--gray-light);
-          line-height: 1.7;
+      .footer-brand p {
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.8;
       }
 
-      .footer h4 {
-          margin-bottom: 1.5rem;
-          color: var(--secondary);
+      .footer-column h4 {
+          font-size: 18px;
+          margin-bottom: 20px;
       }
 
       .footer-links {
@@ -455,346 +671,590 @@
       }
 
       .footer-links li {
-          margin-bottom: 0.8rem;
+          margin-bottom: 12px;
       }
 
       .footer-links a {
-          color: var(--gray-light);
+          color: rgba(255, 255, 255, 0.7);
           text-decoration: none;
-          transition: all 0.3s;
+          transition: var(--transition);
       }
 
       .footer-links a:hover {
-          color: var(--secondary);
+          color: white;
           padding-left: 5px;
       }
 
       .footer-bottom {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
           text-align: center;
-          padding-top: 2rem;
-          border-top: 1px solid rgba(45, 111, 194, 0.2);
-          color: var(--gray-light);
+          color: rgba(255, 255, 255, 0.7);
       }
 
+      /* Responsive */
       @media (max-width: 1024px) {
-          .hero-container {
+          .tools-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .services-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .calculator-grid {
               grid-template-columns: 1fr;
           }
 
-          .nav-menu {
-              display: none;
+          .case-studies-grid {
+              grid-template-columns: 1fr;
           }
 
-          .footer-container {
+          .footer-content {
               grid-template-columns: 1fr 1fr;
           }
       }
 
       @media (max-width: 768px) {
-          .hero h1 {
-              font-size: 2.5rem;
+          .hero-content h1 {
+              font-size: 36px;
           }
 
-          .input-grid,
-          .grid {
+          .tools-grid {
               grid-template-columns: 1fr;
           }
 
-          .footer-container {
+          .services-grid {
               grid-template-columns: 1fr;
           }
+
+          .footer-content {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      /* Scroll Animations */
+      .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+          opacity: 1;
+          transform: translateY(0);
       }
   </style>
 </head>
 <body>
-  <div class="page-background"></div>
-
+  <!-- Navigation -->
   <nav class="navbar">
       <div class="nav-container">
-          <a href="index.html" class="logo-container">
-              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
-                   alt="SES_Mine" 
-                   class="main-logo">
+          <a href="index.html" class="logo">
+              <i class="fas fa-gem"></i>
+              SESMine
           </a>
           <ul class="nav-menu">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="home.html">Platforms</a></li>
-              <li><a href="engineering-hub.html">Engineering</a></li>
-              <li><a href="consulting-hub.html">Consulting</a></li>
+              <li><a href="home.html">Dashboard</a></li>
+              <li><a href="#tools">Tools</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#case-studies">Case Studies</a></li>
+              <li><a href="contact.html">Contact</a></li>
           </ul>
-          <button class="nav-cta" onclick="window.location.href='index.html'">
-              Get Started
-          </button>
+          <a href="#contact" class="btn btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
       </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="hero">
-      <div class="hero-container">
-          <div class="hero-content">
-              <div class="hero-badge">
-                  <i class="fas fa-chart-line"></i>
-                  <span>Financial Excellence</span>
-              </div>
-              <h1>
-                  Mining <span class="gradient-text">Economics</span> & Financial Analysis
-              </h1>
-              <p class="hero-subtitle">
-                  Comprehensive financial modeling, economic evaluation, and investment analysis 
-                  tools for mining projects. Make data-driven decisions with our advanced calculators 
-                  and financial planning solutions.
-              </p>
-              <div class="hero-buttons">
-                  <button class="btn-primary">
-                      <i class="fas fa-calculator"></i>
-                      Try Calculators
-                  </button>
-                  <button class="btn-secondary">
-                      <i class="fas fa-play"></i>
-                      Watch Demo
-                  </button>
-              </div>
-          </div>
-          <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80" alt="Financial Analysis">
+      <div class="hero-content">
+          <h1>Economics & Financial Analysis Hub</h1>
+          <p>Comprehensive economic modeling, financial evaluation, and investment analysis tools for mining projects worldwide</p>
+          <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+              <a href="#tools" class="btn btn-white">Explore Tools <i class="fas fa-calculator"></i></a>
+              <a href="#services" class="btn btn-outline-white">Our Services <i class="fas fa-briefcase"></i></a>
           </div>
       </div>
   </section>
 
-  <section class="section">
-      <div class="section-header">
-          <span class="section-badge">FINANCIAL TOOLS</span>
-          <h2>Interactive Calculators</h2>
-          <p>Professional financial calculators for mining project evaluation</p>
-      </div>
+  <!-- Quick Tools Section -->
+  <section class="quick-tools" id="tools">
+      <div class="tools-container">
+          <div class="section-header">
+              <span class="section-tag">FINANCIAL TOOLS</span>
+              <h2>Interactive Economic Calculators</h2>
+              <p>Powerful tools for instant financial analysis and decision-making</p>
+          </div>
+          <div class="tools-grid">
+              <!-- Tool 1: NPV Calculator -->
+              <div class="tool-card animate-on-scroll">
+                  <div class="tool-icon">
+                      <i class="fas fa-chart-line"></i>
+                  </div>
+                  <h3>NPV Calculator</h3>
+                  <p>Calculate Net Present Value for your mining projects with customizable discount rates and cash flow projections.</p>
+                  <ul class="tool-features">
+                      <li><i class="fas fa-check-circle"></i> Multi-year projections</li>
+                      <li><i class="fas fa-check-circle"></i> Variable discount rates</li>
+                      <li><i class="fas fa-check-circle"></i> Sensitivity analysis</li>
+                      <li><i class="fas fa-check-circle"></i> Export reports</li>
+                  </ul>
+                  <a href="#calculator" class="btn btn-primary" style="width: 100%; justify-content: center;">Use Calculator</a>
+              </div>
 
-      <div class="calculator-section">
-          <div class="calculator-card">
-              <h3><i class="fas fa-dollar-sign"></i> NPV Calculator</h3>
-              <div class="input-grid">
+              <!-- Tool 2: IRR Calculator -->
+              <div class="tool-card animate-on-scroll">
+                  <div class="tool-icon">
+                      <i class="fas fa-percentage"></i>
+                  </div>
+                  <h3>IRR Calculator</h3>
+                  <p>Determine Internal Rate of Return to evaluate project profitability and compare investment opportunities.</p>
+                  <ul class="tool-features">
+                      <li><i class="fas fa-check-circle"></i> Automatic IRR calculation</li>
+                      <li><i class="fas fa-check-circle"></i> MIRR analysis</li>
+                      <li><i class="fas fa-check-circle"></i> Payback period</li>
+                      <li><i class="fas fa-check-circle"></i> Visual charts</li>
+                  </ul>
+                  <a href="#calculator" class="btn btn-primary" style="width: 100%; justify-content: center;">Use Calculator</a>
+              </div>
+
+              <!-- Tool 3: Break-even Analysis -->
+              <div class="tool-card animate-on-scroll">
+                  <div class="tool-icon">
+                      <i class="fas fa-balance-scale"></i>
+                  </div>
+                  <h3>Break-even Analysis</h3>
+                  <p>Identify the production level needed to cover costs and start generating profit for your operation.</p>
+                  <ul class="tool-features">
+                      <li><i class="fas fa-check-circle"></i> Fixed & variable costs</li>
+                      <li><i class="fas fa-check-circle"></i> Price sensitivity</li>
+                      <li><i class="fas fa-check-circle"></i> Margin analysis</li>
+                      <li><i class="fas fa-check-circle"></i> Scenario modeling</li>
+                  </ul>
+                  <a href="#calculator" class="btn btn-primary" style="width: 100%; justify-content: center;">Use Calculator</a>
+              </div>
+
+              <!-- Tool 4: Cash Flow Modeling -->
+              <div class="tool-card animate-on-scroll">
+                  <div class="tool-icon">
+                      <i class="fas fa-money-bill-wave"></i>
+                  </div>
+                  <h3>Cash Flow Modeling</h3>
+                  <p>Build comprehensive cash flow models with detailed revenue, cost, and financing projections.</p>
+                  <ul class="tool-features">
+                      <li><i class="fas fa-check-circle"></i> Monthly/quarterly/annual</li>
+                      <li><i class="fas fa-check-circle"></i> Working capital</li>
+                      <li><i class="fas fa-check-circle"></i> Debt servicing</li>
+                      <li><i class="fas fa-check-circle"></i> Tax calculations</li>
+                  </ul>
+                  <a href="#calculator" class="btn btn-primary" style="width: 100%; justify-content: center;">Use Calculator</a>
+              </div>
+
+              <!-- Tool 5: Commodity Price Forecasting -->
+              <div class="tool-card animate-on-scroll">
+                  <div class="tool-icon">
+                      <i class="fas fa-chart-area"></i>
+                  </div>
+                  <h3>Price Forecasting</h3>
+                  <p>Access historical data and forecasting models for major commodities to inform your planning.</p>
+                  <ul class="tool-features">
+                      <li><i class="fas fa-check-circle"></i> Historical trends</li>
+                      <li><i class="fas fa-check-circle"></i> Multiple scenarios</li>
+                      <li><i class="fas fa-check-circle"></i> Market analysis</li>
+                      <li><i class="fas fa-check-circle"></i> Risk assessment</li>
+                  </ul>
+                  <a href="#calculator" class="btn btn-primary" style="width: 100%; justify-content: center;">Use Calculator</a>
+              </div>
+
+              <!-- Tool 6: Risk Analysis -->
+              <div class="tool-card animate-on-scroll">
+                  <div class="tool-icon">
+                      <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <h3>Risk Analysis</h3>
+                  <p>Quantify project risks using Monte Carlo simulation and sensitivity analysis techniques.</p>
+                  <ul class="tool-features">
+                      <li><i class="fas fa-check-circle"></i> Monte Carlo simulation</li>
+                      <li><i class="fas fa-check-circle"></i> Probability distributions</li>
+                      <li><i class="fas fa-check-circle"></i> Risk matrices</li>
+                      <li><i class="fas fa-check-circle"></i> Mitigation strategies</li>
+                  </ul>
+                  <a href="#calculator" class="btn btn-primary" style="width: 100%; justify-content: center;">Use Calculator</a>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Interactive Calculator Section -->
+  <section class="calculator-section" id="calculator">
+      <div class="calculator-container">
+          <div class="section-header">
+              <span class="section-tag">TRY IT NOW</span>
+              <h2>NPV Calculator</h2>
+              <p>Calculate the Net Present Value of your mining project</p>
+          </div>
+          <div class="calculator-grid">
+              <div class="calculator-card">
+                  <h3>Project Inputs</h3>
                   <div class="input-group">
-                      <label>Initial Investment ($M)</label>
-                      <input type="number" id="npv-investment" placeholder="100" value="100">
+                      <label>Initial Investment ($)</label>
+                      <input type="number" id="initialInvestment" placeholder="10000000" value="10000000">
                   </div>
                   <div class="input-group">
-                      <label>Annual Cash Flow ($M)</label>
-                      <input type="number" id="npv-cashflow" placeholder="25" value="25">
+                      <label>Annual Revenue ($)</label>
+                      <input type="number" id="annualRevenue" placeholder="5000000" value="5000000">
                   </div>
                   <div class="input-group">
-                      <label>Project Life (years)</label>
-                      <input type="number" id="npv-years" placeholder="10" value="10">
+                      <label>Annual Operating Costs ($)</label>
+                      <input type="number" id="operatingCosts" placeholder="2000000" value="2000000">
+                  </div>
+                  <div class="input-group">
+                      <label>Project Life (Years)</label>
+                      <input type="number" id="projectLife" placeholder="10" value="10">
                   </div>
                   <div class="input-group">
                       <label>Discount Rate (%)</label>
-                      <input type="number" id="npv-rate" placeholder="10" value="10">
+                      <input type="number" id="discountRate" placeholder="10" value="10" step="0.1">
                   </div>
+                  <div class="input-group">
+                      <label>Tax Rate (%)</label>
+                      <input type="number" id="taxRate" placeholder="30" value="30" step="0.1">
+                  </div>
+                  <button class="calculate-btn" onclick="calculateNPV()">
+                      <i class="fas fa-calculator"></i> Calculate NPV
+                  </button>
               </div>
-              <button class="btn-primary" onclick="calculateNPV()" style="width: 100%;">
-                  <i class="fas fa-calculator"></i> Calculate NPV
-              </button>
-              <div class="result-box" id="npv-result" style="display: none;">
-                  <div class="result-label">Net Present Value</div>
-                  <div class="result-value" id="npv-value">$0.00M</div>
-              </div>
-          </div>
 
-          <div class="calculator-card">
-              <h3><i class="fas fa-percentage"></i> IRR Calculator</h3>
-              <div class="input-grid">
-                  <div class="input-group">
-                      <label>Initial Investment ($M)</label>
-                      <input type="number" id="irr-investment" placeholder="100" value="100">
+              <div class="result-card">
+                  <h3>Financial Results</h3>
+                  <div class="result-item">
+                      <div class="result-label">Net Present Value (NPV)</div>
+                      <div class="result-value" id="npvResult">$0.00</div>
                   </div>
-                  <div class="input-group">
-                      <label>Annual Cash Flow ($M)</label>
-                      <input type="number" id="irr-cashflow" placeholder="25" value="25">
+                  <div class="result-item">
+                      <div class="result-label">Internal Rate of Return (IRR)</div>
+                      <div class="result-value" id="irrResult">0.0%</div>
                   </div>
-                  <div class="input-group">
-                      <label>Project Life (years)</label>
-                      <input type="number" id="irr-years" placeholder="10" value="10">
+                  <div class="result-item">
+                      <div class="result-label">Payback Period</div>
+                      <div class="result-value" id="paybackResult">0.0 years</div>
                   </div>
-              </div>
-              <button class="btn-primary" onclick="calculateIRR()" style="width: 100%;">
-                  <i class="fas fa-calculator"></i> Calculate IRR
-              </button>
-              <div class="result-box" id="irr-result" style="display: none;">
-                  <div class="result-label">Internal Rate of Return</div>
-                  <div class="result-value" id="irr-value">0.00%</div>
-              </div>
-          </div>
-
-          <div class="calculator-card">
-              <h3><i class="fas fa-clock"></i> Payback Period Calculator</h3>
-              <div class="input-grid">
-                  <div class="input-group">
-                      <label>Initial Investment ($M)</label>
-                      <input type="number" id="pb-investment" placeholder="100" value="100">
+                  <div class="result-item">
+                      <div class="result-label">Project Viability</div>
+                      <div class="result-value" id="viabilityResult">-</div>
                   </div>
-                  <div class="input-group">
-                      <label>Annual Cash Flow ($M)</label>
-                      <input type="number" id="pb-cashflow" placeholder="25" value="25">
+                  <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                      <p style="font-size: 14px; opacity: 0.9; line-height: 1.8;">
+                          <i class="fas fa-info-circle"></i> Results are calculated based on simplified assumptions. For detailed analysis, please consult with our economics team.
+                      </p>
                   </div>
-              </div>
-              <button class="btn-primary" onclick="calculatePayback()" style="width: 100%;">
-                  <i class="fas fa-calculator"></i> Calculate Payback
-              </button>
-              <div class="result-box" id="pb-result" style="display: none;">
-                  <div class="result-label">Payback Period</div>
-                  <div class="result-value" id="pb-value">0.0 years</div>
               </div>
           </div>
       </div>
   </section>
 
-  <section class="section section-alt">
-      <div class="section-header">
-          <span class="section-badge">SERVICES</span>
-          <h2>Economic Services</h2>
-          <p>Comprehensive economic analysis and financial planning solutions</p>
-      </div>
-
-      <div class="grid">
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-file-invoice-dollar"></i>
-              </div>
-              <h3>Cost Estimation</h3>
-              <p>Detailed capital and operating cost estimates for mining projects using industry-standard methodologies.</p>
-              <button class="btn-primary">Learn More</button>
+  <!-- Services Section -->
+  <section class="services" id="services">
+      <div class="services-container">
+          <div class="section-header">
+              <span class="section-tag">OUR SERVICES</span>
+              <h2>Comprehensive Economic Services</h2>
+              <p>Expert financial analysis and economic consulting for mining projects</p>
           </div>
-
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-chart-pie"></i>
+          <div class="services-grid">
+              <!-- Service 1 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" alt="Feasibility Studies" loading="lazy">
+                      <span class="service-badge">POPULAR</span>
+                  </div>
+                  <div class="service-content">
+                      <h3>Feasibility Studies</h3>
+                      <p>Comprehensive economic feasibility studies from scoping to bankable feasibility level.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> Scoping Studies</li>
+                          <li><i class="fas fa-check-circle"></i> Pre-Feasibility Studies</li>
+                          <li><i class="fas fa-check-circle"></i> Bankable Feasibility</li>
+                          <li><i class="fas fa-check-circle"></i> Due Diligence</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
               </div>
-              <h3>Financial Modeling</h3>
-              <p>Comprehensive financial models for project evaluation, sensitivity analysis, and scenario planning.</p>
-              <button class="btn-primary">Learn More</button>
-          </div>
 
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-balance-scale"></i>
+              <!-- Service 2 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Financial Modeling" loading="lazy">
+                      <span class="service-badge">EXPERT</span>
+                  </div>
+                  <div class="service-content">
+                      <h3>Financial Modeling</h3>
+                      <p>Advanced financial models for project evaluation, financing, and investment decisions.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> DCF Models</li>
+                          <li><i class="fas fa-check-circle"></i> Sensitivity Analysis</li>
+                          <li><i class="fas fa-check-circle"></i> Scenario Planning</li>
+                          <li><i class="fas fa-check-circle"></i> Risk Modeling</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
               </div>
-              <h3>Economic Evaluation</h3>
-              <p>Complete economic assessment including NPV, IRR, payback period, and profitability analysis.</p>
-              <button class="btn-primary">Learn More</button>
-          </div>
 
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-exclamation-triangle"></i>
+              <!-- Service 3 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Market Analysis" loading="lazy">
+                      <span class="service-badge">NEW</span>
+                  </div>
+                  <div class="service-content">
+                      <h3>Market Analysis</h3>
+                      <p>In-depth commodity market research and price forecasting to inform strategic decisions.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> Supply & Demand</li>
+                          <li><i class="fas fa-check-circle"></i> Price Forecasting</li>
+                          <li><i class="fas fa-check-circle"></i> Market Trends</li>
+                          <li><i class="fas fa-check-circle"></i> Competitive Analysis</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
               </div>
-              <h3>Risk Analysis</h3>
-              <p>Monte Carlo simulation, sensitivity analysis, and risk assessment for mining investments.</p>
-              <button class="btn-primary">Learn More</button>
-          </div>
 
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-hand-holding-usd"></i>
+              <!-- Service 4 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80" alt="Valuation Services" loading="lazy">
+                  </div>
+                  <div class="service-content">
+                      <h3>Valuation Services</h3>
+                      <p>Professional asset and company valuations for M&A, financing, and reporting purposes.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> Asset Valuation</li>
+                          <li><i class="fas fa-check-circle"></i> Company Valuation</li>
+                          <li><i class="fas fa-check-circle"></i> Fair Market Value</li>
+                          <li><i class="fas fa-check-circle"></i> Independent Reviews</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
               </div>
-              <h3>Investment Analysis</h3>
-              <p>Strategic investment evaluation and portfolio optimization for mining assets.</p>
-              <button class="btn-primary">Learn More</button>
-          </div>
 
-          <div class="card">
-              <div class="feature-icon">
-                  <i class="fas fa-chart-area"></i>
+              <!-- Service 5 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80" alt="Investment Analysis" loading="lazy">
+                  </div>
+                  <div class="service-content">
+                      <h3>Investment Analysis</h3>
+                      <p>Detailed investment evaluation and portfolio optimization for mining assets.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> ROI Analysis</li>
+                          <li><i class="fas fa-check-circle"></i> Portfolio Optimization</li>
+                          <li><i class="fas fa-check-circle"></i> Capital Allocation</li>
+                          <li><i class="fas fa-check-circle"></i> Risk-Return Profiles</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
               </div>
-              <h3>Market Analysis</h3>
-              <p>Commodity price forecasting, market trends, and economic feasibility studies.</p>
-              <button class="btn-primary">Learn More</button>
+
+              <!-- Service 6 -->
+              <div class="service-card animate-on-scroll">
+                  <div class="service-image">
+                      <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80" alt="Economic Optimization" loading="lazy">
+                  </div>
+                  <div class="service-content">
+                      <h3>Economic Optimization</h3>
+                      <p>Optimize mining operations and production schedules to maximize economic value.</p>
+                      <ul class="service-features">
+                          <li><i class="fas fa-check-circle"></i> Production Optimization</li>
+                          <li><i class="fas fa-check-circle"></i> Cost Reduction</li>
+                          <li><i class="fas fa-check-circle"></i> Value Engineering</li>
+                          <li><i class="fas fa-check-circle"></i> Trade-off Studies</li>
+                      </ul>
+                      <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Learn More</a>
+                  </div>
+              </div>
           </div>
       </div>
   </section>
 
+  <!-- Case Studies Section -->
+  <section class="case-studies" id="case-studies">
+      <div class="case-studies-container">
+          <div class="section-header">
+              <span class="section-tag">SUCCESS STORIES</span>
+              <h2>Featured Case Studies</h2>
+              <p>Real-world examples of our economic analysis excellence</p>
+          </div>
+          <div class="case-studies-grid">
+              <!-- Case Study 1 -->
+              <div class="case-study-card animate-on-scroll">
+                  <div class="case-study-image">
+                      <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&q=80" alt="Gold Mine Project" loading="lazy">
+                  </div>
+                  <div class="case-study-content">
+                      <span class="case-study-tag">GOLD MINING</span>
+                      <h3>Large-Scale Gold Mine Feasibility</h3>
+                      <p>Completed bankable feasibility study for a 250,000 oz/year gold operation, securing $500M in project financing through comprehensive economic modeling and risk analysis.</p>
+                      <div class="case-study-stats">
+                          <div class="stat-item">
+                              <span class="stat-value">$2.1B</span>
+                              <span class="stat-label">Project NPV</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-value">28%</span>
+                              <span class="stat-label">IRR</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-value">3.2 yrs</span>
+                              <span class="stat-label">Payback</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Case Study 2 -->
+              <div class="case-study-card animate-on-scroll">
+                  <div class="case-study-image">
+                      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Copper Project" loading="lazy">
+                  </div>
+                  <div class="case-study-content">
+                      <span class="case-study-tag">COPPER MINING</span>
+                      <h3>Copper Mine Expansion Economics</h3>
+                      <p>Economic evaluation of expansion from 50,000 to 150,000 tonnes/year, demonstrating 35% increase in NPV through optimized production scheduling and cost management.</p>
+                      <div class="case-study-stats">
+                          <div class="stat-item">
+                              <span class="stat-value">$850M</span>
+                              <span class="stat-label">Added Value</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-value">35%</span>
+                              <span class="stat-label">NPV Increase</span>
+                          </div>
+                          <div class="stat-item">
+                              <span class="stat-value">18 mo</span>
+                              <span class="stat-label">Study Period</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+      <div class="cta-content">
+          <h2>Ready to Optimize Your Project Economics?</h2>
+          <p>Let our expert economists help you maximize value and secure financing for your mining project</p>
+          <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+              <a href="#contact" class="btn btn-large btn-white">Schedule Consultation <i class="fas fa-calendar-check"></i></a>
+              <a href="#tools" class="btn btn-large btn-outline-white">Try Our Tools <i class="fas fa-calculator"></i></a>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
-      <div class="footer-container">
-          <div>
-              <img src="https://cdn.grapesjs.com/workspaces/cmi4vbov24qightj9lbznjmm6/assets/101b9c26-8ea8-4eac-b152-80e45046827b__image-9-14-1404-ap-at-8.42-pm.png" 
-                   alt="SES_Mine" 
-                   class="footer-logo">
-              <div class="footer-brand">SES_Mine</div>
-              <p class="footer-desc">
-                  Scientific and Engineering Supplies LLC - Leading provider of comprehensive 
-                  mining solutions and digital transformation platforms.
-              </p>
+      <div class="footer-content">
+          <div class="footer-brand">
+              <h3>SESMine</h3>
+              <p>Leading provider of comprehensive mining solutions, combining engineering excellence, economic expertise, and innovative technology.</p>
           </div>
-          <div>
+          <div class="footer-column">
               <h4>Platforms</h4>
               <ul class="footer-links">
                   <li><a href="engineering-hub.html">Engineering Hub</a></li>
                   <li><a href="economics-hub.html">Economics Hub</a></li>
-                  <li><a href="procurement-hub.html">Procurement Hub</a></li>
                   <li><a href="consulting-hub.html">Consulting Hub</a></li>
+                  <li><a href="procurement-hub.html">Procurement Hub</a></li>
               </ul>
           </div>
-          <div>
-              <h4>Services</h4>
+          <div class="footer-column">
+              <h4>Resources</h4>
               <ul class="footer-links">
-                  <li><a href="innovation-technology-hub.html">Innovation & Tech</a></li>
-                  <li><a href="analytics-platform.html">Analytics Platform</a></li>
-                  <li><a href="training-education-hub.html">Training & Education</a></li>
+                  <li><a href="#">Documentation</a></li>
+                  <li><a href="#">Case Studies</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Support</a></li>
               </ul>
           </div>
-          <div>
+          <div class="footer-column">
               <h4>Company</h4>
               <ul class="footer-links">
-                  <li><a href="#about">About Us</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                  <li><a href="#support">Support</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
               </ul>
           </div>
       </div>
       <div class="footer-bottom">
-          <p>&copy; 2025 SES_Mine - Scientific and Engineering Supplies LLC. All rights reserved.</p>
+          <p>&copy; 2025 SESMine. All rights reserved. | Empowering Mining Excellence Worldwide</p>
       </div>
   </footer>
 
   <script>
+      // NPV Calculator Function
       function calculateNPV() {
-          const investment = parseFloat(document.getElementById('npv-investment').value);
-          const cashflow = parseFloat(document.getElementById('npv-cashflow').value);
-          const years = parseInt(document.getElementById('npv-years').value);
-          const rate = parseFloat(document.getElementById('npv-rate').value) / 100;
+          const initialInvestment = parseFloat(document.getElementById('initialInvestment').value);
+          const annualRevenue = parseFloat(document.getElementById('annualRevenue').value);
+          const operatingCosts = parseFloat(document.getElementById('operatingCosts').value);
+          const projectLife = parseInt(document.getElementById('projectLife').value);
+          const discountRate = parseFloat(document.getElementById('discountRate').value) / 100;
+          const taxRate = parseFloat(document.getElementById('taxRate').value) / 100;
 
-          let npv = -investment;
-          for (let i = 1; i <= years; i++) {
-              npv += cashflow / Math.pow(1 + rate, i);
+          // Calculate annual cash flow
+          const annualProfit = annualRevenue - operatingCosts;
+          const annualCashFlow = annualProfit * (1 - taxRate);
+
+          // Calculate NPV
+          let npv = -initialInvestment;
+          for (let year = 1; year <= projectLife; year++) {
+              npv += annualCashFlow / Math.pow(1 + discountRate, year);
           }
 
-          document.getElementById('npv-result').style.display = 'block';
-          document.getElementById('npv-value').textContent = '$' + npv.toFixed(2) + 'M';
+          // Calculate IRR (simplified approximation)
+          let irr = discountRate;
+          if (npv > 0) {
+              irr = discountRate + (npv / initialInvestment) * 0.1;
+          } else {
+              irr = discountRate - (Math.abs(npv) / initialInvestment) * 0.1;
+          }
+
+          // Calculate Payback Period
+          let payback = initialInvestment / annualCashFlow;
+
+          // Update results
+          document.getElementById('npvResult').textContent = '$' + npv.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+          document.getElementById('irrResult').textContent = (irr * 100).toFixed(1) + '%';
+          document.getElementById('paybackResult').textContent = payback.toFixed(1) + ' years';
+          
+          // Viability assessment
+          let viability = npv > 0 ? '✓ Viable' : '✗ Not Viable';
+          let viabilityColor = npv > 0 ? '#27ae60' : '#e74c3c';
+          document.getElementById('viabilityResult').textContent = viability;
+          document.getElementById('viabilityResult').style.color = viabilityColor;
       }
 
-      function calculateIRR() {
-          const investment = parseFloat(document.getElementById('irr-investment').value);
-          const cashflow = parseFloat(document.getElementById('irr-cashflow').value);
-          const years = parseInt(document.getElementById('irr-years').value);
+      // Scroll Animation
+      const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+      };
 
-          let irr = 0.1;
-          for (let i = 0; i < 100; i++) {
-              let npv = -investment;
-              for (let j = 1; j <= years; j++) {
-                  npv += cashflow / Math.pow(1 + irr, j);
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('animated');
               }
-              if (Math.abs(npv) < 0.01) break;
-              irr += npv > 0 ? 0.001 : -0.001;
-          }
+          });
+      }, observerOptions);
 
-          document.getElementById('irr-result').style.display = 'block';
-          document.getElementById('irr-value').textContent = (irr * 100).toFixed(2) + '%';
-      }
+      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-      function calculatePayback() {
-          const investment = parseFloat(document.getElementById('pb-investment').value);
-          const cashflow = parseFloat(document.getElementById('pb-cashflow').value);
-          const payback = investment / cashflow;
-
-          document.getElementById('pb-result').style.display = 'block';
-          document.getElementById('pb-value').textContent = payback.toFixed(1) + ' years';
-      }
+      // Initial calculation on page load
+      window.addEventListener('load', calculateNPV);
   </script>
 </body>
 </html>
