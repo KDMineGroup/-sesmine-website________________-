@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SESMine Admin Dashboard - User Management & System Control">
+  <title>Admin Dashboard - SESMine</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+      :root {
+          --primary-color: #667eea;
+          --secondary-color: #764ba2;
+          --accent-color: #3498db;
+          --success-color: #27ae60;
+          --warning-color: #f39c12;
+          --error-color: #e74c3c;
+          --dark-bg: #0a1628;
+          --light-bg: #f8f9fa;
+          --text-dark: #2c3e50;
+          --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+          --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+          --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+          --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          color: var(--text-dark);
+          line-height: 1.6;
+          background: var(--light-bg);
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+      }
+
+      /* Sidebar */
+      .sidebar {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 280px;
+          height: 100vh;
+          background: var(--dark-bg);
+          color: white;
+          z-index: 1000;
+          overflow-y: auto;
+      }
+
+      .sidebar-header {
+          padding: 30px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .logo {
+          font-size: 24px;
+          font-weight: 800;
+          background: var(--gradient-1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+      }
+
+      .admin-badge {
+          background: var(--error-color);
+          color: white;
+          padding: 4px 8px;
+          border-radius: 12px;
+          font-size: 10px;
+          font-weight: 600;
+          margin-left: 10px;
+      }
+
+      .sidebar-menu {
+          padding: 20px 0;
+      }
+
+      .menu-section {
+          margin-bottom: 30px;
+      }
+
+      .menu-title {
+          padding: 0 30px 10px;
+          font-size: 12px;
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.5);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+      }
+
+      .menu-item {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          padding: 15px 30px;
+          color: rgba(255, 255, 255, 0.7);
+          text-decoration: none;
+          transition: var(--transition);
+          position: relative;
+      }
+
+      .menu-item:hover,
+      .menu-item.active {
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+      }
+
+      .menu-item.active::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background: var(--gradient-1);
+      }
+
+      .menu-item i {
+          width: 20px;
+          font-size: 18px;
+      }
+
+      /* Main Content */
+      .main-content {
+          margin-left: 280px;
+          min-height: 100vh;
+      }
+
+      /* Top Bar */
+      .top-bar {
+          background: white;
+          padding: 20px 30px;
+          box-shadow: var(--shadow-sm);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .page-title {
+          font-size: 28px;
+          margin-bottom: 5px;
+      }
+
+      .page-subtitle {
+          color: #666;
+          font-size: 14px;
+      }
+
+      .admin-controls {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+      }
+
+      .system-status {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 15px;
+          background: var(--success-color);
+          color: white;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 600;
+      }
+
+      .status-indicator {
+          width: 8px;
+          height: 8px;
+          background: white;
+          border-radius: 50%;
+          animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+          0% { opacity: 1; }
+          50% { opacity: 0.5; }
+          100% { opacity: 1; }
+      }
+
+      .user-menu {
+          position: relative;
+      }
+
+      .user-avatar {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background: var(--gradient-1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: 600;
+          cursor: pointer;
+          transition: var(--transition);
+      }
+
+      .user-avatar:hover {
+          transform: scale(1.1);
+      }
+
+      /* Dashboard Content */
+      .dashboard-content {
+          padding: 30px;
+      }
+
+      /* Admin Stats */
+      .admin-stats {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 25px;
+          margin-bottom: 30px;
+      }
+
+      .admin-stat-card {
+          background: white;
+          padding: 25px;
+          border-radius: 15px;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
+          position: relative;
+          overflow: hidden;
+      }
+
+      .admin-stat-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: var(--gradient-1);
+      }
+
+      .admin-stat-card:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-md);
+      }
+
+      .stat-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+      }
+
+      .stat-icon {
+          width: 45px;
+          height: 45px;
+          background: rgba(102, 126, 234, 0.1);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          color: var(--primary-color);
+      }
+
+      .stat-value {
+          font-size: 28px;
+          font-weight: 800;
+          color: var(--text-dark);
+          margin-bottom: 5px;
+      }
+
+      .stat-label {
+          font-size: 13px;
+          color: #666;
+      }
+
+      /* User Management */
+      .management-section {
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          gap: 30px;
+          margin-bottom: 30px;
+      }
+
+      .management-card {
+          background: white;
+          border-radius: 20px;
+          box-shadow: var(--shadow-sm);
+          overflow: hidden;
+      }
+
+      .card-header {
+          padding: 25px 30px;
+          border-bottom: 1px solid var(--light-bg);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .card-title {
+          font-size: 20px;
+      }
+
+      .btn {
+          padding: 10px 20px;
+          border-radius: 10px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: var(--transition);
+          cursor: pointer;
+          border: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 14px;
+      }
+
+      .btn-primary {
+          background: var(--gradient-1);
+          color: white;
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+      }
+
+      .btn-success {
+          background: var(--success-color);
+          color: white;
+      }
+
+      .btn-danger {
+          background: var(--error-color);
+          color: white;
+      }
+
+      .btn-warning {
+          background: var(--warning-color);
+          color: white;
+      }
+
+      .btn-outline {
+          border: 2px solid var(--primary-color);
+          color: var(--primary-color);
+          background: transparent;
+      }
+
+      .btn-outline:hover {
+          background: var(--primary-color);
+          color: white;
+      }
+
+      /* User Table */
+      .user-table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+
+      .user-table th,
+      .user-table td {
+          padding: 15px;
+          text-align: left;
+          border-bottom: 1px solid var(--light-bg);
+      }
+
+      .user-table th {
+          background: var(--light-bg);
+          font-weight: 600;
+          font-size: 13px;
+          color: #666;
+          text-transform: uppercase;
+      }
+
+      .user-table tr:hover {
+          background: rgba(102, 126, 234, 0.05);
+      }
+
+      .user-avatar-small {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          background: var(--gradient-1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: 600;
+          font-size: 14px;
+      }
+
+      .user-info {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+      }
+
+      .user-details h4 {
+          font-size: 14px;
+          margin-bottom: 2px;
+      }
+
+      .user-details p {
+          font-size: 12px;
+          color: #666;
+      }
+
+      .status-badge {
+          padding: 4px 10px;
+          border-radius: 15px;
+          font-size: 11px;
+          font-weight: 600;
+      }
+
+      .status-pending {
+          background: #fff3cd;
+          color: #856404;
+      }
+
+      .status-verified {
+          background: #d4edda;
+          color: #155724;
+      }
+
+      .status-premium {
+          background: #e7f3ff;
+          color: #0066cc;
+      }
+
+      .status-enterprise {
+          background: #f8d7da;
+          color: #721c24;
+      }
+
+      .action-buttons {
+          display: flex;
+          gap: 8px;
+      }
+
+      .action-btn {
+          width: 32px;
+          height: 32px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          transition: var(--transition);
+      }
+
+      .action-btn:hover {
+          transform: scale(1.1);
+      }
+
+      .action-btn.approve {
+          background: var(--success-color);
+          color: white;
+      }
+
+      .action-btn.reject {
+          background: var(--error-color);
+          color: white;
+      }
+
+      .action-btn.edit {
+          background: var(--warning-color);
+          color: white;
+      }
+
+      /* Pending Approvals */
+      .approval-item {
+          padding: 20px;
+          border-bottom: 1px solid var(--light-bg);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .approval-item:last-child {
+          border-bottom: none;
+      }
+
+      .approval-info {
+          flex: 1;
+      }
+
+      .approval-info h4 {
+          font-size: 15px;
+          margin-bottom: 5px;
+      }
+
+      .approval-info p {
+          font-size: 13px;
+          color: #666;
+          margin-bottom: 5px;
+      }
+
+      .approval-time {
+          font-size: 12px;
+          color: #999;
+      }
+
+      .approval-actions {
+          display: flex;
+          gap: 10px;
+      }
+
+      /* System Metrics */
+      .metrics-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+      }
+
+      .metric-card {
+          background: white;
+          padding: 30px;
+          border-radius: 20px;
+          box-shadow: var(--shadow-sm);
+      }
+
+      .metric-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 25px;
+      }
+
+      .metric-title {
+          font-size: 18px;
+      }
+
+      /* Activity Log */
+      .activity-log {
+          max-height: 400px;
+          overflow-y: auto;
+      }
+
+      .log-item {
+          padding: 15px;
+          border-bottom: 1px solid var(--light-bg);
+          display: flex;
+          gap: 15px;
+      }
+
+      .log-item:last-child {
+          border-bottom: none;
+      }
+
+      .log-icon {
+          width: 35px;
+          height: 35px;
+          background: var(--light-bg);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          color: var(--primary-color);
+          flex-shrink: 0;
+      }
+
+      .log-content {
+          flex: 1;
+      }
+
+      .log-content h4 {
+          font-size: 14px;
+          margin-bottom: 3px;
+      }
+
+      .log-content p {
+          font-size: 12px;
+          color: #666;
+          margin-bottom: 3px;
+      }
+
+      .log-time {
+          font-size: 11px;
+          color: #999;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+          .sidebar {
+              transform: translateX(-100%);
+          }
+
+          .main-content {
+              margin-left: 0;
+          }
+
+          .admin-stats {
+              grid-template-columns: repeat(3, 1fr);
+          }
+
+          .management-section {
+              grid-template-columns: 1fr;
+          }
+
+          .metrics-grid {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      @media (max-width: 768px) {
+          .admin-stats {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .user-table {
+              font-size: 12px;
+          }
+
+          .user-table th,
+          .user-table td {
+              padding: 10px 8px;
+          }
+      }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+      <div class="sidebar-header">
+          <div class="logo">
+              <i class="fas fa-gem"></i>
+              SESMine
+              <span class="admin-badge">ADMIN</span>
+          </div>
+      </div>
+      <nav class="sidebar-menu">
+          <div class="menu-section">
+              <div class="menu-title">Admin Panel</div>
+              <a href="admin-dashboard.html" class="menu-item active">
+                  <i class="fas fa-tachometer-alt"></i>
+                  Dashboard
+              </a>
+              <a href="#" class="menu-item" onclick="showSection('users')">
+                  <i class="fas fa-users"></i>
+                  User Management
+              </a>
+              <a href="#" class="menu-item" onclick="showSection('approvals')">
+                  <i class="fas fa-user-check"></i>
+                  Pending Approvals
+              </a>
+              <a href="#" class="menu-item" onclick="showSection('subscriptions')">
+                  <i class="fas fa-credit-card"></i>
+                  Subscriptions
+              </a>
+              <a href="#" class="menu-item" onclick="showSection('analytics')">
+                  <i class="fas fa-chart-bar"></i>
+                  Analytics
+              </a>
+          </div>
+          <div class="menu-section">
+              <div class="menu-title">System</div>
+              <a href="#" class="menu-item" onclick="showSection('settings')">
+                  <i class="fas fa-cog"></i>
+                  System Settings
+              </a>
+              <a href="#" class="menu-item" onclick="showSection('logs')">
+                  <i class="fas fa-file-alt"></i>
+                  Activity Logs
+              </a>
+              <a href="#" class="menu-item" onclick="showSection('reports')">
+                  <i class="fas fa-chart-line"></i>
+                  Reports
+              </a>
+          </div>
+          <div class="menu-section">
+              <div class="menu-title">Quick Access</div>
+              <a href="dashboard.html" class="menu-item">
+                  <i class="fas fa-external-link-alt"></i>
+                  User Dashboard
+              </a>
+              <a href="index.html" class="menu-item">
+                  <i class="fas fa-home"></i>
+                  Public Site
+              </a>
+          </div>
+      </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <!-- Top Bar -->
+      <div class="top-bar">
+          <div>
+              <h1 class="page-title">Admin Dashboard</h1>
+              <p class="page-subtitle">System overview and user management</p>
+          </div>
+          <div class="admin-controls">
+              <div class="system-status">
+                  <div class="status-indicator"></div>
+                  System Online
+              </div>
+              <div class="user-menu">
+                  <div class="user-avatar" onclick="logout()">
+                      AD
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+          <!-- Admin Stats -->
+          <div class="admin-stats">
+              <div class="admin-stat-card">
+                  <div class="stat-header">
+                      <div class="stat-icon">
+                          <i class="fas fa-users"></i>
+                      </div>
+                  </div>
+                  <div class="stat-value" id="totalUsers">1,247</div>
+                  <div class="stat-label">Total Users</div>
+              </div>
+
+              <div class="admin-stat-card">
+                  <div class="stat-header">
+                      <div class="stat-icon">
+                          <i class="fas fa-user-clock"></i>
+                      </div>
+                  </div>
+                  <div class="stat-value" id="pendingUsers">23</div>
+                  <div class="stat-label">Pending Approval</div>
+              </div>
+
+              <div class="admin-stat-card">
+                  <div class="stat-header">
+                      <div class="stat-icon">
+                          <i class="fas fa-crown"></i>
+                      </div>
+                  </div>
+                  <div class="stat-value" id="premiumUsers">456</div>
+                  <div class="stat-label">Premium Users</div>
+              </div>
+
+              <div class="admin-stat-card">
+                  <div class="stat-header">
+                      <div class="stat-icon">
+                          <i class="fas fa-dollar-sign"></i>
+                      </div>
+                  </div>
+                  <div class="stat-value" id="monthlyRevenue">$45.2K</div>
+                  <div class="stat-label">Monthly Revenue</div>
+              </div>
+
+              <div class="admin-stat-card">
+                  <div class="stat-header">
+                      <div class="stat-icon">
+                          <i class="fas fa-server"></i>
+                      </div>
+                  </div>
+                  <div class="stat-value" id="systemLoad">67%</div>
+                  <div class="stat-label">System Load</div>
+              </div>
+          </div>
+
+          <!-- User Management Section -->
+          <div class="management-section">
+              <div class="management-card">
+                  <div class="card-header">
+                      <h3 class="card-title">Recent Users</h3>
+                      <button class="btn btn-primary" onclick="exportUsers()">
+                          <i class="fas fa-download"></i>
+                          Export Users
+                      </button>
+                  </div>
+                  <div style="overflow-x: auto;">
+                      <table class="user-table">
+                          <thead>
+                              <tr>
+                                  <th>User</th>
+                                  <th>Company</th>
+                                  <th>Status</th>
+                                  <th>Plan</th>
+                                  <th>Joined</th>
+                                  <th>Actions</th>
+                              </tr>
+                          </thead>
+                          <tbody id="userTableBody">
+                              <tr>
+                                  <td>
+                                      <div class="user-info">
+                                          <div class="user-avatar-small">JS</div>
+                                          <div class="user-details">
+                                              <h4>John Smith</h4>
+                                              <p>john@mining.com</p>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td>ABC Mining Corp</td>
+                                  <td><span class="status-badge status-verified">Verified</span></td>
+                                  <td>Professional</td>
+                                  <td>2024-01-15</td>
+                                  <td>
+                                      <div class="action-buttons">
+                                          <button class="action-btn edit" onclick="editUser('john@mining.com')" title="Edit">
+                                              <i class="fas fa-edit"></i>
+                                          </button>
+                                          <button class="action-btn reject" onclick="suspendUser('john@mining.com')" title="Suspend">
+                                              <i class="fas fa-ban"></i>
+                                          </button>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <div class="user-info">
+                                          <div class="user-avatar-small">MJ</div>
+                                          <div class="user-details">
+                                              <h4>Maria Johnson</h4>
+                                              <p>maria@goldmine.com</p>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td>Gold Mining Ltd</td>
+                                  <td><span class="status-badge status-pending">Pending</span></td>
+                                  <td>Starter</td>
+                                  <td>2024-01-20</td>
+                                  <td>
+                                      <div class="action-buttons">
+                                          <button class="action-btn approve" onclick="approveUser('maria@goldmine.com')" title="Approve">
+                                              <i class="fas fa-check"></i>
+                                          </button>
+                                          <button class="action-btn reject" onclick="rejectUser('maria@goldmine.com')" title="Reject">
+                                              <i class="fas fa-times"></i>
+                                          </button>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <div class="user-info">
+                                          <div class="user-avatar-small">RB</div>
+                                          <div class="user-details">
+                                              <h4>Robert Brown</h4>
+                                              <p>robert@copper.com</p>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td>Copper Solutions Inc</td>
+                                  <td><span class="status-badge status-premium">Premium</span></td>
+                                  <td>Professional</td>
+                                  <td>2024-01-10</td>
+                                  <td>
+                                      <div class="action-buttons">
+                                          <button class="action-btn edit" onclick="editUser('robert@copper.com')" title="Edit">
+                                              <i class="fas fa-edit"></i>
+                                          </button>
+                                          <button class="action-btn reject" onclick="suspendUser('robert@copper.com')" title="Suspend">
+                                              <i class="fas fa-ban"></i>
+                                          </button>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <div class="user-info">
+                                          <div class="user-avatar-small">SD</div>
+                                          <div class="user-details">
+                                              <h4>Sarah Davis</h4>
+                                              <p>sarah@ironore.com</p>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td>Iron Ore Mining</td>
+                                  <td><span class="status-badge status-enterprise">Enterprise</span></td>
+                                  <td>Enterprise</td>
+                                  <td>2024-01-05</td>
+                                  <td>
+                                      <div class="action-buttons">
+                                          <button class="action-btn edit" onclick="editUser('sarah@ironore.com')" title="Edit">
+                                              <i class="fas fa-edit"></i>
+                                          </button>
+                                          <button class="action-btn reject" onclick="suspendUser('sarah@ironore.com')" title="Suspend">
+                                              <i class="fas fa-ban"></i>
+                                          </button>
+                                      </div>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+
+              <div class="management-card">
+                  <div class="card-header">
+                      <h3 class="card-title">Pending Approvals</h3>
+                      <span class="status-badge status-pending" id="pendingCount">23 Pending</span>
+                  </div>
+                  <div class="approval-list">
+                      <div class="approval-item">
+                          <div class="approval-info">
+                              <h4>Alex Wilson</h4>
+                              <p>alex@newmine.com</p>
+                              <p>Diamond Mining Co.</p>
+                              <span class="approval-time">2 hours ago</span>
+                          </div>
+                          <div class="approval-actions">
+                              <button class="btn btn-success" onclick="quickApprove('alex@newmine.com')">
+                                  <i class="fas fa-check"></i>
+                                  Approve
+                              </button>
+                              <button class="btn btn-danger" onclick="quickReject('alex@newmine.com')">
+                                  <i class="fas fa-times"></i>
+                                  Reject
+                              </button>
+                          </div>
+                      </div>
+
+                      <div class="approval-item">
+                          <div class="approval-info">
+                              <h4>Lisa Chen</h4>
+                              <p>lisa@coalmine.com</p>
+                              <p>Coal Mining Solutions</p>
+                              <span class="approval-time">5 hours ago</span>
+                          </div>
+                          <div class="approval-actions">
+                              <button class="btn btn-success" onclick="quickApprove('lisa@coalmine.com')">
+                                  <i class="fas fa-check"></i>
+                                  Approve
+                              </button>
+                              <button class="btn btn-danger" onclick="quickReject('lisa@coalmine.com')">
+                                  <i class="fas fa-times"></i>
+                                  Reject
+                              </button>
+                          </div>
+                      </div>
+
+                      <div class="approval-item">
+                          <div class="approval-info">
+                              <h4>Mike Rodriguez</h4>
+                              <p>mike@silvermining.com</p>
+                              <p>Silver Mining Corp</p>
+                              <span class="approval-time">1 day ago</span>
+                          </div>
+                          <div class="approval-actions">
+                              <button class="btn btn-success" onclick="quickApprove('mike@silvermining.com')">
+                                  <i class="fas fa-check"></i>
+                                  Approve
+                              </button>
+                              <button class="btn btn-danger" onclick="quickReject('mike@silvermining.com')">
+                                  <i class="fas fa-times"></i>
+                                  Reject
+                              </button>
+                          </div>
+                      </div>
+
+                      <div class="approval-item">
+                          <div class="approval-info">
+                              <h4>Emma Thompson</h4>
+                              <p>emma@platinummine.com</p>
+                              <p>Platinum Mining Ltd</p>
+                              <span class="approval-time">2 days ago</span>
+                          </div>
+                          <div class="approval-actions">
+                              <button class="btn btn-success" onclick="quickApprove('emma@platinummine.com')">
+                                  <i class="fas fa-check"></i>
+                                  Approve
+                              </button>
+                              <button class="btn btn-danger" onclick="quickReject('emma@platinummine.com')">
+                                  <i class="fas fa-times"></i>
+                                  Reject
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- System Metrics -->
+          <div class="metrics-grid">
+              <div class="metric-card">
+                  <div class="metric-header">
+                      <h3 class="metric-title">User Growth</h3>
+                      <div class="chart-filter">
+                          <button class="filter-btn active">7D</button>
+                          <button class="filter-btn">30D</button>
+                          <button class="filter-btn">90D</button>
+                      </div>
+                  </div>
+                  <canvas id="userGrowthChart" width="400" height="200"></canvas>
+              </div>
+
+              <div class="metric-card">
+                  <div class="metric-header">
+                      <h3 class="metric-title">Revenue Analytics</h3>
+                      <div class="chart-filter">
+                          <button class="filter-btn active">Monthly</button>
+                          <button class="filter-btn">Quarterly</button>
+                      </div>
+                  </div>
+                  <canvas id="revenueChart" width="400" height="200"></canvas>
+              </div>
+
+              <div class="metric-card">
+                  <div class="metric-header">
+                      <h3 class="metric-title">System Activity</h3>
+                      <button class="btn btn-outline" onclick="refreshLogs()">
+                          <i class="fas fa-sync-alt"></i>
+                          Refresh
+                      </button>
+                  </div>
+                  <div class="activity-log">
+                      <div class="log-item">
+                          <div class="log-icon">
+                              <i class="fas fa-user-plus"></i>
+                          </div>
+                          <div class="log-content">
+                              <h4>New user registration</h4>
+                              <p>alex@newmine.com registered for Professional plan</p>
+                              <span class="log-time">2 hours ago</span>
+                          </div>
+                      </div>
+
+                      <div class="log-item">
+                          <div class="log-icon">
+                              <i class="fas fa-credit-card"></i>
+                          </div>
+                          <div class="log-content">
+                              <h4>Payment processed</h4>
+                              <p>robert@copper.com upgraded to Premium plan</p>
+                              <span class="log-time">3 hours ago</span>
+                          </div>
+                      </div>
+
+                      <div class="log-item">
+                          <div class="log-icon">
+                              <i class="fas fa-download"></i>
+                          </div>
+                          <div class="log-content">
+                              <h4>Report generated</h4>
+                              <p>Monthly user analytics report exported</p>
+                              <span class="log-time">5 hours ago</span>
+                          </div>
+                      </div>
+
+                      <div class="log-item">
+                          <div class="log-icon">
+                              <i class="fas fa-shield-alt"></i>
+                          </div>
+                          <div class="log-content">
+                              <h4>Security scan completed</h4>
+                              <p>System security scan completed successfully</p>
+                              <span class="log-time">6 hours ago</span>
+                          </div>
+                      </div>
+
+                      <div class="log-item">
+                          <div class="log-icon">
+                              <i class="fas fa-database"></i>
+                          </div>
+                          <div class="log-content">
+                              <h4>Database backup</h4>
+                              <p>Automated database backup completed</p>
+                              <span class="log-time">8 hours ago</span>
+                          </div>
+                      </div>
+
+                      <div class="log-item">
+                          <div class="log-icon">
+                              <i class="fas fa-user-check"></i>
+                          </div>
+                          <div class="log-content">
+                              <h4>User approved</h4>
+                              <p>john@mining.com account approved by admin</p>
+                              <span class="log-time">1 day ago</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="metric-card">
+                  <div class="metric-header">
+                      <h3 class="metric-title">Quick Actions</h3>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 15px;">
+                      <button class="btn btn-primary" onclick="bulkApproveUsers()">
+                          <i class="fas fa-user-check"></i>
+                          Bulk Approve Users
+                      </button>
+                      <button class="btn btn-warning" onclick="sendSystemNotification()">
+                          <i class="fas fa-bullhorn"></i>
+                          Send System Notification
+                      </button>
+                      <button class="btn btn-success" onclick="generateReport()">
+                          <i class="fas fa-file-alt"></i>
+                          Generate Monthly Report
+                      </button>
+                      <button class="btn btn-outline" onclick="systemMaintenance()">
+                          <i class="fas fa-tools"></i>
+                          System Maintenance
+                      </button>
+                      <button class="btn btn-danger" onclick="emergencyShutdown()">
+                          <i class="fas fa-power-off"></i>
+                          Emergency Shutdown
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      // Admin authentication check
+      window.addEventListener('load', () => {
+          const userRole = localStorage.getItem('userRole');
+          if (userRole !== 'admin') {
+              alert('Access denied. Admin privileges required.');
+              window.location.href = 'login.html';
+              return;
+          }
+
+          // Initialize admin dashboard
+          initializeCharts();
+          updateStats();
+      });
+
+      // Initialize Charts
+      function initializeCharts() {
+          // User Growth Chart
+          const userGrowthCtx = document.getElementById('userGrowthChart').getContext('2d');
+          new Chart(userGrowthCtx, {
+              type: 'line',
+              data: {
+                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                  datasets: [{
+                      label: 'New Users',
+                      data: [45, 67, 89, 123, 156, 189],
+                      borderColor: '#667eea',
+                      backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                      tension: 0.4,
+                      fill: true
+                  }]
+              },
+              options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                      legend: {
+                          display: false
+                      }
+                  },
+                  scales: {
+                      y: {
+                          beginAtZero: true,
+                          grid: {
+                              color: '#f0f0f0'
+                          }
+                      },
+                      x: {
+                          grid: {
+                              display: false
+                          }
+                      }
+                  }
+              }
+          });
+
+          // Revenue Chart
+          const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+          new Chart(revenueCtx, {
+              type: 'bar',
+              data: {
+                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                  datasets: [{
+                      label: 'Revenue ($K)',
+                      data: [32, 41, 38, 45, 42, 48],
+                      backgroundColor: '#667eea',
+                      borderRadius: 8
+                  }]
+              },
+              options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                      legend: {
+                          display: false
+                      }
+                  },
+                  scales: {
+                      y: {
+                          beginAtZero: true,
+                          grid: {
+                              color: '#f0f0f0'
+                          }
+                      },
+                      x: {
+                          grid: {
+                              display: false
+                          }
+                      }
+                  }
+              }
+          });
+      }
+
+      // Update stats with real-time data simulation
+      function updateStats() {
+          // Simulate real-time updates
+          setInterval(() => {
+              const totalUsers = document.getElementById('totalUsers');
+              const currentCount = parseInt(totalUsers.textContent.replace(',', ''));
+              if (Math.random() > 0.98) { // 2% chance every second
+                  totalUsers.textContent = (currentCount + 1).toLocaleString();
+              }
+          }, 1000);
+      }
+
+      // User Management Functions
+      function approveUser(email) {
+          if (confirm(`Approve user: ${email}?`)) {
+              showNotification('success', `User ${email} has been approved successfully!`);
+              updatePendingCount(-1);
+              // Update UI to reflect approval
+              const row = findUserRow(email);
+              if (row) {
+                  const statusCell = row.querySelector('.status-badge');
+                  statusCell.className = 'status-badge status-verified';
+                  statusCell.textContent = 'Verified';
+                  
+                  const actionCell = row.querySelector('.action-buttons');
+                  actionCell.innerHTML = `
+                      <button class="action-btn edit" onclick="editUser('${email}')" title="Edit">
+                          <i class="fas fa-edit"></i>
+                      </button>
+                      <button class="action-btn reject" onclick="suspendUser('${email}')" title="Suspend">
+                          <i class="fas fa-ban"></i>
+                      </button>
+                  `;
+              }
+          }
+      }
+
+      function rejectUser(email) {
+          const reason = prompt(`Reject user: ${email}\nReason for rejection:`);
+          if (reason) {
+              showNotification('error', `User ${email} has been rejected. Reason: ${reason}`);
+              updatePendingCount(-1);
+              // Remove from pending list
+              removeUserFromTable(email);
+          }
+      }
+
+      function suspendUser(email) {
+          if (confirm(`Suspend user: ${email}?`)) {
+              showNotification('warning', `User ${email} has been suspended.`);
+              const row = findUserRow(email);
+              if (row) {
+                  const statusCell = row.querySelector('.status-badge');
+                  statusCell.className = 'status-badge status-pending';
+                  statusCell.textContent = 'Suspended';
+              }
+          }
+      }
+
+      function editUser(email) {
+          alert(`Edit user functionality for ${email} would open a detailed user management modal.`);
+      }
+
+      // Quick approval functions
+      function quickApprove(email) {
+          approveUser(email);
+          // Remove from pending approvals list
+          const approvalItem = document.querySelector(`[onclick*="${email}"]`).closest('.approval-item');
+          if (approvalItem) {
+              approvalItem.style.animation = 'slideOut 0.3s ease-out';
+              setTimeout(() => approvalItem.remove(), 300);
+          }
+      }
+
+      function quickReject(email) {
+          rejectUser(email);
+          // Remove from pending approvals list
+          const approvalItem = document.querySelector(`[onclick*="${email}"]`).closest('.approval-item');
+          if (approvalItem) {
+              approvalItem.style.animation = 'slideOut 0.3s ease-out';
+              setTimeout(() => approvalItem.remove(), 300);
+          }
+      }
+
+      // Bulk operations
+      function bulkApproveUsers() {
+          if (confirm('Approve all pending users?')) {
+              showNotification('success', 'All pending users have been approved!');
+              document.getElementById('pendingUsers').textContent = '0';
+              document.getElementById('pendingCount').textContent = '0 Pending';
+              
+              // Clear pending approvals list
+              const approvalList = document.querySelector('.approval-list');
+              approvalList.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">No pending approvals</div>';
+          }
+      }
+
+      function sendSystemNotification() {
+          const message = prompt('Enter system notification message:');
+          if (message) {
+              showNotification('success', `System notification sent: "${message}"`);
+          }
+      }
+
+      function generateReport() {
+          showNotification('success', 'Monthly report is being generated. You will receive an email when ready.');
+      }
+
+      function systemMaintenance() {
+          if (confirm('Put system in maintenance mode?')) {
+              showNotification('warning', 'System maintenance mode activated.');
+          }
+      }
+
+      function emergencyShutdown() {
+          if (confirm('EMERGENCY SHUTDOWN: Are you sure? This will affect all users.')) {
+              if (confirm('This is irreversible. Continue with emergency shutdown?')) {
+                  showNotification('error', 'Emergency shutdown initiated. All services will be stopped.');
+              }
+          }
+      }
+
+      // Utility functions
+      function findUserRow(email) {
+          const rows = document.querySelectorAll('#userTableBody tr');
+          for (let row of rows) {
+              if (row.textContent.includes(email)) {
+                  return row;
+              }
+          }
+          return null;
+      }
+
+      function removeUserFromTable(email) {
+          const row = findUserRow(email);
+          if (row) {
+              row.style.animation = 'slideOut 0.3s ease-out';
+              setTimeout(() => row.remove(), 300);
+          }
+      }
+
+      function updatePendingCount(change) {
+          const pendingElement = document.getElementById('pendingUsers');
+          const currentCount = parseInt(pendingElement.textContent);
+          const newCount = Math.max(0, currentCount + change);
+          pendingElement.textContent = newCount;
+          
+          const pendingCountElement = document.getElementById('pendingCount');
+          pendingCountElement.textContent = `${newCount} Pending`;
+      }
+
+      function exportUsers() {
+          showNotification('success', 'User data export started. Download will begin shortly.');
+          // Simulate file download
+          setTimeout(() => {
+              const link = document.createElement('a');
+              link.href = 'data:text/csv;charset=utf-8,Name,Email,Company,Status,Plan,Joined\nJohn Smith,john@mining.com,ABC Mining Corp,Verified,Professional,2024-01-15';
+              link.download = 'sesmine_users_export.csv';
+              link.click();
+          }, 1000);
+      }
+
+      function refreshLogs() {
+          showNotification('success', 'Activity logs refreshed.');
+          // In real implementation, this would fetch latest logs from server
+      }
+
+      function showSection(section) {
+          alert(`${section.charAt(0).toUpperCase() + section.slice(1)} section would be displayed here.`);
+      }
+
+      // Notification system
+      function showNotification(type, message) {
+          const notification = document.createElement('div');
+          notification.className = `notification notification-${type}`;
+          notification.innerHTML = `
+              <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+              <span>${message}</span>
+              <button onclick="this.parentElement.remove()">×</button>
+          `;
+          
+          // Add notification styles
+          notification.style.cssText = `
+              position: fixed;
+              top: 20px;
+              right: 20px;
+              padding: 15px 20px;
+              border-radius: 10px;
+              color: white;
+              font-weight: 600;
+              z-index: 10000;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              max-width: 400px;
+              animation: slideInRight 0.3s ease-out;
+              background: ${type === 'success' ? '#27ae60' : type === 'error' ? '#e74c3c' : '#f39c12'};
+          `;
+          
+          document.body.appendChild(notification);
+          
+          // Auto remove after 5 seconds
+          setTimeout(() => {
+              if (notification.parentElement) {
+                  notification.style.animation = 'slideOutRight 0.3s ease-out';
+                  setTimeout(() => notification.remove(), 300);
+              }
+          }, 5000);
+      }
+
+      // Add CSS animations
+      const style = document.createElement('style');
+      style.textContent = `
+          @keyframes slideInRight {
+              from { transform: translateX(100%); opacity: 0; }
+              to { transform: translateX(0); opacity: 1; }
+          }
+          @keyframes slideOutRight {
+              from { transform: translateX(0); opacity: 1; }
+              to { transform: translateX(100%); opacity: 0; }
+          }
+          @keyframes slideOut {
+              from { transform: translateX(0); opacity: 1; }
+              to { transform: translateX(-100%); opacity: 0; }
+          }
+          .notification button {
+              background: none;
+              border: none;
+              color: white;
+              font-size: 18px;
+              cursor: pointer;
+              margin-left: auto;
+          }
+      `;
+      document.head.appendChild(style);
+
+      // Logout function
+      function logout() {
+          if (confirm('Are you sure you want to logout?')) {
+              localStorage.clear();
+              window.location.href = 'login.html';
+          }
+      }
+
+      // Real-time system monitoring simulation
+      setInterval(() => {
+          const systemLoad = document.getElementById('systemLoad');
+          const currentLoad = parseInt(systemLoad.textContent);
+          const newLoad = Math.max(30, Math.min(95, currentLoad + (Math.random() - 0.5) * 10));
+          systemLoad.textContent = Math.round(newLoad) + '%';
+          
+          // Change color based on load
+          const card = systemLoad.closest('.admin-stat-card');
+          if (newLoad > 80) {
+              card.style.borderTop = '4px solid #e74c3c';
+          } else if (newLoad > 60) {
+              card.style.borderTop = '4px solid #f39c12';
+          } else {
+              card.style.borderTop = '4px solid #27ae60';
+          }
+      }, 5000);
+  </script>
+</body>
+</html>

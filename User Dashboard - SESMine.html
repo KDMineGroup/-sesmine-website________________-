@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SESMine Dashboard - Advanced Mining Solutions Platform">
+  <title>Dashboard - SESMine</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+      :root {
+          --primary-color: #667eea;
+          --secondary-color: #764ba2;
+          --accent-color: #3498db;
+          --success-color: #27ae60;
+          --warning-color: #f39c12;
+          --error-color: #e74c3c;
+          --dark-bg: #0a1628;
+          --light-bg: #f8f9fa;
+          --text-dark: #2c3e50;
+          --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+          --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+          --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+          --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          color: var(--text-dark);
+          line-height: 1.6;
+          background: var(--light-bg);
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+      }
+
+      /* Sidebar */
+      .sidebar {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 280px;
+          height: 100vh;
+          background: white;
+          box-shadow: var(--shadow-md);
+          z-index: 1000;
+          overflow-y: auto;
+      }
+
+      .sidebar-header {
+          padding: 30px;
+          border-bottom: 1px solid var(--light-bg);
+      }
+
+      .logo {
+          font-size: 24px;
+          font-weight: 800;
+          background: var(--gradient-1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+      }
+
+      .sidebar-menu {
+          padding: 20px 0;
+      }
+
+      .menu-section {
+          margin-bottom: 30px;
+      }
+
+      .menu-title {
+          padding: 0 30px 10px;
+          font-size: 12px;
+          font-weight: 600;
+          color: #999;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+      }
+
+      .menu-item {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          padding: 15px 30px;
+          color: #666;
+          text-decoration: none;
+          transition: var(--transition);
+          position: relative;
+      }
+
+      .menu-item:hover,
+      .menu-item.active {
+          background: rgba(102, 126, 234, 0.1);
+          color: var(--primary-color);
+      }
+
+      .menu-item.active::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background: var(--gradient-1);
+      }
+
+      .menu-item i {
+          width: 20px;
+          font-size: 18px;
+      }
+
+      /* Main Content */
+      .main-content {
+          margin-left: 280px;
+          min-height: 100vh;
+      }
+
+      /* Top Bar */
+      .top-bar {
+          background: white;
+          padding: 20px 30px;
+          box-shadow: var(--shadow-sm);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .page-title {
+          font-size: 28px;
+          margin-bottom: 5px;
+      }
+
+      .page-subtitle {
+          color: #666;
+          font-size: 14px;
+      }
+
+      .top-bar-right {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+      }
+
+      .search-box {
+          position: relative;
+      }
+
+      .search-box input {
+          padding: 10px 15px 10px 40px;
+          border: 2px solid #e0e0e0;
+          border-radius: 25px;
+          font-size: 14px;
+          width: 300px;
+          transition: var(--transition);
+      }
+
+      .search-box input:focus {
+          outline: none;
+          border-color: var(--primary-color);
+      }
+
+      .search-box i {
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #999;
+      }
+
+      .notifications {
+          position: relative;
+          cursor: pointer;
+      }
+
+      .notification-icon {
+          width: 45px;
+          height: 45px;
+          background: var(--light-bg);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          color: #666;
+          transition: var(--transition);
+      }
+
+      .notification-icon:hover {
+          background: var(--primary-color);
+          color: white;
+      }
+
+      .notification-badge {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          width: 20px;
+          height: 20px;
+          background: var(--error-color);
+          color: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 11px;
+          font-weight: 600;
+      }
+
+      .user-menu {
+          position: relative;
+      }
+
+      .user-avatar {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background: var(--gradient-1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: 600;
+          cursor: pointer;
+          transition: var(--transition);
+      }
+
+      .user-avatar:hover {
+          transform: scale(1.1);
+      }
+
+      /* Dashboard Content */
+      .dashboard-content {
+          padding: 30px;
+      }
+
+      /* Stats Cards */
+      .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 25px;
+          margin-bottom: 30px;
+      }
+
+      .stat-card {
+          background: white;
+          padding: 30px;
+          border-radius: 15px;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition);
+          position: relative;
+          overflow: hidden;
+      }
+
+      .stat-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: var(--gradient-1);
+      }
+
+      .stat-card:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-md);
+      }
+
+      .stat-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+      }
+
+      .stat-icon {
+          width: 50px;
+          height: 50px;
+          background: rgba(102, 126, 234, 0.1);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          color: var(--primary-color);
+      }
+
+      .stat-trend {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 12px;
+          font-weight: 600;
+      }
+
+      .stat-trend.up {
+          color: var(--success-color);
+      }
+
+      .stat-trend.down {
+          color: var(--error-color);
+      }
+
+      .stat-value {
+          font-size: 32px;
+          font-weight: 800;
+          color: var(--text-dark);
+          margin-bottom: 5px;
+      }
+
+      .stat-label {
+          font-size: 14px;
+          color: #666;
+      }
+
+      /* Charts Section */
+      .charts-grid {
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          gap: 30px;
+          margin-bottom: 30px;
+      }
+
+      .chart-card {
+          background: white;
+          padding: 30px;
+          border-radius: 20px;
+          box-shadow: var(--shadow-sm);
+      }
+
+      .chart-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 25px;
+      }
+
+      .chart-title {
+          font-size: 20px;
+          margin-bottom: 5px;
+      }
+
+      .chart-subtitle {
+          font-size: 14px;
+          color: #666;
+      }
+
+      .chart-filter {
+          display: flex;
+          gap: 10px;
+      }
+
+      .filter-btn {
+          padding: 8px 15px;
+          border: 1px solid #e0e0e0;
+          border-radius: 20px;
+          background: white;
+          color: #666;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: var(--transition);
+      }
+
+      .filter-btn.active,
+      .filter-btn:hover {
+          background: var(--primary-color);
+          color: white;
+          border-color: var(--primary-color);
+      }
+
+      /* Recent Activity */
+      .activity-section {
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          gap: 30px;
+      }
+
+      .activity-card {
+          background: white;
+          border-radius: 20px;
+          box-shadow: var(--shadow-sm);
+          overflow: hidden;
+      }
+
+      .activity-header {
+          padding: 25px 30px;
+          border-bottom: 1px solid var(--light-bg);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .activity-title {
+          font-size: 18px;
+      }
+
+      .view-all-btn {
+          color: var(--primary-color);
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 600;
+      }
+
+      .activity-list {
+          padding: 0;
+      }
+
+      .activity-item {
+          padding: 20px 30px;
+          border-bottom: 1px solid var(--light-bg);
+          display: flex;
+          gap: 15px;
+          align-items: flex-start;
+          transition: var(--transition);
+      }
+
+      .activity-item:hover {
+          background: var(--light-bg);
+      }
+
+      .activity-item:last-child {
+          border-bottom: none;
+      }
+
+      .activity-icon {
+          width: 40px;
+          height: 40px;
+          background: var(--light-bg);
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          color: var(--primary-color);
+          flex-shrink: 0;
+      }
+
+      .activity-content {
+          flex: 1;
+      }
+
+      .activity-content h4 {
+          font-size: 15px;
+          margin-bottom: 5px;
+      }
+
+      .activity-content p {
+          font-size: 13px;
+          color: #666;
+          margin-bottom: 5px;
+      }
+
+      .activity-time {
+          font-size: 12px;
+          color: #999;
+      }
+
+      /* Project Cards */
+      .project-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+      }
+
+      .project-card {
+          padding: 25px;
+          background: var(--light-bg);
+          border-radius: 15px;
+          transition: var(--transition);
+          cursor: pointer;
+      }
+
+      .project-card:hover {
+          background: #e8eaf6;
+          transform: translateY(-2px);
+      }
+
+      .project-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 15px;
+      }
+
+      .project-title {
+          font-size: 16px;
+          margin-bottom: 5px;
+      }
+
+      .project-type {
+          font-size: 12px;
+          color: #666;
+      }
+
+      .project-status {
+          padding: 4px 10px;
+          border-radius: 15px;
+          font-size: 11px;
+          font-weight: 600;
+      }
+
+      .status-active {
+          background: #d4edda;
+          color: #155724;
+      }
+
+      .status-pending {
+          background: #fff3cd;
+          color: #856404;
+      }
+
+      .status-completed {
+          background: #e7f3ff;
+          color: #0066cc;
+      }
+
+      .project-progress {
+          margin-top: 15px;
+      }
+
+      .progress-label {
+          display: flex;
+          justify-content: space-between;
+          font-size: 12px;
+          margin-bottom: 8px;
+      }
+
+      .progress-bar {
+          height: 6px;
+          background: #e0e0e0;
+          border-radius: 3px;
+          overflow: hidden;
+      }
+
+      .progress-fill {
+          height: 100%;
+          background: var(--gradient-1);
+          transition: var(--transition);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+          .sidebar {
+              transform: translateX(-100%);
+          }
+
+          .main-content {
+              margin-left: 0;
+          }
+
+          .stats-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .charts-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .activity-section {
+              grid-template-columns: 1fr;
+          }
+      }
+
+      @media (max-width: 768px) {
+          .stats-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .project-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .search-box input {
+              width: 200px;
+          }
+
+          .quick-actions {
+              flex-direction: column;
+          }
+      }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+      <div class="sidebar-header">
+          <div class="logo">
+              <i class="fas fa-gem"></i>
+              SESMine
+          </div>
+      </div>
+      <nav class="sidebar-menu">
+          <div class="menu-section">
+              <div class="menu-title">Main</div>
+              <a href="dashboard.html" class="menu-item active">
+                  <i class="fas fa-th-large"></i>
+                  Dashboard
+              </a>
+              <a href="projects.html" class="menu-item">
+                  <i class="fas fa-project-diagram"></i>
+                  Projects
+              </a>
+              <a href="analytics-platform.html" class="menu-item">
+                  <i class="fas fa-chart-bar"></i>
+                  Analytics
+              </a>
+          </div>
+          <div class="menu-section">
+              <div class="menu-title">Platforms</div>
+              <a href="engineering-hub.html" class="menu-item">
+                  <i class="fas fa-hard-hat"></i>
+                  Engineering Hub
+              </a>
+              <a href="economics-hub.html" class="menu-item">
+                  <i class="fas fa-chart-line"></i>
+                  Economics Hub
+              </a>
+              <a href="consulting-hub.html" class="menu-item">
+                  <i class="fas fa-users"></i>
+                  Consulting Hub
+              </a>
+              <a href="procurement-hub.html" class="menu-item">
+                  <i class="fas fa-shopping-cart"></i>
+                  Procurement Hub
+              </a>
+              <a href="innovation-hub.html" class="menu-item">
+                  <i class="fas fa-robot"></i>
+                  Innovation Hub
+              </a>
+              <a href="training-hub.html" class="menu-item">
+                  <i class="fas fa-graduation-cap"></i>
+                  Training Hub
+              </a>
+          </div>
+          <div class="menu-section">
+              <div class="menu-title">Resources</div>
+              <a href="marketplace.html" class="menu-item">
+                  <i class="fas fa-store"></i>
+                  Marketplace
+              </a>
+              <a href="resources.html" class="menu-item">
+                  <i class="fas fa-book"></i>
+                  Resources
+              </a>
+              <a href="support.html" class="menu-item">
+                  <i class="fas fa-headset"></i>
+                  Support
+              </a>
+          </div>
+          <div class="menu-section">
+              <div class="menu-title">Account</div>
+              <a href="profile.html" class="menu-item">
+                  <i class="fas fa-user"></i>
+                  Profile
+              </a>
+              <a href="settings.html" class="menu-item">
+                  <i class="fas fa-cog"></i>
+                  Settings
+              </a>
+          </div>
+      </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <!-- Top Bar -->
+      <div class="top-bar">
+          <div>
+              <h1 class="page-title" id="pageTitle">Dashboard</h1>
+              <p class="page-subtitle" id="pageSubtitle">Welcome back! Here's what's happening with your mining operations.</p>
+          </div>
+          <div class="top-bar-right">
+              <div class="search-box">
+                  <i class="fas fa-search"></i>
+                  <input type="text" placeholder="Search projects, reports, tools...">
+              </div>
+              <div class="notifications">
+                  <div class="notification-icon">
+                      <i class="fas fa-bell"></i>
+                  </div>
+                  <div class="notification-badge">3</div>
+              </div>
+              <div class="user-menu">
+                  <div class="user-avatar" id="userAvatar" onclick="logout()">
+                      JD
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+          <!-- Welcome Banner -->
+          <div class="welcome-banner">
+              <div class="welcome-content">
+                  <h2 class="welcome-title" id="welcomeTitle">Welcome back, John!</h2>
+                  <p class="welcome-subtitle">Your mining operations are running smoothly. Here are your quick actions:</p>
+                  <div class="quick-actions">
+                      <a href="projects.html" class="quick-action-btn">
+                          <i class="fas fa-plus"></i> New Project
+                      </a>
+                      <a href="analytics-platform.html" class="quick-action-btn">
+                          <i class="fas fa-chart-bar"></i> View Reports
+                      </a>
+                      <a href="marketplace.html" class="quick-action-btn">
+                          <i class="fas fa-shopping-cart"></i> Browse Equipment
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="stats-grid">
+              <div class="stat-card">
+                  <div class="stat-header">
+                      <div class="stat-icon">
+                          <i class="fas fa-project-diagram"></i>
+                      </div>
+                      <div class="stat-trend up">
+                          <i class="fas fa-arrow-up"></i>
+                          +12%
+                      </div>
+                  </div>
+                  <div class="stat-value">24</div>
+                  <div class="stat-label">Active Projects</div>
+              </div>
+
+              <div class="stat-card">
+                  <div class="stat-header">
+                      <div class="stat-icon">
+                          <i class="fas fa-chart-line"></i>
+                      </div>
+                      <div class="stat-trend up">
+                          <i class="fas fa-arrow-up"></i>
+                          +8.5%
+                      </div>
+                  </div>
+                  <div class="stat-value">$2.4M</div>
+                  <div class="stat-label">Monthly Revenue</div>
+              </div>
+
+              <div class="stat-card">
+                  <div class="stat-header">
+                      <div class="stat-icon">
+                          <i class="fas fa-users"></i>
+                      </div>
+                      <div class="stat-trend up">
+                          <i class="fas fa-arrow-up"></i>
+                          +15%
+                      </div>
+                  </div>
+                  <div class="stat-value">156</div>
+                  <div class="stat-label">Team Members</div>
+              </div>
+
+              <div class="stat-card">
+                  <div class="stat-header">
+                      <div class="stat-icon">
+                          <i class="fas fa-shield-alt"></i>
+                      </div>
+                      <div class="stat-trend up">
+                          <i class="fas fa-arrow-up"></i>
+                          +0%
+                      </div>
+                  </div>
+                  <div class="stat-value">0</div>
+                  <div class="stat-label">Safety Incidents</div>
+              </div>
+          </div>
+
+          <!-- Charts Section -->
+          <div class="charts-grid">
+              <div class="chart-card">
+                  <div class="chart-header">
+                      <div>
+                          <h3 class="chart-title">Production Overview</h3>
+                          <p class="chart-subtitle">Monthly production trends</p>
+                      </div>
+                      <div class="chart-filter">
+                          <button class="filter-btn active">7D</button>
+                          <button class="filter-btn">30D</button>
+                          <button class="filter-btn">90D</button>
+                          <button class="filter-btn">1Y</button>
+                      </div>
+                  </div>
+                  <canvas id="productionChart" width="400" height="200"></canvas>
+              </div>
+
+              <div class="chart-card">
+                  <div class="chart-header">
+                      <div>
+                          <h3 class="chart-title">Equipment Status</h3>
+                          <p class="chart-subtitle">Current fleet status</p>
+                      </div>
+                  </div>
+                  <canvas id="equipmentChart" width="300" height="300"></canvas>
+              </div>
+          </div>
+
+          <!-- Activity Section -->
+          <div class="activity-section">
+              <div class="activity-card">
+                  <div class="activity-header">
+                      <h3 class="activity-title">Recent Activity</h3>
+                      <a href="#" class="view-all-btn">View All</a>
+                  </div>
+                  <div class="activity-list">
+                      <div class="activity-item">
+                          <div class="activity-icon">
+                              <i class="fas fa-file-alt"></i>
+                          </div>
+                          <div class="activity-content">
+                              <h4>Production Report Generated</h4>
+                              <p>Monthly production report for Site A has been generated</p>
+                              <span class="activity-time">2 hours ago</span>
+                          </div>
+                      </div>
+                      <div class="activity-item">
+                          <div class="activity-icon">
+                              <i class="fas fa-wrench"></i>
+                          </div>
+                          <div class="activity-content">
+                              <h4>Equipment Maintenance Completed</h4>
+                              <p>Excavator CAT-001 maintenance has been completed successfully</p>
+                              <span class="activity-time">4 hours ago</span>
+                          </div>
+                      </div>
+                      <div class="activity-item">
+                          <div class="activity-icon">
+                              <i class="fas fa-users"></i>
+                          </div>
+                          <div class="activity-content">
+                              <h4>New Team Member Added</h4>
+                              <p>Sarah Johnson has joined the engineering team</p>
+                              <span class="activity-time">1 day ago</span>
+                          </div>
+                      </div>
+                      <div class="activity-item">
+                          <div class="activity-icon">
+                              <i class="fas fa-chart-bar"></i>
+                          </div>
+                          <div class="activity-content">
+                              <h4>Analytics Report Updated</h4>
+                              <p>Weekly performance analytics have been updated</p>
+                              <span class="activity-time">2 days ago</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="activity-card">
+                  <div class="activity-header">
+                      <h3 class="activity-title">Active Projects</h3>
+                      <a href="projects.html" class="view-all-btn">View All</a>
+                  </div>
+                  <div style="padding: 20px;">
+                      <div class="project-grid">
+                          <div class="project-card">
+                              <div class="project-header">
+                                  <div>
+                                      <h4 class="project-title">Copper Mine Expansion</h4>
+                                      <p class="project-type">Open Pit Mining</p>
+                                  </div>
+                                  <span class="project-status status-active">Active</span>
+                              </div>
+                              <div class="project-progress">
+                                  <div class="progress-label">
+                                      <span>Progress</span>
+                                      <span>75%</span>
+                                  </div>
+                                  <div class="progress-bar">
+                                      <div class="progress-fill" style="width: 75%"></div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="project-card">
+                              <div class="project-header">
+                                  <div>
+                                      <h4 class="project-title">Gold Processing Plant</h4>
+                                      <p class="project-type">Processing Facility</p>
+                                  </div>
+                                  <span class="project-status status-pending">Planning</span>
+                              </div>
+                              <div class="project-progress">
+                                  <div class="progress-label">
+                                      <span>Progress</span>
+                                      <span>30%</span>
+                                  </div>
+                                  <div class="progress-bar">
+                                      <div class="progress-fill" style="width: 30%"></div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="project-card">
+                              <div class="project-header">
+                                  <div>
+                                      <h4 class="project-title">Environmental Assessment</h4>
+                                      <p class="project-type">Compliance</p>
+                                  </div>
+                                  <span class="project-status status-completed">Completed</span>
+                              </div>
+                              <div class="project-progress">
+                                  <div class="progress-label">
+                                      <span>Progress</span>
+                                      <span>100%</span>
+                                  </div>
+                                  <div class="progress-bar">
+                                      <div class="progress-fill" style="width: 100%"></div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="project-card">
+                              <div class="project-header">
+                                  <div>
+                                      <h4 class="project-title">Safety Training Program</h4>
+                                      <p class="project-type">Training</p>
+                                  </div>
+                                  <span class="project-status status-active">Active</span>
+                              </div>
+                              <div class="project-progress">
+                                  <div class="progress-label">
+                                      <span>Progress</span>
+                                      <span>60%</span>
+                                  </div>
+                                  <div class="progress-bar">
+                                      <div class="progress-fill" style="width: 60%"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      // Load user data and update UI
+      window.addEventListener('load', () => {
+          // Check authentication
+          if (localStorage.getItem('isLoggedIn') !== 'true') {
+              window.location.href = 'login.html';
+              return;
+          }
+
+          // Load user data
+          const userName = localStorage.getItem('userName') || 'User';
+          const userEmail = localStorage.getItem('userEmail') || '';
+          const userLevel = localStorage.getItem('userLevel') || 'verified';
+          
+          // Update UI elements
+          document.getElementById('welcomeTitle').textContent = `Welcome back, ${userName.split(' ')[0]}!`;
+          document.getElementById('pageTitle').textContent = `Dashboard - ${userLevel.toUpperCase()}`;
+          
+          // Set avatar initials
+          const initials = userName.split(' ').map(n => n[0]).join('');
+          document.getElementById('userAvatar').textContent = initials;
+
+          // Initialize charts
+          initializeCharts();
+      });
+
+      // Initialize Charts
+      function initializeCharts() {
+          // Production Chart
+          const productionCtx = document.getElementById('productionChart').getContext('2d');
+          new Chart(productionCtx, {
+              type: 'line',
+              data: {
+                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                  datasets: [{
+                      label: 'Production (Tons)',
+                      data: [2400, 2600, 2800, 2500, 2900, 3100],
+                      borderColor: '#667eea',
+                      backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                      tension: 0.4,
+                      fill: true
+                  }]
+              },
+              options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                      legend: {
+                          display: false
+                      }
+                  },
+                  scales: {
+                      y: {
+                          beginAtZero: true,
+                          grid: {
+                              color: '#f0f0f0'
+                          }
+                      },
+                      x: {
+                          grid: {
+                              display: false
+                          }
+                      }
+                  }
+              }
+          });
+
+          // Equipment Status Chart
+          const equipmentCtx = document.getElementById('equipmentChart').getContext('2d');
+          new Chart(equipmentCtx, {
+              type: 'doughnut',
+              data: {
+                  labels: ['Operational', 'Maintenance', 'Idle'],
+                  datasets: [{
+                      data: [75, 15, 10],
+                      backgroundColor: ['#27ae60', '#f39c12', '#e74c3c'],
+                      borderWidth: 0
+                  }]
+              },
+              options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                      legend: {
+                          position: 'bottom',
+                          labels: {
+                              padding: 20,
+                              usePointStyle: true
+                          }
+                      }
+                  }
+              }
+          });
+      }
+
+      // Logout function
+      function logout() {
+          if (confirm('Are you sure you want to logout?')) {
+              localStorage.clear();
+              window.location.href = 'login.html';
+          }
+      }
+
+      // Filter buttons functionality
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+              document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+              this.classList.add('active');
+              
+              // Here you would typically update the chart data
+              console.log('Filter changed to:', this.textContent);
+          });
+      });
+
+      // Real-time updates simulation
+      setInterval(() => {
+          // Update notification badge randomly
+          const badge = document.querySelector('.notification-badge');
+          const currentCount = parseInt(badge.textContent);
+          if (Math.random() > 0.95) { // 5% chance every second
+              badge.textContent = currentCount + 1;
+          }
+      }, 1000);
+
+      // Project card click handlers
+      document.querySelectorAll('.project-card').forEach(card => {
+          card.addEventListener('click', function() {
+              const title = this.querySelector('.project-title').textContent;
+              alert(`Opening project: ${title}`);
+              // In real app, navigate to project details page
+          });
+      });
+  </script>
+</body>
+</html>
