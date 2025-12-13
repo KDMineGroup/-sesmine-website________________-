@@ -1,847 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SESMine - Leading provider of comprehensive mining solutions, combining engineering excellence, economic expertise, and innovative technology">
-  <title>SESMine - Mining Solutions Platform</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-      :root {
-          --primary-color: #667eea;
-          --secondary-color: #764ba2;
-          --accent-color: #3498db;
-          --success-color: #27ae60;
-          --dark-bg: #0a1628;
-          --light-bg: #f8f9fa;
-          --text-dark: #2c3e50;
-          --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
-          --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
-          --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
-          --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-      }
-
-      body {
-          font-family: 'Inter', sans-serif;
-          color: var(--text-dark);
-          line-height: 1.6;
-          overflow-x: hidden;
-      }
-
-      h1, h2, h3, h4, h5, h6 {
-          font-family: 'Poppins', sans-serif;
-          font-weight: 700;
-      }
-
-      /* Navigation */
-      .navbar {
-          position: fixed;
-          top: 0;
-          width: 100%;
-          background: rgba(255, 255, 255, 0.98);
-          backdrop-filter: blur(10px);
-          box-shadow: var(--shadow-sm);
-          z-index: 1000;
-          transition: var(--transition);
-      }
-
-      .navbar.scrolled {
-          background: white;
-          box-shadow: var(--shadow-md);
-      }
-
-      .nav-container {
-          max-width: 1400px;
-          margin: 0 auto;
-          padding: 0 30px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          height: 80px;
-      }
-
-      .logo {
-          font-size: 28px;
-          font-weight: 800;
-          background: var(--gradient-1);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          cursor: pointer;
-          text-decoration: none;
-      }
-
-      .nav-menu {
-          display: flex;
-          list-style: none;
-          gap: 35px;
-          align-items: center;
-      }
-
-      .nav-menu a {
-          text-decoration: none;
-          color: var(--text-dark);
-          font-weight: 500;
-          transition: var(--transition);
-          position: relative;
-      }
-
-      .nav-menu a::after {
-          content: '';
-          position: absolute;
-          bottom: -5px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background: var(--gradient-1);
-          transition: var(--transition);
-      }
-
-      .nav-menu a:hover::after {
-          width: 100%;
-      }
-
-      .nav-menu a:hover {
-          color: var(--primary-color);
-      }
-
-      .nav-buttons {
-          display: flex;
-          gap: 15px;
-      }
-
-      .btn {
-          padding: 12px 28px;
-          border-radius: 50px;
-          text-decoration: none;
-          font-weight: 600;
-          transition: var(--transition);
-          cursor: pointer;
-          border: none;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-      }
-
-      .btn-outline {
-          border: 2px solid var(--primary-color);
-          color: var(--primary-color);
-          background: transparent;
-      }
-
-      .btn-outline:hover {
-          background: var(--primary-color);
-          color: white;
-      }
-
-      .btn-primary {
-          background: var(--gradient-1);
-          color: white;
-          box-shadow: var(--shadow-sm);
-      }
-
-      .btn-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: var(--shadow-md);
-      }
-
-      /* Mobile Menu Toggle */
-      .mobile-toggle {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          cursor: pointer;
-      }
-
-      .mobile-toggle span {
-          width: 25px;
-          height: 3px;
-          background: var(--text-dark);
-          transition: var(--transition);
-      }
-
-      /* Hero Section */
-      .hero {
-          margin-top: 80px;
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          position: relative;
-          overflow: hidden;
-          background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-      }
-
-      .hero-container {
-          max-width: 1400px;
-          margin: 0 auto;
-          padding: 0 30px;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 60px;
-          align-items: center;
-      }
-
-      .hero-content h1 {
-          font-size: 56px;
-          line-height: 1.2;
-          margin-bottom: 25px;
-          animation: fadeInUp 0.8s ease-out;
-      }
-
-      .hero-content .highlight {
-          background: var(--gradient-1);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
-
-      .hero-content p {
-          font-size: 20px;
-          color: #666;
-          margin-bottom: 35px;
-          line-height: 1.8;
-          animation: fadeInUp 0.8s ease-out 0.2s backwards;
-      }
-
-      .hero-buttons {
-          display: flex;
-          gap: 20px;
-          animation: fadeInUp 0.8s ease-out 0.4s backwards;
-      }
-
-      @keyframes fadeInUp {
-          from {
-              opacity: 0;
-              transform: translateY(30px);
-          }
-          to {
-              opacity: 1;
-              transform: translateY(0);
-          }
-      }
-
-      .hero-image {
-          position: relative;
-          animation: fadeInRight 1s ease-out;
-      }
-
-      @keyframes fadeInRight {
-          from {
-              opacity: 0;
-              transform: translateX(50px);
-          }
-          to {
-              opacity: 1;
-              transform: translateX(0);
-          }
-      }
-
-      .hero-image img {
-          width: 100%;
-          border-radius: 20px;
-          box-shadow: var(--shadow-lg);
-      }
-
-      /* Platforms Section */
-      .platforms {
-          padding: 100px 30px;
-          background: white;
-      }
-
-      .platforms-container {
-          max-width: 1400px;
-          margin: 0 auto;
-      }
-
-      .section-header {
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto 60px;
-      }
-
-      .section-tag {
-          display: inline-block;
-          background: var(--gradient-1);
-          color: white;
-          padding: 8px 20px;
-          border-radius: 50px;
-          font-size: 14px;
-          font-weight: 600;
-          margin-bottom: 15px;
-      }
-
-      .section-header h2 {
-          font-size: 42px;
-          margin-bottom: 20px;
-      }
-
-      .section-header p {
-          font-size: 18px;
-          color: #666;
-      }
-
-      .platforms-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 30px;
-      }
-
-      .platform-card {
-          background: var(--light-bg);
-          border-radius: 20px;
-          padding: 40px;
-          transition: var(--transition);
-          cursor: pointer;
-          border: 3px solid transparent;
-          text-decoration: none;
-          color: var(--text-dark);
-          display: block;
-      }
-
-      .platform-card:hover {
-          background: white;
-          box-shadow: var(--shadow-lg);
-          transform: translateY(-10px);
-          border-color: var(--primary-color);
-      }
-
-      .platform-icon {
-          width: 70px;
-          height: 70px;
-          background: var(--gradient-1);
-          border-radius: 15px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 32px;
-          color: white;
-          margin-bottom: 25px;
-      }
-
-      .platform-card:nth-child(2) .platform-icon {
-          background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      }
-
-      .platform-card:nth-child(3) .platform-icon {
-          background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      }
-
-      .platform-card:nth-child(4) .platform-icon {
-          background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-      }
-
-      .platform-card:nth-child(5) .platform-icon {
-          background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-      }
-
-      .platform-card:nth-child(6) .platform-icon {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      }
-
-      .platform-card:nth-child(7) .platform-icon {
-          background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-      }
-
-      .platform-card h3 {
-          font-size: 24px;
-          margin-bottom: 15px;
-      }
-
-      .platform-card p {
-          color: #666;
-          line-height: 1.8;
-          margin-bottom: 20px;
-      }
-
-      .platform-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          color: var(--primary-color);
-          font-weight: 600;
-          font-size: 14px;
-      }
-
-      /* Stats Section */
-      .stats {
-          padding: 100px 30px;
-          background: var(--gradient-1);
-          color: white;
-      }
-
-      .stats-container {
-          max-width: 1400px;
-          margin: 0 auto;
-      }
-
-      .stats-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 40px;
-          text-align: center;
-      }
-
-      .stat-item {
-          padding: 20px;
-      }
-
-      .stat-number {
-          font-size: 48px;
-          font-weight: 800;
-          margin-bottom: 10px;
-          display: block;
-      }
-
-      .stat-label {
-          font-size: 16px;
-          opacity: 0.9;
-      }
-
-      /* CTA Section */
-      .cta {
-          padding: 100px 30px;
-          background: white;
-          text-align: center;
-      }
-
-      .cta-container {
-          max-width: 800px;
-          margin: 0 auto;
-      }
-
-      .cta h2 {
-          font-size: 42px;
-          margin-bottom: 20px;
-      }
-
-      .cta p {
-          font-size: 18px;
-          color: #666;
-          margin-bottom: 40px;
-      }
-
-      /* Footer */
-      .footer {
-          background: var(--dark-bg);
-          color: white;
-          padding: 60px 30px 30px;
-      }
-
-      .footer-content {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 2fr 1fr 1fr 1fr;
-          gap: 50px;
-          margin-bottom: 40px;
-      }
-
-      .footer-brand h3 {
-          font-size: 26px;
-          margin-bottom: 15px;
-          background: var(--gradient-1);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-      }
-
-      .footer-brand p {
-          color: rgba(255, 255, 255, 0.7);
-          line-height: 1.8;
-      }
-
-      .footer-column h4 {
-          font-size: 18px;
-          margin-bottom: 20px;
-      }
-
-      .footer-links {
-          list-style: none;
-      }
-
-      .footer-links li {
-          margin-bottom: 12px;
-      }
-
-      .footer-links a {
-          color: rgba(255, 255, 255, 0.7);
-          text-decoration: none;
-          transition: var(--transition);
-      }
-
-      .footer-links a:hover {
-          color: white;
-          padding-left: 5px;
-      }
-
-      .footer-bottom {
-          max-width: 1400px;
-          margin: 0 auto;
-          padding-top: 30px;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          text-align: center;
-          color: rgba(255, 255, 255, 0.7);
-      }
-
-      /* Responsive */
-      @media (max-width: 1024px) {
-          .hero-container {
-              grid-template-columns: 1fr;
-              text-align: center;
-          }
-
-          .hero-image {
-              order: -1;
-          }
-
-          .hero-buttons {
-              justify-content: center;
-          }
-
-          .platforms-grid {
-              grid-template-columns: repeat(2, 1fr);
-          }
-
-          .stats-grid {
-              grid-template-columns: repeat(2, 1fr);
-          }
-
-          .footer-content {
-              grid-template-columns: 1fr 1fr;
-          }
-      }
-
-      @media (max-width: 768px) {
-          .nav-menu {
-              display: none;
-          }
-
-          .mobile-toggle {
-              display: flex;
-          }
-
-          .hero-content h1 {
-              font-size: 36px;
-          }
-
-          .platforms-grid {
-              grid-template-columns: 1fr;
-          }
-
-          .stats-grid {
-              grid-template-columns: 1fr;
-          }
-
-          .footer-content {
-              grid-template-columns: 1fr;
-          }
-
-          .hero-buttons {
-              flex-direction: column;
-          }
-
-          .btn {
-              width: 100%;
-              justify-content: center;
-          }
-      }
-
-      /* Scroll Animations */
-      .animate-on-scroll {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: all 0.6s ease-out;
-      }
-
-      .animate-on-scroll.animated {
-          opacity: 1;
-          transform: translateY(0);
-      }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SES_MINE - Smart Engineering Solutions for Mining Industry</title>
+    <meta name="description" content="Advanced mining engineering solutions, cost estimation, project management, and training platforms for the mining industry.">
+    <meta name="keywords" content="mining, engineering, cost estimation, CAPEX, OPEX, mine planning, mining software">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="assets/js/config.js"></script>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-      <div class="nav-container">
-          <a href="index.html" class="logo">
-              <i class="fas fa-gem"></i>
-              SESMine
-          </a>
-          <ul class="nav-menu">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="#platforms">Platforms</a></li>
-              <li><a href="features.html">Features</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-          </ul>
-          <div class="nav-buttons">
-              <a href="login.html" class="btn btn-outline">
-                  <i class="fas fa-sign-in-alt"></i> Login
-              </a>
-              <a href="signup.html" class="btn btn-primary">
-                  <i class="fas fa-rocket"></i> Get Started
-              </a>
-          </div>
-          <div class="mobile-toggle">
-              <span></span>
-              <span></span>
-              <span></span>
-          </div>
-      </div>
-  </nav>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/images/ses-mine-logo.png" alt="SES_MINE Logo">
+                <div class="logo-text">
+                    <div class="logo-title">SES_MINE</div>
+                    <div class="logo-subtitle">Smart Engineering Solutions</div>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                
+                <div class="nav-auth">
+                    <a href="login.html" class="nav-link login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </a>
+                    <a href="signup.html" class="nav-link signup-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Get Started
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-      <div class="hero-container">
-          <div class="hero-content">
-              <h1>Transform Your Mining Operations with <span class="highlight">SESMine</span></h1>
-              <p>Comprehensive solutions combining engineering excellence, economic expertise, and cutting-edge technology for the modern mining industry.</p>
-              <div class="hero-buttons">
-                  <a href="home.html" class="btn btn-primary btn-large">
-                      <i class="fas fa-th-large"></i> View Dashboard
-                  </a>
-                  <a href="contact.html" class="btn btn-outline btn-large">
-                      <i class="fas fa-phone"></i> Contact Sales
-                  </a>
-              </div>
-          </div>
-          <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Mining Operations" loading="lazy">
-          </div>
-      </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title hero-animate">
+                    Smart Engineering Solutions
+                    <span class="highlight">for Mining Industry</span>
+                </h1>
+                <p class="hero-description hero-animate">
+                    Comprehensive platform for mining cost estimation, project management, 
+                    engineering analysis, and professional training. Streamline your mining 
+                    operations with cutting-edge technology and proven methodologies.
+                </p>
+                
+                <div class="hero-stats hero-animate">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$2.5B+</div>
+                        <div class="stat-label">Cost Savings</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions hero-animate">
+                    <a href="signup.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i>
+                        Start Free Trial
+                    </a>
+                    <a href="features.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
+                </div>
+                
+                <div class="hero-trust hero-animate">
+                    <p>Trusted by leading mining companies worldwide</p>
+                    <div class="trust-logos">
+                        <div class="trust-logo">Rio Tinto</div>
+                        <div class="trust-logo">BHP</div>
+                        <div class="trust-logo">Barrick Gold</div>
+                        <div class="trust-logo">Newmont</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-dashboard">
+                    <div class="dashboard-header">
+                        <div class="dashboard-title">Mining Analytics Dashboard</div>
+                        <div class="dashboard-controls">
+                            <div class="control active"></div>
+                            <div class="control"></div>
+                            <div class="control"></div>
+                        </div>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="chart-container">
+                            <div class="chart-bar" style="height: 60%"></div>
+                            <div class="chart-bar" style="height: 80%"></div>
+                            <div class="chart-bar" style="height: 45%"></div>
+                            <div class="chart-bar" style="height: 90%"></div>
+                            <div class="chart-bar" style="height: 70%"></div>
+                        </div>
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <div class="metric-value">$2.4M</div>
+                                <div class="metric-label">CAPEX</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">$18.5</div>
+                                <div class="metric-label">Cost/Ton</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Platforms Section -->
-  <section class="platforms" id="platforms">
-      <div class="platforms-container">
-          <div class="section-header">
-              <span class="section-tag">OUR PLATFORMS</span>
-              <h2>Comprehensive Mining Solutions</h2>
-              <p>Explore our integrated platforms designed to optimize every aspect of your mining operations</p>
-          </div>
-          <div class="platforms-grid">
-              <!-- Platform 1 -->
-              <a href="engineering-hub.html" class="platform-card animate-on-scroll">
-                  <div class="platform-icon">
-                      <i class="fas fa-hard-hat"></i>
-                  </div>
-                  <h3>Engineering Hub</h3>
-                  <p>Advanced mine planning, design optimization, and technical solutions for operational excellence.</p>
-                  <span class="platform-link">
-                      Explore Engineering <i class="fas fa-arrow-right"></i>
-                  </span>
-              </a>
+    <!-- Features Overview -->
+    <section class="features-overview" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Comprehensive Mining Solutions</h2>
+                <p class="section-description animate-on-scroll">
+                    Everything you need to optimize your mining operations in one integrated platform
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon engineering">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="feature-title">Engineering Hub</h3>
+                    <p class="feature-description">
+                        Advanced mine planning, equipment selection, and process optimization tools
+                    </p>
+                    <ul class="feature-list">
+                        <li>Mine planning & design</li>
+                        <li>Equipment sizing</li>
+                        <li>Process optimization</li>
+                        <li>Safety analysis</li>
+                    </ul>
+                    <a href="engineering-hub.html" class="feature-link">
+                        Explore Engineering Tools
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon economics">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Economics Hub</h3>
+                    <p class="feature-description">
+                        Comprehensive financial modeling, cost estimation, and economic analysis
+                    </p>
+                    <ul class="feature-list">
+                        <li>CAPEX/OPEX modeling</li>
+                        <li>NPV & IRR analysis</li>
+                        <li>Risk assessment</li>
+                        <li>Market analysis</li>
+                    </ul>
+                    <a href="economics-hub.html" class="feature-link">
+                        Explore Economics Tools
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon training">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">Training Hub</h3>
+                    <p class="feature-description">
+                        Professional development courses and industry certifications
+                    </p>
+                    <ul class="feature-list">
+                        <li>Interactive courses</li>
+                        <li>Professional certifications</li>
+                        <li>Expert instructors</li>
+                        <li>Progress tracking</li>
+                    </ul>
+                    <a href="training-education-hub.html" class="feature-link">
+                        Start Learning
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon analytics">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="feature-title">Analytics Platform</h3>
+                    <p class="feature-description">
+                        Advanced data analytics and business intelligence for mining operations
+                    </p>
+                    <ul class="feature-list">
+                        <li>Real-time dashboards</li>
+                        <li>Predictive analytics</li>
+                        <li>Performance metrics</li>
+                        <li>Custom reports</li>
+                    </ul>
+                    <a href="analytics-platform.html" class="feature-link">
+                        View Analytics
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-              <!-- Platform 2 -->
-              <a href="economics-hub.html" class="platform-card animate-on-scroll">
-                  <div class="platform-icon">
-                      <i class="fas fa-chart-line"></i>
-                  </div>
-                  <h3>Economics Hub</h3>
-                  <p>Financial modeling, feasibility studies, and economic analysis for informed decision-making.</p>
-                  <span class="platform-link">
-                      Explore Economics <i class="fas fa-arrow-right"></i>
-                  </span>
-              </a>
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Choose Your Plan</h2>
+                <p class="section-description animate-on-scroll">
+                    Flexible pricing options to suit your needs and budget
+                </p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Starter</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">0</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <p class="pricing-description">Perfect for individuals getting started</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Basic Engineering Tools</li>
+                        <li><i class="fas fa-check"></i> Cost Calculators</li>
+                        <li><i class="fas fa-check"></i> Basic Training</li>
+                        <li><i class="fas fa-check"></i> Email Support</li>
+                        <li><i class="fas fa-times"></i> Advanced Analytics</li>
+                        <li><i class="fas fa-times"></i> Risk Analysis</li>
+                    </ul>
+                    <a href="signup.html?plan=starter" class="btn btn-outline btn-full">
+                        Get Started Free
+                    </a>
+                </div>
+                
+                <div class="pricing-card featured animate-on-scroll">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Professional</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">99</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <p class="pricing-description">Advanced tools for professionals</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> All Starter Features</li>
+                        <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                        <li><i class="fas fa-check"></i> Risk Analysis Tools</li>
+                        <li><i class="fas fa-check"></i> Premium Training</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> Export Features</li>
+                    </ul>
+                    <a href="signup.html?plan=professional" class="btn btn-primary btn-full">
+                        Start Professional
+                    </a>
+                </div>
+                
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Enterprise</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">299</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <p class="pricing-description">Complete solution for enterprises</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> All Professional Features</li>
+                        <li><i class="fas fa-check"></i> AI-Powered Analysis</li>
+                        <li><i class="fas fa-check"></i> Custom Solutions</li>
+                        <li><i class="fas fa-check"></i> Dedicated Support</li>
+                        <li><i class="fas fa-check"></i> API Access</li>
+                        <li><i class="fas fa-check"></i> White-label Options</li>
+                    </ul>
+                    <a href="signup.html?plan=enterprise" class="btn btn-outline btn-full">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-              <!-- Platform 3 -->
-              <a href="consulting-hub.html" class="platform-card animate-on-scroll">
-                  <div class="platform-icon">
-                      <i class="fas fa-users"></i>
-                  </div>
-                  <h3>Consulting Hub</h3>
-                  <p>Expert consulting services from strategy development to operational optimization.</p>
-                  <span class="platform-link">
-                      Explore Consulting <i class="fas fa-arrow-right"></i>
-                  </span>
-              </a>
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">What Our Clients Say</h2>
+                <p class="section-description animate-on-scroll">
+                    Trusted by mining professionals worldwide
+                </p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card active animate-on-scroll">
+                    <div class="testimonial-content">
+                        <p>"SES_MINE has revolutionized our cost estimation process. We've reduced our estimation time by 60% while improving accuracy significantly."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Dr. Sarah Johnson</div>
+                            <div class="author-title">Chief Mining Engineer, GlobalMine Corp</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-content">
+                        <p>"The training programs are exceptional. Our team's productivity increased by 40% after completing the professional certification courses."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Michael Chen</div>
+                            <div class="author-title">Operations Manager, MineMax Solutions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-              <!-- Platform 4 -->
-              <a href="procurement-hub.html" class="platform-card animate-on-scroll">
-                  <div class="platform-icon">
-                      <i class="fas fa-shopping-cart"></i>
-                  </div>
-                  <h3>Procurement Hub</h3>
-                  <p>Streamlined procurement with verified suppliers and supply chain optimization.</p>
-                  <span class="platform-link">
-                      Explore Procurement <i class="fas fa-arrow-right"></i>
-                  </span>
-              </a>
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2 class="cta-title">Ready to Transform Your Mining Operations?</h2>
+                <p class="cta-description">
+                    Join thousands of mining professionals who trust SES_MINE for their engineering and economic analysis needs.
+                </p>
+                <div class="cta-actions">
+                    <a href="signup.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i>
+                        Start Free Trial
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i>
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-              <!-- Platform 5 -->
-              <a href="innovation-technology-hub.html" class="platform-card animate-on-scroll">
-                  <div class="platform-icon">
-                      <i class="fas fa-robot"></i>
-                  </div>
-                  <h3>Innovation & Technology</h3>
-                  <p>AI, automation, IoT, and cutting-edge technology solutions for modern mining.</p>
-                  <span class="platform-link">
-                      Explore Innovation <i class="fas fa-arrow-right"></i>
-                  </span>
-              </a>
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/ses-mine-logo.png" alt="SES_MINE">
+                        <div class="logo-text">
+                            <div class="logo-title">SES_MINE</div>
+                            <div class="logo-subtitle">Smart Engineering Solutions</div>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Empowering the mining industry with innovative technology solutions 
+                        for cost estimation, project management, and professional development.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="engineering-hub.html">Engineering Hub</a></li>
+                        <li><a href="economics-hub.html">Economics Hub</a></li>
+                        <li><a href="training-education-hub.html">Training Hub</a></li>
+                        <li><a href="analytics-platform.html">Analytics Platform</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#documentation">Documentation</a></li>
+                        <li><a href="#api">API Reference</a></li>
+                        <li><a href="#status">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 SES_MINE. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-              <!-- Platform 6 -->
-              <a href="analytics-platform.html" class="platform-card animate-on-scroll">
-                  <div class="platform-icon">
-                      <i class="fas fa-chart-bar"></i>
-                  </div>
-                  <h3>Analytics Platform</h3>
-                  <p>Real-time dashboards, predictive analytics, and business intelligence tools.</p>
-                  <span class="platform-link">
-                      Explore Analytics <i class="fas fa-arrow-right"></i>
-                  </span>
-              </a>
+    <!-- Demo Account Modal -->
+    <div class="modal" id="demoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Try Demo Accounts</h3>
+                <button class="modal-close" onclick="closeDemoModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Experience SES_MINE with our demo accounts:</p>
+                <div class="demo-accounts">
+                    <div class="demo-account">
+                        <h4>Starter Plan Demo</h4>
+                        <p>Email: demo@sesmine.com</p>
+                        <p>Password: demo123</p>
+                        <a href="login.html?demo=starter" class="btn btn-primary btn-sm">Try Starter</a>
+                    </div>
+                    <div class="demo-account">
+                        <h4>Professional Plan Demo</h4>
+                        <p>Email: engineer@sesmine.com</p>
+                        <p>Password: eng123</p>
+                        <a href="login.html?demo=professional" class="btn btn-primary btn-sm">Try Professional</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-              <!-- Platform 7 -->
-              <a href="training-education-hub.html" class="platform-card animate-on-scroll">
-                  <div class="platform-icon">
-                      <i class="fas fa-graduation-cap"></i>
-                  </div>
-                  <h3>Training & Education</h3>
-                  <p>Professional courses, certifications, and skill development programs.</p>
-                  <span class="platform-link">
-                      Explore Training <i class="fas fa-arrow-right"></i>
-                  </span>
-              </a>
-          </div>
-      </div>
-  </section>
+    <!-- Scripts -->
+    <script src="assets/js/enhanced-script.js"></script>
+    <script src="assets/js/script.js"></script>
+    
+    <script>
+        // Page-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize hero animations
+            initializeHeroAnimations();
+            
+            // Initialize testimonials slider
+            initializeTestimonialsSlider();
+            
+            // Initialize pricing interactions
+            initializePricingInteractions();
+            
+            // Check for demo parameter
+            checkDemoParameter();
+        });
 
-  <!-- Stats Section -->
-  <section class="stats">
-      <div class="stats-container">
-          <div class="stats-grid">
-              <div class="stat-item animate-on-scroll">
-                  <span class="stat-number">15,000+</span>
-                  <span class="stat-label">Active Users</span>
-              </div>
-              <div class="stat-item animate-on-scroll">
-                  <span class="stat-number">500+</span>
-                  <span class="stat-label">Projects Completed</span>
-              </div>
-              <div class="stat-item animate-on-scroll">
-                  <span class="stat-number">85+</span>
-                  <span class="stat-label">Countries Served</span>
-              </div>
-              <div class="stat-item animate-on-scroll">
-                  <span class="stat-number">98%</span>
-                  <span class="stat-label">Client Satisfaction</span>
-              </div>
-          </div>
-      </div>
-  </section>
+        function initializeHeroAnimations() {
+            const heroElements = document.querySelectorAll('.hero-animate');
+            heroElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
 
-  <!-- CTA Section -->
-  <section class="cta">
-      <div class="cta-container">
-          <h2>Ready to Transform Your Mining Operations?</h2>
-          <p>Join thousands of mining professionals who trust SESMine for their operational excellence</p>
-          <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-              <a href="signup.html" class="btn btn-primary btn-large">
-                  <i class="fas fa-rocket"></i> Start Free Trial
-              </a>
-              <a href="contact.html" class="btn btn-outline btn-large">
-                  <i class="fas fa-calendar"></i> Schedule Demo
-              </a>
-          </div>
-      </div>
-  </section>
+        function initializeTestimonialsSlider() {
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            let currentTestimonial = 0;
+            
+            setInterval(() => {
+                testimonials[currentTestimonial].classList.remove('active');
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                testimonials[currentTestimonial].classList.add('active');
+            }, 5000);
+        }
 
-  <!-- Footer -->
-  <footer class="footer">
-      <div class="footer-content">
-          <div class="footer-brand">
-              <h3>SESMine</h3>
-              <p>Leading provider of comprehensive mining solutions, combining engineering excellence, economic expertise, and innovative technology.</p>
-          </div>
-          <div class="footer-column">
-              <h4>Platforms</h4>
-              <ul class="footer-links">
-                  <li><a href="engineering-hub.html">Engineering Hub</a></li>
-                  <li><a href="economics-hub.html">Economics Hub</a></li>
-                  <li><a href="consulting-hub.html">Consulting Hub</a></li>
-                  <li><a href="procurement-hub.html">Procurement Hub</a></li>
-                  <li><a href="innovation-technology-hub.html">Innovation & Technology</a></li>
-                  <li><a href="analytics-platform.html">Analytics Platform</a></li>
-                  <li><a href="training-education-hub.html">Training & Education</a></li>
-              </ul>
-          </div>
-          <div class="footer-column">
-              <h4>Company</h4>
-              <ul class="footer-links">
-                  <li><a href="about.html">About Us</a></li>
-                  <li><a href="features.html">Features</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Terms of Service</a></li>
-              </ul>
-          </div>
-          <div class="footer-column">
-              <h4>Account</h4>
-              <ul class="footer-links">
-                  <li><a href="login.html">Login</a></li>
-                  <li><a href="signup.html">Sign Up</a></li>
-                  <li><a href="profile.html">My Profile</a></li>
-                  <li><a href="settings.html">Settings</a></li>
-                  <li><a href="home.html">Dashboard</a></li>
-                  <li><a href="#">Support</a></li>
-              </ul>
-          </div>
-      </div>
-      <div class="footer-bottom">
-          <p>&copy; 2025 SESMine. All rights reserved. | Empowering Mining Excellence Worldwide</p>
-      </div>
-  </footer>
+        function initializePricingInteractions() {
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            pricingCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        }
 
-  <script>
-      // Navbar scroll effect
-      window.addEventListener('scroll', () => {
-          const navbar = document.getElementById('navbar');
-          if (window.scrollY > 50) {
-              navbar.classList.add('scrolled');
-          } else {
-              navbar.classList.remove('scrolled');
-          }
-      });
+        function checkDemoParameter() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('demo')) {
+                showDemoModal();
+            }
+        }
 
-      // Scroll animation
-      const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-      };
+        function showDemoModal() {
+            document.getElementById('demoModal').style.display = 'flex';
+        }
 
-      const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  entry.target.classList.add('animated');
-              }
-          });
-      }, observerOptions);
+        function closeDemoModal() {
+            document.getElementById('demoModal').style.display = 'none';
+        }
 
-      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-              e.preventDefault();
-              const target = document.querySelector(this.getAttribute('href'));
-              if (target) {
-                  target.scrollIntoView({
-                      behavior: 'smooth',
-                      block: 'start'
-                  });
-              }
-          });
-      });
-  </script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
